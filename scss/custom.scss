@@ -155,7 +155,6 @@ div > .btn, li > .btn {
 
 #constellations {
   background: #1e0037 radial-gradient(farthest-corner circle at bottom left, #390070 0%, #1e0037 70%, #160028 100%);
-  position: absolute;
   left: 0;
   top: 0;
   z-index: -10;
@@ -163,7 +162,6 @@ div > .btn, li > .btn {
 }
 
 #canvas-con {
-  position: absolute;
   left: 0;
   top: 0;
 }
@@ -172,6 +170,7 @@ div > .btn, li > .btn {
   width: 100%;
   margin: 120px auto 0 auto;
   padding: 0 75px;
+  color: #eeeeee;
   text-shadow: 1px 1px 2px #182639;
   cursor: default;
   position: absolute;
@@ -200,6 +199,7 @@ div > .btn, li > .btn {
   font-weight: 700;
   font-size: 56px;
   line-height: 1.1em;
+  text-transform: uppercase;
 }
 
 #description-con {
