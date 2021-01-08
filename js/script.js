@@ -30,6 +30,7 @@ ctx.imageSmoothingQuality = "high";
 canvas.width = document.body.clientWidth;
 // canvas.height = 750;
 canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
+document.getElementById("explore-background-con").style.top = canvas.height + "px";
 canvas.style.display = "block";
 
 
@@ -168,6 +169,7 @@ window.addEventListener("resize", function () {
     canvas.width = document.body.clientWidth;
     // canvas.height = 750;
     canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
+    document.getElementById("explore-background-con").style.top = canvas.height + "px";
     x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004;
 });
 
