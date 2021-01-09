@@ -73,7 +73,6 @@ div > .btn, li > .btn {
 .description {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: 24px;
   line-height: 1.167em;
 }
 
@@ -99,9 +98,29 @@ div > .btn, li > .btn {
   div > #description-con {
     font-size: 20px;
   }
+
+  div > #explore2, div > #explore3, div > #explore4 {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  div > #explore2-image, div > #explore3-image, div > #explore4-image {
+    width: 100%;
+    max-height: 240px;
+  }
+
+  div > #explore2-text, div > #explore3-text, div > #explore4-text {
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
 }
 /* For mobile phones: */
 @media (max-width: 576px) {
+  div > #blurb-con {
+    padding: 0 15px;
+    text-align: center;
+  }
+
   div > #blurb-learn, div > #blurb-join {
     float: none;
     margin: auto;
@@ -124,6 +143,10 @@ div > .btn, li > .btn {
     line-height: 22px;
   }
 
+  div > .explore-section {
+    padding: 0 5%;
+  }
+
   div > #explore1-description {
     font-size: 20px;
   }
@@ -134,11 +157,6 @@ div > .btn, li > .btn {
 }
 /* Only for normal mobile phones*/
 @media (max-width: 576px) and (min-width: 370px) {
-  div > #blurb-con {
-    padding: 0 48px;
-    text-align: center;
-  }
-
   div .social-icon {
     width: 100px;
     padding: 10px 0;
@@ -146,11 +164,6 @@ div > .btn, li > .btn {
 }
 /* Only for XS mobile phones*/
 @media (max-width: 370px) {
-  div > #blurb-con {
-    padding: 0 15px;
-    text-align: center;
-  }
-
   div .social-icon {
     width: 80px;
     padding: 20px 0;
@@ -213,6 +226,7 @@ div > .btn, li > .btn {
 }
 
 #description-con {
+  font-size: 24px;
   max-width: 616px;
   margin: 0.3em 0 1em 0;
 }
@@ -243,34 +257,40 @@ div > .btn, li > .btn {
 
 #explore-background-con {
   width: 100%;
-  height: 100%;
   position: absolute;
   top: 750px;
   left: 0;
   z-index: -100;
 }
 
-.explore-section {
-  padding: 50px 0;
-}
-
-#explore1 {
-  padding: 60px 0;
-}
-
-#explore1-title {
+.title {
   width: 100%;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
+}
+
+.explore-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 75px;
+}
+
+#explore1 {
+  height: 350px;
+  padding: 50px 0;
+  font-size: 24px;
+}
+
+#explore1-title {
   text-transform: uppercase;
   text-align: center;
 }
 
 .hr {
-  width: 240px;
+  max-width: 240px;
   color: #FFCC00;
-  margin: 4px auto;
+  margin: 4px 0;
   padding: 1px 0;
   opacity: 1;
 }
@@ -281,16 +301,85 @@ div > .btn, li > .btn {
 }
 
 #explore1-icon-con {
-  padding: 40px 20%;
+  padding: 25px 20%;
 }
 
 #explore1-description {
-  height: 30px;
+  height: 38px;
   font-size: 24px;
   font-weight: 300;
   line-height: 1.167em;
   text-align: center;
   padding: 0 15px;
+}
+
+#explore2 {
+  width: 100%;
+  height: 550px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+#explore2-image {
+  width: 600px;
+  height: 360px;
+  background: url("../img/inspire.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#explore2-text {
+  width: 40%;
+  margin-right: 5%;
+}
+
+#explore2-description {
+  padding-top: 10px;
+}
+
+#explore3 {
+  width: 100%;
+  height: 550px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#explore3-image {
+  width: 600px;
+  height: 360px;
+  background: url("../img/inspire.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#explore3-text {
+  width: 40%;
+  margin-left: 5%;
+}
+
+#explore3-description {
+  padding-top: 10px;
+}
+
+#explore4 {
+  width: 100%;
+  height: 550px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+#explore4-image {
+  width: 600px;
+  height: 360px;
+  background: url("../img/inspire.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#explore4-text {
+  width: 40%;
+  margin-right: 5%;
+}
+
+#explore4-description {
+  padding-top: 10px;
 }
 
 /*!
