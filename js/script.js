@@ -6,7 +6,14 @@
         st > 80 ? navbar.removeClass('bg-transparent').addClass('bg-purple-gradient') :
             navbar.removeClass('bg-purple-gradient').addClass('bg-transparent');
     });
+
+    $("#blurb-learn").click(function() {
+        $('html,body').animate({
+                scrollTop: $("#explore-con").offset().top - 60},
+            "slow");
+    });
 })(jQuery);
+
 
 
 let collapsed_nav = document.getElementById("nav-hide-content"),
@@ -108,7 +115,7 @@ function draw() {
         }
     }
     ctx.lineWidth = .8;
-    ctx.strokeStyle = "rgba(223, 190, 255, 0.3)";
+    ctx.strokeStyle = "rgba(223, 190, 255, 0.4)";
     ctx.stroke();
 }
 
