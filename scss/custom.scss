@@ -27,6 +27,47 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
   font-weight: 700;
 }
 
+@keyframes fadeIn-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn-4 {
+  0% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+  75% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 body * {
   font-family: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
   color: #eeeeee;
@@ -49,11 +90,11 @@ body * {
   z-index: -1;
   background: #24004b linear-gradient(69.420deg, #360069 0%, #1e0040 100%);
   opacity: 0;
-  -webkit-transition: opacity 0.5s ease-in;
-  -moz-transition: opacity 0.5s ease-in;
-  -o-transition: opacity 0.5s ease-in;
-  -ms-transition: opacity 0.5s ease-in;
-  transition: opacity 0.5s ease-in;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 #nav-bar.bg-purple-gradient::before {
@@ -177,6 +218,7 @@ div > .btn, li > .btn {
   left: 0;
   padding: 25px 0;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #constellations {
@@ -201,23 +243,20 @@ div > .btn, li > .btn {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition: all 0.5s ease-in;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  -ms-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
 }
 
 #hello-con {
   font-weight: 300;
   font-size: 48px;
   line-height: 1.5em;
+  animation: fadeIn-1 ease 1s;
 }
 
 #qc-con {
   font-weight: 500;
   font-size: 48px;
   line-height: 1.2em;
+  animation: fadeIn-1 ease 1s;
 }
 
 #ac-con {
@@ -225,16 +264,19 @@ div > .btn, li > .btn {
   font-size: 56px;
   line-height: 1.1em;
   text-transform: uppercase;
+  animation: fadeIn-1 ease 1s;
 }
 
 #description-con {
   font-size: 24px;
   max-width: 616px;
   margin: 0.3em 0 1em 0;
+  animation: fadeIn-2 ease 2s;
 }
 
 #buttons-con * {
   float: left;
+  animation: fadeIn-4 ease 2s;
 }
 
 #blurb-learn {
@@ -270,6 +312,15 @@ div > .btn, li > .btn {
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
+}
+
+.explore-section-dark.fade-in, .explore-section-light.fade-in {
+  opacity: 0;
+}
+
+.explore-section-dark.fade-in.visible, .explore-section-light.fade-in.visible {
+  opacity: 1;
+  animation: fadeIn-1 ease 1s;
 }
 
 .explore-section-light, .explore-section-dark {
@@ -335,7 +386,7 @@ div > .btn, li > .btn {
   text-align: center;
 }
 
-.hr {
+div hr {
   max-width: 240px;
   color: #FFCC00;
   margin: 4px 0;
