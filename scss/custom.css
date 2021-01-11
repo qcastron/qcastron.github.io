@@ -156,12 +156,6 @@ div > .btn, li > .btn {
   }
 }
 /* Only for normal mobile phones*/
-@media (max-width: 576px) and (min-width: 370px) {
-  div .social-icon {
-    width: 100px;
-    padding: 10px 0;
-  }
-}
 /* Only for XS mobile phones*/
 @media (max-width: 370px) {
   div .social-icon {
@@ -325,7 +319,7 @@ div > .btn, li > .btn {
 
 #explore1 {
   height: 350px;
-  padding: 50px 0;
+  padding: 60px 0;
   font-size: 24px;
 }
 
@@ -343,7 +337,7 @@ div > .btn, li > .btn {
 }
 
 .social-icon {
-  width: 120px;
+  width: 100px;
   flex-shrink: 1;
 }
 
