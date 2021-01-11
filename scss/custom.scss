@@ -47,7 +47,7 @@ body * {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: #2e0051 linear-gradient(69.420deg, #36005f 0%, #1e0037 100%);
+  background: #24004b linear-gradient(69.420deg, #360069 0%, #1e0040 100%);
   opacity: 0;
   -webkit-transition: opacity 0.5s ease-in;
   -moz-transition: opacity 0.5s ease-in;
@@ -176,6 +176,7 @@ div > .btn, li > .btn {
   top: 0;
   left: 0;
   padding: 25px 0;
+  overflow-x: hidden;
 }
 
 #constellations {
@@ -275,7 +276,6 @@ div > .btn, li > .btn {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 75px;
-  overflow-x: hidden;
 }
 
 .explore-image {
@@ -361,7 +361,7 @@ div > .btn, li > .btn {
   padding: 0 15px;
 }
 
-#explore2 {
+#explore2, #explore4 {
   width: 100%;
   height: 550px;
   flex-direction: row-reverse;
@@ -373,12 +373,12 @@ div > .btn, li > .btn {
   background-size: cover;
 }
 
-#explore2-text {
+#explore2-text, #explore4-text {
   width: 40%;
   margin-right: 5%;
 }
 
-#explore2-description {
+#explore2-description, #explore3-description, #explore4-description {
   padding-top: 10px;
 }
 
@@ -399,30 +399,21 @@ div > .btn, li > .btn {
   margin-left: 5%;
 }
 
-#explore3-description {
-  padding-top: 10px;
-}
-
-#explore4 {
-  width: 100%;
-  height: 550px;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
 #explore4-image {
   background: url("../img/inspire.jpg") no-repeat center;
   background-size: cover;
 }
 
-#explore4-text {
-  width: 40%;
-  margin-right: 5%;
+#footer {
+  height: 50px;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.167em;
+  text-align: center;
 }
 
-#explore4-description {
-  padding-top: 10px;
+#footer a {
+  color: #eeeeee;
 }
-
 
 @import "../bootstrap/scss/bootstrap";
