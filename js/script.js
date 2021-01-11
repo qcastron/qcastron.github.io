@@ -1,32 +1,34 @@
 (function ($) {
-    let navbar = $('#nav-bar');
+    let navbar = $("#nav-bar");
 
     $(window).scroll(function () {
         let st = $(this).scrollTop();
-        st > 80 ? navbar.removeClass('bg-transparent').addClass('bg-purple-gradient') :
-            navbar.removeClass('bg-purple-gradient').addClass('bg-transparent');
+        st > 80 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
+            navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
+    });
+
+    navbar.on({
+        "show.bs.collapse": function() {
+            navbar.removeClass("bg-transparent").addClass("bg-purple-gradient");
+        },
+
+        "hide.bs.collapse": function() {
+            let st = $(window).scrollTop();
+            if (st < 80) {
+                navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
+            }
+        }
     });
 
     $("#blurb-learn").click(function () {
-        $('html,body').animate({
-                scrollTop: $("#explore-con").offset().top - 60}, "slow");
+        $("html,body").animate({
+            scrollTop: $("#explore-con").offset().top - 60}, "slow");
     });
 })(jQuery);
 
 
-let collapsed_nav = document.getElementById("nav-hide-content"),
-    navbar = document.getElementById("nav-bar");
-
-collapsed_nav.addEventListener('show.bs.collapse', function () {
-    navbar.className = "navbar fixed-top navbar-expand-md navbar-dark bg-purple-gradient";
-});
-collapsed_nav.addEventListener('hidden.bs.collapse', function () {
-    navbar.className = "navbar fixed-top navbar-expand-md navbar-dark bg-transparent";
-});
-
-
 let canvas = document.getElementById("constellations"),
-    ctx = canvas.getContext('2d');
+    ctx = canvas.getContext("2d");
 
 ctx.imageSmoothingEnabled = true;
 ctx.imageSmoothingQuality = "high";
@@ -163,7 +165,7 @@ function update() {
     }
 }
 
-window.addEventListener('mousemove', function (e) {
+window.addEventListener("mousemove", function (e) {
     let rect = canvas.getBoundingClientRect();
     mouse.x = e.clientX - rect.left;
     mouse.y = e.clientY - rect.top;
