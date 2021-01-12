@@ -58,6 +58,54 @@
     transform: translateY(0);
   }
 }
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  74% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes line-bounce {
+  0% {
+    left: 100%;
+    width: 0;
+    height: 1px;
+  }
+  33% {
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  66% {
+    left: 0;
+    width: 0;
+    height: 1px;
+  }
+  100% {
+    left: 0;
+    width: 100%;
+    height: 2px;
+  }
+}
 body * {
   font-family: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
   color: #eeeeee;
@@ -125,7 +173,7 @@ div > .btn, li > .btn {
     font-size: 32px;
   }
 
-  div > #qc-con {
+  div > #qcac-con, div > #qc-con {
     font-size: 32px;
   }
 
@@ -157,6 +205,11 @@ div > .btn, li > .btn {
   div > #blurb-con {
     padding: 0 15px;
     text-align: center;
+  }
+
+  div > #qcac-con {
+    width: min-content;
+    margin: 0 auto;
   }
 
   div > #blurb-learn, div > #blurb-join {
@@ -238,15 +291,44 @@ div > .btn, li > .btn {
 #hello-con {
   font-weight: 300;
   font-size: 48px;
-  line-height: 1.5em;
-  animation: fadeIn-1 ease 1s;
+  line-height: 1.8em;
 }
 
-#qc-con {
+#qcac-con {
+  position: relative;
+  width: max-content;
+  padding: 5px 0;
+}
+
+#qcac-con::before {
+  display: block;
+  content: " ";
+  font-size: 48px;
+  width: 2em;
+  height: 0.5em;
+  position: absolute;
+  top: 0;
+  left: -0.3em;
+  border-top: 4px solid #ffcc00;
+  border-left: 4px solid #ffcc00;
+  animation: flash ease-in-out 0.5s;
+}
+
+#qcac-con::after {
+  display: block;
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFCC00;
+  animation: line-bounce ease-in-out 1s;
+}
+
+#qc-con, #qcac-con {
   font-weight: 500;
   font-size: 48px;
-  line-height: 1.2em;
-  animation: fadeIn-1 ease 1s;
+  line-height: 1.3em;
 }
 
 #ac-con {
@@ -254,19 +336,18 @@ div > .btn, li > .btn {
   font-size: 56px;
   line-height: 1.1em;
   text-transform: uppercase;
-  animation: fadeIn-1 ease 1s;
 }
 
 #description-con {
   font-size: 24px;
   max-width: 616px;
-  margin: 0.3em 0 1em 0;
-  animation: fadeIn-2 ease 2s;
+  margin: 1em 0;
+  animation: fadeIn-2 ease 2.5s;
 }
 
 #buttons-con * {
   float: left;
-  animation: fadeIn-4 ease 2s;
+  animation: fadeIn-4 ease 2.5s;
 }
 
 #blurb-learn {
@@ -317,6 +398,23 @@ div > .btn, li > .btn {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 75px;
+}
+
+.explore-text {
+  position: relative;
+}
+
+.explore-text::after {
+  display: block;
+  content: " ";
+  width: 50px;
+  height: 20px;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  border-bottom: 2px solid #ffcc00;
+  border-right: 2px solid #ffcc00;
+  animation: flash ease-in-out 0.5s;
 }
 
 .explore-image {
