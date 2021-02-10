@@ -1,6 +1,19 @@
 (function ($) {
     let navbar = $("#nav-bar");
 
+    $(document).ready(function () {
+        let st = $(this).scrollTop(),
+            fadein = $(".fade-in");
+        st > 80 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
+            navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
+        for (let i = 0; i < fadein.length; i++) {
+            let obj = fadein[i];
+            if ($(obj).position().top < st + $(window).height() * .75) {
+                $(obj).addClass("visible");
+            }
+        }
+    });
+
     $(window).scroll(function () {
         let st = $(this).scrollTop(),
             fadein = $(".fade-in");
