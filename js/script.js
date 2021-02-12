@@ -46,20 +46,24 @@
     });
 })(jQuery);
 
+function resize() {
+    explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2
+    canvas_top =  (window.innerHeight > 560 ? window.innerHeight : 560) + 1950;
+    document.getElementById("explore-background-con").style.top = explore_top + "px";
+    document.getElementById("constellations").style.top = canvas_top + "px";
+
+    canvas.width = document.body.clientWidth;
+    canvas.height = 500;
+//  canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
+    canvas.style.display = "block";
+    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004;
+}
 
 let canvas = document.getElementById("constellations"),
     ctx = canvas.getContext("2d");
 
 ctx.imageSmoothingEnabled = true;
 ctx.imageSmoothingQuality = "high";
-
-
-canvas.width = document.body.clientWidth;
-// canvas.height = 750;
-canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
-document.getElementById("explore-background-con").style.top = canvas.height - 2 + "px";
-canvas.style.display = "block";
-
 
 var stars = [],
     speed = 0.15,
@@ -73,6 +77,7 @@ var stars = [],
         y: 0
     };
 
+resize()
 
 for (let i = 0; stars.length < x;) {
     i = new New_dot();
@@ -192,17 +197,13 @@ window.addEventListener("mousemove", function (e) {
 });
 
 window.addEventListener("resize", function () {
-    canvas.width = document.body.clientWidth;
-    // canvas.height = 750;
-    canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
-    document.getElementById("explore-background-con").style.top = canvas.height - 2 + "px";
-    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004;
+    resize();
 });
 
 window.addEventListener("click", function (e) {
-    if (e.clientY < canvas.height) {
-        let rect = canvas.getBoundingClientRect(),
-            s = new New_dot();
+    let rect = canvas.getBoundingClientRect();
+    if (canvas_top <= e.pageY && e.pageY <= canvas_top + canvas.height) {
+        let s = new New_dot();
         s.x = e.clientX - rect.left;
         s.y = e.clientY - rect.top;
         s.life = .5;

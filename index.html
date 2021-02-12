@@ -43,15 +43,10 @@
     </div>
 </nav>
 <div class="container-fluid m-0 p-0" id="content">
-    <div class="container-fluid p-0 m-0" id="canvas-con">
-        <canvas id="constellations" width="1280" height="750">
-            <p>Sorry, your browser does not support the &lt;canvas&gt; element.</p>
-            <p>Please upgrade to the latest
-                <a href="https://www.microsoft.com/ie">Internet Explorer</a>,
-                <a href="https://www.google.com/chrome">Chrome</a> or
-                <a href="https://mozilla.org/firefox">Firefox</a>.
-            </p>
-        </canvas>
+    <div class="poster" id="poster-con">
+        <video class="poster" id="poster" playsinline="" autoplay="" muted="" loop="">
+            <source src="poster.mp4" type="video/mp4">
+        </video>
     </div>
     <div class="container-fluid blurb" id="blurb-con">
         <div class="" id="hello-con">
@@ -95,7 +90,7 @@
 
                 <polygon points="0 1500, 1000 1400, 1000 1402, 0 1652" style="fill: #3c0085;"></polygon>
                 <polygon points="0 1650, 1000 1400, 1000 1802, 0 2052" style="fill: #420092;"></polygon>
-                <polygon points="0 2050, 1000 1800, 1000 2052, 0 2052" style="fill: #3c0085;"></polygon>
+                <polygon points="0 2050, 1000 1800, 1000 1952, 0 2052" style="fill: #3c0085;"></polygon>
             </svg>
         </div>
         <div class="explore-section-dark fade-in" id="explore1">
@@ -157,7 +152,15 @@
                 </div>
             </div>
         </div>
-        <div class="explore-section-dark" id="footer">
+        <canvas id="constellations" width="1280" height="500">
+            <p>Sorry, your browser does not support the &lt;canvas&gt; element.</p>
+            <p>Please upgrade to the latest
+                <a href="https://www.microsoft.com/ie">Internet Explorer</a>,
+                <a href="https://www.google.com/chrome">Chrome</a> or
+                <a href="https://mozilla.org/firefox">Firefox</a>.
+            </p>
+        </canvas>
+        <div class="" id="footer">
             ©2021&nbsp;<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC&nbsp;BY-NC-ND&nbsp;4.0</a>
             Queen's&nbsp;College&nbsp;Astronomers'&nbsp;Club,&nbsp;Hong&nbsp;Kong
         </div>
