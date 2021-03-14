@@ -48,7 +48,7 @@
 
 function resize() {
     explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2
-    canvas_top =  (window.innerHeight > 560 ? window.innerHeight : 560) + 1950;
+    canvas_top =  (window.innerHeight > 560 ? window.innerHeight : 560) + 4700;
     document.getElementById("explore-background-con").style.top = explore_top + "px";
     document.getElementById("constellations").style.top = canvas_top + "px";
 
