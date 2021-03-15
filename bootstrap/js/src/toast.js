@@ -1,19 +1,17 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): toast.js
+ * Bootstrap (v5.0.0-beta2): toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import {
-  getjQuery,
-  onDOMContentLoaded,
-  TRANSITION_END,
+  defineJQueryPlugin,
   emulateTransitionEnd,
   getTransitionDurationFromElement,
   reflow,
   typeCheckConfig
-} from './util/index'
+} from './util'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
@@ -117,7 +115,7 @@ class Toast extends BaseComponent {
     if (this._config.animation) {
       const transitionDuration = getTransitionDurationFromElement(this._element)
 
-      EventHandler.one(this._element, TRANSITION_END, complete)
+      EventHandler.one(this._element, 'transitionend', complete)
       emulateTransitionEnd(this._element, transitionDuration)
     } else {
       complete()
@@ -144,7 +142,7 @@ class Toast extends BaseComponent {
     if (this._config.animation) {
       const transitionDuration = getTransitionDurationFromElement(this._element)
 
-      EventHandler.one(this._element, TRANSITION_END, complete)
+      EventHandler.one(this._element, 'transitionend', complete)
       emulateTransitionEnd(this._element, transitionDuration)
     } else {
       complete()
@@ -216,18 +214,6 @@ class Toast extends BaseComponent {
  * add .Toast to jQuery only if jQuery is present
  */
 
-onDOMContentLoaded(() => {
-  const $ = getjQuery()
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME]
-    $.fn[NAME] = Toast.jQueryInterface
-    $.fn[NAME].Constructor = Toast
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT
-      return Toast.jQueryInterface
-    }
-  }
-})
+defineJQueryPlugin(NAME, Toast)
 
 export default Toast

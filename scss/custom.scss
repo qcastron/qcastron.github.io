@@ -1,6 +1,7 @@
 $primary: #FFCC00;
 $secondary: #1e0037;
 $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
+@import "../bootstrap/scss/bootstrap";
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
@@ -150,6 +151,8 @@ div .btn-outline-primary:hover {
 @media (max-width: 767px) {
   #join-btn, #learn-btn {
     width: 100%;
+    min-width: unset;
+    max-width: unset;
     margin: 5px 0 !important;
   }
 
@@ -543,6 +546,60 @@ div hr {
   background-size: cover;
 }
 
+#explore5, #explore9 {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel {
+  width: 100%;
+  max-width: 900px;
+  height: 450px;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 450px;
+}
+
+.carousel-indicators button {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  padding: 0;
+  margin: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  opacity: .5;
+  transition: opacity .6s ease;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  background: transparent;
+  border: none;
+  width: 10%;
+  min-width: 50px;
+}
+
+#qc-carousel-image-1 {
+  background: url("../img/inspire.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#qc-carousel-image-2 {
+  background: url("../img/inspire.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#qc-carousel-image-3 {
+  background: url("../img/inspire.jpg") no-repeat center;
+  background-size: cover;
+}
+
 #constellations {
   position: absolute;
   left: 0;
@@ -565,4 +622,4 @@ div hr {
   color: #eeeeee;
 }
 
-@import "../bootstrap/scss/bootstrap";
+
