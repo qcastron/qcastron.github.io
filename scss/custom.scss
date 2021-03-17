@@ -149,7 +149,7 @@ div .btn-outline-primary:hover {
 
 /* For all smaller screens */
 @media (max-width: 767px) {
-  #join-btn, #learn-btn {
+  #join-btn, #lang-btn {
     width: 100%;
     min-width: unset;
     max-width: unset;
@@ -172,7 +172,7 @@ div .btn-outline-primary:hover {
     font-size: 20px;
   }
 
-  div > #explore2, div > #explore3, div > #explore4 {
+  div > .explore-section-light, div > .explore-section-dark {
     flex-direction: column;
     justify-content: center;
   }
@@ -460,12 +460,12 @@ div .fade-in.visible {
 }
 
 .explore-section-light .explore-image::after {
-  background: repeating-linear-gradient( 0deg, transparent, transparent 2px, #420092 2px, #420092 10px ), repeating-linear-gradient( -90deg, #000, #000 2px, #420092 2px, #420092 10px);
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #420092 2px, #420092 10px), repeating-linear-gradient(-90deg, #000, #000 2px, #420092 2px, #420092 10px);
   mix-blend-mode: darken;
 }
 
 .explore-section-dark .explore-image::after {
-  background: repeating-linear-gradient( 0deg, transparent, transparent 2px, #1e0037 2px, #1e0037 10px ), repeating-linear-gradient( -90deg, #7200e3, #7200e3 2px, #1e0037 2px, #1e0037 10px);
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #1e0037 2px, #1e0037 10px), repeating-linear-gradient(-90deg, #7200e3, #7200e3 2px, #1e0037 2px, #1e0037 10px);
   mix-blend-mode: lighten;
 }
 
@@ -560,22 +560,6 @@ div hr {
 .carousel-image {
   width: 100%;
   height: 450px;
-}
-
-.carousel-indicators button {
-  box-sizing: content-box;
-  flex: 0 1 auto;
-  width: 30px;
-  height: 3px;
-  padding: 0;
-  margin: 3px;
-  text-indent: -999px;
-  cursor: pointer;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 0;
-  opacity: .5;
-  transition: opacity .6s ease;
 }
 
 .carousel-control-prev, .carousel-control-next {

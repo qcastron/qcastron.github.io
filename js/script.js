@@ -28,11 +28,11 @@
     });
 
     navbar.on({
-        "show.bs.collapse": function() {
+        "show.bs.collapse": function () {
             navbar.removeClass("bg-transparent").addClass("bg-purple-gradient");
         },
 
-        "hide.bs.collapse": function() {
+        "hide.bs.collapse": function () {
             let st = $(window).scrollTop();
             if (st < 80) {
                 navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
@@ -42,15 +42,25 @@
 
     $("#blurb-learn").click(function () {
         $("html,body").animate({
-            scrollTop: $("#explore-con").offset().top - 60}, "slow");
+            scrollTop: $("#explore-con").offset().top - 60
+        }, "slow");
     });
 })(jQuery);
 
 function resize() {
     explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2
-    canvas_top =  (window.innerHeight > 560 ? window.innerHeight : 560) + 4700;
+    canvas_top = (window.innerHeight > 560 ? window.innerHeight : 560) + 4700;
     document.getElementById("explore-background-con").style.top = explore_top + "px";
     document.getElementById("constellations").style.top = canvas_top + "px";
+
+    let carrousel = document.getElementById("qc-carousel"),
+        carrousel_set_height = carrousel.clientWidth * 4 / 3;
+    if (carrousel_set_height < 450) {
+        let carrousel_components = document.getElementsByClassName("carousel-component");
+        for (let i = 0; i < carrousel_components.length; i++) {
+            carrousel_components[i].style.height = carrousel_set_height + "px";
+        }
+    }
 
     canvas.width = document.body.clientWidth;
     canvas.height = 500;
