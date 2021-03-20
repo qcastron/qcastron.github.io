@@ -48,7 +48,7 @@
 })(jQuery);
 
 function resize() {
-    explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2
+    explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2;
     canvas_top = (window.innerHeight > 560 ? window.innerHeight : 560) + 4700;
     document.getElementById("explore-background-con").style.top = explore_top + "px";
     document.getElementById("constellations").style.top = canvas_top + "px";
@@ -63,7 +63,7 @@ function resize() {
     }
 
     canvas.width = document.body.clientWidth;
-    canvas.height = 500;
+    canvas.height = 700;
 //  canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
     canvas.style.display = "block";
     x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004;
@@ -121,7 +121,7 @@ function draw() {
     for (let i = 0; i < x; i++) {
         let s = stars[i];
         s.size = s.radius * Math.pow(s.life, .6);
-        s.quota = s.size * (s.special ? 2.4 : 1.4) | 0;
+        s.quota = s.size * 1.2 | 0;
 
         ctx.fillStyle = s.special ? "rgba(255,204,0, 1)" : "rgba(223,190,255, 1)";
         ctx.beginPath();

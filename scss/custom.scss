@@ -1,5 +1,5 @@
 $primary: #FFCC00;
-$secondary: #1e0037;
+$secondary: #140533;
 $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
 @import "../bootstrap/scss/bootstrap";
 
@@ -90,11 +90,11 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 }
 
 body {
-  background: #1e0037;
+  background: #140533;
 }
 
-body * {
-  font-family: "Proxima Nova", "Roboto", "Noto Sans TC", "Apple Color Emoji", Calibri, Arial, sans-serif;
+body {
+  font-family: "Roboto", "Noto Sans TC", "Apple Color Emoji", Calibri, Arial, sans-serif;
   color: #eeeeee;
 }
 
@@ -107,7 +107,7 @@ body * {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: #24004b linear-gradient(69.420deg, #360069 0%, #1e0040 100%);
+  background: #290A66 linear-gradient(420.69deg, #2E0B73 0%, #140533 100%);
   opacity: 0;
   -webkit-transition: opacity 0.5s ease;
   -moz-transition: opacity 0.5s ease;
@@ -122,8 +122,8 @@ body * {
 }
 
 .navbar-brand {
-  -webkit-filter: drop-shadow(1px 1px 2px #1e0037);
-  filter: drop-shadow(1px 1px 2px #1e0037);
+  -webkit-filter: drop-shadow(1px 1px 2px #140533);
+  filter: drop-shadow(1px 1px 2px #140533);
 }
 
 div > .btn, li > .btn {
@@ -134,7 +134,7 @@ div > .btn, li > .btn {
 }
 
 div .btn-outline-primary {
-  text-shadow: 1px 1px 1px #1e0037;
+  text-shadow: 1px 1px 1px #140533;
 }
 
 div .btn-outline-primary:hover {
@@ -142,8 +142,6 @@ div .btn-outline-primary:hover {
 }
 
 .description {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
   line-height: 1.167em;
 }
 
@@ -286,7 +284,7 @@ div .btn-outline-primary:hover {
   width: 100%;
   margin: 100px auto 0 auto;
   padding: 0 75px;
-  text-shadow: 1px 1px 2px #182639;
+  text-shadow: 1px 1px 2px #140533;
   cursor: default;
   position: absolute;
   top: 0;
@@ -383,11 +381,22 @@ div .btn-outline-primary:hover {
   z-index: -10;
 }
 
-.title {
+h1, h2, h3, h4, h5, h6 {
   width: 100%;
+  font-family: "Proxima Nova", "Roboto", "Noto Sans TC", "Apple Color Emoji", Calibri, Arial, sans-serif;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
+  margin: 0;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  max-width: 240px;
+  margin: 4px 0;
+  background: #FFCC00;
 }
 
 div .fade-in {
@@ -449,13 +458,23 @@ div .fade-in.visible {
   z-index: -1;
 }
 
-.explore-section-dark .explore-image::before {
-  background: #280053;
+.qc.explore-section-dark .explore-image::before {
+  background: #240959;
   mix-blend-mode: lighten;
 }
 
-.explore-section-light .explore-image::before {
-  background: #3a0081;
+.qc.explore-section-light .explore-image::before {
+  background: #2E0B73;
+  mix-blend-mode: darken;
+}
+
+.tt.explore-section-dark .explore-image::before {
+  background: #092A59;
+  mix-blend-mode: lighten;
+}
+
+.tt.explore-section-light .explore-image::before {
+  background: #0B3773;
   mix-blend-mode: darken;
 }
 
@@ -469,13 +488,23 @@ div .fade-in.visible {
   z-index: -2;
 }
 
-.explore-section-dark .explore-image::after {
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #1e0037 2px, #1e0037 10px), repeating-linear-gradient(-90deg, #7200e3, #7200e3 2px, #1e0037 2px, #1e0037 10px);
+.qc.explore-section-dark .explore-image::after {
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #140533 2px, #140533 10px), repeating-linear-gradient(-90deg, #5C17E6, #5C17E6 2px, #140533 2px, #140533 10px);
   mix-blend-mode: lighten;
 }
 
-.explore-section-light .explore-image::after {
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #420092 2px, #420092 10px), repeating-linear-gradient(-90deg, #000, #000 2px, #420092 2px, #420092 10px);
+.qc.explore-section-light .explore-image::after {
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #3D0F99 2px, #3D0F99 10px), repeating-linear-gradient(-90deg, #000, #000 2px, #3D0F99 2px, #3D0F99 10px);
+  mix-blend-mode: darken;
+}
+
+.tt.explore-section-dark .explore-image::after {
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #081833 2px, #081833 10px), repeating-linear-gradient(-90deg, #176DE6, #176DE6 2px, #081833 2px, #081833 10px);
+  mix-blend-mode: lighten;
+}
+
+.tt.explore-section-light .explore-image::after {
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, #0F4999 2px, #0F4999 10px), repeating-linear-gradient(-90deg, #000, #000 2px, #0F4999 2px, #0F4999 10px);
   mix-blend-mode: darken;
 }
 
@@ -495,7 +524,6 @@ div .fade-in.visible {
 
 #explore1 {
   height: 350px;
-  font-size: 24px;
   flex-direction: column;
   justify-content: center;
 }
@@ -503,6 +531,10 @@ div .fade-in.visible {
 #explore1-title {
   text-transform: uppercase;
   text-align: center;
+}
+
+#explore1-title::after {
+  margin: 4px auto;
 }
 
 div hr {
@@ -543,6 +575,22 @@ div hr {
   background: url("../img/qc3.jpg") no-repeat center/cover;
 }
 
+#explore6-image {
+  background: url("../img/qc1.jpg") no-repeat center/cover;
+}
+
+#explore7-image {
+  background: url("../img/qc2.jpg") no-repeat center/cover;
+}
+
+#explore8-image {
+  background: url("../img/qc3.jpg") no-repeat center/cover;
+}
+
+#explore10-image {
+  background: url("../img/qc3.jpg") no-repeat center/cover;
+}
+
 #explore5, #explore9 {
   flex-direction: column;
   justify-content: center;
@@ -567,32 +615,69 @@ div hr {
 }
 
 #qc-carousel-image-1 {
-  background: url("../img/inspire.jpg") no-repeat center;
-  background-size: cover;
+  background: url("../img/inspire.jpg") no-repeat center/cover;
 }
 
 #qc-carousel-image-2 {
-  background: url("../img/inspire.jpg") no-repeat center;
-  background-size: cover;
+  background: url("../img/inspire.jpg") no-repeat center/cover;
 }
 
 #qc-carousel-image-3 {
-  background: url("../img/inspire.jpg") no-repeat center;
-  background-size: cover;
+  background: url("../img/inspire.jpg") no-repeat center/cover;
+}
+
+#tt-carousel-image-1 {
+  background: url("../img/inspire.jpg") no-repeat center/cover;
+}
+
+#tt-carousel-image-2 {
+  background: url("../img/inspire.jpg") no-repeat center/cover;
+}
+
+#tt-carousel-image-3 {
+  background: url("../img/inspire.jpg") no-repeat center/cover;
+}
+
+#explore10 {
+  text-shadow: 1px 1px 2px #140533;
+}
+
+#explore10-image::before, #explore10-image::after {
+  content: none;
+}
+
+#join-team {
+  margin-top: 10px;
 }
 
 #constellations {
   position: absolute;
   left: 0;
   top: 5260px;
-  background: #1e0037 radial-gradient(farthest-corner circle at bottom left, #390070 0%, #1e0037 70%, #160028 100%);
+  width: 100%;
+  height: 700px;
+  background: #1F084D radial-gradient(farthest-corner circle at bottom left, #330D80 0%, #140533 100%);
   z-index: -11;
   image-rendering: smooth;
 }
 
+.modal-content {
+  background: #330D80;
+}
+
+.modal-header {
+  border-bottom: 2px solid #FFCC00;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
 #footer {
+  position: relative;
+  padding-top: 50px;
   width: 100%;
-  height: 50px;
+  height: 100px;
   font-weight: 300;
   font-size: 12px;
   line-height: 1.167em;
