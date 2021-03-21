@@ -89,13 +89,20 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
   }
 }
 
-body {
-  background: #140533;
+@keyframes background-animator {
+  0%,
+  to {
+    transform:translate(50px,50px)
+  }
+  50% {
+    transform:translate(-50px,-50px)
+  }
 }
 
 body {
   font-family: "Roboto", "Noto Sans TC", "Apple Color Emoji", Calibri, Arial, sans-serif;
   color: #eeeeee;
+  background: #140533;
 }
 
 #nav-bar::before {
@@ -650,15 +657,37 @@ div hr {
   margin-top: 10px;
 }
 
-#constellations {
+#constellations-con {
   position: absolute;
   left: 0;
-  top: 5260px;
+  top: 5250px;
   width: 100%;
-  height: 700px;
-  background: #1F084D radial-gradient(farthest-corner circle at bottom left, #330D80 0%, #140533 100%);
+  height: 710px;
   z-index: -11;
-  image-rendering: smooth;
+}
+
+#constellations-con::after {
+  content: "";
+  background: #1F084D url("../img/sky.jpg") no-repeat center/cover;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  bottom: -50px;
+  right: -50px;
+  z-index: -13;
+  animation-name: background-animator;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+#constellations-con::before {
+  box-shadow: inset 0 0 50px 0 #140533;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .modal-content {

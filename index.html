@@ -6,27 +6,25 @@
     <meta content="Queen's College Astronomers' Club 皇仁書院天文學會 Inspiring & bonding brothers with our sky for six decades"
           name="description">
     <meta content="QCAC/Acetonee" name="author">
+    <meta content="#290A66" name="theme-color">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
     <link href="./img/ac-logo.ico" rel="icon">
-
     <title>Queen's College Astronomers' Club 皇仁書院天文學會</title>
-
     <link href="scss/custom.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="nav-bar">
     <div class="container-fluid" id="nav-con">
-
         <a class="navbar-brand" href="https://qcastron.github.io">
             <img alt="QCAC" src="https://raw.githubusercontent.com/qcastron/qcastron.github.io/master/img/logo.png"
                  title="Queen's College Astronomers' Club" width="170">
         </a>
-
         <button aria-controls="nav-hide-content" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler collapsed" data-bs-target=".navbar-collapse" data-bs-toggle="collapse"
                 data-target=".navbar-collapse" data-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse flex-row-reverse" id="nav-hide-content">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -264,14 +262,12 @@
                 </div>
             </div>
         </div>
-        <canvas height="500" id="constellations" width="1280">
-            <p>Sorry, your browser does not support the &lt;canvas&gt; element.</p>
-            <p>Please upgrade to the latest
-                <a href="https://www.microsoft.com/ie">Internet Explorer</a>,
-                <a href="https://www.google.com/chrome">Chrome</a> or
-                <a href="https://mozilla.org/firefox">Firefox</a>.
-            </p>
-        </canvas>
+        <div class="" id="constellations-con">
+            <canvas height="500" id="constellations" width="1280">
+                <p>Sorry, your browser does not support the &lt;canvas&gt; element.</p>
+                <p>Please upgrade to the latest version of your browser.</p>
+            </canvas>
+        </div>
         <div class="" id="footer">
             ©2021&nbsp;<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC&nbsp;BY-NC-ND&nbsp;4.0</a>
             Queen's&nbsp;College&nbsp;Astronomers'&nbsp;Club,&nbsp;Hong&nbsp;Kong<br>
@@ -294,7 +290,7 @@
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
                         <a class="btn btn-primary" href="https://forms.gle/o7YhQZpbFVWUmhv97" target="_blank"
-                           type="button">Proceed</a>
+                           rel="nofollow" type="button">Proceed</a>
                     </div>
                 </div>
             </div>
@@ -317,7 +313,7 @@
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
                         <a class="btn btn-primary" href="https://forms.gle/mEKLQ7oqEiCC77tE9" target="_blank"
-                           type="button">Proceed</a>
+                           rel="nofollow" type="button">Proceed</a>
                     </div>
                 </div>
             </div>
