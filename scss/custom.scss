@@ -52,16 +52,10 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 }
 
 @keyframes flash {
-  0% {
+  0%, 49% {
     opacity: 1;
   }
-  49% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
+  50%, 100% {
     opacity: 0;
   }
 }
@@ -90,8 +84,7 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 }
 
 @keyframes background-animator {
-  0%,
-  to {
+  0%, to {
     transform:translate(50px,50px)
   }
   50% {
@@ -394,6 +387,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #140533;
   margin: 0;
 }
 
@@ -401,9 +396,14 @@ h2::after {
   content: "";
   display: block;
   height: 2px;
-  max-width: 240px;
+  max-width: 260px;
   margin: 4px 0;
   background: #FFCC00;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 28px;
 }
 
 div .fade-in {
@@ -452,20 +452,19 @@ div .fade-in.visible {
   position: relative;
   width: 600px;
   height: 360px;
-  background-size: cover;
 }
 
-.explore-image::before {
+.explore-image::before, .carousel::before {
   content: " ";
   position: absolute;
   top: 8px;
   left: -16px;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2;
 }
 
-.qc.explore-section-dark .explore-image::before {
+.qc.explore-section-dark .explore-image::before, .qc.explore-section-dark .carousel::before {
   background: #240959;
   mix-blend-mode: lighten;
 }
@@ -475,7 +474,7 @@ div .fade-in.visible {
   mix-blend-mode: darken;
 }
 
-.tt.explore-section-dark .explore-image::before {
+.tt.explore-section-dark .explore-image::before, .tt.explore-section-dark .carousel::before {
   background: #092A59;
   mix-blend-mode: lighten;
 }
@@ -485,17 +484,17 @@ div .fade-in.visible {
   mix-blend-mode: darken;
 }
 
-.explore-image::after {
+.explore-image::after, .carousel::after {
   content: " ";
   position: absolute;
   top: 16px;
   left: 32px;
   width: 100%;
   height: 100%;
-  z-index: -2;
+  z-index: -3;
 }
 
-.qc.explore-section-dark .explore-image::after {
+.qc.explore-section-dark .explore-image::after, .qc.explore-section-dark .carousel::after {
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, #140533 2px, #140533 10px), repeating-linear-gradient(-90deg, #5C17E6, #5C17E6 2px, #140533 2px, #140533 10px);
   mix-blend-mode: lighten;
 }
@@ -505,7 +504,7 @@ div .fade-in.visible {
   mix-blend-mode: darken;
 }
 
-.tt.explore-section-dark .explore-image::after {
+.tt.explore-section-dark .explore-image::after, .tt.explore-section-dark .carousel::after {
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, #081833 2px, #081833 10px), repeating-linear-gradient(-90deg, #176DE6, #176DE6 2px, #081833 2px, #081833 10px);
   mix-blend-mode: lighten;
 }
@@ -570,6 +569,18 @@ div hr {
   padding: 0 15px;
 }
 
+#explore4-description::before, #explore8-description::before {
+  display: block;
+  content: " ";
+  width: 30px;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: -15px;
+  border-top: 3px solid #ffcc00;
+  border-left: 3px solid #ffcc00;
+}
+
 #explore2-image {
   background: url("../img/qc1.jpg") no-repeat center/cover;
 }
@@ -583,19 +594,19 @@ div hr {
 }
 
 #explore6-image {
-  background: url("../img/qc1.jpg") no-repeat center/cover;
+  background: url("../img/tt1.jpg") no-repeat center/cover;
 }
 
 #explore7-image {
-  background: url("../img/qc2.jpg") no-repeat center/cover;
+  //background: url("../img/tt2.jpg") no-repeat center/cover;
 }
 
 #explore8-image {
-  background: url("../img/qc3.jpg") no-repeat center/cover;
+  background: url("../img/tt3.jpg") no-repeat center/cover;
 }
 
-#explore10-image {
-  background: url("../img/qc3.jpg") no-repeat center/cover;
+#recruitment-image {
+  background: url("../img/qc4.jpg") no-repeat center 25%/cover;
 }
 
 #explore5, #explore9 {
@@ -609,9 +620,19 @@ div hr {
   height: 450px;
 }
 
+.carousel-indicators {
+  margin-bottom: 0;
+}
+
 .carousel-image {
   width: 100%;
   height: 450px;
+}
+
+.carousel-caption {
+  padding: 0;
+  left: 10%;
+  right:10%;
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -619,37 +640,43 @@ div hr {
   border: none;
   width: 10%;
   min-width: 50px;
+  top: 25px;
+  bottom: 25px;
 }
 
 #qc-carousel-image-1 {
-  background: url("../img/inspire.jpg") no-repeat center/cover;
+  background: url("../img/qc-carousel1.jpg") no-repeat center/cover;
 }
 
 #qc-carousel-image-2 {
-  background: url("../img/inspire.jpg") no-repeat center/cover;
+  background: url("../img/qc-carousel2.jpg") no-repeat center/cover;
 }
 
 #qc-carousel-image-3 {
-  background: url("../img/inspire.jpg") no-repeat center/cover;
+  background: url("../img/qc-carousel3.jpg") no-repeat center/cover;
+}
+
+#qc-carousel-image-4 {
+  background: url("../img/qc-carousel4.jpg") no-repeat center/cover;
 }
 
 #tt-carousel-image-1 {
-  background: url("../img/inspire.jpg") no-repeat center/cover;
+  background: url("../img/tt-carousel1.jpg") no-repeat center/cover;
 }
 
 #tt-carousel-image-2 {
-  background: url("../img/inspire.jpg") no-repeat center/cover;
+  background: url("../img/tt-carousel2.jpg") no-repeat center/cover;
 }
 
 #tt-carousel-image-3 {
-  background: url("../img/inspire.jpg") no-repeat center/cover;
+  background: url("../img/tt-carousel3.jpg") no-repeat center/cover;
 }
 
-#explore10 {
+#recruitment {
   text-shadow: 1px 1px 2px #140533;
 }
 
-#explore10-image::before, #explore10-image::after {
+#recruitment-image::before, #recruitment-image::after {
   content: none;
 }
 
@@ -663,7 +690,7 @@ div hr {
   top: 5250px;
   width: 100%;
   height: 710px;
-  z-index: -11;
+  z-index: -12;
 }
 
 #constellations-con::after {
@@ -688,6 +715,7 @@ div hr {
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: -11;
 }
 
 .modal-content {

@@ -1,51 +1,48 @@
-(function ($) {
-    let navbar = $("#nav-bar");
+let navbar = $("#nav-bar");
 
-    $(document).ready(function () {
-        let st = $(this).scrollTop(),
-            fadein = $(".fade-in");
-        st > 80 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
+function scroll_update() {
+    let st = $(this).scrollTop(),
+        fadein = $(".fade-in");
+    st > 80 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
+        navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
+    for (let i = 0; i < fadein.length; i++) {
+        let obj = fadein[i];
+        if ($(obj).position().top < st + $(window).height() * .75) {
+            $(obj).addClass("visible");
+        }
+    }
+}
+
+$(document).ready(function () {
+    scroll_update();
+});
+
+$(window).scroll(function () {
+    scroll_update();
+});
+
+navbar.on({
+    "show.bs.collapse": function () {
+        navbar.removeClass("bg-transparent").addClass("bg-purple-gradient");
+    },
+
+    "hide.bs.collapse": function () {
+        let st = $(window).scrollTop();
+        if (st < 80) {
             navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
-        for (let i = 0; i < fadein.length; i++) {
-            let obj = fadein[i];
-            if ($(obj).position().top < st + $(window).height() * .75) {
-                $(obj).addClass("visible");
-            }
         }
-    });
+    }
+});
 
-    $(window).scroll(function () {
-        let st = $(this).scrollTop(),
-            fadein = $(".fade-in");
-        st > 80 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
-            navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
-        for (let i = 0; i < fadein.length; i++) {
-            let obj = fadein[i];
-            if ($(obj).position().top < st + $(window).height() * .75) {
-                $(obj).addClass("visible");
-            }
-        }
-    });
+$("#blurb-learn").click(function () {
+    $("html,body").animate({
+        scrollTop: $("#explore-con").offset().top - 60
+    }, "slow");
+});
 
-    navbar.on({
-        "show.bs.collapse": function () {
-            navbar.removeClass("bg-transparent").addClass("bg-purple-gradient");
-        },
-
-        "hide.bs.collapse": function () {
-            let st = $(window).scrollTop();
-            if (st < 80) {
-                navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
-            }
-        }
-    });
-
-    $("#blurb-learn").click(function () {
-        $("html,body").animate({
-            scrollTop: $("#explore-con").offset().top - 60
-        }, "slow");
-    });
-})(jQuery);
+$( window ).resize(function() {
+    resize();
+});
 
 function resize() {
     explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2;
@@ -54,11 +51,11 @@ function resize() {
     document.getElementById("constellations-con").style.top = canvas_top + "px";
 
     let carrousel = document.getElementById("qc-carousel"),
-        carrousel_set_height = carrousel.clientWidth * 4 / 3;
-    if (carrousel_set_height < 450) {
+        carrousel_width = carrousel.clientWidth;
+    if (carrousel_width < 450) {
         let carrousel_components = document.getElementsByClassName("carousel-component");
         for (let i = 0; i < carrousel_components.length; i++) {
-            carrousel_components[i].style.height = carrousel_set_height + "px";
+            carrousel_components[i].style.height = carrousel_width + "px";
         }
     }
 
@@ -92,6 +89,7 @@ resize()
 for (let i = 0; stars.length < x;) {
     i = new New_dot();
     i.life = Math.random();
+    i.midlife = Math.random() * 2 | 0;
     stars.push(i);
 }
 
@@ -204,10 +202,6 @@ window.addEventListener("mousemove", function (e) {
     let rect = canvas.getBoundingClientRect();
     mouse.x = e.clientX - rect.left;
     mouse.y = e.clientY - rect.top;
-});
-
-window.addEventListener("resize", function () {
-    resize();
 });
 
 window.addEventListener("click", function (e) {
