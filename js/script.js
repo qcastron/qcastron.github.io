@@ -3,7 +3,7 @@ let navbar = $("#nav-bar");
 function scroll_update() {
     let st = $(this).scrollTop(),
         fadein = $(".fade-in");
-    st > 80 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
+    st > 60 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
         navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
     for (let i = 0; i < fadein.length; i++) {
         let obj = fadein[i];
@@ -36,7 +36,7 @@ navbar.on({
 
 $("#blurb-learn").click(function () {
     $("html,body").animate({
-        scrollTop: $("#explore-con").offset().top - 60
+        scrollTop: $("#explore-con").offset().top - 72
     }, "slow");
 });
 
@@ -211,7 +211,7 @@ window.addEventListener("click", function (e) {
         s.x = e.clientX - rect.left;
         s.y = e.clientY - rect.top;
         s.life = .5;
-        s.radius *= 1.5;
+        s.radius += 1;
         s.special = 1;
         stars.push(s);
         special_count++;
