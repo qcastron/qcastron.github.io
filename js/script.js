@@ -121,7 +121,7 @@ function draw() {
         s.size = s.radius * Math.pow(s.life, .6);
         s.quota = s.size * 1.2 | 0;
 
-        ctx.fillStyle = s.special ? "rgba(255,204,0, 1)" : "rgba(223,190,255, 1)";
+        ctx.fillStyle = s.special ? "#FFCC00" : "#E0E0E0";
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.size, 0, 2 * Math.PI);
         ctx.fill();
@@ -148,7 +148,7 @@ function draw() {
         }
     }
     ctx.lineWidth = .8;
-    ctx.strokeStyle = "rgba(223, 190, 255, 0.4)";
+    ctx.strokeStyle = "#6B7E99";
     ctx.stroke();
 }
 

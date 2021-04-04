@@ -10710,6 +10710,7 @@ body {
   font-family: "Roboto", "Noto Sans TC", "Apple Color Emoji", Calibri, Arial, sans-serif;
   color: #eeeeee;
   background: #140533;
+  text-rendering: optimizeLegibility;
 }
 
 a, .blurb, .carousel, #recruitment, #footer {
@@ -11202,27 +11203,145 @@ div hr {
   margin-top: 10px;
 }
 
+#bubble-con {
+  perspective-origin: 50% 50%;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -250px;
+  transform-style: preserve-3d;
+  mix-blend-mode: lighten;
+}
+
+.bubble:nth-child(1) {
+  left: -17%;
+  animation: raise1 60s linear infinite;
+  animation-delay: -1s;
+  transform: scale(0.7);
+  z-index: -49;
+  filter: blur(5.5px);
+}
+@keyframes raise1 {
+  to {
+    bottom: 950px;
+    transform: scale(0.7);
+  }
+}
+
+.bubble:nth-child(2) {
+  left: 65%;
+  animation: raise2 40s linear infinite;
+  animation-delay: -2s;
+  transform: scale(0.9);
+  z-index: -48;
+  filter: blur(6px);
+}
+@keyframes raise2 {
+  to {
+    bottom: 950px;
+    transform: scale(0.9);
+  }
+}
+
+.bubble:nth-child(3) {
+  left: 28%;
+  animation: raise3 33.3333333333s linear infinite;
+  animation-delay: -3s;
+  transform: scale(1.1);
+  z-index: -47;
+  filter: blur(6.5px);
+}
+@keyframes raise3 {
+  to {
+    bottom: 950px;
+    transform: scale(1.1);
+  }
+}
+
+.bubble:nth-child(4) {
+  left: 96%;
+  animation: raise4 30s linear infinite;
+  animation-delay: -4s;
+  transform: scale(1.3);
+  z-index: -46;
+  filter: blur(7px);
+}
+@keyframes raise4 {
+  to {
+    bottom: 950px;
+    transform: scale(1.3);
+  }
+}
+
+.bubble:nth-child(5) {
+  left: 21%;
+  animation: raise5 28s linear infinite;
+  animation-delay: -5s;
+  transform: scale(1.5);
+  z-index: -45;
+  filter: blur(7.5px);
+}
+@keyframes raise5 {
+  to {
+    bottom: 950px;
+    transform: scale(1.5);
+  }
+}
+
+.bubble:nth-child(6) {
+  left: 50%;
+  animation: raise6 26.6666666667s linear infinite;
+  animation-delay: -6s;
+  transform: scale(1.7);
+  z-index: -44;
+  filter: blur(8px);
+}
+@keyframes raise6 {
+  to {
+    bottom: 950px;
+    transform: scale(1.7);
+  }
+}
+
+.bubble:nth-child(7) {
+  left: -15%;
+  animation: raise7 25.7142857143s linear infinite;
+  animation-delay: -7s;
+  transform: scale(1.9);
+  z-index: -43;
+  filter: blur(8.5px);
+}
+@keyframes raise7 {
+  to {
+    bottom: 950px;
+    transform: scale(1.9);
+  }
+}
+
+.bubble:nth-child(8) {
+  left: 89%;
+  animation: raise8 25s linear infinite;
+  animation-delay: -8s;
+  transform: scale(2.1);
+  z-index: -42;
+  filter: blur(9px);
+}
+@keyframes raise8 {
+  to {
+    bottom: 950px;
+    transform: scale(2.1);
+  }
+}
+
 #constellations-con {
   position: absolute;
   left: 0;
   top: 5250px;
   width: 100%;
   height: 710px;
-  z-index: -12;
-}
-
-#constellations-con::after {
-  content: "";
-  background: #1F084D url("../img/sky.jpg") no-repeat center/cover;
-  position: absolute;
-  top: -50px;
-  left: -50px;
-  bottom: -50px;
-  right: -50px;
-  z-index: -13;
-  animation-name: background-animator;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
+  background: #1F084D radial-gradient(farthest-corner circle at bottom left, #330D80 0%, #1F084D 60%, #140533 100%);
+  z-index: -100;
 }
 
 #constellations-con::before {
