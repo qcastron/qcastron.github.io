@@ -2,10 +2,10 @@ let navbar = $("#nav-bar");
 
 function scroll_update() {
     let st = $(this).scrollTop(),
-        fadein = $(".fade-in");
+        fadein = $(".fade-in:not(.visible)");
     st > 60 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
         navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
-    for (let i = 0; i < fadein.length; i++) {
+    for (let i = 0; fadein && i < fadein.length; i++) {
         let obj = fadein[i];
         if ($(obj).position().top < st + $(window).height() * .75) {
             $(obj).addClass("visible");
@@ -40,30 +40,31 @@ $("#blurb-learn").click(function () {
     }, "slow");
 });
 
-$( window ).resize(function() {
-    resize();
-});
+window.addEventListener('resize', resize);
 
 function resize() {
     explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2;
-    canvas_top = (window.innerHeight > 560 ? window.innerHeight : 560) + 4700;
+    canvas_top = explore_top + 4798;
     document.getElementById("explore-background-con").style.top = explore_top + "px";
     document.getElementById("constellations-con").style.top = canvas_top + "px";
 
     let carrousel = document.getElementById("qc-carousel"),
-        carrousel_width = carrousel.clientWidth;
-    if (carrousel_width < 450) {
-        let carrousel_components = document.getElementsByClassName("carousel-component");
+        carrousel_width = carrousel.clientWidth,
+        carrousel_components = document.getElementsByClassName("carousel-component");
+    if (carrousel_width < 500) {
         for (let i = 0; i < carrousel_components.length; i++) {
             carrousel_components[i].style.height = carrousel_width + "px";
+        }
+    } else {
+        for (let i = 0; i < carrousel_components.length; i++) {
+            carrousel_components[i].style.height = 500 + "px";
         }
     }
 
     canvas.width = document.body.clientWidth;
-    canvas.height = 700;
+    canvas.height = 750;
 //  canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
-    canvas.style.display = "block";
-    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004;
+    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005;
 }
 
 let canvas = document.getElementById("constellations"),
@@ -75,10 +76,10 @@ ctx.imageSmoothingQuality = "high";
 var stars = [],
     speed = 0.15,
     offset = 50,
-    dist = 40,
+    dist = 30,
     max_connect = 3,
     special_count = 0,
-    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004,
+    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005,
     mouse = {
         x: 0,
         y: 0
@@ -100,7 +101,7 @@ function New_dot() {
     };
     this.x = Math.random() * canvas.width + offset;
     this.y = Math.random() * canvas.height + offset / 2;
-    this.radius = 2 * Math.random() + .5;
+    this.radius = 2 * Math.random() + .8;
     this.vx = l();
     this.vy = .5 * l();
     this.life = 0;
@@ -113,19 +114,27 @@ function New_dot() {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.globalCompositeOperation = "lighter";
 
     let x = stars.length;
+    ctx.beginPath();
     for (let i = 0; i < x; i++) {
         let s = stars[i];
-        s.size = s.radius * Math.pow(s.life, .6);
-        s.quota = s.size * 1.2 | 0;
-
-        ctx.fillStyle = s.special ? "#FFCC00" : "#E0E0E0";
+        if (!s.special) {
+            draw_star(s);
+        }
+    }
+    ctx.fillStyle = "#E0E0E0";
+    ctx.fill();
+    if (special_count) {
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size, 0, 2 * Math.PI);
+        for (let i = 0; i < x; i++) {
+            let s = stars[i];
+            if (s.special) {
+                draw_star(s);
+            }
+        }
+        ctx.fillStyle = "#FFCC00";
         ctx.fill();
-        ctx.stroke();
     }
 
     let pointer_quota = max_connect;
@@ -165,12 +174,18 @@ function distance(point1, point2) {
     return Math.sqrt(xs + ys);
 }
 
+function draw_star(s) {
+    s.size = s.radius * Math.pow(s.life, .6);
+    s.quota = s.size | 0;
+    ctx.moveTo(s.x, s.y);
+    ctx.arc(s.x, s.y, s.size, 0, 2 * Math.PI);
+}
 
 function update() {
     for (let i = 0; i < stars.length; i++) {
         let s = stars[i];
 
-        s.life += (s.midlife ? -.0015 : .0015) / s.radius;
+        s.life += (s.midlife ? -.004 : .004) / s.radius;
         if (s.life >= 1 && !s.midlife) {
             s.midlife = 1;
         }
@@ -200,15 +215,17 @@ function update() {
 
 window.addEventListener("mousemove", function (e) {
     let rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+    if (canvas_top <= e.pageY) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY - rect.top;
+    }
 });
 
 window.addEventListener("click", function (e) {
     let rect = canvas.getBoundingClientRect();
-    if (canvas_top <= e.pageY && e.pageY <= canvas_top + canvas.height) {
+    if (canvas_top <= e.pageY) {
         let s = new New_dot();
-        s.x = e.clientX - rect.left;
+        s.x = e.clientX;
         s.y = e.clientY - rect.top;
         s.life = .5;
         s.radius += 1;
