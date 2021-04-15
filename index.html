@@ -1,81 +1,446 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-HK">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Queen's College Astronomers' Club 皇仁書院天文學會 Inspiring & bonding brothers with our sky for six decades">
-    <meta name="author" content="QCAC/Acetonee">
-    <link rel="icon" href="./img/ac-logo.ico">
-
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover" name="viewport">
+    <meta content="Queen's College Astronomers' Club 皇仁書院天文學會 Founded on 24 October 1961 by Mr Liu Hing-Chai, the
+          Astronomers' Club has operated for over half a century. We are dedicated to not only promoting astronomy among
+          our brethren but also forging bonds between them. Our mission has brought many together, evocative of the
+          brotherhood we hold so dear."
+          name="description">
+    <meta content="humans.txt" name="author">
+    <meta content="#290A66" name="theme-color">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <link href="./img/ac-logo.ico" rel="icon">
     <title>Queen's College Astronomers' Club 皇仁書院天文學會</title>
-
     <link href="scss/custom.css" rel="stylesheet">
 </head>
-<body bgcolor="#390064">
+<body>
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="nav-bar">
     <div class="container-fluid" id="nav-con">
-
-        <a class="navbar-brand" href="#">
-            <img src="https://raw.githubusercontent.com/qcastron/qcastron.github.io/master/img/logo.png" alt="QCAC"
-                 title="Queen's College Astronomers' Club" width="170">
+        <a class="navbar-brand" href="https://qcac.hk">
+            <img alt="QCAC" src="img/logo.png" title="Queen's College Astronomers' Club" width="170">
         </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-toggle="collapse"
-                data-bs-target=".navbar-collapse"
-                data-target=".navbar-collapse" aria-controls="nav-hide-content" aria-expanded="false"
-                aria-label="Toggle navigation">
+        <button aria-controls="nav-hide-content" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler collapsed" data-bs-target=".navbar-collapse" data-bs-toggle="collapse"
+                data-target=".navbar-collapse" data-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse flex-row-reverse" id="nav-hide-content">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary mx-2" href="https://facebook.com/QCastron/" role="button" id="learn-btn">Learn&nbsp;more</a>
+                    <button class="btn btn-outline-primary mx-2" data-bs-target="#subcom-modal"
+                            data-bs-toggle="modal" id="team-btn" role="button">Join&nbsp;our&nbsp;team<br>
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-primary mx-2 text-secondary" href="https://forms.gle/o7YhQZpbFVWUmhv97"
-                       role="button" id="join-btn">Join</a>
+                    <button class="btn btn-primary mx-2 text-secondary" data-bs-target="#member-modal"
+                            data-bs-toggle="modal" id="join-btn" role="button">Join<br>
+                    </button>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container-fluid m-0 p-0" id="content">
-    <div class="container-fluid p-0 m-0" id="canvas-con">
-        <canvas id="constellations" width="1280" height="750"></canvas>
+    <div class="poster" id="poster-con">
+        <video autoplay="" class="poster" id="poster" loop="" muted="" playsinline="" poster="img/poster.jpg">
+            <source src="img/poster.mp4" type="video/mp4">
+        </video>
     </div>
     <div class="container-fluid blurb" id="blurb-con">
-        <div class="" id="hello-con">
-            Explore&nbsp;with&nbsp;joy&nbsp;at
+        <h1 id="qcac-zh">皇仁書院天文學會</h1>
+        <div id="qcac">
+            <h1 id="qc">Queen's&nbsp;College</h1>
+            <h1 id="ac">Astronomers' Club</h1>
         </div>
-        <div class="" id="qc-con">
-            Queen's&nbsp;College
-        </div>
-        <div class="" id="ac-con">
-            Astronomers' Club
-        </div>
-        <div class="" id="description-con">
-            Inspiring & bonding brothers with our&nbsp;sky for six&nbsp;decades
-        </div>
-        <div class="" id="buttons-con">
+        <div class="description" id="description-con">Inspiring & bonding brothers with our&nbsp;sky for six&nbsp;decades</div>
+        <div id="buttons-con">
             <div id="blurb-learn-con">
-                <a class="btn btn-outline-primary" href="https://facebook.com/QCastron/" role="button" id="blurb-learn">Learn&nbsp;more</a>
+                <button class="btn btn-outline-primary" id="blurb-learn" role="button">Learn&nbsp;more</button>
             </div>
             <div id="blurb-or-con">or</div>
             <div id="blurb-join-con">
-                <a class="btn btn-primary text-secondary" href="https://forms.gle/o7YhQZpbFVWUmhv97" role="button"
-                   id="blurb-join">Join</a>
+                <button class="btn btn-primary text-secondary" data-bs-target="#member-modal" data-bs-toggle="modal"
+                        id="blurb-join" role="button">Join<br>
+                </button>
             </div>
         </div>
     </div>
+    <div id="explore-con">
+        <div id="explore-background-con">
+            <svg height="4902" preserveAspectRatio="none" viewBox="0 0 1000 4900" width="100%"
+                 xmlns="http://www.w3.org/2000/svg">
+                <polygon points="0 0, 1000 0, 1000 152, 0 402" style="fill: #140533;"></polygon>
+                <polygon points="0 400, 1000 150, 1000 302, 0 402" style="fill: #1F084D;"></polygon>
 
+                <polygon points="0 400, 1000 300, 1000 302, 0 552" style="fill: #330D80;"></polygon>
+                <polygon points="0 550, 1000 300, 1000 702, 0 952" style="fill: #3D0F99;"></polygon>
+                <polygon points="0 950, 1000 700, 1000 852, 0 952" style="fill: #330D80;"></polygon>
 
+                <polygon points="0 950, 1000 850, 1000 852, 0 1102" style="fill: #1F084D;"></polygon>
+                <polygon points="0 1100, 1000 850, 1000 1252, 0 1502" style="fill: #140533;"></polygon>
+                <polygon points="0 1500, 1000 1250, 1000 1402, 0 1502" style="fill: #1F084D;"></polygon>
+
+                <polygon points="0 1500, 1000 1400, 1000 1402, 0 1652" style="fill: #330D80;"></polygon>
+                <polygon points="0 1650, 1000 1400, 1000 1802, 0 2052" style="fill: #3D0F99;"></polygon>
+                <polygon points="0 2050, 1000 1800, 1000 1952, 0 2052" style="fill: #330D80;"></polygon>
+
+                <polygon points="0 2050, 1000 1950, 1000 1952, 0 2202" style="fill: #1F084D;"></polygon>
+                <polygon points="0 2200, 1000 1950, 1000 2402, 0 2652" style="fill: #140533;"></polygon>
+                <polygon points="0 2650, 1000 2400, 1000 2552, 0 2652" style="fill: #1F084D;"></polygon>
+
+                <polygon points="0 2650, 1000 2550, 1000 2552, 0 2802" style="fill: #0D3D80;"></polygon>
+                <polygon points="0 2800, 1000 2550, 1000 2952, 0 3202" style="fill: #0F4999;"></polygon>
+                <polygon points="0 3200, 1000 2950, 1000 3102, 0 3202" style="fill: #0D3D80;"></polygon>
+
+                <polygon points="0 3200, 1000 3100, 1000 3102, 0 3352" style="fill: #08244D;"></polygon>
+                <polygon points="0 3350, 1000 3100, 1000 3502, 0 3752" style="fill: #051833;"></polygon>
+                <polygon points="0 3750, 1000 3500, 1000 3652, 0 3752" style="fill: #08244D;"></polygon>
+
+                <polygon points="0 3750, 1000 3650, 1000 3652, 0 3902" style="fill: #0D3D80;"></polygon>
+                <polygon points="0 3900, 1000 3650, 1000 4052, 0 4302" style="fill: #0F4999;"></polygon>
+                <polygon points="0 4300, 1000 4050, 1000 4202, 0 4302" style="fill: #0D3D80;"></polygon>
+
+                <polygon points="0 4300, 1000 4200, 1000 4202, 0 4452" style="fill: #08244D;"></polygon>
+                <polygon points="0 4450, 1000 4200, 1000 4652, 0 4902" style="fill: #051833;"></polygon>
+                <polygon points="0 4900, 1000 4650, 1000 4802, 0 4902" style="fill: #08244D;"></polygon>
+            </svg>
+        </div>
+        <div class="explore-section-dark qc d-flex fade-in" id="explore1">
+            <h2 id="explore1-title">Social&nbsp;media</h2>
+            <div class="d-flex justify-content-around" id="explore1-icon-con">
+                <a class="social-icon" href="https://facebook.com/QCastron/" target="_blank">
+                    <img alt="Facebook" class="social-icon" src="./img/fb.svg" title="Facebook">
+                </a>
+                <a class="social-icon" href="https://www.instagram.com/qcastron_2021/" target="_blank">
+                    <img alt="Instagram" class="social-icon" src="./img/ig.svg" title="Instagram">
+                </a>
+                <a class="social-icon" href="https://t.me/qcastron" target="_blank">
+                    <img alt="Telegram" class="social-icon" src="./img/tg.svg" title="Telegram">
+                </a>
+            </div>
+            <div class="description" id="explore1-description">
+                Follow our social media for our latest&nbsp;updates<br>
+            </div>
+        </div>
+        <div class="explore-section-light qc d-flex align-items-center fade-in" id="explore2">
+            <div class="explore-image flex-grow-1" id="explore2-image"></div>
+            <div class="explore-text" id="explore2-text">
+                <h2 id="explore2-title">Mission</h2>
+                <div class="explore-description" id="explore2-description">
+                    Founded on 24 October 1961 by Mr Liu Hing-Chai, the Astronomers' Club has operated for over half a
+                    century. We are dedicated to not only promoting astronomy among our brethren but also forging bonds
+                    between them. Our mission has brought many together, evocative of the brotherhood we hold so
+                    dear.<br>
+                </div>
+            </div>
+        </div>
+        <div class="explore-section-dark qc d-flex align-items-center fade-in" id="explore3">
+            <div class="explore-image flex-grow-1" id="explore3-image"></div>
+            <div class="explore-text" id="explore3-text">
+                <h2 id="explore3-title">Activities</h2>
+                <div class="explore-description" id="explore3-description">
+                    Astronomers' Night is regular astronomy talk and stargazing-in-one activity held twice a month. The
+                    Astronomers' Nights give participants a chance to know more about the Space above and a rare,
+                    hands-on experience to operate our equipment. We also organise regular solar observations and
+                    off-campus stargazing.<br>
+                </div>
+            </div>
+        </div>
+        <div class="explore-section-light qc d-flex align-items-center fade-in" id="explore4">
+            <div class="explore-image flex-grow-1" id="explore4-image"></div>
+            <div class="explore-text" id="explore4-text">
+<!--                <h2 id="explore4-title">Rooftop</h2>-->
+                <div class="explore-description" id="explore4-description">
+                    The signature rooftop dome only constitutes one part of the Club's equipment on campus. Another
+                    dedicated Astronomers' Room allows us access to the rooftop, storage for telescopes, and a venue
+                    reserved for Club activities.<br>
+                </div>
+            </div>
+        </div>
+        <div class="explore-section-dark qc d-flex align-items-center fade-in" id="explore5">
+            <div class="carousel carousel-fade carousel-component slide" data-bs-ride="carousel" id="qc-carousel">
+                <div class="carousel-indicators">
+                    <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
+                            data-bs-target="#qc-carousel" type="button"></button>
+                    <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#qc-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#qc-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#qc-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 5" data-bs-slide-to="4" data-bs-target="#qc-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 6" data-bs-slide-to="5" data-bs-target="#qc-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 7" data-bs-slide-to="6" data-bs-target="#qc-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 8" data-bs-slide-to="7" data-bs-target="#qc-carousel"
+                            type="button"></button>
+                </div>
+                <div class="carousel-inner carousel-component">
+                    <div class="carousel-item active carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-1"></div>
+                        <div class="carousel-caption">
+                            <h5>Solar Eclipse 2020</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-2"></div>
+                        <div class="carousel-caption">
+                            <h5>Solar Eclipse 2019</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-3"></div>
+                        <div class="carousel-caption">
+                            <h5>Solar Eclipse 2019</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-4"></div>
+                        <div class="carousel-caption">
+                            <h5>Joint-School Stargazing</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-5"></div>
+                        <div class="carousel-caption">
+                            <h5>Open days</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-6"></div>
+                        <div class="carousel-caption">
+                            <h5>Open days</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-7"></div>
+                        <div class="carousel-caption">
+                            <h5>Observatory Opening</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="qc-carousel-image-8"></div>
+                        <div class="carousel-caption">
+                            <h5>DYI Telescopes</h5>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#qc-carousel" type="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#qc-carousel" type="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="explore-section-light tt d-flex align-items-center fade-in" id="explore6">
+            <div class="explore-image flex-grow-1" id="explore6-image"></div>
+            <div class="explore-text" id="explore6-text">
+                <h2 id="explore6-title">Tai Tam Observatory</h2>
+                <div class="explore-description" id="explore6-description">
+                    The Stanley Ho Astronomical Observatory, opened in 2019, is an off-campus site situated in Tai Tam.
+                    The Observatory benefits from lesser light pollution and a more isolated locale compared to the
+                    Queen's College campus.<br>
+                </div>
+            </div>
+        </div>
+        <div class="explore-section-dark tt d-flex align-items-center fade-in" id="explore7">
+            <div class="explore-image flex-grow-1" id="explore7-image"></div>
+            <div class="explore-text" id="explore7-text">
+                <h2 id="explore7-title">Equipment</h2>
+                <div class="explore-description" id="explore7-description">
+                    The Observatory houses high-end equipment exclusive to Club members, affording us to make long-term
+                    observations. Advanced equipment enables astrophotography and precise measurements to be made at the
+                    site, giving members a taste in more professional astronomical investigations.<br>
+                </div>
+            </div>
+        </div>
+        <div class="explore-section-light tt d-flex align-items-center fade-in" id="explore8">
+            <div class="explore-image flex-grow-1" id="explore8-image"></div>
+            <div class="explore-text" id="explore8-text">
+<!--                <h2 id="explore8-title">Unique Experience</h2>-->
+                <div class="explore-description" id="explore8-description">
+                    The isolated location gives way to opportunities previously impossible on-campus, while also
+                    allowing observation in the relative comfort and protection of the Observatory. It also lets members
+                    enjoy the skies in peace, away from the crowds and busy work of the city, and with friends of common
+                    interest.<br>
+                </div>
+            </div>
+        </div>
+        <div class="explore-section-dark tt d-flex align-items-center fade-in" id="explore9">
+            <div class="carousel carousel-fade carousel-component slide" data-bs-ride="carousel" id="tt-carousel">
+                <div class="carousel-indicators">
+                    <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
+                            data-bs-target="#tt-carousel" type="button"></button>
+                    <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#tt-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#tt-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#tt-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 5" data-bs-slide-to="4" data-bs-target="#tt-carousel"
+                            type="button"></button>
+                    <button aria-label="Slide 6" data-bs-slide-to="5" data-bs-target="#tt-carousel"
+                            type="button"></button>
+                </div>
+                <div class="carousel-inner carousel-component">
+                    <div class="carousel-item active carousel-component">
+                        <div class="carousel-image carousel-component" id="tt-carousel-image-1"></div>
+                        <div class="carousel-caption">
+                            <h5>Orion Nebula</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="tt-carousel-image-2"></div>
+                        <div class="carousel-caption">
+                            <h5>Rosette Nebula</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="tt-carousel-image-3"></div>
+                        <div class="carousel-caption">
+                            <h5>Waxing Gibbous</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="tt-carousel-image-4"></div>
+                        <div class="carousel-caption">
+                            <h5>Sun</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="tt-carousel-image-5"></div>
+                        <div class="carousel-caption">
+                            <h5>Whirlpool Galaxy</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-component">
+                        <div class="carousel-image carousel-component" id="tt-carousel-image-6"></div>
+                        <div class="carousel-caption">
+                            <h5>Jupiter</h5>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#tt-carousel" type="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#tt-carousel" type="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="explore-section-light qc d-flex align-items-center fade-in" id="recruitment">
+            <div class="explore-image flex-grow-1" id="recruitment-image"></div>
+            <div class="explore-text" id="recruitment-text">
+                <h2 id="recruitment-title">Calling&nbsp;All&nbsp;Talents</h2>
+                <div class="explore-description" id="recruitment-description">
+                    We are recruiting future core members year-round. Sign&nbsp;up&nbsp;today!<br>
+                    <div id="join-team-con">
+                        <button class="btn btn-primary text-secondary" data-bs-target="#subcom-modal"
+                                data-bs-toggle="modal" id="join-team" role="button">Join&nbsp;our&nbsp;team
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="constellations-con">
+            <div id="bubble-con">
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+                <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#290A66" />
+                </svg>
+            </div>
+            <canvas height="750" id="constellations" width="1280">
+                <p>Sorry, your browser does not support the &lt;canvas&gt; element.</p>
+                <p>Please upgrade to the latest version of your browser.</p>
+            </canvas>
+        </div>
+        <div class="" id="footer">
+            ©2021&nbsp;<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC&nbsp;BY-NC-ND&nbsp;4.0</a>
+            Queen's&nbsp;College&nbsp;Astronomers'&nbsp;Club,&nbsp;Hong&nbsp;Kong<br>
+        </div>
+        <div class="modal fade" id="member-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">QC Account Required</h5>
+                        <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        Your Queen's College Google account is required for the Google Form. Please have it active or
+                        log-in after clicking "proceed".<br>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                        <a class="btn btn-primary" href="https://forms.gle/o7YhQZpbFVWUmhv97" target="_blank"
+                           rel="nofollow" type="button">Proceed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="subcom-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">QC Account Required</h5>
+                        <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        Your Queen's College Google account is required for the Google Form. Please have it active or
+                        log-in after clicking "proceed".<br>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                        <a class="btn btn-primary" href="https://forms.gle/xisG23qMogkenuWA9" target="_blank"
+                           rel="nofollow" type="button">Proceed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
-        integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
-        crossorigin="anonymous"></script>
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!--<script crossorigin="anonymous" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>-->
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

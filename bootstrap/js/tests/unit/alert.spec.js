@@ -1,5 +1,5 @@
 import Alert from '../../src/alert'
-import { getTransitionDurationFromElement } from '../../src/util/index'
+import { getTransitionDurationFromElement } from '../../src/util'
 
 /** Test helpers */
 import { getFixture, clearFixture, jQueryMock } from '../helpers/fixture'

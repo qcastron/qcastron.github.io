@@ -1,54 +1,96 @@
-(function ($) {
-    let navbar = $('#nav-bar');
+let navbar = $("#nav-bar");
 
-    $(window).scroll(function () {
-        let st = $(this).scrollTop();
-        st > 80 ? navbar.removeClass('bg-transparent').addClass('bg-purple-gradient') :
-            navbar.removeClass('bg-purple-gradient').addClass('bg-transparent');
-    });
-})(jQuery);
+function scroll_update() {
+    let st = $(this).scrollTop(),
+        fadein = $(".fade-in:not(.visible)");
+    st > 60 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
+        navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
+    for (let i = 0; fadein && i < fadein.length; i++) {
+        let obj = fadein[i];
+        if ($(obj).position().top < st + $(window).height() * .75) {
+            $(obj).addClass("visible");
+        }
+    }
+}
 
-
-let collapsed_nav = document.getElementById("nav-hide-content"),
-navbar = document.getElementById("nav-bar");
-
-collapsed_nav.addEventListener('show.bs.collapse', function () {
-    navbar.className = "navbar fixed-top navbar-expand-md navbar-dark bg-purple-gradient";
-});
-collapsed_nav.addEventListener('hidden.bs.collapse', function () {
-    navbar.className = "navbar fixed-top navbar-expand-md navbar-dark bg-transparent";
+$(document).ready(function () {
+    scroll_update();
 });
 
+$(window).scroll(function () {
+    scroll_update();
+});
+
+navbar.on({
+    "show.bs.collapse": function () {
+        navbar.removeClass("bg-transparent").addClass("bg-purple-gradient");
+    },
+
+    "hide.bs.collapse": function () {
+        let st = $(window).scrollTop();
+        if (st < 80) {
+            navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
+        }
+    }
+});
+
+$("#blurb-learn").click(function () {
+    $("html,body").animate({
+        scrollTop: $("#explore-con").offset().top - 72
+    }, "slow");
+});
+
+window.addEventListener('resize', resize);
+
+function resize() {
+    explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2;
+    canvas_top = explore_top + 4798;
+    document.getElementById("explore-background-con").style.top = explore_top + "px";
+    document.getElementById("constellations-con").style.top = canvas_top + "px";
+
+    let carrousel = document.getElementById("qc-carousel"),
+        carrousel_width = carrousel.clientWidth,
+        carrousel_components = document.getElementsByClassName("carousel-component");
+    if (carrousel_width < 500) {
+        for (let i = 0; i < carrousel_components.length; i++) {
+            carrousel_components[i].style.height = carrousel_width + "px";
+        }
+    } else {
+        for (let i = 0; i < carrousel_components.length; i++) {
+            carrousel_components[i].style.height = 500 + "px";
+        }
+    }
+
+    canvas.width = document.body.clientWidth;
+    canvas.height = 750;
+//  canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
+    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005;
+}
 
 let canvas = document.getElementById("constellations"),
-    ctx = canvas.getContext('2d');
+    ctx = canvas.getContext("2d");
 
 ctx.imageSmoothingEnabled = true;
 ctx.imageSmoothingQuality = "high";
 
-
-canvas.width = document.body.clientWidth;
-// canvas.height = 750;
-canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
-canvas.style.display = "block";
-
-
 var stars = [],
     speed = 0.15,
     offset = 50,
-    dist = 40,
+    dist = 30,
     max_connect = 3,
     special_count = 0,
-    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004,
+    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005,
     mouse = {
         x: 0,
         y: 0
     };
 
+resize()
 
-for (let i = 0; stars.length < x ;) {
+for (let i = 0; stars.length < x;) {
     i = new New_dot();
     i.life = Math.random();
+    i.midlife = Math.random() * 2 | 0;
     stars.push(i);
 }
 
@@ -59,7 +101,7 @@ function New_dot() {
     };
     this.x = Math.random() * canvas.width + offset;
     this.y = Math.random() * canvas.height + offset / 2;
-    this.radius = 2 * Math.random() + .5;
+    this.radius = 2 * Math.random() + .8;
     this.vx = l();
     this.vy = .5 * l();
     this.life = 0;
@@ -71,47 +113,55 @@ function New_dot() {
 
 
 function draw() {
-    ctx.clearRect(0,0, canvas.width, canvas.height);
-    ctx.globalCompositeOperation = "lighter";
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     let x = stars.length;
+    ctx.beginPath();
     for (let i = 0; i < x; i++) {
         let s = stars[i];
-        s.size = s.radius * Math.pow(s.life, .6);
-        s.quota = s.size * (s.special ? 2.4 : 1.4) | 0;
-
-        ctx.fillStyle = s.special ? "rgba(255,204,0, 1)" : "rgba(223,190,255, 1)";
+        if (!s.special) {
+            draw_star(s);
+        }
+    }
+    ctx.fillStyle = "#E0E0E0";
+    ctx.fill();
+    if (special_count) {
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size, 0, 2 * Math.PI);
+        for (let i = 0; i < x; i++) {
+            let s = stars[i];
+            if (s.special) {
+                draw_star(s);
+            }
+        }
+        ctx.fillStyle = "#FFCC00";
         ctx.fill();
-        ctx.stroke();
     }
 
     let pointer_quota = max_connect;
     ctx.beginPath();
     for (let i = 0; i < x; i++) {
         let starI = stars[i];
-        if(pointer_quota && (distance(mouse, starI) < dist * starI.size)) {
-            ctx.moveTo(starI.x,starI.y);
+        if (pointer_quota && (distance(mouse, starI) < dist * starI.size)) {
+            ctx.moveTo(starI.x, starI.y);
             ctx.lineTo(mouse.x, mouse.y);
             pointer_quota--;
         }
         for (let j = i + 1; ((j < x) && starI.quota); j++) {
             let starII = stars[j];
             if (distance(starI, starII) < Math.min(dist * Math.min(starI.size, starII.size) * Math.min(starI.quota, starII.quota), dist * max_connect)) {
-                ctx.moveTo(starI.x,starI.y);
-                ctx.lineTo(starII.x,starII.y);
+                ctx.moveTo(starI.x, starI.y);
+                ctx.lineTo(starII.x, starII.y);
                 starI.quota--;
                 starII.quota--;
             }
         }
     }
     ctx.lineWidth = .8;
-    ctx.strokeStyle = "rgba(223, 190, 255, 0.3)";
+    ctx.strokeStyle = "#6B7E99";
     ctx.stroke();
 }
 
-function distance(point1, point2){
+function distance(point1, point2) {
     let xs;
     let ys;
 
@@ -121,15 +171,21 @@ function distance(point1, point2){
     ys = point2.y - point1.y;
     ys = ys * ys;
 
-    return Math.sqrt( xs + ys );
+    return Math.sqrt(xs + ys);
 }
 
+function draw_star(s) {
+    s.size = s.radius * Math.pow(s.life, .6);
+    s.quota = s.size | 0;
+    ctx.moveTo(s.x, s.y);
+    ctx.arc(s.x, s.y, s.size, 0, 2 * Math.PI);
+}
 
 function update() {
     for (let i = 0; i < stars.length; i++) {
         let s = stars[i];
 
-        s.life += (s.midlife ? -.0015 : .0015) / s.radius;
+        s.life += (s.midlife ? -.004 : .004) / s.radius;
         if (s.life >= 1 && !s.midlife) {
             s.midlife = 1;
         }
@@ -139,8 +195,7 @@ function update() {
                 special_count--;
             }
             stars.splice(i, 1);
-        }
-        else {
+        } else {
             s.x += s.vx;
             s.y += s.vy;
 
@@ -158,27 +213,22 @@ function update() {
     }
 }
 
-window.addEventListener('mousemove', function(e){
+window.addEventListener("mousemove", function (e) {
     let rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+    if (canvas_top <= e.pageY) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY - rect.top;
+    }
 });
 
-window.addEventListener("resize", function () {
-    canvas.width = document.body.clientWidth;
-    // canvas.height = 750;
-    canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
-    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0004;
-});
-
-window.addEventListener("click", function(e) {
-    if (e.clientY < canvas.height) {
-        let rect = canvas.getBoundingClientRect(),
-            s = new New_dot();
-        s.x = e.clientX - rect.left;
+window.addEventListener("click", function (e) {
+    let rect = canvas.getBoundingClientRect();
+    if (canvas_top <= e.pageY) {
+        let s = new New_dot();
+        s.x = e.clientX;
         s.y = e.clientY - rect.top;
         s.life = .5;
-        s.radius *= 1.5;
+        s.radius += 1;
         s.special = 1;
         stars.push(s);
         special_count++;
