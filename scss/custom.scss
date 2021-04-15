@@ -179,7 +179,7 @@ a, .blurb, .carousel, #recruitment, #footer {
   min-width: 100%;
   min-height: max(57vw, 560px); /* 100 * 9 / 16 */
   transform: translate(-50%, min(-50%, -250px)); /* % of current element */
-  background: linear-gradient(rgba(20, 5, 51, 0.1), rgba(20, 5, 51, 0.1)), url("../img/qc3.jpg") no-repeat 40% 60%/cover;
+  background: url("../img/poster.jpg") no-repeat 50%/cover;
 }
 
 #blurb-con {
@@ -626,7 +626,7 @@ div .fade-in.visible {
 
     @keyframes raise#{$i} {
       to {
-        bottom: 950px;
+        bottom: 1000px;
         transform: scale($scale);
       }
     }

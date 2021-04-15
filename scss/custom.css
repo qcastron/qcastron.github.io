@@ -10797,7 +10797,7 @@ a, .blurb, .carousel, #recruitment, #footer {
   /* 100 * 9 / 16 */
   transform: translate(-50%, min(-50%, -250px));
   /* % of current element */
-  background: linear-gradient(rgba(20, 5, 51, 0.1), rgba(20, 5, 51, 0.1)), url("../img/qc3.jpg") no-repeat 40% 60%/cover;
+  background: url("../img/poster.jpg") no-repeat 50%/cover;
 }
 
 #blurb-con {
@@ -11233,7 +11233,7 @@ div .fade-in.visible {
 }
 
 .bubble:nth-child(1) {
-  left: 58%;
+  left: -16%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11241,13 +11241,13 @@ div .fade-in.visible {
 }
 @keyframes raise1 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(0.7);
   }
 }
 
 .bubble:nth-child(2) {
-  left: 85%;
+  left: 44%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11255,13 +11255,13 @@ div .fade-in.visible {
 }
 @keyframes raise2 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(0.9);
   }
 }
 
 .bubble:nth-child(3) {
-  left: 20%;
+  left: 14%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -11269,13 +11269,13 @@ div .fade-in.visible {
 }
 @keyframes raise3 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(1.1);
   }
 }
 
 .bubble:nth-child(4) {
-  left: 28%;
+  left: 2%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -11283,13 +11283,13 @@ div .fade-in.visible {
 }
 @keyframes raise4 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(1.3);
   }
 }
 
 .bubble:nth-child(5) {
-  left: 6%;
+  left: 61%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11297,13 +11297,13 @@ div .fade-in.visible {
 }
 @keyframes raise5 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(1.5);
   }
 }
 
 .bubble:nth-child(6) {
-  left: 33%;
+  left: 2%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -11311,13 +11311,13 @@ div .fade-in.visible {
 }
 @keyframes raise6 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(1.7);
   }
 }
 
 .bubble:nth-child(7) {
-  left: -7%;
+  left: 44%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11325,13 +11325,13 @@ div .fade-in.visible {
 }
 @keyframes raise7 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(1.9);
   }
 }
 
 .bubble:nth-child(8) {
-  left: 30%;
+  left: 15%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11339,13 +11339,13 @@ div .fade-in.visible {
 }
 @keyframes raise8 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(2.1);
   }
 }
 
 .bubble:nth-child(9) {
-  left: 54%;
+  left: 6%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11353,13 +11353,13 @@ div .fade-in.visible {
 }
 @keyframes raise9 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(2.3);
   }
 }
 
 .bubble:nth-child(10) {
-  left: 65%;
+  left: -16%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;
@@ -11367,7 +11367,7 @@ div .fade-in.visible {
 }
 @keyframes raise10 {
   to {
-    bottom: 950px;
+    bottom: 1000px;
     transform: scale(2.5);
   }
 }
