@@ -43,11 +43,6 @@ $("#blurb-learn").click(function () {
 window.addEventListener('resize', resize);
 
 function resize() {
-    explore_top = (window.innerHeight > 560 ? window.innerHeight : 560) - 2;
-    canvas_top = explore_top + 4798;
-    document.getElementById("explore-background-con").style.top = explore_top + "px";
-    document.getElementById("constellations-con").style.top = canvas_top + "px";
-
     let carrousel = document.getElementById("qc-carousel"),
         carrousel_width = carrousel.clientWidth,
         carrousel_components = document.getElementsByClassName("carousel-component");
@@ -115,29 +110,8 @@ function New_dot() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    let x = stars.length;
-    ctx.beginPath();
-    for (let i = 0; i < x; i++) {
-        let s = stars[i];
-        if (!s.special) {
-            draw_star(s);
-        }
-    }
-    ctx.fillStyle = "#E0E0E0";
-    ctx.fill();
-    if (special_count) {
-        ctx.beginPath();
-        for (let i = 0; i < x; i++) {
-            let s = stars[i];
-            if (s.special) {
-                draw_star(s);
-            }
-        }
-        ctx.fillStyle = "#FFCC00";
-        ctx.fill();
-    }
-
-    let pointer_quota = max_connect;
+    let x = stars.length,
+        pointer_quota = max_connect;
     ctx.beginPath();
     for (let i = 0; i < x; i++) {
         let starI = stars[i];
@@ -159,6 +133,27 @@ function draw() {
     ctx.lineWidth = .8;
     ctx.strokeStyle = "#6B7E99";
     ctx.stroke();
+
+    ctx.beginPath();
+    for (let i = 0; i < x; i++) {
+        let s = stars[i];
+        if (!s.special) {
+            draw_star(s);
+        }
+    }
+    ctx.fillStyle = "#E0E0E0";
+    ctx.fill();
+    if (special_count) {
+        ctx.beginPath();
+        for (let i = 0; i < x; i++) {
+            let s = stars[i];
+            if (s.special) {
+                draw_star(s);
+            }
+        }
+        ctx.fillStyle = "#FFCC00";
+        ctx.fill();
+    }
 }
 
 function distance(point1, point2) {
@@ -214,19 +209,19 @@ function update() {
 }
 
 window.addEventListener("mousemove", function (e) {
-    let rect = canvas.getBoundingClientRect();
+    let canvas_top = canvas.getBoundingClientRect().top;
     if (canvas_top <= e.pageY) {
         mouse.x = e.clientX;
-        mouse.y = e.clientY - rect.top;
+        mouse.y = e.clientY - canvas_top;
     }
 });
 
 window.addEventListener("click", function (e) {
-    let rect = canvas.getBoundingClientRect();
+    let canvas_top = canvas.getBoundingClientRect().top;
     if (canvas_top <= e.pageY) {
         let s = new New_dot();
         s.x = e.clientX;
-        s.y = e.clientY - rect.top;
+        s.y = e.clientY - canvas_top;
         s.life = .5;
         s.radius += 1;
         s.special = 1;
