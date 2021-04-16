@@ -135,6 +135,7 @@ a, .blurb, .carousel, #recruitment, #footer {
   min-width: 125px;
   max-width: 200px;
   transition: all 0.15s ease-in-out;
+  pointer-events: all;
 }
 
 .btn-outline-primary, h1, h2, h3, h4, h5, h6, #blurb-con, #recruitment {
