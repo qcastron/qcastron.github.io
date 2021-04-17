@@ -1,20 +1,28 @@
-let navbar = $("#nav-bar");
+let navbar = $("#nav-bar"),
+    fadein = $(".fade-in");
 
 function scroll_update() {
-    let st = $(this).scrollTop(),
-        fadein = $(".fade-in:not(.visible)");
+    let st = window.scrollY;
     st > 60 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
         navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
     for (let i = 0; fadein && i < fadein.length; i++) {
         let obj = fadein[i];
         if ($(obj).position().top < st + $(window).height() * .75) {
-            $(obj).addClass("visible");
+            $(obj).removeClass("invisible");
         }
     }
 }
 
 $(document).ready(function () {
-    scroll_update();
+    let st = window.scrollY;
+    for (let i = 0; fadein && i < fadein.length; i++) {
+        let obj = fadein[i];
+        if ($(obj).position().top > st + $(window).height() * .75) {
+            $(obj).addClass("invisible");
+        }
+    }
+    scroll_update()
+    resize();
 });
 
 $(window).scroll(function () {
@@ -27,7 +35,7 @@ navbar.on({
     },
 
     "hide.bs.collapse": function () {
-        let st = $(window).scrollTop();
+        let st = window.scrollY;
         if (st < 80) {
             navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
         }
@@ -79,8 +87,6 @@ var stars = [],
         x: 0,
         y: 0
     };
-
-resize()
 
 for (let i = 0; stars.length < x;) {
     i = new New_dot();

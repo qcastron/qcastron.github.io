@@ -301,12 +301,7 @@ h2::after {
   background: #FFCC00;
 }
 
-div .fade-in {
-  opacity: 0;
-}
-
-div .fade-in.visible {
-  opacity: 1;
+.fade-in:not(.invisible) {
   animation: fadeInY ease 1.2s;
 }
 
