@@ -49,10 +49,10 @@
 </nav>
 <div class="container-fluid m-0 p-0" id="content">
     <div class="poster" id="poster-con">
-        <video autoplay="" class="poster" id="poster" loop="" muted="" playsinline="" poster="img/poster.jpg"
+        <video autoplay class="poster" id="poster" loop muted playsinline poster="img/poster.jpg"
                style="background: url('img/poster.jpg') no-repeat 50%/cover;">
-            <source src="img/poster.webm" type="video/webm">
-            <source src="img/poster.mp4" type="video/mp4">
+            <source id="webm" src="img/poster.webm" type="video/webm">
+            <source id="mp4" src="img/poster.mp4" type="video/mp4">
         </video>
     </div>
     <div class="container-fluid blurb" id="blurb-con">
@@ -442,9 +442,62 @@
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!--<script crossorigin="anonymous" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>-->
+<script>
+    let poster = document.getElementById("poster"),
+        source1 = document.getElementById("webm"),
+        source2 = document.getElementById("mp4"),
+        canvas = document.getElementById("constellations"),
+        last_state = false;
+    changeSrc();
+    poster.play();
+
+    function changeSrc() {
+        let is_vertical = window.innerWidth * 5 < window.innerHeight * 4;
+        if (is_vertical !== last_state) {
+            if (is_vertical) {
+                poster.pause();
+                source1.removeAttribute("src");
+                source2.removeAttribute("src");
+                source1.setAttribute("src", "img/poster-vertical.webm");
+                source2.setAttribute("src", "img/poster-vertical.mp4");
+                poster.load();
+                poster.classList.add("vertical");
+                poster.play();
+                last_state = true;
+            } else {
+                poster.pause();
+                source1.removeAttribute("src");
+                source2.removeAttribute("src");
+                source1.setAttribute("src", "img/poster.webm");
+                source2.setAttribute("src", "img/poster.mp4");
+                poster.load();
+                poster.classList.remove("vertical");
+                poster.play();
+                last_state = false;
+            }
+        }
+    }
+
+    function resize() {
+        changeSrc();
+        let carrousel = document.getElementById("qc-carousel"),
+            carrousel_components = document.getElementsByClassName("carousel-component"),
+            carrousel_width = carrousel.clientWidth;
+        if (carrousel_width < 500) {
+            for (let i = 0; i < carrousel_components.length; i++) {
+                carrousel_components[i].style.height = carrousel_width + "px";
+            }
+        } else {
+            for (let i = 0; i < carrousel_components.length; i++) {
+                carrousel_components[i].style.height = 500 + "px";
+            }
+        }
+        canvas.width = document.body.clientWidth;
+        canvas.height = 750;
+        x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005;
+    }
+</script>
+<script src="js/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQW8TQENF0"></script>

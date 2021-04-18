@@ -7,24 +7,28 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
   font-family: "Proxima Nova";
   src: url("../fonts/proximanova-light-webfont.woff");
   font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Proxima Nova";
   src: url("../fonts/proximanova-regular-webfont.woff");
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Proxima Nova";
   src: url("../fonts/proximanova-semibold-webfont2.woff2");
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Proxima Nova";
   src: url("../fonts/proximanova-bold-webfont.woff");
   font-weight: 700;
+  font-display: swap;
 }
 
 @keyframes fadeInX {
@@ -175,8 +179,20 @@ a, .blurb, .carousel, #recruitment, #footer {
   top: 50%;
   height: 100%;
   width: max(178vh, 996px); /* 100 * 16 / 9 */
-  min-width: 100%;
+  min-width: 100vw;
   min-height: max(57vw, 560px); /* 100 * 9 / 16 */
+  transform: translate(-50%, min(-50%, -250px)); /* % of current element */
+  background: url("../img/poster.jpg") no-repeat 50%/cover;
+}
+
+#poster.vertical {
+  position: absolute;
+  left: 50%; /* % of surrounding element */
+  top: 50%;
+  height: 100%;
+  width: max(57vh, 315px); /* 100 * 9 / 16 */
+  min-width: 100vw;
+  min-height: max(178vw, 560px); /* 100 * 16 / 9 */
   transform: translate(-50%, min(-50%, -250px)); /* % of current element */
   background: url("../img/poster.jpg") no-repeat 50%/cover;
 }
@@ -251,12 +267,12 @@ a, .blurb, .carousel, #recruitment, #footer {
   animation: fadeInY ease 1.2s backwards 3s;
 }
 
-#buttons-con {
-  animation: fadeInY ease 1.2s backwards 3.5s;
-}
-
 #buttons-con * {
   float: left;
+}
+
+#blurb-learn {
+  animation: fadeInY ease 1.2s backwards 4s;
 }
 
 #blurb-or-con {
@@ -268,10 +284,12 @@ a, .blurb, .carousel, #recruitment, #footer {
   text-align: center;
   padding-top: 4px;
   padding-left: 0;
+  animation: fadeInY ease 1.2s backwards 5s;
 }
 
 #blurb-join {
   text-shadow: none;
+  animation: fadeInY ease 1.2s backwards 5.5s;
 }
 
 #explore-background-con {
