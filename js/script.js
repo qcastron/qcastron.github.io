@@ -1,3 +1,5 @@
+//You're really dedicated and techy eh? You're gonna have a great time in our team. Sign up and tell us 'bout this
+
 let navbar = $("#nav-bar"),
     fadein = $(".fade-in");
 
@@ -221,5 +223,7 @@ function tick() {
     requestAnimationFrame(tick);
 }
 
+console.log("%cIf you see this, you're talented and we want you. Join our team below :D",
+    "background: #140533; color: #FFCC00; font-size: 24px; font-weight: 700;");
 tick();
 

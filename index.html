@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-HK">
+<!--If you see this, you're talented and we want you. Join our team below :D-->
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover" name="viewport">
@@ -46,6 +47,7 @@
 </nav>
 <div class="container-fluid m-0 p-0" id="content">
     <div class="poster" id="poster-con">
+        <!--Trying to figure out how this work eh?-->
         <video autoplay class="poster" id="poster" loop muted playsinline poster="img/poster.jpg"
                style="background: url('img/poster.jpg') no-repeat 50%/cover;">
             <source id="webm" src="img/poster.webm" type="video/webm">
@@ -226,6 +228,7 @@
                         </div>
                     </div>
                     <div class="carousel-item carousel-component">
+                        <!--陳蛋無敵 1995-2021-->
                         <div class="carousel-image carousel-component" id="qc-carousel-image-8"></div>
                         <div class="carousel-caption">
                             <h5>DYI Telescopes</h5>
@@ -355,6 +358,7 @@
                 </div>
             </div>
         </div>
+        <!--I see you're curious in the stars. Check the script.js file. It's not minified for you to digest :P-->
         <div id="constellations-con">
             <div id="bubble-con">
                 <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
@@ -453,8 +457,10 @@
         if (is_vertical !== last_state) {
             if (is_vertical) {
                 poster.pause();
+                poster.removeAttribute("poster");
                 source1.removeAttribute("src");
                 source2.removeAttribute("src");
+                poster.setAttribute("poster", "img/poster-vertical.jpg");
                 source1.setAttribute("src", "img/poster-vertical.webm");
                 source2.setAttribute("src", "img/poster-vertical.mp4");
                 poster.load();
@@ -463,8 +469,10 @@
                 last_state = true;
             } else {
                 poster.pause();
+                poster.removeAttribute("poster");
                 source1.removeAttribute("src");
                 source2.removeAttribute("src");
+                poster.setAttribute("poster", "img/poster.jpg");
                 source1.setAttribute("src", "img/poster.webm");
                 source2.setAttribute("src", "img/poster.mp4");
                 poster.load();
