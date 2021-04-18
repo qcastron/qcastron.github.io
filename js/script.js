@@ -21,7 +21,7 @@ $(document).ready(function () {
             $(obj).addClass("invisible");
         }
     }
-    scroll_update()
+    scroll_update();
     resize();
 });
 
@@ -50,28 +50,7 @@ $("#blurb-learn").click(function () {
 
 window.addEventListener('resize', resize);
 
-function resize() {
-    let carrousel = document.getElementById("qc-carousel"),
-        carrousel_width = carrousel.clientWidth,
-        carrousel_components = document.getElementsByClassName("carousel-component");
-    if (carrousel_width < 500) {
-        for (let i = 0; i < carrousel_components.length; i++) {
-            carrousel_components[i].style.height = carrousel_width + "px";
-        }
-    } else {
-        for (let i = 0; i < carrousel_components.length; i++) {
-            carrousel_components[i].style.height = 500 + "px";
-        }
-    }
-
-    canvas.width = document.body.clientWidth;
-    canvas.height = 750;
-//  canvas.height = (window.innerHeight > 600 ? window.innerHeight : 600);
-    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005;
-}
-
-let canvas = document.getElementById("constellations"),
-    ctx = canvas.getContext("2d");
+let ctx = canvas.getContext("2d");
 
 ctx.imageSmoothingEnabled = true;
 ctx.imageSmoothingQuality = "high";
@@ -235,8 +214,6 @@ window.addEventListener("click", function (e) {
         special_count++;
     }
 }, false);
-
-// Update and draw
 
 function tick() {
     draw();
