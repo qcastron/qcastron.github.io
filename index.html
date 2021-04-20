@@ -231,7 +231,7 @@
                         <!--陳蛋無敵 1995-2021-->
                         <div class="carousel-image carousel-component" id="qc-carousel-image-8"></div>
                         <div class="carousel-caption">
-                            <h5>DYI Telescopes</h5>
+                            <h5>DIY Telescopes</h5>
                         </div>
                     </div>
                 </div>
@@ -453,7 +453,8 @@
     poster.play();
 
     function changeSrc() {
-        let is_vertical = window.innerWidth * 5 < window.innerHeight * 4;
+        let height = (window.innerHeight > 550) ? window.innerHeight : 550,
+            is_vertical = window.innerWidth * 5 < height * 4;
         if (is_vertical !== last_state) {
             if (is_vertical) {
                 poster.pause();
@@ -498,7 +499,7 @@
             }
         }
         canvas.width = document.body.clientWidth;
-        canvas.height = 750;
+        canvas.height = 800;
         x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005;
     }
 </script>

@@ -168,8 +168,8 @@ a, .blurb, .carousel, #recruitment, #footer {
   position: relative;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  min-height: max(550px, 100vh);
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -177,23 +177,17 @@ a, .blurb, .carousel, #recruitment, #footer {
   position: absolute;
   left: 50%; /* % of surrounding element */
   top: 50%;
+  width: 178vh; /* 100 * 16 / 9 */
   height: 100%;
-  width: max(178vh, 996px); /* 100 * 16 / 9 */
-  min-width: 100vw;
-  min-height: max(57vw, 550px); /* 100 * 9 / 16 */
-  transform: translate(-50%, min(-50%, -250px)); /* % of current element */
+  min-width: 100%;
+  min-height: 57vw; /* 100 * 9 / 16 */
+  transform: translate(-50%, -50%); /* % of current element */
   background: url("../img/poster.jpg") no-repeat 50%/cover;
 }
 
 #poster.vertical {
-  position: absolute;
-  left: 50%; /* % of surrounding element */
-  top: 50%;
-  height: 100%;
-  width: max(57vh, 315px); /* 100 * 9 / 16 */
-  min-width: 100vw;
-  min-height: max(178vw, 550px); /* 100 * 16 / 9 */
-  transform: translate(-50%, min(-50%, -250px)); /* % of current element */
+  width: 57vh; /* 100 * 9 / 16 */
+  min-height: 178vw; /* 100 * 16 / 9 */
   background: url("../img/poster.jpg") no-repeat 50%/cover;
 }
 
@@ -251,6 +245,7 @@ a, .blurb, .carousel, #recruitment, #footer {
   font-weight: 500;
   font-size: 32px;
   line-height: 1.3em;
+  max-width: 420px;
 }
 
 #ac {
@@ -295,7 +290,7 @@ a, .blurb, .carousel, #recruitment, #footer {
 #explore-background-con {
   width: 100%;
   position: absolute;
-  top: max(550px, 100vh);
+  top: 100vh;
   left: 0;
   z-index: -10;
 }
@@ -609,7 +604,7 @@ h2::after {
 }
 
 #recruitment {
-  height: 650px;
+  height: 700px;
 }
 
 #join-team {
@@ -639,7 +634,7 @@ h2::after {
 
     @keyframes raise#{$i} {
       to {
-        bottom: 1000px;
+        bottom: 1050px;
         transform: scale($scale);
       }
     }
@@ -649,9 +644,9 @@ h2::after {
 #constellations-con {
   position: absolute;
   left: 0;
-  top: calc(max(550px, 100vh) + 4800px);
+  top: calc(100vh + 4800px);
   width: 100%;
-  height: 750px;
+  height: 800px;
   background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80,  #140533);
   z-index: -100;
 }
@@ -788,5 +783,27 @@ h2::after {
 
   .social-icon {
     width: 80px;
+  }
+}
+
+@media (max-height: 549.98px) {
+  #poster-con {
+    height: 550px;
+  }
+
+  #poster {
+    width: 996px; /* 100 * 16 / 9 */
+  }
+
+  #poster.vertical {
+    width: 315px; /* 100 * 9 / 16 */
+  }
+
+  #explore-background-con {
+    top: 550px;
+  }
+
+  #constellations-con {
+    top: calc(550px + 4800px);
   }
 }
