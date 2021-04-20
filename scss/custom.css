@@ -10782,8 +10782,8 @@ a, .blurb, .carousel, #recruitment, #footer {
   position: relative;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  min-height: max(550px, 100vh);
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -10792,30 +10792,22 @@ a, .blurb, .carousel, #recruitment, #footer {
   left: 50%;
   /* % of surrounding element */
   top: 50%;
-  height: 100%;
-  width: max(178vh, 996px);
+  width: 178vh;
   /* 100 * 16 / 9 */
-  min-width: 100vw;
-  min-height: max(57vw, 550px);
+  height: 100%;
+  min-width: 100%;
+  min-height: 57vw;
   /* 100 * 9 / 16 */
-  transform: translate(-50%, min(-50%, -250px));
+  transform: translate(-50%, -50%);
   /* % of current element */
   background: url("../img/poster.jpg") no-repeat 50%/cover;
 }
 
 #poster.vertical {
-  position: absolute;
-  left: 50%;
-  /* % of surrounding element */
-  top: 50%;
-  height: 100%;
-  width: max(57vh, 315px);
+  width: 57vh;
   /* 100 * 9 / 16 */
-  min-width: 100vw;
-  min-height: max(178vw, 550px);
+  min-height: 178vw;
   /* 100 * 16 / 9 */
-  transform: translate(-50%, min(-50%, -250px));
-  /* % of current element */
   background: url("../img/poster.jpg") no-repeat 50%/cover;
 }
 
@@ -10873,6 +10865,7 @@ a, .blurb, .carousel, #recruitment, #footer {
   font-weight: 500;
   font-size: 32px;
   line-height: 1.3em;
+  max-width: 420px;
 }
 
 #ac {
@@ -10917,7 +10910,7 @@ a, .blurb, .carousel, #recruitment, #footer {
 #explore-background-con {
   width: 100%;
   position: absolute;
-  top: max(550px, 100vh);
+  top: 100vh;
   left: 0;
   z-index: -10;
 }
@@ -11231,7 +11224,7 @@ h2::after, .h2::after {
 }
 
 #recruitment {
-  height: 650px;
+  height: 700px;
 }
 
 #join-team {
@@ -11250,7 +11243,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: 44%;
+  left: 22%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11258,13 +11251,13 @@ h2::after, .h2::after {
 }
 @keyframes raise1 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(0.7);
   }
 }
 
 .bubble:nth-child(2) {
-  left: 28%;
+  left: 92%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11272,13 +11265,13 @@ h2::after, .h2::after {
 }
 @keyframes raise2 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(0.9);
   }
 }
 
 .bubble:nth-child(3) {
-  left: 99%;
+  left: -10%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -11286,13 +11279,13 @@ h2::after, .h2::after {
 }
 @keyframes raise3 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(1.1);
   }
 }
 
 .bubble:nth-child(4) {
-  left: 83%;
+  left: 86%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -11300,13 +11293,13 @@ h2::after, .h2::after {
 }
 @keyframes raise4 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(1.3);
   }
 }
 
 .bubble:nth-child(5) {
-  left: 0%;
+  left: 27%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11314,7 +11307,7 @@ h2::after, .h2::after {
 }
 @keyframes raise5 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(1.5);
   }
 }
@@ -11328,13 +11321,13 @@ h2::after, .h2::after {
 }
 @keyframes raise6 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(1.7);
   }
 }
 
 .bubble:nth-child(7) {
-  left: 22%;
+  left: 88%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11342,13 +11335,13 @@ h2::after, .h2::after {
 }
 @keyframes raise7 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(1.9);
   }
 }
 
 .bubble:nth-child(8) {
-  left: -14%;
+  left: 52%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11356,13 +11349,13 @@ h2::after, .h2::after {
 }
 @keyframes raise8 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(2.1);
   }
 }
 
 .bubble:nth-child(9) {
-  left: 27%;
+  left: 89%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11370,13 +11363,13 @@ h2::after, .h2::after {
 }
 @keyframes raise9 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(2.3);
   }
 }
 
 .bubble:nth-child(10) {
-  left: 77%;
+  left: 19%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;
@@ -11384,7 +11377,7 @@ h2::after, .h2::after {
 }
 @keyframes raise10 {
   to {
-    bottom: 1000px;
+    bottom: 1050px;
     transform: scale(2.5);
   }
 }
@@ -11392,9 +11385,9 @@ h2::after, .h2::after {
 #constellations-con {
   position: absolute;
   left: 0;
-  top: calc(max(550px, 100vh) + 4800px);
+  top: calc(100vh + 4800px);
   width: 100%;
-  height: 750px;
+  height: 800px;
   background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80, #140533);
   z-index: -100;
 }
@@ -11529,6 +11522,29 @@ h2::after, .h2::after {
 
   .social-icon {
     width: 80px;
+  }
+}
+@media (max-height: 549.98px) {
+  #poster-con {
+    height: 550px;
+  }
+
+  #poster {
+    width: 996px;
+    /* 100 * 16 / 9 */
+  }
+
+  #poster.vertical {
+    width: 315px;
+    /* 100 * 9 / 16 */
+  }
+
+  #explore-background-con {
+    top: 550px;
+  }
+
+  #constellations-con {
+    top: calc(550px + 4800px);
   }
 }
 
