@@ -11200,7 +11200,7 @@ h2::after, .h2::after {
 }
 
 #tt-carousel-image-1 {
-  background: url("../img/tt-carousel1.jpg") no-repeat 50%/cover;
+  background: url("../img/tt-carousel1.jpg") no-repeat 90% 50%/cover;
 }
 
 #tt-carousel-image-2 {
@@ -11244,7 +11244,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: -15%;
+  left: 34%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11258,7 +11258,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(2) {
-  left: 5%;
+  left: 99%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11272,7 +11272,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(3) {
-  left: 72%;
+  left: 4%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -11286,7 +11286,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(4) {
-  left: 68%;
+  left: 2%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -11300,7 +11300,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(5) {
-  left: -19%;
+  left: 22%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11314,7 +11314,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(6) {
-  left: 18%;
+  left: 75%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -11328,7 +11328,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(7) {
-  left: 53%;
+  left: -14%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11342,7 +11342,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(8) {
-  left: 39%;
+  left: 92%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11356,7 +11356,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(9) {
-  left: 29%;
+  left: -9%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11370,7 +11370,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(10) {
-  left: 7%;
+  left: 26%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;

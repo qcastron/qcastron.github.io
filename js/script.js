@@ -59,7 +59,7 @@ ctx.imageSmoothingQuality = "high";
 
 var stars = [],
     speed = 0.15,
-    offset = 50,
+    offset = 20,
     dist = 30,
     max_connect = 3,
     special_count = 0,
@@ -70,6 +70,7 @@ var stars = [],
     },
     clicks = 0;
 
+resize();
 for (let i = 0; stars.length < x;) {
     i = new New_dot();
     i.life = Math.random();
@@ -182,7 +183,7 @@ function update() {
             s.x += s.vx;
             s.y += s.vy;
 
-            if (s.x < -20 || s.x > canvas.width + offset || s.y < -20 || s.y > canvas.height + offset / 2) {
+            if (s.x < -offset || s.x > canvas.width + offset || s.y < -offset || s.y > canvas.height + offset / 2) {
                 if (s.special) {
                     special_count--;
                 }
@@ -198,7 +199,7 @@ function update() {
 
 window.addEventListener("mousemove", function (e) {
     let canvas_top = canvas.getBoundingClientRect().top;
-    if (canvas_top <= e.pageY) {
+    if (canvas_top <= e.clientY) {
         mouse.x = e.clientX;
         mouse.y = e.clientY - canvas_top;
     }
@@ -206,7 +207,7 @@ window.addEventListener("mousemove", function (e) {
 
 window.addEventListener("click", function (e) {
     let canvas_top = canvas.getBoundingClientRect().top;
-    if (canvas_top <= e.pageY) {
+    if (canvas_top <= e.clientY) {
         let s = new New_dot();
         s.x = e.clientX;
         s.y = e.clientY - canvas_top;
@@ -217,7 +218,7 @@ window.addEventListener("click", function (e) {
         special_count++;
         clicks++;
         if (!(clicks % 10)) {
-            update_msg();
+            update_msg(clicks / 10);
         }
     }
 }, false);
@@ -228,19 +229,51 @@ function tick() {
     requestAnimationFrame(tick);
 }
 
-function update_msg() {
-    let id = clicks / 10;
+function update_msg(id) {
     if (id < msg_list.length - 1) {
         document.getElementById("message").textContent = msg_list[id];
-        if (id === 508) {
-            document.getElementById("constellations-con").style.background = "#1F084D radial-gradient(farthest-corner at bottom left, #ED5900, #140533)";
-            window.open("https://forms.gle/xisG23qMogkenuWA9");
+        switch (id) {
+            case 60:
+            case 74:
+            case 120:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv1.jpg\") no-repeat 50%/cover";
+                break;
+            case 69:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv2.jpg\") no-repeat 50%/cover";
+                break;
+            case 71:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv3.jpg\") no-repeat 50%/cover";
+                break;
+            case 73:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv4.jpg\") no-repeat 50%/cover";
+                break;
+            case 91:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv5.jpg\") no-repeat 50%/cover";
+                break;
+            case 139:
+                document.getElementById("recruitment-image").style.background = "url(\"img/qc4.jpg\") no-repeat 65% 20%/cover";
+                break;
+            case 168:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv6.jpg\") no-repeat 50%/cover";
+                break;
+            case 180:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv7.jpg\") no-repeat 90% 50%/cover";
+                break;
+            case 280:
+                document.getElementById("recruitment-image").style.background = "url(\"img/conv8.jpg\") no-repeat 50%/cover";
+                break;
+            case 513:
+                document.getElementById("constellations-con").style.background = "#1F084D radial-gradient(farthest-corner at bottom left, #ED5900, #140533)";
+                window.open("https://forms.gle/xisG23qMogkenuWA9");
+                break;
+            default:
         }
     } else if (msg_list.length - 1 <= id && id <= msg_list.length + 9999) {
         id -= msg_list.length - 1;
         document.getElementById("message").textContent = 10000 - id;
-    } else
+    } else {
         document.getElementById("message").textContent = "Please just leave. You have better things to do in your life";
+    }
 }
 
 let msg_list = [
@@ -251,9 +284,10 @@ let msg_list = [
     "You're clicking a bit much",
     "Ya know this uses quite a bit of CPU power right?",
     "You'd better come back later if you're on mobile",
+    "I'd still be here for you",
     "This is just one of many Easter eggs",
     "What's the point when there's no fun right?",
-    "Looks to me you're having real fun",
+    "Looks to me you're having real fun here",
     "Considered joining our core team?",
     "We enjoy ourselves together a lot",
     "Ya don't needa have any prior knowledge",
@@ -263,7 +297,8 @@ let msg_list = [
     "Yeah I'm talking 'bout you, Bjorn",
     "Why are you clicking on a background for so long",
     "You bored?",
-    "Do you not have anything better to do",
+    "I can tell you jokes and interesting stories",
+    "Do you not have anything better to do?",
     "There are waaaayyy better things you can do",
     "Text a friend and get 'em out",
     "Don't need to be much",
@@ -289,7 +324,11 @@ let msg_list = [
     "What kind of music did the gold nugget listen to?",
     "*Heavy metal*",
     "I know, very funny!",
-    "Wanna hear another one?",
+    "Tbh, to astronomers, the universe is only made of 3 things",
+    "Hydrogen, helium and metals",
+    "Astronomers are weirdos",
+    "Not us though haha",
+    "Wanna hear another joke?",
     "I know you do",
     "I don't care if you don't like puns",
     "Puns are great. Comet me bro",
@@ -335,7 +374,7 @@ let msg_list = [
     "Since 50 thousand years ago until that Tuesday, none had",
     "But discover he did and choose a name he must",
     "And Herschel, being the good subject of the crown",
-    "Named it \"The Georgium Sidis\"",
+    "Named it \"The Georgium Sidus\"",
     "Which means \"The Georgian Star\"",
     "And the George was King George III, the reigning monarch",
     "While King George liked it, the rest of the world didn't",
@@ -354,7 +393,7 @@ let msg_list = [
     "'cos to be so casually referring to the King",
     "Would have been disrespectful at that time",
     "Disrespecting a monarch was never a good idea",
-    "Especially one who's slowly loosing his mind",
+    "Especially one who's slowly losing his mind",
     "From a genetic disorder I think",
     "Btw, CGP Grey is a great channel. Highly recommend it",
     "Royal Institution as well. Great lectures",
@@ -418,11 +457,11 @@ let msg_list = [
     "Available on YouTube smh",
     "His legend will live on",
     "Speaking of YouTube",
-    "Every Youtube video has a unique ID",
+    "Every YouTube video has a unique ID",
     "The one in the URL",
     "String of 11 characters that uniquely identifies the video",
     "The \"dQw4w9WgXcQ\" in \"www.youtube.com/watch?v=dQw4w9WgXcQ\"",
-    "Youtube has millions if not billions of videos",
+    "YouTube has millions if not billions of videos",
     "500 hours of video are being uploaded every minute",
     "Yes, 500 hours worth of footage within 60 seconds",
     "Ever wondered if YouTube will run out of IDs?",
@@ -462,13 +501,13 @@ let msg_list = [
     "So why didn't YouTube just start counting at 1 and work up?",
     "Well, first, they would have to synchronise their counting",
     "Between all the servers handling the video uploads",
-    "Rr they'd have to assign each server a block of numbers",
+    "Or they'd have to assign each server a block of numbers",
     "Either way, there's a lot of tracking to do",
     "A lot of making sure that it's never duplicated",
     "Instead, they just generate a random number for each video",
     "See if it's already taken, and if not, use it",
-    "And secondly, it is a really, really bad idea",
-    "to just count 1, 2, 3 and so on in URLs",
+    "And secondly, it is a really, really terrible idea",
+    "To just count 1, 2, 3 and so on in URLs",
     "Incremental counters, can be a big security flaw",
     "If you see video 420 up there, then you might wonder",
     "What's video 421? Or 419?",
@@ -483,7 +522,7 @@ let msg_list = [
     "Your competitors know exactly how many customers you have",
     "'cos they can just count them",
     "People can download all your records",
-    "'cos they can just run though them",
+    "'cos they can just run through them",
     "Don't use incremental counters if you're building a website",
     "Use a random number",
     "Which brings us to the question",
@@ -505,7 +544,7 @@ let msg_list = [
     "And doesn't allow any actual words to appear up there",
     "Particularly anything rude",
     "But that is going to be a tiny minority of the URLs",
-    "so for our purposes, we can pretty much just ignore that",
+    "So for our purposes, we can pretty much just ignore that",
     "At YouTube's 11 characters",
     "We are at 73 quintillion 786 quadrillion 294 billion",
     "838 million 206 thousand and 464 videos",
@@ -593,7 +632,7 @@ let msg_list = [
     "There is the tiniest speck of matter",
     "The hydrogen nucleus",
     "A single proton 1/100 the size of the containing atom",
-    "Even 100 half divisions down from the A4 we where started",
+    "Even 100 half divisions down from the A4 where we started",
     "Begins to stretch human comprehensibility",
     "The proton isn't a sphere",
     "But a sea of quarks appearing and disappearing",
@@ -605,7 +644,7 @@ let msg_list = [
     "Until we reach the quantum madness",
     "At the very floor of the universe",
     "The limit of our current theories",
-    "The planck length",
+    "The Planck length",
     "There's nothing here",
     "Yet this is the smallest size",
     "The least distance that can be moved or measured",
@@ -662,12 +701,12 @@ let msg_list = [
     "light now takes two minutes to reach Venus",
     "And 14 to reach Mars",
     "80 dumplings is the distance to the Sun",
-    "Uur home star",
+    "Our home star",
     "Doublings beyond this",
     "Reveal the orbits of the outer planets",
     "And eventually the whole of the solar system",
     "Which light takes eight hours to cross",
-    "Beyond the orbit of pluto is the Voyager 1 spacecraft",
+    "Beyond the orbit of Pluto is the Voyager 1 spacecraft",
     "The farthest object produced by human civilization",
     "Yet, at the scale of all that exists",
     "Our species has explored nothing",
@@ -704,15 +743,15 @@ let msg_list = [
     "The last threads of light in the void",
     "At 184 doublings of a sheet of a4 paper",
     "Is the end of everything that can be for us",
-    "Qe have reached the edge of the observable universe",
+    "We have reached the edge of the observable universe",
     "A sphere containing two trillion galaxies",
     "Yet even this may not be the end of everything",
-    "Beyond the observable universe" +
+    "Beyond the observable universe",
     "Is the unobservable universe",
     "In which exist objects so distant",
     "light traveling from them beyond this border",
-    "will never reach earth before the death",
-    "Of every living thing everywhere" +
+    "Will never reach earth before the death",
+    "Of every living thing everywhere",
     "Caused by the extinction of every star",
     "And the end of the universe itself",
     "Just how many doublings exist beyond is unknowable",
@@ -732,17 +771,17 @@ let msg_list = [
     "Time and tide will wash them away",
     "A long time in the future",
     "This, too, shall pass",
-    "But that doesn’t mean you shouldn’t make things anyway",
+    "But that doesn't mean you shouldn’t make things anyway",
     "Just because something is going to break in the end",
-    "doesn’t mean that it can’t have an effect",
+    "Doesn't mean that it can’t have an effect",
     "That lasts into the future",
     "Joy",
     "Wonder",
-    "Laugher",
+    "Laughter",
     "Hope",
     "The world can be better",
-    "Cecause of what you built in the past",
-    "try and make sure the things you’re working on",
+    "Because of what you built in the past",
+    "Try and make sure the things you’re working on",
     "Push us in the right direction",
     "They don’t have to be big projects",
     "They might just have an audience of one",
