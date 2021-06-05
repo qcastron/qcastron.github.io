@@ -15,6 +15,12 @@ function scroll_update() {
     }
 }
 
+function scroll_down() {
+    $("html,body").animate({
+        scrollTop: $("#explore-con").offset().top - 72
+    }, "slow");
+}
+
 $(document).ready(function () {
     let st = window.scrollY;
     for (let i = 0; fadein && i < fadein.length; i++) {
@@ -44,11 +50,8 @@ navbar.on({
     }
 });
 
-$("#blurb-learn").click(function () {
-    $("html,body").animate({
-        scrollTop: $("#explore-con").offset().top - 72
-    }, "slow");
-});
+$("#blurb-learn").click(scroll_down);
+$("#poster-scroll").click(scroll_down);
 
 window.addEventListener('resize', resize);
 
@@ -68,7 +71,8 @@ var stars = [],
         x: 0,
         y: 0
     },
-    clicks = 0;
+    step = 0,
+    allowed = 1;
 
 resize();
 for (let i = 0; stars.length < x;) {
@@ -216,9 +220,11 @@ window.addEventListener("click", function (e) {
         s.special = 1;
         stars.push(s);
         special_count++;
-        clicks++;
-        if (!(clicks % 10)) {
-            update_msg(clicks / 10);
+        if (allowed) {
+            allowed = 0;
+            step++;
+            setTimeout(function () {allowed = 1}, 1500);
+            update_msg(step);
         }
     }
 }, false);
@@ -236,33 +242,157 @@ function update_msg(id) {
             case 60:
             case 74:
             case 120:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv1.jpg\") no-repeat 50%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"img/uranus.jpg\") no-repeat 50%/cover";
                 break;
             case 69:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv2.jpg\") no-repeat 50%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"img/uranus-ring.jpg\") no-repeat 50%/cover";
                 break;
             case 71:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv3.jpg\") no-repeat 50%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"img/uranus-gas.jpg\") no-repeat 50%/cover";
                 break;
             case 73:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv4.jpg\") no-repeat 50%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"img/uranus-wide.jpg\") no-repeat 50%/cover";
                 break;
             case 91:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv5.jpg\") no-repeat 50%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"img/uranus-herschel.jpg\") no-repeat 50%/cover";
                 break;
             case 139:
                 document.getElementById("recruitment-image").style.background = "url(\"img/qc4.jpg\") no-repeat 65% 20%/cover";
+                window.open("https://forms.gle/xisG23qMogkenuWA9");
                 break;
             case 168:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv6.jpg\") no-repeat 50%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"https://placekitten.com/840/420\") no-repeat 50%/cover";
                 break;
-            case 180:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv7.jpg\") no-repeat 90% 50%/cover";
+            case 185:
+                document.getElementById("recruitment-image").style.background = "url(\"img/kitty.jpg\") no-repeat 50%/cover";
                 break;
-            case 280:
-                document.getElementById("recruitment-image").style.background = "url(\"img/conv8.jpg\") no-repeat 50%/cover";
+            case 270:
+                document.getElementById("recruitment-image").style.background = "url(\"img/kitty-doc1.jpg\") no-repeat 50%/cover";
                 break;
-            case 513:
+            case 282:
+                document.getElementById("recruitment-image").style.background = "url(\"img/kitty-doc2.jpg\") no-repeat 50%/cover";
+                break;
+            case 292:
+                document.getElementById("recruitment-image").style.background = "url(\"img/kitty-doc3.jpg\") no-repeat 50%/cover";
+                break;
+            case 299:
+                document.getElementById("recruitment-image").style.background = "url(\"img/pigeon.jpg\") no-repeat 50%/cover";
+                break;
+            case 307:
+                document.getElementById("recruitment-image").style.background = "url(\"img/bat1.jpg\") no-repeat 50%/contain";
+                break;
+            case 317:
+                document.getElementById("recruitment-image").style.background = "url(\"img/bat2.jpg\") no-repeat 50% 100%/cover";
+                break;
+            case 333:
+                document.getElementById("recruitment-image").style.background = "url(\"img/egg.jpg\") no-repeat 50%/cover";
+                break;
+            case 345:
+                document.getElementById("recruitment-image").style.background = "url(\"img/youtube.jpg\") no-repeat 90%/cover";
+                break;
+            case 445:
+                document.getElementById("recruitment-image").style.background = "url(\"img/sweden.jpg\") no-repeat 37%/cover";
+                break;
+            case 505:
+                document.getElementById("recruitment-image").style.background = "url(\"img/iceland.jpg\") no-repeat 50%/cover";
+                break;
+            case 531:
+                document.getElementById("recruitment-image").style.background = "url(\"img/usa.jpg\") no-repeat 50%/cover";
+                break;
+            case 565:
+                document.getElementById("recruitment-image").style.background = "url(\"img/amos6.jpg\") no-repeat 0/cover";
+                break;
+            case 569:
+                document.getElementById("recruitment-image").style.background = "url(\"img/moon-deny.jpg\") no-repeat 50% 5%/cover";
+                break;
+            case 572:
+                document.getElementById("recruitment-image").style.background = "url(\"img/energia.jpg\") no-repeat 50%/cover";
+                break;
+            case 582:
+                document.getElementById("recruitment-image").style.background = "url(\"img/polyus1.jpg\") no-repeat 50%/contain";
+                break;
+            case 587:
+                document.getElementById("recruitment-image").style.background = "url(\"img/polyus2.jpg\") no-repeat 50%/contain";
+                break;
+            case 600:
+                document.getElementById("recruitment-image").style.background = "url(\"img/moon-footage.jpg\") no-repeat 50%/cover";
+                break;
+            case 624:
+                document.getElementById("recruitment-image").style.background = "url(\"img/ariane-v1.jpg\") no-repeat 50%/contain";
+                break;
+            case 629:
+                document.getElementById("recruitment-image").style.background = "url(\"img/ariane-v2.gif\") no-repeat 50%/contain";
+                break;
+            case 658:
+                document.getElementById("recruitment-image").style.background = "url(\"img/schiaparelli1.jpg\") no-repeat 50%/contain";
+                break;
+            case 670:
+                document.getElementById("recruitment-image").style.background = "url(\"img/schiaparelli2.jpg\") no-repeat 50%/contain";
+                break;
+            case 679:
+                document.getElementById("recruitment-image").style.background = "url(\"img/mco1.jpg\") no-repeat 50%/contain";
+                break;
+            case 689:
+                document.getElementById("recruitment-image").style.background = "url(\"img/mco2.jpg\") no-repeat 50%/contain";
+                break;
+            case 695:
+                document.getElementById("recruitment-image").style.background = "url(\"img/moon-meme1.jpg\") no-repeat 50%/contain";
+                break;
+            case 700:
+                document.getElementById("recruitment-image").style.background = "url(\"img/moon-meme2.jpg\") no-repeat 50%/contain";
+                break;
+            case 706:
+                document.getElementById("recruitment-image").style.background = "url(\"img/hubble1.jpg\") no-repeat 50%/cover";
+                break;
+            case 710:
+                document.getElementById("recruitment-image").style.background = "url(\"img/hubble2.jpg\") no-repeat 50%/contain";
+                break;
+            case 741:
+            case 923:
+                document.getElementById("recruitment-image").style.background = "url(\"img/proton1.gif\") no-repeat 50%/contain";
+                break;
+            case 762:
+                document.getElementById("recruitment-image").style.background = "url(\"img/proton2.jpg\") no-repeat 50%/contain";
+                break;
+            case 783:
+                document.getElementById("recruitment-image").style.background = "url(\"img/ethanol1.jpg\") no-repeat 50%/cover";
+                break;
+            case 791:
+                document.getElementById("recruitment-image").style.background = "url(\"img/ethanol2.jpg\") no-repeat 50%/cover";
+                break;
+            case 795:
+                document.getElementById("recruitment-image").style.background = "url(\"img/aggregat.jpg\") no-repeat 50%/cover";
+                break;
+            case 798:
+                document.getElementById("recruitment-image").style.background = "url(\"img/v2-1.gif\") no-repeat 50%/contain";
+                break;
+            case 804:
+                document.getElementById("recruitment-image").style.background = "url(\"img/goddard.jpg\") no-repeat 50%/contain";
+                break;
+            case 813:
+            case 881:
+                document.getElementById("recruitment-image").style.background = "url(\"img/v2-2.gif\") no-repeat 50%/contain";
+                break;
+            case 865:
+                document.getElementById("recruitment-image").style.background = "url(\"img/john.jpg\") no-repeat 50% 60%/cover";
+                break;
+            case 873:
+                document.getElementById("recruitment-image").style.background = "url(\"img/everclear.jpg\") no-repeat 50% 75%/cover";
+                break;
+            case 880:
+                document.getElementById("recruitment-image").style.background = "url(\"img/over-9000.jpg\") no-repeat 50%/contain";
+                break;
+            case 911:
+                document.getElementById("recruitment-image").style.background = "url(\"img/x-1.jpg\") no-repeat 70% 40%/cover";
+                break;
+            case 913:
+                document.getElementById("recruitment-image").style.background = "url(\"img/redstone.jpg\") no-repeat 50%/contain";
+                break;
+            case 948:
+                document.getElementById("recruitment-image").style.background = "url(\"img/paper.jpg\") no-repeat 50%/cover";
+                break;
+            case 1184:
+                document.getElementById("recruitment-image").style.background = "url(\"img/qc4.jpg\") no-repeat 65% 20%/cover";
                 document.getElementById("constellations-con").style.background = "#1F084D radial-gradient(farthest-corner at bottom left, #ED5900, #140533)";
                 window.open("https://forms.gle/xisG23qMogkenuWA9");
                 break;
@@ -437,7 +567,7 @@ let msg_list = [
     "*Tangent: Spaceballs > Star Wars - change my mind",
     "When will things be back to normal?",
     "During these times we need to back each other",
-    "Do what we're suppose to do",
+    "Do what we're supposed to do",
     "Not lose our faith",
     "Be a living human, not merely a brainless robot",
     "It's easy to be lost in the winding paths of misery",
@@ -445,7 +575,172 @@ let msg_list = [
     "Doubt [X]",
     "But I know that my bros are here for me",
     "Anyway, that's a bit too depressing",
-    "You know our former teacher-in-charge?",
+    "You like cats?",
+    "Lazy fluffy furballs with cute eyes and razor claws",
+    "Have you heard of \"Acoustic Kitty\"?",
+    "Well, yeah I mean every cat is acoustic",
+    "It's not like cats were silent",
+    "Until one day, the first cat burped, and went \"meow\"",
+    "It's not like no one had ever surprised one",
+    "Or stood on its tail or forgot to feed one",
+    "'cause, trust me",
+    "They are bloody acoustic when they've not been fed",
+    "But this isn't about the cats meowing",
+    "It's about espionage",
+    "Feeding your cat LSD to achieve mind control",
+    "Put on your tinfoil hat",
+    "And send it to listen",
+    "Well, not the LSD or tinfoil part",
+    "But that's basically what they did",
+    "\"In an hour-long procedure a veterinary surgeon\"",
+    "\"Implanted a microphone in the cat's ear canal\"",
+    "\"A small radio transmitter at the base of its skull\"",
+    "\"And a thin wire into its fur\"",
+    "Crazy right?",
+    "This was in the '60s",
+    "Guess who might've done that",
+    "Russia?",
+    "Although things are quite nuts in mother Russia",
+    "No, not this time",
+    "Take a guess",
+    "US?",
+    "Yeah you're right",
+    "It's the CIA Directorate of Science & Technology",
+    "The US managed to out-weird Russian intelligence",
+    "To be frank they probably didn't",
+    "But we don't know what the Russians were up yo",
+    "Because of Russian intelligence",
+    "While the US were implanting microphones in cats",
+    "Perhaps the Russians were firing theirs",
+    "Into the icy vacuum of space",
+    "With even bigger antennas!",
+    "Anyway, it was the CIA",
+    "The idea being that the cat would wonder into a place",
+    "And just be surreptitiously recording things",
+    "I am thick as mince",
+    "Even I can see where that's gonna go wrong",
+    "The cat didn't wonder where they wanted it to wonder",
+    "'cause it's a cat",
+    "What did they do to work around that?",
+    "They \"bypassed the cat's sense of hunger,\" apparently",
+    "The CIA really know what tuna sounds like",
+    "Tuna... Radio tuner...?",
+    "That wasn't that bad of a pun com'on",
+    "Guess how much this cost",
+    "To get the cat",
+    "To do the research",
+    "To be fair the cat was probably cheap",
+    "But the entire project, how much did they spend on a cat?",
+    "In US dollars and 1960s",
+    "One million dollars?",
+    "Not even close",
+    "They spent 20 million dollars",
+    "Which is around 300 million Hong Kong dollars today",
+    "Yeah, 6 musical springs worth",
+    "On a single cat",
+    "So they got the cat",
+    "They implanted things in the cat",
+    "So they released the cat",
+    "Near the Soviet compound in Washington DC",
+    "It wondered towards the park bench",
+    "Guess what happened next",
+    "Went into the kitchen and eat all the lovely tuna?",
+    "Nah, sadly it's much harsher",
+    "The 300 million HKD cat",
+    "Was hit by a taxi almost immediately",
+    "Imagine dark cars parked over the round of the compound",
+    "With these guys with dark glasses",
+    "Releasing the cat out of the boot of the car",
+    "\"Good work agent. And now we just...\" *voooom* *splat*",
+    "Followed by an awkward silence...",
+    "But the former Director of the CIA Technical Service",
+    "Said that's an urban myth",
+    "And the actual problem with it was in training the cat",
+    "Guess what happened to the cat",
+    "No, it was not dead",
+    "This is the alternate story",
+    "The cat wasn't hit by a car",
+    "Defect to work for the other side?",
+    "Haha, I like that idea",
+    "Clearly the Russians have better tuna",
+    "It goes through the gate",
+    "On the other side is a Russian Blue",
+    "\"Welcome Agent Tiddles\"",
+    "If the Russian had better tuna",
+    "They'd be able to pick up signal transmitted by it better",
+    "Okay I won't make tuna jokes anymore",
+    "According to the CIA Director",
+    "\"The equipment was taken out of the cat\"",
+    "\"The cat was resewn\"",
+    "That's two massive things that it skipped through",
+    "Both are sentences that I hope would never be heard again",
+    "\"And lived a long and happy life afterwards\"",
+    "Seeing this description",
+    "I am going with the first story somehow",
+    "There's this redacted document",
+    "From National Archives of the United States",
+    "Take a guess on what they think they could do with cats",
+    "Spying? Lol",
+    "While a better trained animal actually does the listening",
+    "Like a chimp with a little microphone",
+    "In a suit",
+    "And shaved to blend in",
+    "In fact, just a small person",
+    "We could even use full-sized people",
+    "We could call them spies!",
+    "Oh no that may be a step too far",
+    "The document wrote \"trained to move short distances\"",
+    "That was 300 million HKD worth and high tech equipment",
+    "To conclude that cats can walk 5 meters",
+    "And only if they wanted to go that way anyway",
+    "\"The environmental and security factors\"",
+    "\"Force us to conclude that\"",
+    "\"For our purposes. it will not be practical\"",
+    "Have you ever had an essay",
+    "Where you know your conclusion is gonna be terrible",
+    "But you have to write a conclusion anyway?",
+    "\"The work done on this problem over the years\"",
+    "\"Reflects great credit on the personnel who guided it\"",
+    "\"Particularly (redacted), whose energy and imagination\"",
+    "\"Could be the models for scientific pioneers\"",
+    "Like, damn, I probably know the guy",
+    "There were other concepts involving animals",
+    "There were pigeon-guided bombs in World War II",
+    "It was named \"Project Pigeon\"",
+    "The Brits put a pigeon in a bomb",
+    "And trained it to peck on cities",
+    "When the pigeons saw the target",
+    "They would peck at the screen with their beaks",
+    "Sensors would detect the movement and guide the bomb",
+    "It was cancelled when electronic guided systems was proven",
+    "\"Our problem was no one would take us seriously\"",
+    "There was also \"Project Xray\"",
+    "To invent a weapon that would end World War II",
+    "They attached small incendiary bombs to bats",
+    "Then dropped a casing of 1000 bats on cities",
+    "The bats will fly all over the city",
+    "When the timer goes off there'll be fire everywhere",
+    "At least one of the bats are gonna find the target",
+    "It did apparently work",
+    "It's hard to drop 1000 small incendiary bombs",
+    "And not cause a fire",
+    "It set fire to an auxiliary air base",
+    "Where they were testing it and it got away",
+    "The bats incinerated the test range",
+    "And roosted under a fuel tank",
+    "Can you imagine two officers going",
+    "\"What caused the fire?\"",
+    "\"Bats\"",
+    "\"How did the bats start the fire?\"",
+    "\"Strapped a bomb to them\"",
+    "\"What happened\"",
+    "\"Went in a fuel tank at night\"",
+    "\"For God's sake. What else have you done?\"",
+    "\"Homing pigeons\"",
+    "\"No no no no\"",
+    "\"Salmon with warheads\"",
+    "\"**** they're gonna come back aren't they\"",
+    "Btw, you know our former teacher-in-charge?",
     "Yeah, Chan Egg. The one who's mad sometimes",
     "The so called \"Mirror God\" in HK's astronomy community",
     "He recently retired",
@@ -489,7 +784,7 @@ let msg_list = [
     "0 to 9, then capital letters A to Z",
     "Then small letters a to z, and two other characters",
     "Most Base 64 uses slash and plus",
-    "but they don't work so well in URLs",
+    "But they don't work so well in URLs",
     "Both of them have other full time jobs",
     "So YouTube uses hyphen and underscore",
     "That YouTube URL, that unique ID",
@@ -556,7 +851,510 @@ let msg_list = [
     "Practically? No",
     "And if they did?",
     "They could just add one more character",
-    "It's hard to imagine the scale large numbers eh?",
+    "Which has less restrictions than naming a baby",
+    "In Sweden, you can't name your baby \"IKEA\"",
+    "You can't name them \"Swedish Meatballs\"",
+    "And you definitely can’t name them Albin",
+    "Just as long as it's spelled like this",
+    "\"Brfxxccxxmnpcccclllmmnprxvclmnckssqlbb11116\"",
+    "That’s because Sweden has",
+    "Some of the strictest laws in the world",
+    "On which names you can use",
+    "These laws came around because Sweden is a monarchy",
+    "They’ve got a king, and queen",
+    "And royal families, as monarchies do",
+    "They don’t want anyone to just",
+    "Waltz into fake nobility by changing their name",
+    "They want the nobles to stay noble",
+    "Their ordinaries to stay ordinary",
+    "So nobody is allowed to use the names of noble families",
+    "Unless they are part of that family",
+    "Slight problem-",
+    "There are over 28,000 nobles in Sweden",
+    "That’s a lot of prohibited names",
+    "Weirdly, these laws are managed by the Swedish Tax Agency",
+    "Whenever a baby is born in Sweden",
+    "Parents are required to submit a name to them for approval",
+    "Of course in most cases",
+    "Babies just take the last name of their parents",
+    "But you can technically change last names",
+    "So, in order to prevent anyone",
+    "From changing their last names to that of a royal",
+    "This agency prevents anyone from naming their child or",
+    "Changing their name to a noble name",
+    "But they also regulate first names",
+    "The naming law states that",
+    "\"First names shall not be approved\"",
+    "\"If they can cause offense\"",
+    "\"Or can be supposed to cause discomfort\"",
+    "\"For the one using it\"",
+    "\"Or names which for some obvious reason\"",
+    "\"Are not suitable as a first name\"",
+    "This is why they rejected this spelling of Albin",
+    "\"Brfxxccxxmnpcccclllmmnprxvclmnckssqlbb11116\"",
+    "The parents submitted this name",
+    "In protest of the naming laws",
+    "Since they were fined 5000 krona",
+    "For not submitting a name by the child’s 5th birthday",
+    "After this spelling was rejected",
+    "They tried again by submitting the name Albin",
+    "This time spelt like \"A\"",
+    "This name was rejected again",
+    "Because of a ban on one-letter names",
+    "But Sweden isn’t the only place where",
+    "Some names are illegal",
+    "In Denmark, which is",
+    "Fun fact, the only country in the world",
+    "Whose name starts with \"den\"",
+    "And ends with \"mark\"",
+    "There’s a list of 15,000 male names",
+    "And 18,000 female names",
+    "That are approved for use",
+    "In order to name a child something not on this list",
+    "Parents have to go through a laborious approval process",
+    "Iceland is even more restrictive",
+    "There are only 1,700 approved male names",
+    "And 1,800 approved female names",
+    "These Icelandic laws are even more difficult to comply with",
+    "Because Iceland doesn't name people",
+    "The same way as the rest of the world",
+    "In the traditional Icelandic naming system",
+    "There are no real last names",
+    "If someone named Karl Daníelson has a boy named Björn",
+    "The son would not take the last name Daníelson",
+    "In Iceland, boys last names are typically",
+    "Their fathers first names plus \"son\"",
+    "Which surprisingly, means son",
+    "While girls last names are correspondingly usually",
+    "Their fathers first names plus \"dóttir\"",
+    "Which means daughter",
+    "Therefore, that boy named Björn with a father named Karl",
+    "Would be named Björn Karlson",
+    "This can create enormous difficulties",
+    "Especially for Icelandic nationals who have children abroad",
+    "And name them with the more traditional last-name system",
+    "Children without proper gendered last names",
+    "Have regularly been denied passports in Iceland",
+    "And so, to summarize, in Iceland",
+    "Aliaksandr Alexander Aliaksandrson is a legal name",
+    "But John Smith is not",
+    "But even the US has some restrictions on names",
+    "Of course, Americans seem to take",
+    "This whole free speech thing pretty seriously",
+    "So you don’t need to get names approved",
+    "But there are some technical limitations",
+    "On which names you can have",
+    "There are no country-wide laws on names",
+    "But different states have different restrictions",
+    "Mostly based off of how advanced",
+    "Their computer systems that handle name registration are",
+    "In Alaska, for example",
+    "You can have any name you want",
+    "But in New Hampshire",
+    "Names are capped at 100 characters",
+    "Because the state computers",
+    "Can only handle 100 character names",
+    "California, meanwhile",
+    "Prohibits names spelled with",
+    "Anything but the 26 letters of the English alphabet",
+    "So Björn, Léa and José are out of luck",
+    "Of course these people aren’t just",
+    "Prohibited from existing in California",
+    "But for all government purposes",
+    "Their name will be switched to a version without accents",
+    "Bjorn, Lea and Jose",
+    "Right, how did we get this far",
+    "We're way off course",
+    "Typical me",
+    "I always fall into rabbit holes of interesting stories",
+    "Just keep going off tangents all the time",
+    "Anyway, back to topics about space",
+    "Lemme tell you",
+    "Some of the dumbest mistakes in space exploration",
+    "But not unfortunate things that were poorly understood",
+    "Yeah, it was sort of funny when",
+    "SpaceX had a rocket explode on the pad",
+    "But the reason for that was actually down to",
+    "Some pretty complicated material science and physics",
+    "Similarly, yes, every time a moon landing denier",
+    "Opens their mouth that's pretty dumb",
+    "But it's not really anything to do with space science",
+    "First one is the Russian Polyus spacecraft",
+    "In the mid-80s, Russia or Soviet Union",
+    "Was developing their Buran shuttle",
+    "Which looked pretty much like the NASA shuttle",
+    "It had a different launch vehicle",
+    "The Energia",
+    "It could in theory carry 100 tons into orbit",
+    "The rocket was ready way before the spacecraft",
+    "And they wanted to do a test launch",
+    "So they required a simulated payload",
+    "Another project had a Polyus spacecraft",
+    "Which was possibly a weapon system in space",
+    "It was going to be mounted to the side of this",
+    "Because they they could get a free launch to test this",
+    "For complicated reasons",
+    "It actually had to be mounted backwards",
+    "So its engines that would boost it",
+    "Into his final orbit were at the top",
+    "So the rocket launch carried it up",
+    "Most of the way into orbit then it would detach",
+    "Do a 180 degree flip and fire its engines",
+    "The launch went off perfectly",
+    "The Energia was a good rocket",
+    "The spacecraft began performing the 180 degree flip",
+    "Fired up its engines",
+    "Then continued to rotate all the way around 360 degrees",
+    "So the engine started slowing the payload down",
+    "Until it fell and was destroyed",
+    "Another thing was the Apollo TV cameras",
+    "The astronauts took TV cameras to the Moon",
+    "So that they could capture the imagination of the public",
+    "With Apollo 11 it was a black-and-white TV camera",
+    "And it would be sending the signals back to earth",
+    "At about 10 frames of 320 lines per second",
+    "The receiving station for Apollo 11 was in Australia",
+    "They didn't have the complex equipment",
+    "For converting one TV signal to another",
+    "So the TV stations they pointed a camera",
+    "At the monitor displaying the TV",
+    "And then sent that across satellites",
+    "Further degrading the signal",
+    "Where it was broadcast to the world",
+    "So the first video of Neil Armstrong coming down the ladder",
+    "Are frankly awful",
+    "The good news was that the original signal",
+    "Was being recorded to tape back in Australia",
+    "So in theory at a later date they could take that signal",
+    "And make a much better copy",
+    "These were sent back to the US and promptly lost",
+    "Probably recorded over when they were needing data tapes",
+    "Towards the late 80s for the Landsat program",
+    "Meanwhile in Europe",
+    "Ariane 5 was a seven billion dollar project",
+    "To develop a bigger and better launcher",
+    "For the European Space Agency",
+    "Able to carry a 7-ton payload up to geostationary orbit",
+    "And on its very first test carrying a scientific payload",
+    "It went out of control at 37 seconds into the launch",
+    "This was unfortunate",
+    "The reason for this was they had reused",
+    "The software from Ariane 4 to save money",
+    "That was fine, sort of",
+    "Part of the software was taking the velocity",
+    "As calculated by the inertial guidance system",
+    "And converting its 64-bit double-precision value",
+    "Into a 16-bit integer",
+    "As soon as that 16-bit integer went above 32767",
+    "It flipped around and went negative",
+    "That meant the routine started seeing garbage",
+    "And declared a problem",
+    "The spacecraft went out of control and destroyed itself",
+    "So first of all you've got this dumb process of",
+    "Converting a perfectly valid there's 30 a 64-bit number",
+    "Into a 16-bit number and risking all sorts of problems",
+    "But even worse is the routine that caused the problem",
+    "Was something that set up the inertial guidance system",
+    "It wasn't even needed after the spacecraft took off",
+    "However they decided that it was good to keep it running",
+    "After the countdown in case they needed to do a quick reset",
+    "It would run up to T plus 40 seconds",
+    "And then shut itself off",
+    "Of course the failure occurred at 37 seconds",
+    "The reason occurred is Ariane 5 was",
+    "A much more powerful faster rocket",
+    "Therefore saturated the value before this 40 second cutoff",
+    "Which was fine in the Ariane 4",
+    "There was the Schiaparelli lander also from ESA",
+    "During descent to mars",
+    "It went through its usual aerobraking",
+    "It fired the engines",
+    "It fired a parachute",
+    "As soon as the parachutes are deployed",
+    "The spacecraft spun like crazy as sometimes they do",
+    "When you've got these complex forces happening",
+    "That high-speed spin saturated its inertial guidance system",
+    "And it decided since it was getting bad data",
+    "That it had already landed on Mars",
+    "So they cut the parachutes",
+    "Sending it plunging to the ground",
+    "I mean just think of the program",
+    "\"Oh the altimeter says we're high\"",
+    "\"The radar altimeter says we're really high\"",
+    "\"The clock says we couldn't possibly have landed\"",
+    "\"But the inertial guidance system got\"",
+    "\"Some sort of crazy idea that we might have landed\"",
+    "\"Hey let's cut this parachute\"",
+    "Speaking of Mars, it would be complete",
+    "Without the discussion of Mars climate orbiter",
+    "The year was 1999",
+    "It was a fine spacecraft designed to",
+    "Go into orbit around the Mars",
+    "However it was navigated by groups of people",
+    "That would use imperial units on one side",
+    "And metric units on the other",
+    "And due to some issues with translation",
+    "Between the two groups",
+    "At one point when it was making a course correction",
+    "It made a burn in meters per second when",
+    "The navigation team had requested one in feet per second",
+    "Therefore it was 3.3 times bigger than expected",
+    "Therefore when the spacecraft went into orbit",
+    "To perform its aerobraking maneuver",
+    "It was way too low and burned up in the Martian atmosphere",
+    "You might have seen this meme that says",
+    "\"There are two types of countries\"",
+    "\"Those that use metric\"",
+    "\"And those that have landed a man on the Moon\"",
+    "Well I have a different version that says",
+    "\"There are two types of countries\"",
+    "\"Those that use metric\"",
+    "\"And those that use metric to land on the Moon\"",
+    "\"And then crash the space probe into Mars\"",
+    "\"Because they couldn't convert metric and imperial\"",
+    "I'm glad that NASA has fixed this by now",
+    "Another one was the Hubble Space Telescope mirror",
+    "The mirror of course had to be ground to a very exact shape",
+    "Since it was going to space it was",
+    "The most accurately ground mirror in the world at the time",
+    "However they ground it to the wrong shape",
+    "The company that had been contracted to make the mirror",
+    "They had stock instruments used to determine the shape",
+    "For the first few steps of grinding the mirror",
+    "They used their in-house hardware to determine the shape",
+    "But the shape requirements for the Hubble Space Telescope",
+    "Required a special calibration instrument to be built",
+    "Somewhere along the way",
+    "An error was made in a particular mirror element",
+    "It was about 1.3 millimeters out of place",
+    "So in the final phase they ground the whole thing wrong",
+    "By about a whole two micrometers",
+    "Along the outer edge of the mirror",
+    "So that meant that when the mirror went into space",
+    "It was the wrong shape and was out of focus",
+    "That's dumb enough",
+    "But they actually had one later tests prior to launch",
+    "Where they they had to use the old hardware",
+    "And the old hardware hardware showed it was wrong",
+    "But they rejected that",
+    "Because their special new high quality test gear",
+    "Was still saying that they were right on target",
+    "The happy ending of course is that",
+    "After they figured out the problem",
+    "They were able to send up a servicing mission",
+    "To put in a correction system that would correct the images",
+    "Later they made sure that all the instrument packages",
+    "That were sent up to Hubble included the correction built in",
+    "So they were able to get a fully functioning",
+    "Amazing instrument after the fact",
+    "But there are still even dumber things",
+    "On July 2nd 2013, Russia prepared for",
+    "A fairly routine launch of their Proton-M rocket",
+    "The 388th launch of the Proton rocket",
+    "Almost immediately after leaving the pad",
+    "The rocket began to veer off in one direction",
+    "And then rock towards the other direction",
+    "As it clearly goes off course",
+    "At this point, wouldn't you think the Russian Space Agency",
+    "Would terminate this rocket?",
+    "I mean it's 90 degrees off course",
+    "And that's a giant 19 story tall, 68 metric ton missile",
+    "Well unlike pretty much the rest of the world",
+    "Russia doesn't believe in self destruction",
+    "Soon, the payload fairing and upper stage gets ripped apart",
+    "By the aerodynamic stresses",
+    "As the vehicle plummets back to earth",
+    "Engines still firing full bore",
+    "The rocket impacted the ground",
+    "Resulting in a huge fireball",
+    "There are many videos of this on the internet",
+    "Later upon investigating the wreckage",
+    "They discovered that three of the accelerometers",
+    "Had been put in upside down",
+    "The accelerometers apparently required a technician",
+    "To go in and install it",
+    "They had arrows on them",
+    "To show which orientation they were in",
+    "But the mounting plates",
+    "That they were to be mounted to didn't have arrows",
+    "They did have mounting pins to make it hard",
+    "To have these in anything but the correct rotation",
+    "But apparently with enough brute force",
+    "You could still mount these things upside down",
+    "You know, typical Russia",
+    "So yeah, it was getting its signals backwards",
+    "The Proton rocket was unable to control itself correctly",
+    "And crashed into the ground",
+    "Due to the Proton utilizing super toxic hypergolic fuels",
+    "This event is considered by some",
+    "To be the largest amount of ground pollution",
+    "Ever caused by a rocket",
+    "There were jokes on vodka being fed to the rocket instead",
+    "But the truth is that common everyday alcohol",
+    "Actually has a long history in rocket science",
+    "Going all the way back to World War II",
+    "Specifically the common alcohol",
+    "Served and consumed in social situations",
+    "Is called ethanol",
+    "Because it's essentially a two carbon ethane molecule",
+    "With one of the hydrogen atoms replaced by a hydroxyl group",
+    "In chemistry",
+    "There's a whole class of molecules called alcohols",
+    "It's basically where you have a hydroxyl group",
+    "Attached to a carbon atom",
+    "At the inception of the german Aggregat rocket program",
+    "The team settled on using ethanol as a fuel",
+    "With liquid oxygen as the oxidizer",
+    "The most famous example of this would be the A4",
+    "Better known as the V-2 rocket",
+    "Which was fueled by 3.8 tons of 75 percent ethanol",
+    "And 25 percent water",
+    "Earlier rockets had actually used",
+    "More energetic propellants",
+    "For example Goddard's rockets",
+    "The first liquid-fueled rockets",
+    "Had used something that Americans like to call gasoline",
+    "Goddard's rockets actually used",
+    "A mixture ratio which was far from ideal",
+    "Feeding the engine only about half as much oxygen",
+    "As was required to fully combust the gasoline",
+    "That was done because it kept that exhaust temperature low",
+    "Otherwise it would very quickly destroy the engines",
+    "Similarly, the early German scientists considered",
+    "Controlling the temperature as",
+    "A key to sustained engine operation",
+    "And mixing water into the fuel kept the temperatures down",
+    "The concept of regenerative cooling in modern engines",
+    "Was still being developed",
+    "As a fine example of rocket science having a great idea",
+    "And leaving rocket engineers to actually solve the problem",
+    "As it happens",
+    "Alcohol is uniquely suited to being literally watered down",
+    "With an inert substance",
+    "The molecular mass of water is actually pretty light",
+    "So even although you have lower average energy density",
+    "The lower molecular weight actually got back",
+    "A little bit of the performance loss",
+    "It's much harder to find an inert diluent",
+    "For a hydrocarbon fuel like kerosene",
+    "Water and oil famously choose not to mix",
+    "And while suitable chemicals probably do exist",
+    "They would not have been as cost-effective",
+    "And simple to use as water",
+    "Goddard's oxygen starvation strategy",
+    "Would leave lots of unburned hydrocarbons in the exhaust",
+    "Raising the average molecular mass",
+    "Reducing the specific impulse",
+    "Which is the efficiency of the rocket engine",
+    "Switching over to oxygen-rich combustion",
+    "Also lowers the temperatures",
+    "But instead creates an oxygen-rich exhaust",
+    "Which is extremely good at attacking metals",
+    "On the other side",
+    "You might wonder about diluting the liquid oxygen",
+    "With something like liquid nitrogen",
+    "This could work just fine",
+    "But because nitrogen and oxygen",
+    "Have different boiling points",
+    "And the fuel is stored near the boiling point",
+    "The mixture would change proportion over time",
+    "As the nitrogen boils away first",
+    "Whereas the ratio of water to ethanol",
+    "Would actually remain stable at room temperatures",
+    "There were some sources that claimed the V-2 rocket",
+    "Ran on alcohol because of limited wartime availability",
+    "Of petrol and other products",
+    "With alcohol being able to be produced",
+    "From fermented potato starch",
+    "It would be more readily available",
+    "Regardless of the larger strategic situation",
+    "However the scientists had decided to use alcohol",
+    "Long before the prospect of war",
+    "They simply were exploiting its useful properties of it",
+    "There is one major downside",
+    "As described in the immortal words of John D Clarke",
+    "\"It evaporated a lot faster\"",
+    "\"Especially when a sailor opened a drum\"",
+    "\"To take a density reading\"",
+    "Yes, people really did drink rocket fuel",
+    "At 75 percent alcohol",
+    "That's about twice as strong as your average vodka",
+    "But oddly enough it's at a lower alcohol concentration",
+    "Than the notorious Everclear which is 95 percent alcohol",
+    "And even that finds itself consumed",
+    "By people in moments of poor judgment",
+    "Or straight-up stupidity",
+    "If you were to take the 3.8 tons of fuel in the V-2 rocket",
+    "And then water it down to make",
+    "Some sort of approximation of vodka",
+    "You would end up with over 9000 bottles",
+    "Human consumption of rocket fuel was actually regarded as",
+    "A serious issue at the Peenemünde rocket facility",
+    "Steps were continually taken to limit this pastime",
+    "Early on, a nasty pink dye was added to the fuel",
+    "To make it undrinkable",
+    "That worked for about a week",
+    "Until somebody figured out how to filter out the dye",
+    "By passing it through a potato",
+    "It wasn't exactly rocket science",
+    "Next, the powers-that-be decided",
+    "To add a purgative to the fuel",
+    "Predictably, this resulted in huge levels of",
+    "Absenteeism at all levels",
+    "And threatened to derail the schedules",
+    "As key personnel kept having to rush to",
+    "The bathroom at inopportune moments",
+    "At some point in time",
+    "The levels of methanol allowed in the fuel were relaxed",
+    "Soon after, one man lost his sight",
+    "And another died as a result",
+    "If you think that's pretty dark, it gets worse",
+    "There were suggestions to display",
+    "The victims corpse publicly as a warning",
+    "The war at this point was not going well",
+    "Resources being were being stretched thin",
+    "Eventually the war ended",
+    "The German rocket engineers were recruited",
+    "Ny both the US and Soviet rocketry programs",
+    "And many early rockets",
+    "Continued to use alcohol as a fuel",
+    "The X-1 used alcohol to push",
+    "Chuck Yeager past the speed of sound in 1947",
+    "The Redstone rocket that launched the first US astronauts",
+    "Was fueled by a 95% alcohol water mixture",
+    "But eventually the superior energy density of kerosene",
+    "Displaced ethanol as a mainstream fuel",
+    "However, it still occasionally turns up in small projects",
+    "Such as Armadillo Aerospace's entries",
+    "Into the Lunar Lander XPrize",
+    "However the largest amount of alcohol used in a rocket",
+    "Was not in a launch",
+    "It was in a test",
+    "That drunk Proton rocket that we talked about before",
+    "It began development in the 1960s",
+    "The first test unit of it was delivered",
+    "To Tyuratam in October of 1964",
+    "One of the tests was going to be a fueling test",
+    "To make sure that the rocket would be able to",
+    "Handle the weight of all the fuel",
+    "Normally you would have used water",
+    "But it was pretty darn cold down there",
+    "Well below the freezing point of water",
+    "So instead they decided to use 40% alcohol",
+    "Basically vodka",
+    "They shipped in 15 rail cars full of alcohol",
+    "To Fill this thing",
+    "Presumably it worked fine",
+    "I don't know how much they actually shipped back out",
+    "Or whatever happened to it",
+    "But I'm pretty sure the space program",
+    "Was well lubricated for a long time afterwards",
+    "The next time you joke about some overly alcoholic beverage",
+    "Being just like rocket fuel",
+    "Realize that there are some truth to that",
+    "Just don't actually drink rocket fuel",
+    "Because they don't make it like they used to",
+    "Speaking of the A4 rocket",
     "You know A4 paper?",
     "The regular sized paper that you usually use",
     "I swear this is related",
@@ -698,7 +1496,7 @@ let msg_list = [
     "The speed of light proves heartbreakingly slow",
     "Past 68 doublings, Earth becomes too small to see",
     "At 76 doublings we can see the orbits of Venus and Mars",
-    "light now takes two minutes to reach Venus",
+    "Light now takes two minutes to reach Venus",
     "And 14 to reach Mars",
     "80 dumplings is the distance to the Sun",
     "Our home star",
@@ -749,7 +1547,7 @@ let msg_list = [
     "Beyond the observable universe",
     "Is the unobservable universe",
     "In which exist objects so distant",
-    "light traveling from them beyond this border",
+    "Light traveling from them beyond this border",
     "Will never reach earth before the death",
     "Of every living thing everywhere",
     "Caused by the extinction of every star",
