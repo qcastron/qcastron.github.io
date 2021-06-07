@@ -87,20 +87,20 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 
 @keyframes scrollDownIndicator {
   0% {
-    transform:scaleX(0);
-    transform-origin:left
+    transform: scaleX(0);
+    transform-origin: left;
   }
   24.9% {
-    transform:scaleX(1);
-    transform-origin:left
+    transform: scaleX(1);
+    transform-origin: left;
   }
   25% {
-    transform:scaleX(1);
-    transform-origin:right
+    transform: scaleX(1);
+    transform-origin: right;
   }
   50%, to {
-    transform:scaleX(0);
-    transform-origin:right
+    transform: scaleX(0);
+    transform-origin: right;
   }
 }
 
@@ -115,10 +115,10 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 
 @keyframes background-animator {
   0%, to {
-    transform:translate(50px,50px)
+    transform: translate(50px, 50px);
   }
   50% {
-    transform:translate(-50px,-50px)
+    transform: translate(-50px, -50px);
   }
 }
 
@@ -637,7 +637,7 @@ h2::after {
 .carousel-caption {
   padding: 0;
   left: 0;
-  right:0;
+  right: 0;
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -720,12 +720,12 @@ h2::after {
   margin-top: 10px;
 }
 
-#bubble-con{
+#bubble-con {
   perspective-origin: 50% 50%;
 }
 
 .bubble {
-  position:absolute;
+  position: absolute;
   bottom: -250px;
   transform-style: preserve-3d;
   mix-blend-mode: lighten;
@@ -756,7 +756,7 @@ h2::after {
   top: calc(100vh + 4800px);
   width: 100%;
   height: 800px;
-  background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80,  #140533);
+  background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80, #140533);
   z-index: -100;
   overflow: hidden;
 }
