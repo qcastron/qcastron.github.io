@@ -110,7 +110,7 @@ function draw() {
         for (let j = i + 1; ((j < x) && starI.quota); j++) {
             let starII = stars[j];
             if (distance(starI, starII) < Math.min(dist * Math.min(starI.size, starII.size) * Math.min(starI.quota, starII.quota), dist * max_connect)) {
-                ctx.moveTo(starI.x + starI.parallaxOffsetX, starI.y  + starI.parallaxOffsetY);
+                ctx.moveTo(starI.x + starI.parallaxOffsetX, starI.y + starI.parallaxOffsetY);
                 ctx.lineTo(starII.x + starII.parallaxOffsetX, starII.y + starII.parallaxOffsetY);
                 starI.quota--;
                 starII.quota--;
@@ -144,7 +144,7 @@ function draw() {
 }
 
 function distance(point1, point2) {
-    let xs,ys;
+    let xs, ys;
     xs = point2.x + point2.parallaxOffsetX - point1.x - point1.parallaxOffsetX;
     ys = point2.y + point2.parallaxOffsetY - point1.y - point1.parallaxOffsetY;
     return Math.sqrt(xs * xs + ys * ys);
@@ -202,6 +202,7 @@ if (window.DeviceOrientationEvent && navigator.userAgent.match(/(iPhone|iPod|iPa
         mouse.x = (Math.min(Math.max(-event.gamma, -30), 30) + 30) * halfWinW / 30;
         mouse.y = (Math.min(Math.max(-event.beta, -30), 30) + 30) * halfWinH / 30;
     }, true);
+    parallaxFactor = 40;
 } else {
     window.addEventListener("mousemove", function (e) {
         mouse.x = e.clientX;
@@ -226,7 +227,9 @@ window.addEventListener("click", function (e) {
         if (allowed) {
             allowed = 0;
             step++;
-            setTimeout(function () {allowed = 1}, 1500);
+            setTimeout(function () {
+                allowed = 1
+            }, 1500);
             update_msg(step);
         }
     }
@@ -1621,6 +1624,6 @@ let msg_list = [
 document.getElementById("message").textContent = msg_list[0];
 console.log("%cIf you see this, you're talented and we want you. Join our team below :D",
     "background: #140533; color: #FFCC00; font-size: 24px; font-weight: 700;");
-console.log("Eat a Ba"+ +"a"+"a la!");
+console.log("Eat a Ba" + +"a" + "a la!");
 tick();
 
