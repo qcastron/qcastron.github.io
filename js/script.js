@@ -199,8 +199,8 @@ function calOffset(s) {
 
 if (window.DeviceOrientationEvent && navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i)) {
     window.addEventListener('deviceorientation', function () {
-        mouse.x = (Math.min(Math.max(-event.beta, -30), 30) + 30) * halfWinW / 30;
-        mouse.y = (Math.min(Math.max(-event.gamma, -30), 30) + 30) * halfWinH / 30;
+        mouse.x = (Math.min(Math.max(-event.gamma, -30), 30) + 30) * halfWinW / 30;
+        mouse.y = (Math.min(Math.max(-event.beta, -30), 30) + 30) * halfWinH / 30;
     }, true);
 } else {
     window.addEventListener("mousemove", function (e) {
