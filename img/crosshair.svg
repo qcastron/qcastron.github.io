@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient4175">
+   <stop stop-color="#1a9cff" offset="0"/>
+   <stop stop-color="#9666ff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient4740" x1="3.5719" x2="4.8948" y1="1.7198" y2="1.7198" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient4175"/>
+  <linearGradient id="linearGradient4778" x1=".13343" x2="3.3084" y1="4.2335" y2="4.2335" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient4175"/>
+  <linearGradient id="linearGradient4816" x1="3.5731" x2="4.8961" y1="6.7459" y2="6.7459" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient4175"/>
+  <linearGradient id="linearGradient4854" x1="5.1595" x2="8.3345" y1="4.2322" y2="4.2322" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient4175"/>
+ </defs>
+ <g fill="none" stroke-linecap="round" stroke-miterlimit="3" stroke-width="1.3229">
+  <path d="m4.2333 0.79375v1.8521" stroke="url(#linearGradient4740)"/>
+  <path d="m7.673 4.2322h-1.8521" stroke="url(#linearGradient4854)"/>
+  <path d="m4.2346 7.6719v-1.8521" stroke="url(#linearGradient4816)"/>
+  <path d="m0.79489 4.2335h1.8521" stroke="url(#linearGradient4778)"/>
+ </g>
+</svg>

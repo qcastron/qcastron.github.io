@@ -10700,6 +10700,32 @@ textarea.form-control-lg {
     height: 2px;
   }
 }
+@keyframes scrollDownIndicator {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  24.9% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  25% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  50%, to {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+@keyframes floaty {
+  0%, to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.75em);
+  }
+}
 @keyframes background-animator {
   0%, to {
     transform: translate(50px, 50px);
@@ -10713,6 +10739,7 @@ body {
   color: #eeeeee;
   background: #140533;
   text-rendering: optimizeLegibility;
+  position: relative;
 }
 
 a, .blurb, .carousel, #recruitment, #footer {
@@ -10756,7 +10783,7 @@ a, .blurb, .carousel, #recruitment, #footer {
   pointer-events: all;
 }
 
-.btn-outline-primary, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, #blurb-con, #recruitment {
+.btn-outline-primary, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, #poster-scroll, #blurb-con, #recruitment {
   text-shadow: 1px 1px 2px #140533;
 }
 
@@ -10768,22 +10795,13 @@ a, .blurb, .carousel, #recruitment, #footer {
   line-height: 1.167em;
 }
 
-#content {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-#poster-con {
+header {
   display: block;
   position: relative;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -10809,6 +10827,41 @@ a, .blurb, .carousel, #recruitment, #footer {
   min-height: 178vw;
   /* 100 * 16 / 9 */
   background: url("../img/poster.jpg") no-repeat 50%/cover;
+}
+
+#poster-scroll {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+  padding-right: 7em;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transform: rotate(90deg);
+  transform-origin: bottom right;
+}
+
+#poster-scroll span {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 1em;
+  width: 5.5em;
+  height: 1px;
+  background: rgba(255, 204, 0, 0.5);
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+#poster-scroll span::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #FFCC00;
+  animation: scrollDownIndicator 3s linear infinite;
 }
 
 #blurb-con {
@@ -10907,6 +10960,12 @@ a, .blurb, .carousel, #recruitment, #footer {
   animation: fadeInY ease 1.2s backwards 5.5s;
 }
 
+main {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 #explore-background-con {
   width: 100%;
   position: absolute;
@@ -10946,6 +11005,7 @@ h2::after, .h2::after {
 }
 
 .explore-section-light, .explore-section-dark {
+  position: relative;
   width: 100%;
   height: 550px;
   justify-content: space-between;
@@ -11100,12 +11160,50 @@ h2::after, .h2::after {
   border-left: 3px solid #ffcc00;
 }
 
+#explore5::before, #explore5::after, #explore9::before, #explore9::after {
+  content: "";
+  position: absolute;
+  font-size: 24px;
+  width: 1em;
+  height: 1em;
+}
+
+#explore5::before, #explore9::before {
+  background: url("../img/crosshair.svg") no-repeat center/contain;
+  animation: floaty 6s ease-in-out infinite;
+}
+
+#explore5::after, #explore9::after {
+  background: url("../img/circle.svg") no-repeat center/contain;
+  animation: floaty 7s 0.5s ease-in-out infinite;
+}
+
+#explore5::before {
+  left: 5%;
+  top: -420px;
+}
+
+#explore5::after {
+  left: 28%;
+  top: -100px;
+}
+
+#explore9::before {
+  left: 28%;
+  top: -440px;
+}
+
+#explore9::after {
+  left: 2%;
+  top: -80px;
+}
+
 #explore2-image {
-  background: url("../img/qc1.jpg") no-repeat 70%/cover;
+  background: url("../img/qc1.jpg") no-repeat 70% 30%/cover;
 }
 
 #explore3-image {
-  background: url("../img/qc2.jpg") no-repeat 70%/cover;
+  background: url("../img/qc2.jpg") no-repeat 70% 70%/cover;
 }
 
 #explore4-image {
@@ -11200,11 +11298,11 @@ h2::after, .h2::after {
 }
 
 #tt-carousel-image-1 {
-  background: url("../img/tt-carousel1.jpg") no-repeat 90% 50%/cover;
+  background: url("../img/tt-carousel1.jpg") no-repeat 50%/cover;
 }
 
 #tt-carousel-image-2 {
-  background: url("../img/tt-carousel2.jpg") no-repeat 50%/cover;
+  background: url("../img/tt-carousel2.jpg") no-repeat 90% 50%/cover;
 }
 
 #tt-carousel-image-3 {
@@ -11216,11 +11314,19 @@ h2::after, .h2::after {
 }
 
 #tt-carousel-image-5 {
-  background: url("../img/tt-carousel5.jpg") no-repeat 50%/cover;
+  background: url("../img/tt-carousel5.jpg") no-repeat 20%/cover;
 }
 
 #tt-carousel-image-6 {
   background: url("../img/tt-carousel6.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel-image-7 {
+  background: url("../img/tt-carousel7.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel-image-8 {
+  background: url("../img/tt-carousel8.jpg") no-repeat 50%/cover;
 }
 
 #recruitment {
@@ -11244,7 +11350,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: 34%;
+  left: -15%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11258,7 +11364,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(2) {
-  left: 99%;
+  left: 62%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11272,7 +11378,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(3) {
-  left: 4%;
+  left: 53%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -11300,7 +11406,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(5) {
-  left: 22%;
+  left: 12%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11314,7 +11420,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(6) {
-  left: 75%;
+  left: 87%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -11328,7 +11434,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(7) {
-  left: -14%;
+  left: 57%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11342,7 +11448,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(8) {
-  left: 92%;
+  left: 11%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11356,7 +11462,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(9) {
-  left: -9%;
+  left: 22%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11370,7 +11476,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(10) {
-  left: 26%;
+  left: 72%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;
@@ -11391,6 +11497,7 @@ h2::after, .h2::after {
   height: 800px;
   background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80, #140533);
   z-index: -100;
+  overflow: hidden;
 }
 
 #constellations-con::before {
@@ -11460,6 +11567,26 @@ h2::after, .h2::after {
     margin: 24px 0 0 0;
   }
 
+  #explore5::before {
+    left: 25%;
+    top: 10px;
+  }
+
+  #explore5::after {
+    left: 85%;
+    top: 590px;
+  }
+
+  #explore9::before {
+    left: 5%;
+    top: 600px;
+  }
+
+  #explore9::after {
+    left: 80%;
+    top: 0;
+  }
+
   #recruitment-image {
     max-height: 320px;
   }
@@ -11516,6 +11643,22 @@ h2::after, .h2::after {
     font-size: 20px;
   }
 
+  #explore5::before {
+    top: calc(180px - 30vw);
+  }
+
+  #explore5::after {
+    top: calc(420px + 30vw);
+  }
+
+  #explore9::before {
+    top: calc(430px + 30vw);
+  }
+
+  #explore9::after {
+    top: calc(170px - 30vw);
+  }
+
   #recruitment-image {
     max-height: 280px;
   }
@@ -11532,7 +11675,7 @@ h2::after, .h2::after {
   }
 }
 @media (max-height: 549.98px) {
-  #poster-con {
+  header {
     height: 550px;
   }
 
