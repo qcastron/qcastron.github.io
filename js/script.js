@@ -60,13 +60,11 @@ let ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = true;
 ctx.imageSmoothingQuality = "high";
 
-var stars = [],
-    speed = 0.15,
-    offset = 20,
+let stars = [],
+    speed = 0.2,
     dist = 30,
     max_connect = 3,
     special_count = 0,
-    x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005,
     mouse = {
         x: 0,
         y: 0
@@ -75,7 +73,7 @@ var stars = [],
     allowed = 1;
 
 resize();
-for (let i = 0; stars.length < x;) {
+for (let i = 0; stars.length < stars_count;) {
     i = new New_dot();
     i.life = Math.random();
     i.midlife = Math.random() * 2 | 0;
@@ -87,8 +85,8 @@ function New_dot() {
     let l = function () {
         return (Math.pow(Math.random(), .5) - 1) * (n.radius) * speed;
     };
-    this.x = Math.random() * canvas.width + offset;
-    this.y = Math.random() * canvas.height + offset / 2;
+    this.x = Math.random() * skyW + skyWMin;
+    this.y = Math.random() * skyH + skyHMin;
     this.radius = 2 * Math.random() + .8;
     this.vx = l();
     this.vy = .5 * l();
@@ -97,27 +95,23 @@ function New_dot() {
     this.size = 0;
     this.quota = 0;
     this.special = 0;
+    this.parallaxOffsetX = 0;
+    this.parallaxOffsetY = 0;
 }
 
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    let x = stars.length,
-        pointer_quota = max_connect;
+    let x = stars.length;
     ctx.beginPath();
     for (let i = 0; i < x; i++) {
         let starI = stars[i];
-        if (pointer_quota && (distance(mouse, starI) < dist * starI.size)) {
-            ctx.moveTo(starI.x, starI.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            pointer_quota--;
-        }
         for (let j = i + 1; ((j < x) && starI.quota); j++) {
             let starII = stars[j];
             if (distance(starI, starII) < Math.min(dist * Math.min(starI.size, starII.size) * Math.min(starI.quota, starII.quota), dist * max_connect)) {
-                ctx.moveTo(starI.x, starI.y);
-                ctx.lineTo(starII.x, starII.y);
+                ctx.moveTo(starI.x + starI.parallaxOffsetX, starI.y  + starI.parallaxOffsetY);
+                ctx.lineTo(starII.x + starII.parallaxOffsetX, starII.y + starII.parallaxOffsetY);
                 starI.quota--;
                 starII.quota--;
             }
@@ -150,23 +144,17 @@ function draw() {
 }
 
 function distance(point1, point2) {
-    let xs;
-    let ys;
-
-    xs = point2.x - point1.x;
-    xs = xs * xs;
-
-    ys = point2.y - point1.y;
-    ys = ys * ys;
-
-    return Math.sqrt(xs + ys);
+    let xs,ys;
+    xs = point2.x + point2.parallaxOffsetX - point1.x - point1.parallaxOffsetX;
+    ys = point2.y + point2.parallaxOffsetY - point1.y - point1.parallaxOffsetY;
+    return Math.sqrt(xs * xs + ys * ys);
 }
 
 function draw_star(s) {
     s.size = s.radius * Math.pow(s.life, .6);
     s.quota = s.size | 0;
     ctx.moveTo(s.x, s.y);
-    ctx.arc(s.x, s.y, s.size, 0, 2 * Math.PI);
+    ctx.arc(s.x + s.parallaxOffsetX, s.y + s.parallaxOffsetY, s.size, 0, 2 * Math.PI);
 }
 
 function update() {
@@ -187,37 +175,52 @@ function update() {
             s.x += s.vx;
             s.y += s.vy;
 
-            if (s.x < -offset || s.x > canvas.width + offset || s.y < -offset || s.y > canvas.height + offset / 2) {
-                if (s.special) {
-                    special_count--;
-                }
+            if ((s.x < skyWMin || s.x > skyWMax || s.y < skyHMin || s.y > skyHMax) && s.special) {
                 stars.splice(i, 1);
             }
         }
     }
-    for (let j = 0; stars.length < x + special_count;) {
+    for (let j = 0; stars.length < stars_count + special_count;) {
         j = new New_dot();
         stars.push(j);
     }
+
+    for (let i = 0; i < stars.length; i++) {
+        calOffset(stars[i]);
+    }
 }
 
-window.addEventListener("mousemove", function (e) {
-    let canvas_top = canvas.getBoundingClientRect().top;
-    if (canvas_top <= e.clientY) {
+function calOffset(s) {
+    s.parallaxTargX = (mouse.x - halfWinW) * s.radius * s.radius / parallaxFactor;
+    s.parallaxOffsetX += (s.parallaxTargX - s.parallaxOffsetX) / 10;
+    s.parallaxTargY = (mouse.y - halfWinH) * s.radius * s.radius / parallaxFactor;
+    s.parallaxOffsetY += (s.parallaxTargY - s.parallaxOffsetY) / 10;
+}
+
+if (window.DeviceOrientationEvent && navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i)) {
+    window.addEventListener('deviceorientation', function () {
+        mouse.x = (Math.min(Math.max(-event.beta, -30), 30) + 30) * halfWinW / 30;
+        mouse.y = (Math.min(Math.max(-event.gamma, -30), 30) + 30) * halfWinH / 30;
+    }, true);
+} else {
+    window.addEventListener("mousemove", function (e) {
         mouse.x = e.clientX;
-        mouse.y = e.clientY - canvas_top;
-    }
-});
+        mouse.y = e.clientY;
+    });
+}
 
 window.addEventListener("click", function (e) {
     let canvas_top = canvas.getBoundingClientRect().top;
     if (canvas_top <= e.clientY) {
         let s = new New_dot();
-        s.x = e.clientX;
-        s.y = e.clientY - canvas_top;
         s.life = .5;
         s.radius += 1;
         s.special = 1;
+        s.size = s.radius * Math.pow(s.life, .6);
+        s.parallaxOffsetX = (mouse.x - halfWinW) * s.radius * s.radius / parallaxFactor;
+        s.parallaxOffsetY = (mouse.y - halfWinH) * s.radius * s.radius / parallaxFactor;
+        s.x = e.clientX - s.parallaxOffsetX;
+        s.y = e.clientY - canvas_top - s.parallaxOffsetY;
         stars.push(s);
         special_count++;
         if (allowed) {

@@ -1,81 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="32"
-   height="32"
-   viewBox="0 0 8.4666667 8.4666667"
-   version="1.1"
-   id="svg5"
-   sodipodi:docname="circle.svg"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:pageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:document-units="px"
-     showgrid="false"
-     inkscape:object-nodes="false"
-     inkscape:snap-nodes="true"
-     inkscape:snap-others="false"
-     inkscape:snap-grids="false"
-     inkscape:snap-to-guides="false"
-     inkscape:object-paths="false"
-     inkscape:snap-intersection-paths="false"
-     inkscape:snap-bbox="true"
-     inkscape:bbox-paths="false"
-     inkscape:bbox-nodes="true"
-     inkscape:zoom="22.627417"
-     inkscape:cx="18.672038"
-     inkscape:cy="14.937631"
-     inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs2">
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient2144">
-      <stop
-         style="stop-color:#3384ff;stop-opacity:1"
-         offset="0"
-         id="stop2140" />
-      <stop
-         style="stop-color:#b066ff;stop-opacity:1"
-         offset="1"
-         id="stop2142" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2144"
-       id="linearGradient2146"
-       x1="0.93370277"
-       y1="6.1509037"
-       x2="7.5651989"
-       y2="2.3222072"
-       gradientUnits="userSpaceOnUse" />
-  </defs>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <circle
-       style="opacity:1;mix-blend-mode:normal;fill:none;fill-opacity:0;stroke:url(#linearGradient2146);stroke-width:1.32291667;stroke-linecap:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path11267"
-       cx="4.249454"
-       cy="4.2365575"
-       r="3.175" />
-  </g>
+<svg width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient2146" x1=".9337" x2="7.5652" y1="6.1509" y2="2.3222" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#3384ff" offset="0"/>
+   <stop stop-color="#b066ff" offset="1"/>
+  </linearGradient>
+ </defs>
+ <circle cx="4.2495" cy="4.2366" r="3.175" fill="none" stroke="url(#linearGradient2146)" stroke-linecap="round" stroke-width="1.3229" style="mix-blend-mode:normal"/>
 </svg>

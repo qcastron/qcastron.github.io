@@ -11350,7 +11350,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: -11%;
+  left: -15%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11364,7 +11364,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(2) {
-  left: 26%;
+  left: 62%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11378,7 +11378,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(3) {
-  left: 51%;
+  left: 53%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -11392,7 +11392,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(4) {
-  left: 42%;
+  left: 2%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -11406,7 +11406,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(5) {
-  left: -17%;
+  left: 12%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11420,7 +11420,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(6) {
-  left: 65%;
+  left: 87%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -11434,7 +11434,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(7) {
-  left: 83%;
+  left: 57%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11448,7 +11448,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(8) {
-  left: 90%;
+  left: 11%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11462,7 +11462,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(9) {
-  left: 36%;
+  left: 22%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11476,7 +11476,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(10) {
-  left: 18%;
+  left: 72%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;

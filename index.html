@@ -9,7 +9,7 @@
     <meta content="#290A66" name="theme-color">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
-    <link href="./img/ac-logo.ico" rel="icon">
+    <link href="./img/logo.ico" rel="icon">
     <title>Queen's College Astronomers' Club 皇仁書院天文學會</title>
     <link type="text/plain" rel="author" href="humans.txt">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +21,7 @@
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="nav-bar">
     <div class="container-fluid" id="nav-con">
         <a class="navbar-brand" href="https://qcac.hk">
-            <img alt="QCAC 皇仁天文" src="img/logo.png" title="Queen's College Astronomers' Club 皇仁書院天文學會"
+            <img alt="QCAC 皇仁天文" src="img/logo-text.svg" title="Queen's College Astronomers' Club 皇仁書院天文學會"
                  width="170">
         </a>
         <button aria-controls="nav-hide-content" aria-expanded="false" aria-label="Toggle navigation"
@@ -160,9 +160,9 @@
                 <div class="explore-image flex-grow-1" id="explore4-image"></div>
                 <div class="explore-text" id="explore4-text">
                     <div class="explore-description" id="explore4-description">
-                        The signature rooftop dome only constitutes one part of the Club's equipment on campus. Another
-                        dedicated Astronomers' Room allows us access to the rooftop, storage for telescopes, and a venue
-                        reserved for Club activities.<br>
+                        The signature rooftop dome only constitutes one part of the Club's equipment on the Queen's
+                        College campus. Another dedicated Astronomers' Room allows us access to the rooftop, storage for
+                        telescopes, and a venue reserved for Club activities.<br>
                     </div>
                 </div>
             </section>
@@ -472,7 +472,17 @@
         source1 = document.getElementById("webm"),
         source2 = document.getElementById("mp4"),
         canvas = document.getElementById("constellations"),
-        last_state = false;
+        last_state = false,
+        halfWinW = 0,
+        halfWinH = 0,
+        skyW = 0,
+        skyH = 0,
+        skyWMin = 0,
+        skyWMax = 0,
+        skyHMin = 0,
+        skyHMax = 0,
+        stars_count = 0,
+        parallaxFactor = 80;
     changeSrc();
     poster.play();
 
@@ -518,9 +528,17 @@
                 carrousel_components[i].style.height = 500 + "px";
             }
         }
+        halfWinW = document.body.clientWidth / 2;
+        halfWinH = window.innerHeight / 2;
         canvas.width = document.body.clientWidth;
         canvas.height = 800;
-        x = (canvas.height + offset / 2) * (canvas.width + offset) * 0.0005;
+        skyWMin = - halfWinW * 2.8 * 2.8 / parallaxFactor - 20;
+        skyWMax = halfWinW * 2 - skyWMin;
+        skyHMin = - 800 * 2.8 * 2.8 / parallaxFactor - 20;
+        skyHMax = 800 - skyHMin;
+        skyW = skyWMax - skyWMin;
+        skyH = skyHMax - skyHMin;
+        stars_count = skyW * skyH * 0.0005;
     }
 </script>
 <script src="js/jquery.min.js"></script>
