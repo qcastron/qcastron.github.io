@@ -17,7 +17,7 @@ function scroll_update() {
 
 function scroll_down() {
     $("html,body").animate({
-        scrollTop: $("#explore-con").offset().top - 72
+        scrollTop: $("#explore-con").offset().top - 56
     }, "slow");
 }
 
