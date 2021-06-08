@@ -10757,10 +10757,6 @@ a, .blurb, .carousel, #recruitment, #footer {
   z-index: -1;
   background: #290A66 linear-gradient(420.69deg, #2E0B73 0%, #140533 100%);
   opacity: 0;
-  -webkit-transition: opacity 0.5s ease;
-  -moz-transition: opacity 0.5s ease;
-  -o-transition: opacity 0.5s ease;
-  -ms-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
 
@@ -10771,8 +10767,22 @@ a, .blurb, .carousel, #recruitment, #footer {
 }
 
 .navbar-brand {
+  transition: padding ease-in-out 0.5s;
+}
+
+.navbar-brand img {
+  height: 48px;
   -webkit-filter: drop-shadow(1px 1px 2px #140533);
   filter: drop-shadow(1px 1px 2px #140533);
+  transition: height ease-in-out 0.5s;
+}
+
+#nav-bar.bg-purple-gradient .navbar-brand {
+  padding: 0;
+}
+
+#nav-bar.bg-purple-gradient img {
+  height: 42px;
 }
 
 .btn {
@@ -11350,7 +11360,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: 0%;
+  left: 51%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11364,7 +11374,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(2) {
-  left: -12%;
+  left: -11%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11378,7 +11388,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(3) {
-  left: 82%;
+  left: 15%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -11392,7 +11402,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(4) {
-  left: 6%;
+  left: -3%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -11406,7 +11416,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(5) {
-  left: 29%;
+  left: 17%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11420,7 +11430,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(6) {
-  left: 80%;
+  left: 1%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -11434,7 +11444,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(7) {
-  left: 57%;
+  left: 68%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11448,7 +11458,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(8) {
-  left: 29%;
+  left: -19%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11462,7 +11472,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(9) {
-  left: 72%;
+  left: 39%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11476,7 +11486,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(10) {
-  left: 25%;
+  left: 98%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;

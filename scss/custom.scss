@@ -145,11 +145,7 @@ a, .blurb, .carousel, #recruitment, #footer {
   z-index: -1;
   background: #290A66 linear-gradient(420.69deg, #2E0B73 0%, #140533 100%);
   opacity: 0;
-  -webkit-transition: opacity 0.5s ease;
-  -moz-transition: opacity 0.5s ease;
-  -o-transition: opacity 0.5s ease;
-  -ms-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
+  transition: opacity .5s ease;
 }
 
 #nav-bar.bg-purple-gradient::before {
@@ -159,8 +155,22 @@ a, .blurb, .carousel, #recruitment, #footer {
 }
 
 .navbar-brand {
+  transition: padding ease-in-out .5s;
+}
+
+.navbar-brand img {
+  height: 48px;
   -webkit-filter: drop-shadow(1px 1px 2px #140533);
   filter: drop-shadow(1px 1px 2px #140533);
+  transition: height ease-in-out .5s;
+}
+
+#nav-bar.bg-purple-gradient .navbar-brand {
+  padding: 0;
+}
+
+#nav-bar.bg-purple-gradient img {
+  height: 42px;
 }
 
 .btn {
