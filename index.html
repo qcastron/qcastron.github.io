@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover" name="viewport">
-    <meta content="Founded on 24 October 1961 by Mr Liu Hing-Chai, the Queen's College Astronomers' Club is dedicated to not only promoting astronomy among our brethren but also forging bonds between them."
+    <meta content="皇仁書院天文學會 Queen's College Astronomers' Club is dedicated to not only promoting astronomy among our brethren but also forging bonds between them. Click to learn more."
           name="description">
     <meta content="#290A66" name="theme-color">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="Queen's College Astronomers' Club 皇仁書院天文學會">
     <meta property="og:title" content="Queen's College Astronomers' Club 皇仁書院天文學會">
     <meta property="og:description"
-          content="Founded on 24 October 1961 by Mr Liu Hing-Chai, the Queen's College Astronomers' Club is dedicated to not only promoting astronomy among our brethren but also forging bonds between them.">
+          content="Founded on 24 October 1961 by Mr Liu Hing-Chai, the Queen's College Astronomers' Club is dedicated to not only promoting astronomy among our brethren but also forging bonds between them. Click to learn more.">
     <meta property="og:image" content="https://qcac.hk/img/thumbnail.jpg">
     <meta property="og:url" content="https://qcac.hk">
     <meta property="og:locale" content="en_HK">
@@ -29,7 +29,8 @@
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="nav-bar">
     <div class="container-fluid" id="nav-con">
         <a class="navbar-brand" href="https://qcac.hk">
-            <img alt="QCAC 皇仁天文" src="img/logo-text.svg" title="Queen's College Astronomers' Club 皇仁書院天文學會">
+            <img alt="Queen's College Astronomers' Club 皇仁書院天文學會" src="img/logo-text.svg"
+                 title="Queen's College Astronomers' Club 皇仁書院天文學會">
         </a>
         <button aria-controls="nav-hide-content" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler collapsed" data-bs-target=".navbar-collapse" data-bs-toggle="collapse"
@@ -39,13 +40,17 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="nav-hide-content">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="btn btn-outline-primary mx-2" data-bs-target="#subcom-modal"
-                            data-bs-toggle="modal" id="team-btn" role="button">Join&nbsp;our&nbsp;team<br>
+                    <button class="btn btn-outline-primary mx-2" data-bs-target="#subcom-modal" data-bs-toggle="modal"
+                            id="team-btn"
+                            onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Subcom modal'})"
+                            role="button">Join&nbsp;our&nbsp;team<br>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-primary mx-2 text-secondary" data-bs-target="#member-modal"
-                            data-bs-toggle="modal" id="join-btn" role="button">Join<br>
+                            data-bs-toggle="modal" id="join-btn"
+                            onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Member modal'})"
+                            role="button">Join<br>
                     </button>
                 </li>
             </ul>
@@ -60,7 +65,7 @@
         <source id="mp4" src="img/poster.mp4" type="video/mp4">
     </video>
     <section class="container-fluid blurb" id="blurb-con">
-        <h1 id="qcac-zh">皇仁書院天文學會</h1>
+        <h1 id="qcac-zh" lang="zh-HK">皇仁書院天文學會</h1>
         <div id="qcac">
             <h1 id="qc">Queen's&nbsp;College</h1>
             <h1 id="ac">Astronomers' Club</h1>
@@ -68,17 +73,23 @@
         <div class="description" id="description-con">Inspiring & bonding brothers with our&nbsp;sky for six&nbsp;decades</div>
         <div id="buttons-con">
             <div id="blurb-learn-con">
-                <button class="btn btn-outline-primary" id="blurb-learn" role="button">Learn&nbsp;more</button>
+                <button class="btn btn-outline-primary" id="blurb-learn"
+                        onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Learn more'})"
+                        role="button">Learn&nbsp;more<br>
+                </button>
             </div>
             <div id="blurb-or-con">or</div>
             <div id="blurb-join-con">
                 <button class="btn btn-primary text-secondary" data-bs-target="#member-modal" data-bs-toggle="modal"
-                        id="blurb-join" role="button">Join<br>
+                        id="blurb-join"
+                        onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Member modal'})"
+                        role="button">Join<br>
                 </button>
             </div>
         </div>
     </section>
-    <a class="" id="poster-scroll">Scroll<span></span></a>
+    <a class="" id="poster-scroll"
+       onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Scroll down'})">Scroll<span></span></a>
 </header>
 <main class="container-fluid m-0 p-0">
     <section id="explore-con">
@@ -385,7 +396,9 @@
                     Astronomers today as future core members.<br>
                     <div id="join-team-con">
                         <button class="btn btn-primary text-secondary" data-bs-target="#subcom-modal"
-                                data-bs-toggle="modal" id="join-team" role="button">Join&nbsp;our&nbsp;team<br>
+                                data-bs-toggle="modal" id="join-team"
+                                onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Subcom modal'})"
+                                role="button">Join&nbsp;our&nbsp;team<br>
                         </button>
                     </div>
                 </div>
@@ -432,9 +445,9 @@
         </canvas>
     </div>
 </main>
-<footer class="" id="footer">
-    <div class="" id="message">No javascript? D:</div>
-    <div class="" id="copyright">
+<footer id="footer">
+    <div id="message">No javascript? D:</div>
+    <div id="copyright">
         ©2021&nbsp;<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC&nbsp;BY-NC-ND&nbsp;4.0</a>
         Queen's&nbsp;College&nbsp;Astronomers'&nbsp;Club,&nbsp;Hong&nbsp;Kong<br>
     </div>
