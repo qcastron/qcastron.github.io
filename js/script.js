@@ -11,6 +11,9 @@ function scroll_update() {
         let obj = fadein[i];
         if ($(obj).position().top < st + $(window).height() * .75) {
             $(obj).removeClass("invisible");
+            try {
+                gtag('send', 'event', 'scroll', 'show', obj.id);
+            } catch (e) {}
         }
     }
 }
@@ -228,12 +231,25 @@ window.addEventListener("click", function (e) {
             allowed = 0;
             step++;
             setTimeout(function () {
-                allowed = 1
+                allowed = 1;
             }, 1500);
             update_msg(step);
+            if (step % 10 || step < 5) {
+                try {
+                    gtag('event', 'click', {'event_category': 'canvas', 'event_label': 'canvas', 'value': step});
+                } catch (e) {}
+            }
         }
     }
 }, false);
+
+for (let i = 2; i < 10; i++) {
+    setTimeout(function () {
+        try {
+            gtag('event', 'ping', {'event_category': 'ping', 'event_label': 'alive', 'value': 15 * i});
+        } catch (e) {}
+    }, 15000 * i);
+}
 
 function tick() {
     draw();
