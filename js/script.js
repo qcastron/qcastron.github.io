@@ -12,7 +12,7 @@ function scroll_update() {
         if ($(obj).position().top < st + $(window).height() * .75) {
             $(obj).removeClass("invisible");
             try {
-                gtag('send', 'event', 'scroll', 'show', obj.id);
+                gtag('event', 'scroll', {'event_category': 'page', 'event_label': 'Show section', 'value': obj.id});
             } catch (e) {}
         }
     }
