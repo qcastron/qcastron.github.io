@@ -1,19 +1,17 @@
 //You're really dedicated and techy eh? You're gonna have a great time in our team. Sign up and tell us 'bout this
 
-let navbar = $("#nav-bar"),
-    fadein = $(".fade-in");
+let navbar = $("#nav-bar");
 
 function scroll_update() {
-    let st = window.scrollY;
+    let st = window.scrollY,
+        invisible = document.getElementsByClassName("invisible");
     st > 60 ? navbar.removeClass("bg-transparent").addClass("bg-purple-gradient") :
         navbar.removeClass("bg-purple-gradient").addClass("bg-transparent");
-    for (let i = 0; fadein && i < fadein.length; i++) {
-        let obj = fadein[i];
+    for (let i = 0; invisible && i < invisible.length; i++) {
+        let obj = invisible[i];
         if ($(obj).position().top < st + $(window).height() * .75) {
             $(obj).removeClass("invisible");
-            try {
-                gtag('event', 'scroll', {'event_category': 'page', 'event_label': 'Show section', 'value': obj.id});
-            } catch (e) {}
+            gtag('event', 'scroll', {'event_category': 'page', 'event_label': 'Show ' + obj.id});
         }
     }
 }
@@ -25,7 +23,8 @@ function scroll_down() {
 }
 
 $(document).ready(function () {
-    let st = window.scrollY;
+    let st = window.scrollY,
+        fadein = document.getElementsByClassName("fade-in");
     for (let i = 0; fadein && i < fadein.length; i++) {
         let obj = fadein[i];
         if ($(obj).position().top > st + $(window).height() * .75) {
@@ -178,7 +177,7 @@ function update() {
             s.x += s.vx;
             s.y += s.vy;
 
-            if ((s.x < skyWMin || s.x > skyWMax || s.y < skyHMin || s.y > skyHMax) && s.special) {
+            if ((s.x < skyWMin || s.x > skyWMax || s.y < skyHMin || s.y > skyHMax) && !s.special) {
                 stars.splice(i, 1);
             }
         }
@@ -235,9 +234,7 @@ window.addEventListener("click", function (e) {
             }, 1500);
             update_msg(step);
             if (step % 10 || step < 5) {
-                try {
-                    gtag('event', 'click', {'event_category': 'canvas', 'event_label': 'canvas', 'value': step});
-                } catch (e) {}
+                gtag('event', 'click', {'event_category': 'canvas', 'event_label': step});
             }
         }
     }
@@ -245,9 +242,7 @@ window.addEventListener("click", function (e) {
 
 for (let i = 2; i < 10; i++) {
     setTimeout(function () {
-        try {
-            gtag('event', 'ping', {'event_category': 'ping', 'event_label': 'alive', 'value': 15 * i});
-        } catch (e) {}
+        gtag('event', 'ping', {'event_category': 'ping', 'event_label': 15 * i});
     }, 15000 * i);
 }
 
