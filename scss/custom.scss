@@ -130,7 +130,7 @@ body {
   position: relative;
 }
 
-a, .blurb, .carousel, #recruitment, #footer {
+a, .blurb, .carousel, #recruitment, footer {
   user-select: none;
 }
 
@@ -794,7 +794,7 @@ h2::after {
   border-top: none;
 }
 
-#footer {
+footer {
   position: absolute;
   width: 100%;
   bottom: 25px;
@@ -806,7 +806,7 @@ h2::after {
   text-align: center;
 }
 
-#footer a {
+footer a {
   color: #eeeeee;
 }
 

@@ -1,0 +1,386 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("https://qcac.hk/fonts/proximanova-light-webfont.woff");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("https://qcac.hk/fonts/proximanova-regular-webfont.woff");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("https://qcac.hk/fonts/proximanova-semibold-webfont2.woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("https://qcac.hk/fonts/proximanova-bold-webfont.woff");
+  font-weight: 700;
+  font-display: swap;
+}
+@keyframes dance {
+  0%, 84%, 94% {
+    transform: skew(0);
+  }
+  85% {
+    transform: skew(5deg);
+  }
+  90% {
+    transform: skew(-5deg);
+  }
+  98% {
+    transform: skew(3deg);
+  }
+}
+@keyframes shiftleft {
+  0%, 87%, 100% {
+    transform: translate(0, 0) skew(0);
+  }
+  84%, 90% {
+    transform: translate(-8px, 0) skew(20deg);
+  }
+}
+@keyframes shiftright {
+  0%, 87%, 100% {
+    transform: translate(0, 0) skew(0);
+  }
+  84%, 90% {
+    transform: translate(8px, 0) skew(20deg);
+  }
+}
+@keyframes blink {
+  0%, 50%, 85%, 100% {
+    color: #eeeeee;
+  }
+  87%, 95% {
+    color: transparent;
+  }
+}
+body {
+  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  color: #eeeeee;
+  background: #140533;
+  text-rendering: optimizeLegibility;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+#error {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  z-index: 10;
+}
+
+#box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #eeeeee;
+  z-index: -1;
+}
+
+#box::before, #box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 0 1px #eeeeee;
+  mix-blend-mode: multiply;
+  animation: dance 2s infinite steps(1);
+}
+
+#box::before {
+  clip-path: polygon(0 0, 65% 0, 35% 100%, 0 100%);
+  box-shadow: inset 0 0 0 1px #fc0;
+}
+
+#box::after {
+  clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
+  box-shadow: inset 0 0 0 1px #0cf;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+}
+
+h1 {
+  position: relative;
+  width: 100%;
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  color: #fff;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: calc(36px + 2vw);
+  line-height: 1.1;
+  text-transform: uppercase;
+  animation: blink 1.3s infinite steps(1);
+}
+
+h1::before, h1::after {
+  content: "ERROR 404";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  mix-blend-mode: soft-light;
+  animation: dance 2s infinite steps(2);
+}
+
+h1::before {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  color: #fc0;
+  animation: shiftright 2s steps(2) infinite;
+}
+
+h1::after {
+  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+  color: #0cf;
+  animation: shiftleft 2s steps(2) infinite;
+}
+
+#error span {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  animation: blink 3s steps(1) infinite;
+}
+
+#error span::before, #error span::after {
+  content: "lost";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  mix-blend-mode: soft-light;
+}
+
+#error span::before {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  color: #fc0;
+  animation: shiftright 1.5s steps(2) infinite;
+}
+
+#error span::after {
+  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+  color: #0cf;
+  animation: shiftleft 1.7s steps(2) infinite;
+}
+
+#error a {
+  color: inherit;
+  font-weight: 700;
+}
+
+#bubble-con {
+  perspective-origin: 50% 50%;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -250px;
+  transform-style: preserve-3d;
+  mix-blend-mode: lighten;
+}
+
+.bubble:nth-child(1) {
+  left: -2%;
+  animation: raise1 60s linear infinite -2s;
+  transform: scale(0.7);
+  z-index: -49;
+  filter: blur(5.5px);
+}
+@keyframes raise1 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(0.7);
+  }
+}
+
+.bubble:nth-child(2) {
+  left: 48%;
+  animation: raise2 40s linear infinite -4s;
+  transform: scale(0.9);
+  z-index: -48;
+  filter: blur(6px);
+}
+@keyframes raise2 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(0.9);
+  }
+}
+
+.bubble:nth-child(3) {
+  left: 73%;
+  animation: raise3 33.3333333333s linear infinite -6s;
+  transform: scale(1.1);
+  z-index: -47;
+  filter: blur(6.5px);
+}
+@keyframes raise3 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(1.1);
+  }
+}
+
+.bubble:nth-child(4) {
+  left: -16%;
+  animation: raise4 30s linear infinite -8s;
+  transform: scale(1.3);
+  z-index: -46;
+  filter: blur(7px);
+}
+@keyframes raise4 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(1.3);
+  }
+}
+
+.bubble:nth-child(5) {
+  left: 96%;
+  animation: raise5 28s linear infinite -10s;
+  transform: scale(1.5);
+  z-index: -45;
+  filter: blur(7.5px);
+}
+@keyframes raise5 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(1.5);
+  }
+}
+
+.bubble:nth-child(6) {
+  left: 12%;
+  animation: raise6 26.6666666667s linear infinite -12s;
+  transform: scale(1.7);
+  z-index: -44;
+  filter: blur(8px);
+}
+@keyframes raise6 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(1.7);
+  }
+}
+
+.bubble:nth-child(7) {
+  left: 9%;
+  animation: raise7 25.7142857143s linear infinite -14s;
+  transform: scale(1.9);
+  z-index: -43;
+  filter: blur(8.5px);
+}
+@keyframes raise7 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(1.9);
+  }
+}
+
+.bubble:nth-child(8) {
+  left: 24%;
+  animation: raise8 25s linear infinite -16s;
+  transform: scale(2.1);
+  z-index: -42;
+  filter: blur(9px);
+}
+@keyframes raise8 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(2.1);
+  }
+}
+
+.bubble:nth-child(9) {
+  left: 94%;
+  animation: raise9 24.4444444444s linear infinite -18s;
+  transform: scale(2.3);
+  z-index: -41;
+  filter: blur(9.5px);
+}
+@keyframes raise9 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(2.3);
+  }
+}
+
+.bubble:nth-child(10) {
+  left: 6%;
+  animation: raise10 24s linear infinite -20s;
+  transform: scale(2.5);
+  z-index: -40;
+  filter: blur(10px);
+}
+@keyframes raise10 {
+  to {
+    bottom: calc(100vh + 250px);
+    transform: scale(2.5);
+  }
+}
+
+#constellations-con {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80, #140533);
+  z-index: -100;
+  overflow: hidden;
+}
+
+#constellations-con::before {
+  box-shadow: inset 0 0 50px 0 #140533;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -11;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  z-index: 1;
+}
+
+footer svg {
+  margin: 1em 0;
+  opacity: 80%;
+  filter: brightness(0) invert(1);
+}
+
+#suggestions a {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+/*# sourceMappingURL=404.css.map */
