@@ -21,7 +21,7 @@
     <title>Error 404 – Queen's College Astronomers' Club 皇仁書院天文學會</title>
     <link type="text/plain" rel="author" href="https://qcac.hk/humans.txt">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300&family=Roboto:wght@300;400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap"
           rel="stylesheet">
     <script type="application/ld+json">
         {
@@ -39,30 +39,6 @@
         }
     </script>
     <style>
-        @font-face {
-            font-family: "Proxima Nova";
-            src: url("https://qcac.hk/fonts/proximanova-light-webfont.woff");
-            font-weight: 300;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: "Proxima Nova";
-            src: url("https://qcac.hk/fonts/proximanova-regular-webfont.woff");
-            font-weight: 400;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: "Proxima Nova";
-            src: url("https://qcac.hk/fonts/proximanova-semibold-webfont2.woff2");
-            font-weight: 500;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: "Proxima Nova";
-            src: url("https://qcac.hk/fonts/proximanova-bold-webfont.woff");
-            font-weight: 700;
-            font-display: swap;
-        }
         @keyframes dance {
             0%, 84%, 94% {
                 transform: skew(0);
@@ -102,7 +78,7 @@
             }
         }
         body {
-            font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+            font-family: "Inconsolata", monospace;
             color: #eeeeee;
             background: #140533;
             text-rendering: optimizeLegibility;
@@ -124,6 +100,7 @@
             position: relative;
             margin: auto;
             padding: 20px;
+            line-height: 1.2;
             z-index: 10;
         }
 
@@ -164,12 +141,13 @@
         h1 {
             position: relative;
             width: 100%;
-            font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
             color: #fff;
             margin: 0 0 8px 0;
             font-weight: 700;
-            font-size: calc(36px + 2vw);
-            line-height: 1.1;
+            font-size: calc(48px + 2.5vw);
+            letter-spacing: 0.05em;
+            word-spacing: -0.2em;
+            line-height: 1;
             text-transform: uppercase;
             animation: blink 1.3s infinite steps(1);
         }
@@ -403,7 +381,7 @@
         footer {
             position: absolute;
             width: 100%;
-            bottom: 25px;
+            bottom: 2.5em;
             left: 0;
             right: 0;
             font-size: 12px;
