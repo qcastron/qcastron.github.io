@@ -258,13 +258,13 @@ header {
 
 #blurb-con {
   width: 100%;
-  margin: 100px auto 0 auto;
-  padding: 0 75px;
+  padding: 100px 75px 0 75px;
   cursor: default;
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
-  pointer-events: none;
+  right: 0;
 }
 
 #qcac-zh {
@@ -866,7 +866,7 @@ footer a {
 /* For mobile phones: */
 @media (max-width: 575.98px) {
   #blurb-con {
-    padding: 0 15px;
+    padding: 100px 15px 0 15px;
     text-align: center;
   }
 

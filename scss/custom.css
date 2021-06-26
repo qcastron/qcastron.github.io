@@ -10876,13 +10876,13 @@ header {
 
 #blurb-con {
   width: 100%;
-  margin: 100px auto 0 auto;
-  padding: 0 75px;
+  padding: 100px 75px 0 75px;
   cursor: default;
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
-  pointer-events: none;
+  right: 0;
 }
 
 #qcac-zh {
@@ -11360,7 +11360,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: 95%;
+  left: -19%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11374,7 +11374,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(2) {
-  left: 24%;
+  left: 38%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11402,7 +11402,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(4) {
-  left: 52%;
+  left: 91%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -11416,7 +11416,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(5) {
-  left: 6%;
+  left: 53%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11430,7 +11430,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(6) {
-  left: 41%;
+  left: 77%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -11444,7 +11444,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(7) {
-  left: 81%;
+  left: 65%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11458,7 +11458,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(8) {
-  left: 34%;
+  left: 13%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11472,7 +11472,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(9) {
-  left: 16%;
+  left: -12%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11486,7 +11486,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(10) {
-  left: 58%;
+  left: 32%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;
@@ -11604,7 +11604,7 @@ footer a {
 /* For mobile phones: */
 @media (max-width: 575.98px) {
   #blurb-con {
-    padding: 0 15px;
+    padding: 100px 15px 0 15px;
     text-align: center;
   }
 

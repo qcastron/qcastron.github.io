@@ -233,17 +233,23 @@ window.addEventListener("click", function (e) {
                 allowed = 1;
             }, 1500);
             update_msg(step);
-            if (step % 10 || step < 5) {
+            if (!(step % 10) || step < 5) {
                 gtag('event', 'click', {'event_category': 'canvas', 'event_label': step});
             }
         }
     }
 }, false);
 
-for (let i = 2; i < 10; i++) {
+for (let i = 2; i <= 10; i++) {
     setTimeout(function () {
         gtag('event', 'ping', {'event_category': 'ping', 'event_label': 15 * i});
     }, 15000 * i);
+}
+
+for (let i = 3; i <= 15; i++) {
+    setTimeout(function () {
+        gtag('event', 'ping', {'event_category': 'ping', 'event_label': 60 * i});
+    }, 60000 * i);
 }
 
 function tick() {
