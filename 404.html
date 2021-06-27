@@ -84,6 +84,7 @@
             font-family: "Inconsolata", monospace;
             color: #eeeeee;
             background: #140533;
+            line-height: 1.25;
             text-rendering: optimizeLegibility;
             text-align: center;
             position: relative;
@@ -104,7 +105,6 @@
             position: relative;
             margin: auto;
             padding: 20px;
-            line-height: 1.2;
             z-index: 10;
         }
 
@@ -389,13 +389,14 @@
             left: 0;
             right: 0;
             font-size: 12px;
-            line-height: 1.25;
             text-align: center;
             z-index: 1;
         }
 
-        footer svg {
+        #home {
+            display: inline-block;
             margin: 1.6vh 0;
+            line-height: 1;
             opacity: 80%;
             filter: brightness(0) invert(1);
         }
@@ -456,7 +457,7 @@
     </div>
 </main>
 <footer>
-    <a href="/">
+    <a id="home" href="/">
         <svg width="200" height="50" version="1.1" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
             <g transform="scale(.15625)" fill="#fc0" stroke-width="6.4">
                 <g transform="matrix(1.0596 0 0 1.0613 -31.445 -23.206)">
