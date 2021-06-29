@@ -3,7 +3,7 @@ function moon_phase(date) {
         type,
         count;
 
-    let jd = (date / 86400000) - (date.getTimezoneOffset() / 1440) + 2440587.5, // total days elapsed in julian days
+    let jd = date / 86400000 - date.getHours() / 24 - (date.getTimezoneOffset() + date.getMinutes()) / 1440 - date.getSeconds() / 86400 + 2440587.5, // total days elapsed in julian days
         phase = jd % 29.53; // divide by the moon cycle (29.53 days)
     if (phase <= 14.765) {
         count = (14.765 - phase + date.getTimezoneOffset() / 1440) | 0;
