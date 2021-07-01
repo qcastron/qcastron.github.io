@@ -38,7 +38,7 @@
         }
     </script>
 </head>
-<body>
+<body style="background: #140533 radial-gradient(farthest-corner circle at center, #240959, #140533)">
 <header>
     <a class="navbar-brand" href="https://qcac.hk">
         <img alt="Queen's College Astronomers' Club 皇仁書院天文學會" src="../img/logo-text.svg"
@@ -46,8 +46,11 @@
     </a>
 </header>
 <main>
-    <canvas id="canvas">Your browser doesn't support canvas</canvas>
-    <div id="gui_container"></div>
+    <canvas id="canvas">
+        <p>Sorry, your browser does not support the &lt;canvas&gt; element.</p>
+        <p>Please upgrade to the latest version of your browser.</p>
+    </canvas>
+    <div id="gui_container">Click and drag to interact</div>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>

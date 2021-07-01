@@ -33,7 +33,7 @@ for (let i = 2; i <= 10; i++) {
     }, 15000 * i);
 }
 
-for (let i = 3; i <= 15; i++) {
+for (let i = 3; i <= 120; i++) {
     setTimeout(function () {
         gtag('event', 'ping', {'event_category': 'ping', 'event_label': 60 * i});
     }, 60000 * i);

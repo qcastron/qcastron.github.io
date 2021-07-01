@@ -173,6 +173,40 @@ a, .blurb, .carousel, #recruitment, footer {
   height: 42px;
 }
 
+.navbar-nav {
+  line-height: 1;
+}
+
+.nav-item {
+  margin: 0 .5em;
+}
+
+#nav-bar .nav-link {
+  padding: calc(0.5rem + 1px) 1rem;
+  color: #FFCC00;
+  opacity: 80%;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.dropdown-menu {
+  color: #FFCC00;
+  background: #140533;
+  text-shadow: none;
+}
+
+.dropdown-item {
+  color: inherit;
+  padding: .5rem 1rem;
+
+  &:hover {
+    color: #140533;
+    background: #FFCC00;
+  }
+}
+
 .btn {
   padding: 0.25rem 1.5rem;
   min-width: 125px;
@@ -181,7 +215,7 @@ a, .blurb, .carousel, #recruitment, footer {
   pointer-events: all;
 }
 
-.btn-outline-primary, h1, h2, h3, h4, h5, h6, #poster-scroll, #blurb-con, #recruitment {
+.btn-outline-primary, .nav-item, h1, h2, h3, h4, h5, h6, #poster-scroll, #blurb-con, #recruitment {
   text-shadow: 1px 1px 2px #140533;
 }
 
@@ -369,6 +403,7 @@ main {
 h1, h2, h3, h4, h5, h6 {
   width: 100%;
   font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  text-transform: capitalize;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
@@ -513,12 +548,11 @@ h2::after {
   justify-content: center;
 }
 
-#explore1-title {
-  text-transform: uppercase;
+#explore1-title, #explore5-title, #explore9-title {
   text-align: center;
 }
 
-#explore1-title::after {
+#explore1-title::after, #explore5-title::after, #explore9-title::after {
   margin: 4px auto;
 }
 
@@ -624,13 +658,14 @@ h2::after {
 }
 
 #explore5, #explore9 {
-  height: 600px;
+  height: 650px;
   flex-direction: column;
   justify-content: center;
 }
 
 .carousel {
   width: 100%;
+  margin: 10px 0 50px 0;
   max-width: 1000px;
   height: 500px;
 }
@@ -722,8 +757,8 @@ h2::after {
 }
 
 #recruitment {
-  height: 700px;
-  margin-bottom: 50px;
+  height: 650px;
+  margin-bottom: 100px;
 }
 
 #join-team {
@@ -763,7 +798,7 @@ h2::after {
 #constellations-con {
   position: absolute;
   left: 0;
-  top: calc(100vh + 4800px);
+  top: calc(100vh + 4900px);
   width: 100%;
   height: 800px;
   background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80, #140533);
@@ -808,6 +843,15 @@ footer {
 
 footer a {
   color: #eeeeee;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#links {
+  display: flex;
+  margin: 1em auto;
+  max-width: 300px;
+  justify-content: space-around;
 }
 
 #message {
@@ -816,11 +860,16 @@ footer a {
 
 /* For all smaller screens */
 @media (max-width: 767.98px) {
+  .nav-item {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
   #join-btn, #team-btn {
     width: 100%;
     min-width: unset;
     max-width: unset;
-    margin: 5px 0 !important;
   }
 
   .explore-section-light, .explore-section-dark {
@@ -839,23 +888,23 @@ footer a {
   }
 
   #explore5::before {
-    left: 25%;
-    top: 10px;
+    left: 20%;
+    top: 0;
   }
 
   #explore5::after {
     left: 85%;
-    top: 590px;
+    top: 630px;
   }
 
   #explore9::before {
     left: 5%;
-    top: 600px;
+    top: 640px;
   }
 
   #explore9::after {
     left: 80%;
-    top: 0;
+    top: -10px;
   }
 
   #recruitment-image {
@@ -916,19 +965,19 @@ footer a {
   }
 
   #explore5::before {
-    top: calc(180px - 30vw);
+    top: calc(140px - 25vw);
   }
 
   #explore5::after {
-    top: calc(420px + 30vw);
+    top: calc(490px + 25vw);
   }
 
   #explore9::before {
-    top: calc(430px + 30vw);
+    top: calc(500px + 25vw);
   }
 
   #explore9::after {
-    top: calc(170px - 30vw);
+    top: calc(130px - 25vw);
   }
 
   #recruitment-image {

@@ -16,8 +16,9 @@
 
 body {
   font-family: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
-  color: #000;
+  color: #eee;
   background: #140533 radial-gradient(farthest-corner circle at center, #240959, #140533);
+  font-size: 12px;
   line-height: 1.25;
   text-rendering: optimizeLegibility;
   position: relative;
@@ -51,6 +52,7 @@ header img:hover {
   position: absolute;
   bottom: 20px;
   right: 0;
+  text-align: center;
 }
 
 /*# sourceMappingURL=custom.css.map */
