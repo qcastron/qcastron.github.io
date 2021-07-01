@@ -47,9 +47,13 @@ header img {
   left: 50%;
   width: 32vmin;
   height: 8vmin;
-  filter: brightness(0) invert(0.5);
+  filter: brightness(0) invert(1);
+  opacity: 40%;
   z-index: 10;
   transform: translate(-50%, 0);
+}
+header img:hover {
+  opacity: 60%;
 }
 
 .room *,
@@ -677,12 +681,13 @@ header img {
   align-items: center;
   flex-direction: column;
   border-top: 0.3275vmin dashed #1b171f;
-  font-size: 3.5vmin;
+  font-size: 0.5vmin;
   font-weight: 700;
   padding: 1vmin;
 }
 .today span {
   position: static;
+  font-size: 3.5vmin;
 }
 
 iframe {
