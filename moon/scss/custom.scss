@@ -49,9 +49,14 @@ header img {
   left: 50%;
   width: 32vmin;
   height: 8vmin;
-  filter: brightness(0) invert(.5);
+  filter: brightness(0) invert(1);
+  opacity: 40%;
   z-index: 10;
   transform: translate(-50%, 0);
+
+  &:hover {
+    opacity: 60%;
+  }
 }
 
 .room *,

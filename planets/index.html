@@ -5,21 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover" name="viewport">
-    <meta content="Current Moon phase and weather forecast"
+    <meta content="Interactive planets simulator"
           name="description">
     <meta content="#290A66" name="theme-color">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
     <meta property="og:site_name" content="Queen's College Astronomers' Club 皇仁書院天文學會">
-    <meta property="og:title" content="Moon - Queen's College Astronomers' Club 皇仁書院天文學會">
+    <meta property="og:title" content="Planets Simulator - Queen's College Astronomers' Club 皇仁書院天文學會">
     <meta property="og:description"
-          content="Current Moon phase and weather forecast">
-    <meta property="og:image" content="https://qcac.hk/moon/img/thumbnail.jpg">
-    <meta property="og:url" content="https://qcac.hk/moon">
+          content="Interactive planets simulator">
+    <meta property="og:image" content="https://qcac.hk/planets/img/thumbnail.png">
+    <meta property="og:url" content="https://qcac.hk/planets">
     <meta property="og:locale" content="en_HK">
     <meta name="twitter:card" content="summary_large_image">
     <link href="../img/logo.ico" rel="icon">
-    <title>Moon - Queen's College Astronomers' Club 皇仁書院天文學會</title>
+    <title>Planets Simulator - Queen's College Astronomers' Club 皇仁書院天文學會</title>
     <link type="text/plain" rel="author" href="https://qcac.hk/humans.txt">
     <link href="scss/custom.css" rel="stylesheet">
     <script type="application/ld+json">
@@ -46,34 +46,10 @@
     </a>
 </header>
 <main>
-    <div class="room">
-        <div class="window">
-            <div class="stars"></div>
-            <div class="star"></div>
-            <div id="moon" class="moon"></div>
-            <div class="cloud"></div>
-            <div class="roof"></div>
-            <div class="bush"></div>
-        </div>
-        <div class="window-sill">
-            <div id="芝麻糊" class="cat">
-                <div class="head">
-                    <div class="eyes"></div>
-                </div>
-                <div class="tail"></div>
-            </div>
-        </div>
-        <div class="info">
-            <div class="today">
-                <span id="type">Enable</span>
-                <span id="count">Scripts</span>
-            </div>
-        </div>
-    </div>
-    <iframe src="https://www.meteoblue.com/en/weather/widget/seeing?geoloc=detect&noground=0" frameborder="0"
-            scrolling="NO" allowtransparency="true"
-            sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
+    <canvas id="canvas">Your browser doesn't support canvas</canvas>
+    <div id="gui_container"></div>
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQW8TQENF0"></script>
 <script>
