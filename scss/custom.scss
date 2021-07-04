@@ -227,6 +227,10 @@ a, .blurb, .carousel, #recruitment, footer {
   line-height: 1.167em;
 }
 
+img, video, .explore-image, .carousel-image {
+  pointer-events: none;
+}
+
 header {
   display: block;
   position: relative;
@@ -832,7 +836,7 @@ h2::after {
 footer {
   position: absolute;
   width: 100%;
-  bottom: 25px;
+  bottom: 20px;
   left: 0;
   right: 0;
   font-weight: 300;
