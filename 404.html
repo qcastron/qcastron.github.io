@@ -21,8 +21,9 @@
     <title>Error 404 – Queen's College Astronomers' Club 皇仁書院天文學會</title>
     <link type="text/plain" rel="author" href="https://qcac.hk/humans.txt">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Roboto:wght@400&family=Noto+Sans+HK:wght@300&display=swap"
           rel="stylesheet">
+    <link href="https://qcac.hk/scss/custom.css" rel="stylesheet">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -81,12 +82,9 @@
             box-sizing: border-box;
         }
         body {
-            font-family: "Inconsolata", monospace;
             color: #eeeeee;
             background: #140533;
-            line-height: 1.25;
             text-rendering: optimizeLegibility;
-            text-align: center;
             position: relative;
             width: 100%;
             height: 100vh;
@@ -97,11 +95,14 @@
 
         main {
             display: grid;
+            text-align: center;
             width: 100%;
             height: 100%;
         }
 
         #error {
+            font-family: "Inconsolata", monospace;
+            line-height: 1.25;
             position: relative;
             margin: auto;
             padding: 20px;
@@ -144,6 +145,7 @@
 
         h1 {
             position: relative;
+            font-family: "Inconsolata", monospace;
             width: 100%;
             color: #fff;
             margin: 0 0 8px 0;
@@ -381,31 +383,6 @@
             right: 0;
             z-index: -11;
         }
-
-        footer {
-            position: absolute;
-            width: 100%;
-            bottom: 4.2vh;
-            left: 0;
-            right: 0;
-            font-size: 12px;
-            text-align: center;
-            z-index: 1;
-        }
-
-        #home {
-            display: inline-block;
-            margin: 1.6vh 0;
-            line-height: 1;
-            opacity: 80%;
-            filter: brightness(0) invert(1);
-        }
-
-        #suggestions a {
-            color: inherit;
-            text-decoration: none;
-            margin: 0 1em;
-        }
         /*# sourceMappingURL=404.css.map */
     </style>
 </head>
@@ -457,58 +434,392 @@
     </div>
 </main>
 <footer>
-    <a id="home" href="/">
-        <svg width="200" height="50" version="1.1" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
-            <g transform="scale(.15625)" fill="#fc0" stroke-width="6.4">
-                <g transform="matrix(1.0596 0 0 1.0613 -31.445 -23.206)">
-                    <path d="m149.62 623.87c-8.49-5.84-10.04-14.71-11.57-31.63s9.21-144.44 39.43-287.04c11.33-53.47 22.87-110.09 41.26-155.84 10.42-25.93 17.79-49.04 28.25-68.22 20.32-37.24 41.46-59.69 43.32-59.27 9.68 2.21 40.89 24.51 63.23 57.69 22.33 33.18 110.11 182.68 89.79 181.24-2.96-0.21-14.11 0.87-22.49-6.84-6.06-5.59-59.61-91.09-69.1-104.6-10.46-14.88-43.03-57.6-53.92-55.69-3.88 0.68-34.56 42.99-56.76 130.86-13.88 54.98-28.03 102.69-47.19 217.18s-17.29 109.84-13.77 112.67c0.22 0.17 6.35-3.17 18.39-10.04 29.99-17.12 57.6-38.12 82.1-62.46-0.44 0.43 9.64-8.44 30.22-26.61 70.79-62.49 87.83-82.8 88.64-88.54 0.38-2.71-6.44-18.28-20.45-46.72-4.93-10.01 0.29-22.05 10.97-25.3 15.06-4.57 27.82-7.5 38.27-8.76 7.9-0.95 17.76-0.2 29.58 2.25 19.16 3.97 35.7 15.98 45.4 32.98 7.02 12.29 2.78 4.86 7.29 12.76 18.5 32.4 33.78 66.53 45.61 101.91 1.7 5.1-0.13-0.39 4.28 12.81 2.82 8.44 4.92 17.11 6.28 25.91 0.33 2.13 1.15 7.45 2.47 15.95-24.07-27.79-46.59-51.13-67.56-70.02-20.97-18.9-40.39-33.34-58.26-43.34-170.39 175.64-268.29 257.88-293.71 246.71" fill="#fc0"/>
-                </g>
-                <path d="m514.89 183.34c3.4224-10.263 2.4582-24.878 0-27.553-10.532-11.463-41.079 1.0189-123.32 27.553-82.233 26.534-118.44 39.641-203.61 76.311-85.157 36.67-121.99 55.317-121.91 67.321 0.06357 12.004 96.473 70.388 185.75 108.05 89.279 37.657 148.1 58.841 178.73 68.096 62.949 19.03 93.824 19.953 93.22 26.099-0.60395 6.1452-49.672 8.3634-83.525 3.789-33.853-4.585-76.479-13.638-146.58-39.546-70.101-25.897-61.942-24.146-139.89-61.038-77.941-36.903-154.91-102.43-153.73-110.82 1.1655-8.3846 112.95-80.482 288.54-146.61 102.32-38.537 170.53-59.584 204.61-63.15 20.322-2.1227 40.814-1.8998 61.094 0.66864 7.0567 0.89154 0.0954 0.0106 7.7454 0.97644 13.668 1.73 21.742 16.228 16.042 28.794-5.9548 13.108 0.78407-1.73-1.886 4.1605-18.299 40.299-46.356 75.377-81.608 102.06-6.1243 4.6381 3.9946-3.0142-8.4341 6.3893-4.3336 3.2796-9.9493-1.9635-6.9825-6.5273 19.21-29.474 31.13-51.146 35.75-65.018z"/>
-            </g>
-            <text x="96.839165" y="45.584515" fill="#000000" font-family="Bahnschrift" font-size="45px" font-weight="600" letter-spacing="0px" style="line-height:1.25" xml:space="preserve"><tspan x="96.839165" y="45.584515" fill="#ffcc00" font-family="Bahnschrift" font-size="45px" font-weight="600"/></text>
-            <g fill="#fc0" aria-label="Queen's College Astronomers' Club">
-                <g transform="translate(-.00284)">
-                    <path d="m115.22 36.031 2.5998-3.125 11.39 8.3203-2.5998 3.1445zm0.47457 8.1641q-3.1982 0-5.633-1.2891-2.4347-1.3086-3.7759-3.6719-1.3412-2.3828-1.3412-5.5078v-8.0469q0-3.125 1.3412-5.4883 1.3412-2.3828 3.7759-3.6719 2.4348-1.3086 5.633-1.3086t5.633 1.3086q2.4348 1.2891 3.7759 3.6719 1.3412 2.3633 1.3412 5.4883v8.0469q0 3.125-1.3412 5.5078-1.3412 2.3633-3.7759 3.6719-2.4348 1.2891-5.633 1.2891zm0-4.6289q1.692 0 2.9712-0.70312 1.2999-0.70312 2.0014-1.9922 0.70153-1.3086 0.70153-3.0078v-8.3203q0-1.6992-0.70153-2.9883-0.70155-1.3086-2.0014-2.0117-1.2793-0.70313-2.9712-0.70313t-2.9919 0.70313q-1.2793 0.70312-1.9808 2.0117-0.70153 1.2891-0.70153 2.9883v8.3203q0 1.6992 0.70153 3.0078 0.70155 1.2891 1.9808 1.9922 1.2999 0.70312 2.9919 0.70312z"/>
-                    <path d="m145.32 23.628h4.9108v20.273h-4.9108zm-7.6757 12.324q0 1.7969 1.011 2.793 1.011 0.97656 2.8474 0.97656 1.8364 0 2.8268-0.91797 0.9904-0.9375 0.9904-2.6758l0.28888 4.3359q-0.619 1.582-2.0634 2.6562-1.4444 1.0742-3.5283 1.0742-3.4871 0-5.406-2.1289-1.8983-2.1289-1.8983-6.0156v-12.422h4.9314z"/>
-                    <path d="m165.19 44.195q-3.0332 0-5.179-1.0547-2.1459-1.0547-3.2807-3.0859-1.1348-2.0508-1.1348-4.9414v-2.2852q0-3.0078 1.0729-5.1367 1.0936-2.1289 3.1569-3.2422 2.084-1.1133 4.9933-1.1133 2.7443 0 4.6838 1.3086 1.9602 1.2891 2.9712 3.75 1.0317 2.4609 1.0317 5.9375v1.3281h-14.547v-3.418h9.966l-0.0207-0.21484q-0.20633-2.1289-1.2586-3.3008-1.0523-1.1719-2.8268-1.1719-2.2284 0-3.4458 1.3281-1.2174 1.3086-1.2174 3.7305v2.5781q0 2.3047 1.3206 3.5547 1.3205 1.2305 3.714 1.2305 1.2174 0 2.3935-0.42969 1.1968-0.44922 2.1459-1.2305l3.2188 2.8516q-1.63 1.4453-3.6728 2.2461-2.0221 0.78125-4.0854 0.78125z"/>
-                    <path d="m187.85 44.195q-3.0331 0-5.179-1.0547-2.1459-1.0547-3.2807-3.0859-1.1348-2.0508-1.1348-4.9414v-2.2852q0-3.0078 1.0729-5.1367 1.0936-2.1289 3.1569-3.2422 2.084-1.1133 4.9933-1.1133 2.7442 0 4.6838 1.3086 1.9602 1.2891 2.9712 3.75 1.0317 2.4609 1.0317 5.9375v1.3281h-14.547v-3.418h9.966l-0.0206-0.21484q-0.20634-2.1289-1.2586-3.3008-1.0523-1.1719-2.8268-1.1719-2.2284 0-3.4458 1.3281-1.2174 1.3086-1.2174 3.7305v2.5781q0 2.3047 1.3206 3.5547 1.3205 1.2305 3.714 1.2305 1.2174 0 2.3935-0.42969 1.1968-0.44922 2.1459-1.2305l3.2188 2.8516q-1.6301 1.4453-3.6728 2.2461-2.0221 0.78125-4.0854 0.78125z"/>
-                    <path d="m201.53 23.628h4.9314v20.273h-4.9314zm12.69 7.9883q0-1.8164-1.0317-2.8125-1.0317-0.99609-2.93-0.99609-1.8158 0-2.8062 0.9375-0.99041 0.91797-0.99041 2.6172l-0.43332-4.1992q0.96978-1.875 2.4348-2.8516 1.4856-0.97656 3.487-0.97656 3.4252 0 5.3028 2.168 1.8983 2.1484 1.8983 6.0938v12.305h-4.9314z"/>
-                    <path d="m222.45 15.503h5.0346v6.6602l-5.0346 4.7266z"/>
-                    <path d="m238.26 44.195q-1.9189 0-3.6521-0.33203-1.7332-0.35156-3.2601-1.0156-1.5062-0.66406-2.7236-1.6211l2.9919-3.5156q1.6301 1.0938 3.322 1.6602 1.7126 0.56641 3.322 0.56641 2.249 0 3.4045-0.56641 1.1761-0.58594 1.1761-1.6797 0-0.83984-0.57772-1.25-0.57776-0.42969-1.465-0.58594-0.86661-0.15625-2.4554-0.29297-0.26824-0.01953-0.55711-0.03906-0.28886-0.01953-0.55711-0.05859-0.0825 0-0.16506 0-0.0825-0.01953-0.16508-0.01953-2.249-0.23438-3.6934-0.64453-1.4444-0.42969-2.4348-1.6211-0.96977-1.1914-0.96977-3.418 0-2.0898 0.96977-3.5156 0.99042-1.4453 2.8887-2.168 1.8983-0.74219 4.6632-0.74219 1.6507 0 3.2188 0.3125 1.5682 0.29297 2.9919 0.87891 1.4443 0.56641 2.7236 1.4258l-2.9506 3.3984q-1.5062-0.85938-3.0538-1.3086-1.5269-0.44922-2.9712-0.44922-1.9395 0-2.9506 0.52734-1.011 0.52734-1.011 1.5625 0 0.66406 0.55712 1.0156 0.5571 0.35156 1.3824 0.48828 0.84597 0.11719 2.4347 0.2539 0.16507 0.01953 0.30952 0.03906 0.16506 0 0.33014 0.01953 0.0619 0 0.14443 0 0.0825 0 0.16506 0.01953 2.3728 0.21484 3.941 0.64453 1.5681 0.42969 2.6617 1.7188 1.0936 1.2695 1.0936 3.7109 0 2.1484-1.0317 3.6328-1.0317 1.4648-3.0744 2.2266-2.0221 0.74219-4.9727 0.74219z"/>
-                    <path d="m274.08 44.195q-3.2601 0-5.6742-1.2695-2.3935-1.2891-3.6934-3.6719-1.2793-2.3828-1.2793-5.6445v-7.793q0-3.2617 1.2793-5.6445 1.2999-2.3828 3.6934-3.6719 2.4142-1.2891 5.6742-1.2891 2.703 0 4.8901 1.0938 2.2078 1.0938 3.6522 3.1641 1.465 2.0508 2.0014 4.8633h-5.0758q-0.37142-1.3672-1.1761-2.3828-0.8047-1.0352-1.9189-1.582-1.0936-0.54688-2.3729-0.54688-1.7126 0-2.9712 0.74219-1.238 0.72266-1.9189 2.0703-0.68091 1.3477-0.68091 3.1836v7.793q0 1.8359 0.68091 3.1836 0.6809 1.3477 1.9189 2.0703 1.2586 0.72266 2.9712 0.72266 1.2999 0 2.3935-0.52734 1.1142-0.52734 1.9189-1.543 0.80469-1.0156 1.1555-2.4414h5.0758q-0.55709 2.8125-2.0221 4.8828-1.4443 2.0508-3.6521 3.1445-2.1872 1.0938-4.8695 1.0938z"/>
-                    <path d="m298.2 44.195q-2.8474 0-4.8902-1.0352-2.0221-1.0352-3.095-3.0078-1.0523-1.9922-1.0523-4.7852v-3.3008q0-2.7539 1.0523-4.707 1.073-1.9727 3.095-2.9883 2.0427-1.0352 4.8902-1.0352 2.8474 0 4.8695 1.0352 2.0427 1.0156 3.095 2.9883 1.0729 1.9531 1.0729 4.707v3.3594q0 2.7734-1.0729 4.7461-1.0523 1.9531-3.095 2.9883-2.0221 1.0352-4.8695 1.0352zm0-4.4727q1.9602 0 3.0331-1.1133 1.0729-1.1328 1.0729-3.1836v-3.3594q0-2.0312-1.0729-3.1445-1.073-1.1133-3.0331-1.1133-1.9602 0-3.0331 1.1133-1.0729 1.1133-1.0729 3.1445v3.3594q0 2.0508 1.0523 3.1836 1.073 1.1133 3.0538 1.1133z"/>
-                    <path d="m317.74 37.945q0 0.74219 0.39202 1.1523 0.39204 0.39062 1.1142 0.39062h1.465v4.4727h-2.6824q-2.476 0-3.8585-1.4062-1.3618-1.4063-1.3618-3.9648v-23.086h4.9314z"/>
-                    <path d="m329.97 37.945q0 0.74219 0.39204 1.1523 0.39204 0.39062 1.1142 0.39062h1.465v4.4727h-2.6823q-2.476 0-3.8585-1.4062-1.3618-1.4063-1.3618-3.9648v-23.086h4.9314z"/>
-                    <path d="m346.25 44.195q-3.0331 0-5.179-1.0547-2.1459-1.0547-3.2807-3.0859-1.1348-2.0508-1.1348-4.9414v-2.2852q0-3.0078 1.0729-5.1367 1.0936-2.1289 3.1569-3.2422 2.084-1.1133 4.9933-1.1133 2.7442 0 4.6838 1.3086 1.9602 1.2891 2.9712 3.75 1.0317 2.4609 1.0317 5.9375v1.3281h-14.547v-3.418h9.966l-0.0206-0.21484q-0.20633-2.1289-1.2586-3.3008-1.0523-1.1719-2.8268-1.1719-2.2284 0-3.4458 1.3281-1.2174 1.3086-1.2174 3.7305v2.5781q0 2.3047 1.3205 3.5547 1.3206 1.2305 3.714 1.2305 1.2174 0 2.3935-0.42969 1.1968-0.44922 2.1459-1.2305l3.2188 2.8516q-1.63 1.4453-3.6728 2.2461-2.0221 0.78125-4.0854 0.78125z"/>
-                    <path d="m367.32 52.144q-2.476 0-4.4362-0.85938-1.9602-0.83984-3.0538-2.3828l3.322-2.8711q0.76346 0.91797 1.8364 1.4062 1.0936 0.48828 2.2697 0.48828 2.1046 0 3.322-1.0938 1.2174-1.0742 1.2174-3.0469v-20.156h4.9314v19.668q0 2.793-1.1142 4.7852-1.0936 1.9922-3.2188 3.0273-2.1046 1.0352-5.0758 1.0352zm-0.70156-7.9102q-2.311 0-3.9616-0.9961-1.63-1.0156-2.4966-2.9102-0.84598-1.9141-0.84598-4.6094v-3.8672q0-2.6953 0.84598-4.6094 0.84596-1.9336 2.4554-2.9297 1.63-1.0156 3.8997-1.0156 1.8157 0 3.3014 0.95703 1.5062 0.95703 2.4141 2.6953l-0.4333 4.3164q0-1.1719-0.4333-1.9922-0.43332-0.82031-1.2587-1.25-0.82534-0.42969-2.0014-0.42969-1.8364 0-2.8474 1.1328-1.011 1.1328-1.011 3.1641v3.8281q0 2.0117 1.011 3.125 1.011 1.0938 2.8474 1.0938 1.1761 0 2.0014-0.42969 0.82534-0.44922 1.2587-1.2695 0.4333-0.82031 0.4333-1.9727l0.28886 4.4531q-0.63963 1.582-2.0633 2.5586-1.4031 0.95703-3.4046 0.95703z"/>
-                    <path d="m391.69 44.195q-3.0331 0-5.179-1.0547-2.1459-1.0547-3.2807-3.0859-1.1348-2.0508-1.1348-4.9414v-2.2852q0-3.0078 1.073-5.1367 1.0936-2.1289 3.1569-3.2422 2.084-1.1133 4.9933-1.1133 2.7443 0 4.6838 1.3086 1.9602 1.2891 2.9712 3.75 1.0317 2.4609 1.0317 5.9375v1.3281h-14.547v-3.418h9.966l-0.0206-0.21484q-0.20634-2.1289-1.2586-3.3008-1.0523-1.1719-2.8268-1.1719-2.2284 0-3.4458 1.3281-1.2174 1.3086-1.2174 3.7305v2.5781q0 2.3047 1.3206 3.5547 1.3205 1.2305 3.714 1.2305 1.2174 0 2.3935-0.42969 1.1968-0.44922 2.1459-1.2305l3.2188 2.8516q-1.6301 1.4453-3.6728 2.2461-2.0221 0.78125-4.0854 0.78125z"/>
-                </g>
-                <path d="m112.33 58.967h3.0586l9.7734 25.559h-5.1855l-6.1172-17.455-6.1172 17.455h-5.1856zm-5.0801 16.822h13.447v4.6406h-13.447z"/>
-                <path d="m134.96 84.79q-1.6348 0-3.1816-0.28125-1.5469-0.29883-2.9004-0.86133-1.3535-0.5625-2.3906-1.3535l2.9707-3.709q1.3184 0.84375 2.7598 1.3008 1.4414 0.45703 2.7422 0.45703 1.6875 0 2.6191-0.36914 0.93164-0.38672 0.93164-1.0547 0-0.61524-0.4043-0.93164-0.40429-0.3164-1.0371-0.43945-0.63281-0.14062-1.7754-0.24609-0.3164-0.03516-0.65039-0.07031-0.3164-0.03516-0.65039-0.07031-0.0703-0.01758-0.1582-0.01758-0.0703-0.01758-0.14063-0.01758-2.0391-0.26367-3.2695-0.65039-1.2305-0.38672-2.0918-1.4766-0.84375-1.1074-0.84375-3.1992 0-1.8281 0.87891-3.1289 0.87891-1.3008 2.5488-1.9688 1.6699-0.68555 4.043-0.68555 1.3887 0 2.7598 0.28125 1.3887 0.28125 2.6543 0.8086 1.2656 0.52734 2.3379 1.2656l-2.8652 3.498q-1.1953-0.66797-2.4961-1.0371-1.3008-0.36914-2.4961-0.36914-1.459 0-2.2676 0.33398-0.80859 0.33398-0.80859 0.93164 0 0.45703 0.42187 0.7207 0.43946 0.24609 1.0723 0.36914 0.65039 0.10547 1.8809 0.24609 0.1582 0.01758 0.3164 0.03516 0.15821 0.01758 0.31641 0.03516 0.0703 0.01758 0.1582 0.01758t0.15821 0.01758q2.127 0.24609 3.4629 0.63281t2.2676 1.5469q0.94922 1.1602 0.94922 3.4102 0 1.8984-0.91407 3.252-0.91406 1.3535-2.6719 2.0742-1.7578 0.70312-4.2363 0.70312z"/>
-                <path d="m151.74 84.614q-2.3906 0-3.5156-1.2129-1.1074-1.2305-1.1074-3.6211v-18.809h4.8164v17.613q0 0.66797 0.26367 1.0371 0.26367 0.35156 0.77344 0.35156h1.1953v4.6406zm-6.5039-18.334h8.9297v4.1133h-8.9297z"/>
-                <path d="m158.39 66.28h5.168v18.246h-5.168zm10.266 5.0801q-0.35157-0.35156-0.86134-0.52734-0.50976-0.17578-1.1777-0.17578-1.459 0-2.2676 0.94922-0.79102 0.93164-0.79102 2.6016l-0.36914-4.7461q0.75586-1.6348 1.9512-2.5312 1.2129-0.91406 2.6543-0.91406 1.1426 0 2.0566 0.36914 0.93164 0.35156 1.6172 1.0547z"/>
-                <path d="m180.75 84.79q-2.4961 0-4.2715-0.93164-1.7578-0.93164-2.6894-2.707-0.91406-1.793-0.91406-4.3066v-2.9707q0-2.4785 0.91406-4.2363 0.93164-1.7754 2.6894-2.6895 1.7754-0.93164 4.2715-0.93164t4.2539 0.93164q1.7754 0.91406 2.6895 2.6895 0.93163 1.7578 0.93163 4.2363v3.0234q0 2.4961-0.93163 4.2715-0.91407 1.7578-2.6895 2.6895-1.7578 0.93164-4.2539 0.93164zm-0.0176-4.6406q1.459 0 2.2676-0.84375 0.8086-0.86133 0.8086-2.4082v-3.0234q0-1.5293-0.8086-2.373t-2.2676-0.84375q-1.4414 0-2.25 0.84375-0.79101 0.84375-0.79101 2.373v3.0234q0 1.5469 0.79101 2.4082 0.79102 0.84375 2.25 0.84375z"/>
-                <path d="m193.02 66.28h4.8164v18.246h-4.8164zm10.547 7.1895q0-1.3359-0.77343-2.0742-0.75585-0.73828-2.1621-0.73828-1.336 0-2.0742 0.75586-0.7207 0.73828-0.7207 2.0918l-0.36913-4.043q0.82617-1.7227 1.9688-2.584 1.1602-0.86133 2.9004-0.86133 2.8828 0 4.4648 1.9512 1.582 1.9336 1.582 5.4844v11.074h-4.8164z"/>
-                <path d="m220.47 84.79q-2.4961 0-4.2715-0.93164-1.7578-0.93164-2.6895-2.707-0.91405-1.793-0.91405-4.3066v-2.9707q0-2.4785 0.91405-4.2363 0.93165-1.7754 2.6895-2.6895 1.7754-0.93164 4.2715-0.93164 2.4961 0 4.2539 0.93164 1.7754 0.91406 2.6894 2.6895 0.93165 1.7578 0.93165 4.2363v3.0234q0 2.4961-0.93165 4.2715-0.91405 1.7578-2.6894 2.6895-1.7578 0.93164-4.2539 0.93164zm-0.0176-4.6406q1.459 0 2.2676-0.84375 0.80858-0.86133 0.80858-2.4082v-3.0234q0-1.5293-0.80858-2.373-0.8086-0.84375-2.2676-0.84375-1.4414 0-2.25 0.84375-0.79101 0.84375-0.79101 2.373v3.0234q0 1.5469 0.79101 2.4082 0.79102 0.84375 2.25 0.84375z"/>
-                <path d="m254.01 73.997q0-1.5996-0.77343-2.4609-0.75585-0.87891-2.1621-0.87891-1.3887 0-2.1445 0.84375-0.73828 0.82617-0.73828 2.3555l-0.89648-4.2188q0.86133-1.7402 2.2324-2.6719 1.3887-0.94922 3.0762-0.94922 1.9688 0 3.3574 0.93164 1.4062 0.93164 2.127 2.7246 0.73829 1.793 0.73829 4.3066v10.547h-4.8164zm-21.27-7.7168h4.8164v18.246h-4.8164zm10.635 7.7168q0-1.5996-0.79102-2.4609-0.79101-0.87891-2.2324-0.87891-1.3359 0-2.0742 0.75586-0.7207 0.73828-0.7207 2.0918l-0.36913-4.043q0.80858-1.6875 2.0215-2.5664 1.2129-0.87891 2.8476-0.87891 1.9336 0 3.3047 0.93164 1.3887 0.93164 2.1094 2.7246 0.7207 1.793 0.7207 4.3066v10.547h-4.8164z"/>
-                <path d="m271.4 84.79q-2.6367 0-4.5176-0.94922-1.8633-0.9668-2.8477-2.7949-0.98436-1.8457-0.98436-4.4297v-2.0566q0-2.707 0.93163-4.623 0.94922-1.916 2.7422-2.918 1.8105-1.002 4.3594-1.002 2.3906 0 4.0957 1.1953 1.7051 1.1953 2.584 3.4805 0.89649 2.2676 0.89649 5.4844v1.1953h-12.48v-3.252h8.0859l-0.0527-0.42188q-0.19335-1.582-1.002-2.4434-0.79102-0.86133-2.127-0.86133-1.7402 0-2.707 1.0371-0.94922 1.0371-0.94922 2.9355v2.3203q0 1.8633 1.0371 2.8828 1.0547 1.0195 2.9355 1.0195 0.9668 0 1.916-0.33398 0.94921-0.35156 1.7227-0.98438l3.1465 2.7949q-1.4238 1.3008-3.1992 2.0215-1.7754 0.70312-3.586 0.70312z"/>
-                <path d="m282.88 66.28h5.168v18.246h-5.168zm10.266 5.0801q-0.35157-0.35156-0.86133-0.52734-0.50977-0.17578-1.1777-0.17578-1.459 0-2.2676 0.94922-0.79102 0.93164-0.79102 2.6016l-0.36913-4.7461q0.75587-1.6348 1.9512-2.5312 1.2129-0.91406 2.6543-0.91406 1.1426 0 2.0566 0.36914 0.93163 0.35156 1.6172 1.0547z"/>
-                <path d="m305.22 84.79q-1.6348 0-3.1816-0.28125-1.5469-0.29883-2.9004-0.86133-1.3535-0.5625-2.3906-1.3535l2.9707-3.709q1.3184 0.84375 2.7598 1.3008 1.4414 0.45703 2.7422 0.45703 1.6875 0 2.6192-0.36914 0.93163-0.38672 0.93163-1.0547 0-0.61524-0.4043-0.93164-0.4043-0.3164-1.0371-0.43945-0.63281-0.14062-1.7754-0.24609-0.3164-0.03516-0.65038-0.07031-0.31642-0.03516-0.6504-0.07031-0.0703-0.01758-0.1582-0.01758-0.0703-0.01758-0.14062-0.01758-2.0391-0.26367-3.2695-0.65039-1.2305-0.38672-2.0918-1.4766-0.84375-1.1074-0.84375-3.1992 0-1.8281 0.8789-3.1289 0.87891-1.3008 2.5488-1.9688 1.6699-0.68555 4.043-0.68555 1.3887 0 2.7598 0.28125 1.3887 0.28125 2.6543 0.8086 1.2656 0.52734 2.3379 1.2656l-2.8652 3.498q-1.1953-0.66797-2.4961-1.0371-1.3008-0.36914-2.4961-0.36914-1.459 0-2.2676 0.33398-0.80859 0.33398-0.80859 0.93164 0 0.45703 0.42187 0.7207 0.43945 0.24609 1.0723 0.36914 0.6504 0.10547 1.8809 0.24609 0.1582 0.01758 0.3164 0.03516t0.3164 0.03516q0.0703 0.01758 0.15822 0.01758 0.0879 0 0.1582 0.01758 2.127 0.24609 3.4629 0.63281 1.336 0.38672 2.2676 1.5469 0.94922 1.1602 0.94922 3.4102 0 1.8984-0.91407 3.252-0.91405 1.3535-2.6719 2.0742-1.7578 0.70312-4.2363 0.70312z"/>
-                <path d="m314.54 58.967h4.8164v6.293l-4.8164 4.6055z"/>
-                <path d="m341.34 84.79q-2.918 0-4.9922-1.1074-2.0742-1.125-3.1641-3.252-1.0898-2.1445-1.0898-5.168v-7.0137q0-3.0234 1.0898-5.1504 1.0898-2.1445 3.1641-3.2695 2.0742-1.125 4.9922-1.125 2.4082 0 4.3066 1.0371 1.8984 1.0371 3.1289 3.0234 1.248 1.9688 1.7226 4.7637h-4.9922q-0.28125-1.2656-0.8789-2.1621-0.58009-0.89648-1.4238-1.3711-0.82616-0.47461-1.8633-0.47461-1.3535 0-2.3027 0.5625-0.94922 0.54492-1.459 1.6172-0.49218 1.0547-0.49218 2.5488v7.0137q0 1.4941 0.49218 2.5488 0.50977 1.0547 1.459 1.6172 0.94921 0.54492 2.3027 0.54492 1.0547 0 1.8984-0.45703 0.84375-0.47461 1.4238-1.3711 0.58008-0.89648 0.84375-2.1797h4.9922q-0.49218 2.7949-1.7402 4.7813-1.2305 1.9688-3.1289 3.0059-1.8809 1.0371-4.2891 1.0371z"/>
-                <path d="m359.36 78.497q0 0.66797 0.36913 1.0371 0.38672 0.35156 1.0898 0.35156h0.80858v4.6406h-2.4609q-2.1973 0-3.4102-1.2656-1.2129-1.2656-1.2129-3.5684v-20.725h4.8164z"/>
-                <path d="m375.27 66.28h4.7988v18.246h-4.7988zm-5.6602 11.092q0 1.3184 0.73828 2.0566 0.75587 0.7207 2.1094 0.7207 1.3535 0 2.0742-0.73828 0.73829-0.75586 0.73829-2.1445l0.24608 3.9902q-0.50975 1.4941-1.7051 2.5137-1.1777 1.0195-2.8828 1.0195-2.9356 0-4.5352-1.8809-1.5996-1.8984-1.5996-5.3613v-11.268h4.8164z"/>
-                <path d="m393.87 84.79q-1.5996 0-2.7598-0.80859-1.1602-0.82617-1.7226-2.3203l0.2461-4.166q0 0.89648 0.3164 1.5293 0.3164 0.63281 0.91407 0.9668 0.61523 0.33398 1.4766 0.33398 1.3535 0 2.0918-0.89648 0.75587-0.89649 0.75587-2.5313v-2.9004q0-1.6699-0.75587-2.584-0.73828-0.93164-2.0918-0.93164-0.86132 0-1.4766 0.35156-0.59767 0.33398-0.91407 0.98438-0.3164 0.65039-0.3164 1.582l-0.36915-4.043q0.73828-1.5996 1.9336-2.4609 1.2129-0.87891 2.6719-0.87891 1.9336 0 3.3047 0.93164 1.3887 0.93164 2.1094 2.7246 0.7207 1.793 0.7207 4.3066v2.918q0 2.4961-0.7207 4.2715-0.7207 1.7578-2.1094 2.6895-1.3711 0.93164-3.3047 0.93164zm-9.0527-25.822h4.8164v25.559h-4.8164z"/>
-            </g>
-            <text fill="black" font-family="sans-serif" font-size="40px" style="line-height:1.25;shape-inside:url(#rect521329);white-space:pre" xml:space="preserve"/>
-        </svg>
+    <a class="footer-brand" href="https://qcac.hk/">
+        <img alt="Queen's College Astronomers' Club, Hong Kong 香港皇仁書院天文學會" src="https://qcac.hk/img/logo-text.svg"
+             title="Queen's College Astronomers' Club, Hong Kong 香港皇仁書院天文學會">
     </a>
-    <div id="suggestions">
-        <a href="https://githubstatus.com" target="_blank">GitHub Status</a>
-        —
-        <a href="https://github.com/qcastron/qcastron.github.io/issues" target="_blank">Report Issues</a>
-    </div>
+    <nav>
+        <div>
+            <a href="https://qcac.hk/moon/">Moon and Weather</a>
+            <a href="https://qcac.hk/planets/">Planets Simulator</a>
+        </div>
+        <div>
+            <a data-bs-toggle="modal" href="#privacy"
+               onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'privacy'})"
+               role="button">Privacy</a>
+            <a data-bs-toggle="modal" href="#cookies"
+               onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'cookies'})"
+               role="button">Cookies</a>
+            <a data-bs-toggle="modal" href="#license"
+               onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'license'})"
+               role="button">License</a>
+            <a href="mailto:astronomersclubqcATgmailDOTcom" onclick="this.href=this.href.replace(/AT/,'&#64;').replace(/DOT/,'&#46;')">Contact</a>
+        </div>
+    </nav>
 </footer>
+<div class="modal fade" id="privacy" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Privacy Policy</h5>
+                <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        type="button"></button>
+            </div>
+            <div class="modal-body">
+                Queen's College Astronomers' Club 皇仁書院天文學會<br>
+                16 July 2021
+                <section>
+                    <h5>What do we mean by "personal information?"</h5>
+                    <p>For us, "personal information" means information which either directly identifies you (like your
+                        name, email address, or phone number) or can be reasonably linked or combined to identify
+                        you (like student number or IP address). We'll always tell you what personal
+                        information we’re collecting from you. See each form’s Privacy Notice or Privacy Statement for
+                        specific details.</p>
+                    <p>Any information that falls outside of this is "non-personal information."</p>
+                    <p>If we store your personal information with information that is non-personal, we will consider the
+                        combination as personal information. If we remove all personal information from a set of data
+                        then the remaining is non-personal information.</p>
+                </section>
+                <section>
+                    <h5>How do we learn information about you?</h5>
+                    <p>We learn information about you when:</p>
+                    <ul>
+                        <li>you give it to us directly (e.g., when you sign up for membership);</li>
+                        <li>we collect it automatically through our products and services (e.g., when you email,
+                            instant-message or call us);</li>
+                        <li>someone else tells us information about you (e.g., when other entities refers you to us); or</li>
+                        <li>when we try and understand more about you based on information you've given to us (e.g.,
+                            when we use your IP address and user behaviour to optimise our website experience).</li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>What do we do with your information once we have it?</h5>
+                    <p>When you give us information, we will use it in the ways for which you've given us permission.
+                        Generally, we use your information to help us provide and improve our products and services for
+                        you.</p>
+                    <p>For users in the EU, EEA, Switzerland, and California: see
+                        <a data-bs-toggle="collapse" href="#GDPR" role="button" aria-expanded="false" aria-controls="GDPR">here</a>
+                        for more information. There are apparently way more of you visiting this site than we expect,
+                        despite us being based in Hong Kong and the majority of us have yet to leave.</p>
+                    <section class="collapse" id="GDPR">
+                        <div class="card card-body">
+                            <p>These regions have data protection laws that require us to specify the following:</p>
+                            <p>Our Privacy Policy and product/activity specific privacy notices describe the purposes
+                                for which we process information about you and the categories of information we process.
+                                Queen's College Astronomers' Club does not sell personal data.</p>
+                            <p>Our lawful bases for collecting and processing personal information under the European
+                                General Data Protection Regulation ("GDPR") include:</p>
+                            <ul>
+                                <li><b>Performing our contract with you</b>: Registration for membership or application
+                                    for joining our work team requires your agreement to the terms given by our
+                                    executive committee. To provide the services described, such as getting in touch
+                                    with you, we need to receive your name, class and class number, phone number, and
+                                    email address, and sometimes additional information as well.</li>
+                                <li><b>Legitimate interests</b>: We receive technical and interaction data of users,
+                                    which may include IP addresses, to improve the experience, security and reliability
+                                    of our services and prevent abuse, and to understand where people learn about the
+                                    Club.</li>
+                                <li><b>Consent</b>: Where we ask for your consent to process your information, you can
+                                    always withdraw this consent. For minors under the age of 13, guardians of Queen's
+                                    College students have consented their dependent providing said dependent's personal
+                                    information, and the use of their dependent's personal information by affiliate
+                                    organisations of Queen's College according to the school's own privacy protection
+                                    policies.</li>
+                            </ul>
+                            <p>The following rights are granted under the GDPR and California Consumer Privacy Act
+                                ("CCPA"). Queen's College Astronomers' Club applies these rights to all users of our
+                                products/services, regardless of your location:</p>
+                            <ul>
+                                <li>The right to know what personal data is collected</li>
+                                <li>The right to know if personal data is being shared, and to whom</li>
+                                <li>The right to access your personal data</li>
+                                <li>The right to exercise your privacy rights without being discriminated against</li>
+                            </ul>
+                            <p>If you have a question or concern, please contact us and we hope to resolve it for you.</p>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <h5>When do we share your information with others?</h5>
+                    <ul>
+                        <li>When we have asked and received your permission to share it.</li>
+                        <li>For processing or providing products and services to you, but only if those entities
+                            receiving your information are obligated to handle the data in ways that are approved by the
+                            Club.
+                        </li>
+                        <li>When we are fulfilling our mission of promoting astronomy and building bonds among brothers,
+                            directly or incidentally, we sometimes release information to make our products or services
+                            better. But when we do so, we will remove your personal information and try to disclose it
+                            in a way that minimizes the risk of you being re-identified.
+                        </li>
+                        <li>When the law requires it. We follow the law whenever we receive requests about you from a
+                            government or related to a lawsuit. We'll notify you when we're asked to hand over your
+                            personal information in this way unless we're legally prohibited from doing so. When we
+                            receive requests like this, we'll only release your personal information if we have a good
+                            faith belief that the law requires us to do so. Nothing in this policy is intended to limit
+                            any legal defenses or objections that you may have to a third party's request to disclose
+                            your information.
+                        </li>
+                        <li>When we believe it is necessary to prevent harm to you or someone else. We will only share
+                            your information in this way if we have a good faith belief that it is reasonably necessary
+                            to protect the rights, property or safety of you, our other users, Queen's College
+                            Astronomers' Club or the public.
+                        </li>
+                        <li>If our organizational structure or status changes (if we undergo a restructuring) we may
+                            pass your information to a successor or affiliate.
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>How do we store and protect your personal information?</h5>
+                    <p>We are committed to protecting your personal information once we have it. We implement physical,
+                        business and technical security measures. Despite our efforts, if we learn of a security breach,
+                        we'll notify you so that you can take appropriate protective steps.</p>
+                    <p>We also don't want your personal information for any longer than we need it, so we only keep it
+                        long enough to do what we collected it for. Once we don't need it, we take steps to destroy it
+                        unless we are required by law to keep it longer.</p>
+                </section>
+                <section>
+                    <h5>What if we change this privacy policy or any of our privacy notices?</h5>
+                    <p>We may need to change this policy and our notices. The updates will be posted online. If the
+                        changes are substantive, we will announce the update through the Club's usual channels for such
+                        announcements such as social media posts or emails. Your continued use of the product or service
+                        after the effective date of such changes constitutes your acceptance of such changes. To make
+                        your review more convenient, we will post an effective date at the top of the page.</p>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="cookies" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Website & Cookies Privacy Notice</h5>
+                <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        type="button"></button>
+            </div>
+            <div class="modal-body">
+                <p>Queen's College Astronomers' Club 皇仁書院天文學會<br>
+                    16 July 2021<br><br></p>
+                <section>
+                    <p>We care about your privacy. When Queen's College Astronomers' Club (that's us) collects
+                        information about you, our
+                        <a data-bs-dismiss="modal" data-bs-toggle="modal" href="#privacy"
+                           onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'privacy'})"
+                           role="button">Privacy Policy</a>
+                        describes how we handle that information.</p>
+                    <p>This privacy notice applies to Queen's College Astronomers' Club operated websites and mobile
+                        apps, which include the domains qcac.hk, and qcshao.com, among others.</p>
+                </section>
+                <section id="things-you-should-know">
+                    <h5>Things you should know</h5>
+                    <p><a data-bs-toggle="collapse" href="#receive-info" role="button" aria-expanded="false"
+                          aria-controls="receive-info">We may receive personal information from you based on your
+                        interaction with us on social media platforms; if you submit a membership or core application
+                        application; if you volunteer as a helper for the Club; if you submit user feedback or a
+                        request to us; or if you engage with an activity, product or policy campaign. </a></p>
+                    <div class="collapse" id="receive-info">
+                        <div class="card card-body">
+                            <ul>
+                                <li>
+                                    <b>Social Media</b>: If you engage with our social media accounts, such as Facebook
+                                    and Instagram, we may receive personal information about you. If you use these
+                                    networks, their privacy policies apply, and you are encouraged to read them.
+                                </li>
+                                <li>
+                                    <b>Membership & Core Applicants</b>: Applicants for membership, core or fellowship
+                                    opportunities with Queen's College Astronomers' Club are required to give us a name,
+                                    phone number, and email address, and sometimes additional information as well. We
+                                    use this information to process and evaluate applications and to communicate with
+                                    applicants about opportunities.
+                                </li>
+                                <li>
+                                    <b>User Feedback</b>: You can provide feedback to us on our products and services
+                                    on webpages like <a href="https://github.com/qcastron/qcastron.github.io/issues" target="_blank">https://github.com/qcastron/qcastron.github.io/issues</a>,
+                                    or through channels such as email or a social media account. Please minimize the
+                                    personal information you choose to share on forums because your comments may be
+                                    accessible to the public.
+                                </li>
+                                <li>
+                                    <b>Product & Policy Campaigns</b>: Some of our webpages host activity, product
+                                    or policy campaigns. We may use third parties to manage these campaigns and handle
+                                    any data that you choose to submit.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p><a data-bs-toggle="collapse" href="#use-info" role="button" aria-expanded="false"
+                          aria-controls="use-info">We may use cookies, clear GIFs, third party web analytics, device
+                        information, and IP addresses for functionality and to better understand user interaction with
+                        our products, services, and communications. </a></p>
+                    <div class="collapse" id="use-info">
+                        <div class="card card-body">
+                            <ul>
+                                <li>
+                                    <p><b>Functionality</b>: We may use information such as cookies, device information,
+                                        and IP addresses to enhance functionality of certain products, services, and
+                                        communications. For example: we use certain device information such as country,
+                                        language, operator and OEM, to customize your experience.</p>
+                                </li>
+                                <li>
+                                    <p><b>Metrics</b>: We may also use cookies, device information, and IP addresses,
+                                        along with clear GIFs, cookies and third party services to help us understand in
+                                        the aggregate how users engage with our products, services, communications,
+                                        websites, online campaigns, snippets, and other platforms. We use:</p>
+                                    <ul>
+                                        <li>Google Analytics, which places a cookie on your device, to obtain metrics on
+                                            how users engage with our websites. This helps us to improve site content.
+                                        </li>
+                                        <li>HTTP Referral Data, to understand the website domain or advertising campaign
+                                            that referred you to our page. This information helps us understand the
+                                            effectiveness of our advertising campaigns and improve them.
+                                        </li>
+                                        <li>Other metrics tools from time to time, on an experimental basis. For
+                                            example, we may do this to help evaluate a new metrics tool, or test
+                                            existing metrics collection.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><b>Fraud Prevention</b>: We have implemented third-party technology, Google’s
+                                        Invisible reCAPTCHA, that operates in the background on some of our websites in
+                                        order to identify fraudulent activity. Use of the Invisible reCAPTCHA is
+                                        governed by the <a href="https://www.google.com/intl/policies/privacy/" target="_blank">Google Privacy Policy</a>
+                                        and <a href="https://policies.google.com/terms" target="_blank">Terms of Use</a>.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p><a data-bs-toggle="collapse" href="#cookie-info" role="button" aria-expanded="false"
+                          aria-controls="cookie-info">You can control individual cookie preferences, indicate your
+                        cookie preferences to others, and opt-out of web analytics and optimization tools. </a></p>
+                    <div class="collapse" id="cookie-info">
+                        <div class="card card-body">
+                            <p>We recommend the latest version of
+                                <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a> browser
+                                for the best experience of the site and privacy protection to your online presence.
+                                Instructions here are given according to the current version of Firefox. Other browsers
+                                may not support some of these actions.</p>
+                            <ul>
+                                <li>
+                                    <p><b>Cookie History</b>: You can accept or decline individual cookies in your
+                                        Firefox preferences in the Tools/Options/Privacy history section. Note that
+                                        certain features of our products and services may not function properly without
+                                        the aid of cookies.</p>
+                                </li>
+                                <li>
+                                    <p><b>Do Not Track</b>: We do not track users across third party websites to provide
+                                        targeted advertising.</p>
+                                </li>
+                                <li>
+                                    <p><b>Analytics & Optimization</b>: Follow the instructions below to prevent data
+                                        collection about your visits to our websites:</p>
+                                    <ul>
+                                        <li>Google: Install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google
+                                            Analytics Opt-out Browser Add-on</a>, which prohibits data transmission to
+                                            Google Analytics. Some web pages use clear GIFs which communicate with
+                                            DoubleClick to understand the effectiveness of our advertising campaigns;
+                                            you can control personalized ads from DoubleClick in Google's ad settings
+                                            (you will be prompted to sign into your Google Account).
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><b>Social Media</b>: The social sharing buttons on our websites are designed
+                                        not to share data with the social media provider until you specifically click
+                                        the button.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="license" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Website License Policies</h5>
+                <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        type="button"></button>
+            </div>
+            <div class="modal-body">
+                <section>
+                    <h5>Using Materials on This Website</h5>
+                    <p>If you wish to use materials on this website, we are more than happy to provide you with a custom
+                        license for your specific project. Please feel free to contact us via
+                        <a href="mailto:astronomersclubqcATgmailDOTcom" onclick="this.href=this.href.replace(/AT/,'&#64;').replace(/DOT/,'&#46;')">email</a>
+                        or <a href="https://qcac.hk/#social-media" target="_blank">social media</a>.</p>
+                    <p>You most welcome to use materials on this website with the default licenses stated below for
+                        general purposes.</p>
+                </section>
+                <section>
+                    <h5>Texts, images and videos</h5>
+                    <p>Unless otherwise specified, the text, images and videos on this website is available under the
+                        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license, or any later
+                        version, with the conditions listed below.</p>
+                    <a class="license-brand" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+                        <img alt="Creative Commons License" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-nd.svg">
+                    </a>
+                    <p>A <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">summary</a> of the terms of this
+                        license is available, as well as its
+                        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" target="_blank">detailed terms</a>.</p>
+                    <p>The following conditions must be satisfied:</p>
+                    <ul>
+                        <li>The full image or footage credit must be presented in a clear and readable manner to all
+                            users, with the wording unaltered (for example: "Queen's College Astronomers' Club
+                            皇仁書院天文學會"). Web texts should be credited to Queen's College Astronomers' Club
+                            皇仁書院天文學會 (except when used by media). The credit should not be hidden or disassociated
+                            from the image footage. Links should be active if the credit is online.</li>
+                        <li>Queen's College Astronomers' Club materials may not be used to state or imply the
+                            endorsement by the Club or any Club member of a commercial product or service;</li>
+                        <li>We kindly ask for an electronic copy or image of the product sent to us to be indexed in our
+                            archive;</li>
+                        <li>If an image shows an identifiable person, using that image for commercial purposes may
+                            infringe that person's right of privacy, and separate permission should be obtained from the
+                            individual. We may be able to help with that on request.</li>
+                        <li>Note that this general permission does not extend to the use of Queen's College Astronomers'
+                            Club's logo, which shall remain protected and may not be used or reproduced without prior
+                            and individual written consent of the Club. Owners of external websites wishing to link to
+                            the Club web site may use the Club's logo for the link, provided they have obtained prior
+                            authorisation from the Club and on the condition that such use is clearly identifiable as a
+                            web link.</li>
+                        <li>Also note that music on this site are not released under the Creative Commons license and
+                            cannot be used for non-Queen's College Astronomers' Club products.</li>
+                        <li>By reproducing Queen's College Astronomers' Club material, in part or in full, the user
+                            acknowledges the terms on which such use is permitted.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>Code</h5>
+                    <p>Unless otherwise specified, the code, except the texts, images, videos and code by other authors
+                        on this website is, <b>free and open source</b>; available under the GNU General Public License
+                        v3.0, or any later versions.</p>
+                    <a class="license-brand" href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">
+                        <img alt="GPL License" id="GPL-logo" src="https://www.gnu.org/graphics/gplv3-with-text-136x68.png">
+                    </a>
+                    <p>You should know what this is already if you are coding. But the
+                        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">detailed terms</a> of this license is
+                        available anyway.</p>
+                    <p>Code libraries used are under separate licenses by their authors, but are also public licenses.</p>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     let canvas = document.getElementById("constellations"),
         halfWinW = 0,
@@ -744,6 +1055,8 @@
     tick();
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQW8TQENF0"></script>
+<script src="https://qcac.hk/js/jquery.min.js"></script>
+<script src="https://qcac.hk/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {dataLayer.push(arguments);}

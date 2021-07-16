@@ -3,14 +3,14 @@ function moon_phase(date) {
         type,
         count;
 
-    let jd = date / 86400000 - date.getHours() / 24 - (date.getTimezoneOffset() + date.getMinutes()) / 1440 - date.getSeconds() / 86400 + 2440587.5, // total days elapsed in julian days
+    let jd = date / 86400000 - date.getHours() / 24 - date.getMinutes() / 1440 - date.getSeconds() / 86400 + 2440587.5, // total days elapsed in julian days
         phase = jd % 29.53; // divide by the moon cycle (29.53 days)
     if (phase <= 14.765) {
-        count = (14.765 - phase + date.getTimezoneOffset() / 1440) | 0;
+        count = (14.765 - phase) | 0;
         className = count > 0 ? `moon-full-${count}` : "moon-full";
         type = "Full Moon";
     } else {
-        count = (29.53 - phase + date.getTimezoneOffset() / 1440) | 0;
+        count = (29.53 - phase) | 0;
         className = count > 0 ? `moon-new-${count}` : "moon-new";
         type = "New Moon";
     }
