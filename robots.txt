@@ -2,5 +2,6 @@ User-agent: *
 Disallow: /bootstrap/
 Disallow: /img/
 Allow: /img/thumbnail.jpg
+Allow: /img/poster.jpg
 Allow: /moon/img/thumbnail.jpg
 Allow: /planets/img/thumbnail.jpg
