@@ -5,69 +5,69 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover" name="viewport">
-    <meta content="Current Moon phase and weather forecast" name="description">
+    <meta content="Current Moon phase and hourly astronomical weather and seeing conditions forecast" name="description">
     <meta content="#290A66" name="theme-color">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
     <meta content="Queen's College Astronomers' Club 皇仁書院天文學會" property="og:site_name">
-    <meta content="Moon - Queen's College Astronomers' Club 皇仁書院天文學會" property="og:title">
-    <meta content="Current Moon phase and weather forecast" property="og:description">
+    <meta content="Moon & Weather - Queen's College Astronomers' Club 皇仁書院天文學會" property="og:title">
+    <meta content="Current Moon phase and hourly astronomical weather and seeing conditions forecast" property="og:description">
     <meta content="https://qcac.hk/moon/img/thumbnail.jpg" property="og:image">
     <meta content="https://qcac.hk/moon/" property="og:url">
     <meta content="en_HK" property="og:locale">
     <meta content="summary_large_image" name="twitter:card">
     <link href="../img/logo.ico" rel="icon">
-    <title>Moon - Queen's College Astronomers' Club 皇仁書院天文學會</title>
+    <title>Moon & Weather - Queen's College Astronomers' Club 皇仁書院天文學會</title>
     <link href="https://qcac.hk/humans.txt" rel="author" type="text/plain">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link href="scss/custom.css" rel="stylesheet">
     <script type="application/ld+json">
         {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Queen's College Astronomers' Club 皇仁書院天文學會",
-        "image": "https://qcac.hk/img/poster.jpg",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "120 Causeway Road",
-            "addressLocality": "Causeway Bay",
-            "addressRegion": "Hong Kong"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 22.280874,
-            "longitude": 114.191657
-        },
-        "containedInPlace": "Queen's College 皇仁書院",
-        "url": "https://qcac.hk/",
-        "foundingDate": "1961-10-24",
-        "founder": "Liu Hing Chai",
-        "logo": {
             "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
+            "@type": "LocalBusiness",
+            "name": "Queen's College Astronomers' Club 皇仁書院天文學會",
+            "image": "https://qcac.hk/img/poster.jpg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "120 Causeway Road",
+                "addressLocality": "Causeway Bay",
+                "addressRegion": "Hong Kong"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 22.280874,
+                "longitude": 114.191657
+            },
+            "containedInPlace": "Queen's College 皇仁書院",
             "url": "https://qcac.hk/",
-            "logo": "https://qcac.hk/img/logo.svg"
-        },
-        "department": [
-            {
+            "foundingDate": "1961-10-24",
+            "founder": "Liu Hing Chai",
+            "logo": {
+                "@context": "https://schema.org",
                 "@type": "EducationalOrganization",
-                "name": "Stanley Ho Astronomical Observatory 何鴻燊天文觀測站",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "89 Tai Tam Tuk Village",
-                    "addressLocality": "Tai Tam, Hong Kong Island",
-                    "addressRegion": "Hong Kong"
-                },
-                "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": 22.242264,
-                    "longitude": 114.223369
-                },
-                "foundingDate": "2019-02-24",
-                "sponsor": "Stanley Ho 何鴻燊"
-            }
-        ]
-    }
+                "url": "https://qcac.hk/",
+                "logo": "https://qcac.hk/img/logo.svg"
+            },
+            "department": [
+                {
+                    "@type": "EducationalOrganization",
+                    "name": "Stanley Ho Astronomical Observatory 何鴻燊天文觀測站",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "89 Tai Tam Tuk Village",
+                        "addressLocality": "Tai Tam, Hong Kong Island",
+                        "addressRegion": "Hong Kong"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 22.242264,
+                        "longitude": 114.223369
+                    },
+                    "foundingDate": "2019-02-24",
+                    "sponsor": "Stanley Ho 何鴻燊"
+                }
+            ]
+        }
     </script>
 </head>
 <body style="background: #140533;">
@@ -95,7 +95,8 @@
             </div>
         </div>
     </div>
-    <iframe allowtransparency="true" frameborder="0" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" scrolling="NO" src="https://www.meteoblue.com/en/weather/widget/seeing?geoloc=detect&noground=0"></iframe>
+    <iframe allowtransparency="true" frameborder="0" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" scrolling="NO" src="https://www.meteoblue.com/en/weather/widget/seeing?geoloc=detect&noground=0">Weather and astronomical seeing provided by meteoblue</iframe>
+    <iframe src="https://embed.windy.com/embed2.html?lat=20.448&lon=114.148&detailLat=22.280&detailLon=114.160&width=650&height=450&zoom=6&level=surface&overlay=clouds&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0">Weather forecast provided by windy.com</iframe>
 </main>
 <footer>
     <a class="footer-brand" href="https://qcac.hk/">
@@ -319,7 +320,7 @@
 <script src="https://qcac.hk/js/jquery.min.js"></script>
 <script src="https://qcac.hk/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQW8TQENF0"></script>
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQW8TQENF0"></script>-->
 <script>
     window.dataLayer = window.dataLayer || [];
 
