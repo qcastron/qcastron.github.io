@@ -3,41 +3,78 @@
  * @param {Date} date
  */
 async function getMoonPhase(date = new Date) {
-   
-    date.setHours(0,0,0,0);
 
-    return fetch("js/moon-phase-data/" + date.getFullYear())
-        .then(data => data.json())
-        .then(data => {
-            for (const i of data) {
-                if (i.Phase === 0 && date < new Date(i.Date + "Z")) {
-                    let count = (new Date(i.Date + "Z").setHours(0,0,0,0) - date) / 86400000;
+    /**
+     * NIGHT_OFFSET is the offset in hours when selecting the day of the new moon/full moon event
+     * DAY_OFFSET is the offset in hours when selecting the day of the current time
+     * @constant {number}
+     */
+    const NIGHT_OFFSET = 12,
+        DAY_OFFSET = 6;
+
+    date.setHours(date.getHours() - DAY_OFFSET, 0, 0, 0);
+    date.setHours(0, 0, 0, 0);
+
+    /**
+     * Finds the next new moon or full moon from data, if it exists
+     * @param {Array} data
+     * @returns {{className: String, type: String, count: String, wordIn: String}}
+     */
+    function findNextEvent(data) {
+        for (const i of data) {
+            if (i.Phase === 0) {
+                let newMoon = new Date(i.Date + "Z");
+                newMoon.setHours(newMoon.getHours() - NIGHT_OFFSET, 0, 0, 0);
+                newMoon.setHours(0, 0, 0, 0);
+                let count = (newMoon - date) / 86400000;
+                if (count >= 0) {
                     return {
                         className: count > 0 ? `moon-new-${count}` : "moon-new",
                         type: "New Moon",
-                        count: count > 1 ? count + " days" : count > 0 ? "1 day" : "",
-                        wordIn: "in"
+                        count: count > 1 ? count + " nights" : count > 0 ? "1 night" : "",
+                        wordIn: count ? "in" : ""
                     };
                 }
-                if (i.Phase === 2 && date < new Date(i.Date + "Z")) {
-                    let count = (new Date(i.Date + "Z").setHours(0,0,0,0) - date) / 86400000;
+            } else if (i.Phase === 2) {
+                let fullMoon = new Date(i.Date + "Z");
+                fullMoon.setHours(fullMoon.getHours() - NIGHT_OFFSET, 0, 0, 0);
+                fullMoon.setHours(0, 0, 0, 0);
+                let count = (fullMoon - date) / 86400000;
+                if (count >= 0) {
                     return {
                         className: count > 0 ? `moon-full-${count}` : "moon-full",
                         type: "Full Moon",
-                        count: count > 1 ? count + " days" : count > 0 ? "1 day" : "",
-                        wordIn: "in"
+                        count: count > 1 ? count + " nights" : count > 0 ? "1 night" : "",
+                        wordIn: count ? "in" : ""
                     };
                 }
             }
-        })
-        .catch(() => {
-            return {
-                className: "moon-full",
-                type: "Network",
-                count: "Error",
-                wordIn: ""
-            };
-        });
+        }
+    }
+
+    /**
+     * Fetches data from the js/moon-phase-data/<Year> file, feeds into findNextEvent(), and checks if the search is successful
+     * @param {number} year
+     * @returns {Object} Class name, type, number of days and if the word "in" is needed
+     */
+    function getPromise(year) {
+        return fetch("js/moon-phase-data/" + year.toString() + "/")
+            .then(data => data.json())
+            .then(data => {
+                let results = findNextEvent(data);
+                return results ? results : getPromise(year + 1);
+            })
+            .catch(error => {
+                return {
+                    className: "moon-full",
+                    type: "Invalid Data",
+                    count: "",
+                    wordIn: error.name
+                };
+            });
+    }
+
+    return getPromise(date.getFullYear());
 }
 
 async function display() {

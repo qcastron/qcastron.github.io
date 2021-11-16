@@ -11252,8 +11252,12 @@ body {
 }
 .today #in {
   font-size: 2vmin;
-  line-height: 0;
+  height: 0;
   margin: 0;
+  transform: translateY(-0.5em);
+}
+.today #count {
+  font-size: 3vmin;
 }
 
 iframe {
