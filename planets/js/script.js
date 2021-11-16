@@ -610,6 +610,9 @@ class PlanetLauncher {
             Math.atan2(dy, dx),
             settings.spawnMass
         ));
+
+        //GA
+        sendGA();
     }
 
     /**
@@ -631,6 +634,9 @@ class PlanetLauncher {
             Math.atan2(dy, dx),
             settings.spawnMass
         ));
+
+        //GA
+        sendGA();
 
         //Make sure the mouse position is offscreen again so the user doesn't see the aim pointer on mobile
         this.mousePosition = {
@@ -847,10 +853,14 @@ for (let i = 2; i <= 10; i++) {
     }, 15000 * i);
 }
 
-for (let i = 3; i <= 120; i++) {
-    setTimeout(function () {
-        gtag('event', 'ping', {'event_category': 'ping', 'event_label': 60 * i});
-    }, 60000 * i);
+let count = 0;
+
+function sendGA() {
+    if (count++ < 10) {
+        gtag('event', 'click', {'event_category': 'planets', 'event_label': count});
+    } else if (!(count++ % 5)) {
+        gtag('event', 'click', {'event_category': 'planets', 'event_label': count});
+    }
 }
 
 console.log("%cIf you see this, you're talented and we want you. Join our team below :D",

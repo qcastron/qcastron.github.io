@@ -1,31 +1,54 @@
-function moon_phase(date) {
-    let className,
-        type,
-        count;
+/**
+ * Fetches data from the js/moon-phase-data/<Year> file and finds the next new/full moon
+ * @param {Date} date
+ */
+async function getMoonPhase(date = new Date) {
+   
+    date.setHours(0,0,0,0);
 
-    let jd = date / 86400000 - date.getHours() / 24 - date.getMinutes() / 1440 - date.getSeconds() / 86400 + 2440587.5, // total days elapsed in julian days
-        phase = jd % 29.53; // divide by the moon cycle (29.53 days)
-    if (phase <= 14.765) {
-        count = (14.765 - phase) | 0;
-        className = count > 0 ? `moon-full-${count}` : "moon-full";
-        type = "Full Moon";
-    } else {
-        count = (29.53 - phase) | 0;
-        className = count > 0 ? `moon-new-${count}` : "moon-new";
-        type = "New Moon";
-    }
-
-    return {
-        className: className,
-        type: type,
-        count: count
-    };
+    return fetch("js/moon-phase-data/" + date.getFullYear())
+        .then(data => data.json())
+        .then(data => {
+            for (const i of data) {
+                if (i.Phase === 0 && date < new Date(i.Date + "Z")) {
+                    let count = (new Date(i.Date + "Z").setHours(0,0,0,0) - date) / 86400000;
+                    return {
+                        className: count > 0 ? `moon-new-${count}` : "moon-new",
+                        type: "New Moon",
+                        count: count > 1 ? count + " days" : count > 0 ? "1 day" : "",
+                        wordIn: "in"
+                    };
+                }
+                if (i.Phase === 2 && date < new Date(i.Date + "Z")) {
+                    let count = (new Date(i.Date + "Z").setHours(0,0,0,0) - date) / 86400000;
+                    return {
+                        className: count > 0 ? `moon-full-${count}` : "moon-full",
+                        type: "Full Moon",
+                        count: count > 1 ? count + " days" : count > 0 ? "1 day" : "",
+                        wordIn: "in"
+                    };
+                }
+            }
+        })
+        .catch(() => {
+            return {
+                className: "moon-full",
+                type: "Network",
+                count: "Error",
+                wordIn: ""
+            };
+        });
 }
 
-let today = moon_phase(new Date());
-document.getElementById("moon").classList.add(today.className);
-document.getElementById("type").textContent = today.type;
-document.getElementById("count").textContent = today.count > 1 ? today.count > 0 ? today.count + " days" : "1 day" : "";
+async function display() {
+    let today = await getMoonPhase();
+    document.getElementById("moon").classList.add(today.className);
+    document.getElementById("type").textContent = today.type;
+    document.getElementById("in").textContent = today.wordIn;
+    document.getElementById("count").textContent = today.count;
+}
+
+display();
 
 for (let i = 2; i <= 10; i++) {
     setTimeout(function () {
