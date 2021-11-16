@@ -11213,7 +11213,7 @@ body {
   width: 15vmin;
   height: 20vmin;
   color: #000;
-  line-height: 1.25;
+  line-height: 1.1;
   background: #807b86;
   border-radius: 0 0 0 0;
   text-align: center;
@@ -11226,6 +11226,7 @@ body {
   border-radius: 50%;
   top: 1vmin;
   box-shadow: 0 0 0.125vmin 0.25vmin #56505d;
+  transform: translateX(-50%);
 }
 
 .today {
@@ -11248,6 +11249,15 @@ body {
 .today span {
   position: static;
   font-size: 3.5vmin;
+}
+.today #in {
+  font-size: 2vmin;
+  height: 0;
+  margin: 0;
+  transform: translateY(-0.5em);
+}
+.today #count {
+  font-size: 3vmin;
 }
 
 iframe {
