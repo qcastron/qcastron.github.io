@@ -3,5 +3,5 @@ Disallow: /bootstrap/
 Disallow: /img/
 Allow: /img/thumbnail.jpg
 Allow: /img/poster.jpg
-Allow: /moon/img/thumbnail.jpg
-Allow: /planets/img/thumbnail.jpg
+Allow: /moon/img/thumbnail.png
+Allow: /planets/img/thumbnail.png
