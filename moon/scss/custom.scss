@@ -17,6 +17,25 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
   font-display: swap;
 }
 
+@keyframes scrollDownIndicator {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  24.9% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  25% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  50%, to {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
 :root {
   --wall: #3a3442;
   --sky: #3a2e5d;
@@ -709,6 +728,45 @@ body {
     font-size: 3vmin;
   }
 }
+
+
+#poster-scroll {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+  padding-right: 7em;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #eee;
+  opacity: .5;
+  cursor: pointer;
+  transform: rotate(90deg);
+  transform-origin: bottom right;
+}
+
+#poster-scroll span {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 1em;
+  width: 5.5em;
+  height: 2px;
+  background: rgba(238, 238, 238, 0.5);
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+#poster-scroll span::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  animation: scrollDownIndicator 3s linear infinite;
+}
+
 
 iframe {
   display: block;
