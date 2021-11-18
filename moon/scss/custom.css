@@ -11292,6 +11292,7 @@ body {
   cursor: pointer;
   transform: rotate(90deg);
   transform-origin: bottom right;
+  z-index: 11;
 }
 
 #poster-scroll span {
@@ -11373,6 +11374,7 @@ footer {
   line-height: 1.5;
   text-align: center;
   opacity: 0.5;
+  z-index: 10;
 }
 footer img {
   width: 160px;
