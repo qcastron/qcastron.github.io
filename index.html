@@ -43,12 +43,7 @@
             "url": "https://qcac.hk/",
             "foundingDate": "1961-10-24",
             "founder": "Liu Hing Chai",
-            "logo": {
-                "@context": "https://schema.org",
-                "@type": "EducationalOrganization",
-                "url": "https://qcac.hk/",
-                "logo": "https://qcac.hk/img/logo.svg"
-            },
+            "logo": "https://qcac.hk/img/logo.svg",
             "department": [
                 {
                     "@type": "EducationalOrganization",
@@ -107,26 +102,29 @@
         <source id="webm" src="img/poster.webm" type="video/webm">
         <source id="mp4" src="img/poster.mp4" type="video/mp4">
     </video>
-    <section class="container-fluid blurb" id="blurb-con">
-        <h1 id="qcac-zh" lang="zh-HK">皇仁書院天文學會</h1>
-        <div id="qcac">
-            <h1 id="qc">Queen's&nbsp;College</h1>
-            <h1 id="ac">Astronomers' Club</h1>
-        </div>
-        <div class="description" id="description-con">Inspiring & bonding brothers with our&nbsp;sky for six&nbsp;decades</div>
-        <div id="buttons-con">
-            <div id="blurb-learn-con">
-                <button class="btn btn-outline-primary" id="blurb-learn" onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Learn more'})" role="button">Learn&nbsp;more<br>
-                </button>
-            </div>
-            <div id="blurb-or-con">or</div>
-            <div id="blurb-join-con">
-                <button class="btn btn-primary text-secondary" data-bs-target="#member-modal" data-bs-toggle="modal" id="blurb-join" onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Member modal'})" role="button">Join<br>
-                </button>
-            </div>
-        </div>
+    <section id="blurb-con" aria-label="We are explorers, co-learners, inspirers, creatives, brothers. We are Queen's College Astronomers' Club.">
+        <h2 class="blurb">
+            <span class="blurb-header">
+                <span><span>We are</span> <span>Queen's&nbsp;College</span></span>
+            </span>
+        </h2>
+        <h1 class="blurb">
+            <span class="blurb-header">
+                <span><span>Explorers</span></span>
+                <span><span>Co-</span><span>learners</span></span>
+                <span><span>Inspi</span><span>rers</span></span>
+                <span><span>Creat</span><span>ives</span></span>
+                <span><span>Bro</span><span>thers</span></span>
+                <span><span>Astronomers</span><span>'</span></span>
+            </span>
+        </h1>
+        <h1 class="blurb">
+            <span class="blurb-header">
+                <span><span>Club</span></span>
+            </span>
+        </h1>
     </section>
-    <a class="" id="poster-scroll" onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Scroll down'})">Scroll<span></span></a>
+    <a href="#social-media" id="poster-scroll" onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'Scroll down'})">Scroll<span></span></a>
 </header>
 <main class="container-fluid m-0 p-0">
     <section id="explore-con">
@@ -666,7 +664,7 @@
                     <h5>Texts, images and videos</h5>
                     <p>Unless otherwise specified, the text, images and videos on this website is available under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license, or any later version, with the conditions listed below.</p>
                     <a class="license-brand" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
-                        <img alt="Queen's College Astronomers' Club 皇仁書院天文學會 Creative Commons BY-NC-ND 4.0 License" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-nd.svg">
+                        <img alt="Queen's College Astronomers' Club 皇仁書院天文學會 Creative Commons BY-NC-ND 4.0 License" loading="lazy" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-nd.svg">
                     </a>
                     <p>A <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">summary</a> of the terms of this license is available, as well as its <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" target="_blank">detailed terms</a>.</p>
                     <p>The following conditions must be satisfied:</p>
@@ -684,7 +682,7 @@
                     <h5>Code</h5>
                     <p>Unless otherwise specified, the code, except the texts, images and videos on this website, is <b>free and open source</b>; available under the GNU General Public License v3.0, or any later versions.</p>
                     <a class="license-brand" href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">
-                        <img alt="Queen's College Astronomers' Club 皇仁書院天文學會 GPL License" id="GPL-logo" src="https://www.gnu.org/graphics/gplv3-with-text-136x68.png">
+                        <img alt="Queen's College Astronomers' Club 皇仁書院天文學會 GPL License" id="GPL-logo" loading="lazy" src="https://www.gnu.org/graphics/gplv3-with-text-136x68.png">
                     </a>
                     <p>You should know what this is already if you are coding. But the <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">detailed terms</a> of this license are available anyway.</p>
                     <p>Code libraries used are under separate licenses by their authors, but are also public licenses.</p>

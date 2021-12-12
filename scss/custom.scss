@@ -1,6 +1,6 @@
 $primary: #FFCC00;
 $secondary: #140533;
-$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
+$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, sans-serif;
 @import "../bootstrap/scss/bootstrap";
 
 @font-face {
@@ -31,6 +31,33 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
   font-display: swap;
 }
 
+@keyframes translateInX {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes translateInY {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes translateOutY {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
 @keyframes fadeInX {
   0% {
     opacity: 0;
@@ -50,38 +77,6 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes flash {
-  0%, 49% {
-    opacity: 1;
-  }
-  50%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes line-bounce {
-  0% {
-    left: 100%;
-    width: 0;
-    height: 1px;
-  }
-  33% {
-    left: 0;
-    width: 100%;
-    height: 1px;
-  }
-  66% {
-    left: 0;
-    width: 0;
-    height: 1px;
-  }
-  100% {
-    left: 0;
-    width: 100%;
-    height: 2px;
   }
 }
 
@@ -123,11 +118,12 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 }
 
 body {
-  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eeeeee;
   background: #140533;
   text-rendering: optimizeLegibility;
   position: relative;
+  hyphens: auto;
 }
 
 a, .blurb, .carousel, #recruitment, footer {
@@ -219,7 +215,7 @@ a, button {
   pointer-events: all;
 }
 
-.btn-outline-primary, .nav-item, h1, h2, h3, h4, h5, h6, #poster-scroll, #blurb-con, #recruitment {
+.btn-outline-primary, .nav-item, h1, h2, h3, h4, h5, h6, #poster-scroll, #recruitment {
   text-shadow: 1px 1px 2px #140533;
 }
 
@@ -268,7 +264,7 @@ header {
   right: 2em;
   bottom: 2em;
   padding-right: 7em;
-  font-size: 10px;
+  font-size: .75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
@@ -299,105 +295,128 @@ header {
 }
 
 #blurb-con {
-  width: 100%;
-  padding: 100px 75px 0 75px;
-  cursor: default;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  padding: clamp(350px, 50vh + 25vw, 100vh - 3.5 * var(--blurb-h1-size)) clamp(10px, 7vw, 100vw) 0 clamp(10px, 7vw, 100vw);
+  text-shadow: 0 0 4px #140533;
+  cursor: default;
+  white-space: nowrap;
+  --blurb-h1-size: clamp(1.2rem + 2vw + 3.2vh, 5vw, 12rem);
+  --blurb-h2-size: calc(var(--blurb-h1-size) * .69);
+
+  h1 {
+    font-size: var(--blurb-h1-size);
+  }
+
+  h2 {
+    font-size: var(--blurb-h2-size);
+    margin-bottom: .1em;
+
+    &::after {
+      content: none;
+    }
+  }
 }
 
-#qcac-zh {
-  font-weight: 300;
-  font-size: 28px;
-  line-height: 1.8em;
-  animation: fadeInX ease .5s backwards 1s;
-}
-
-#qcac {
+.blurb {
+  display: block;
   position: relative;
-  width: max-content;
-  padding: 5px 0;
-  animation: fadeInX ease .5s backwards 1.5s;
-}
-
-#qcac::before {
-  display: block;
-  content: " ";
-  font-size: 48px;
-  width: 1.2em;
-  height: .5em;
-  position: absolute;
-  top: 0;
-  left: -.3em;
-  border-top: 4px solid #ffcc00;
-  border-left: 4px solid #ffcc00;
-  animation: flash ease-in-out .25s 2 backwards 2s;
-}
-
-#qcac::after {
-  display: block;
-  content: " ";
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  height: 2px;
-  background-color: #FFCC00;
-  animation: line-bounce ease-in-out 1s backwards 2s;
-}
-
-#qc, #qcac {
+  line-height: 1.05;
   font-weight: 500;
-  font-size: 32px;
-  line-height: 1.3em;
-  max-width: 420px;
-}
+  overflow: hidden;
+  $lines: 6;
+  $time-delay: 2.5s;
+  $slide-delay: .5s;
 
-#ac {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.1em;
-  text-transform: uppercase;
-}
 
-#description-con {
-  font-size: 20px;
-  max-width: 616px;
-  margin: 1em 0;
-  animation: fadeInY ease 1.2s backwards 3s;
-}
+  &:nth-child(1) {
+    //top: var(--blurb-position);
+    //left: 0;
+    //padding: 0 clamp(10px, 7vw, 100vw);
+    font-weight: 400;
+    white-space: initial;
 
-#buttons-con * {
-  float: left;
-}
+    & > span > span:first-child {
+      display: block;
+      overflow: hidden;
+      animation: translateInY $slide-delay ease-out 1s backwards;
 
-#blurb-learn {
-  animation: fadeInY ease 1.2s backwards 4s;
-}
+      & > span:nth-child(2) {
+        display: inline-block;
+        animation: translateInY $slide-delay ease-out ($lines + 1) * $time-delay backwards;
+      }
+    }
+  }
 
-#blurb-or-con {
-  height: 40px;
-  width: 24px;
-  font-size: 20px;
-  line-height: 26px;
-  margin: 0 25px;
-  text-align: center;
-  padding-top: 4px;
-  padding-left: 0;
-  animation: fadeInY ease 1.2s backwards 5s;
-}
+  &:nth-child(2) {
+    //top: calc(var(--blurb-position) + .8 * var(--blurb-h1-size));
+    //left: 0;
+    //padding: 0 clamp(10px, 7vw, 100vw);
 
-#blurb-join {
-  text-shadow: none;
-  animation: fadeInY ease 1.2s backwards 5.5s;
+    & > span {
+      & > * {
+        display: block;
+        position: absolute;
+      }
+
+      @for $i from 1 through ($lines - 1) {
+        & > span:nth-child(#{$i}) {
+          overflow: hidden;
+          animation: translateInY $slide-delay ease-out $i * $time-delay backwards, translateOutY $slide-delay ease-in ($i + 1) * $time-delay forwards;
+
+          & > * {
+            display: inline-block;
+          }
+
+          @if $i % 2 == 0 {
+            & > span:nth-child(2) {
+              animation: translateInX $slide-delay ease-out $i * $time-delay + 0.3s backwards;
+            }
+          } @else {
+            & > span:nth-child(2) {
+              animation: translateInY $slide-delay ease-out $i * $time-delay + 0.3s backwards;
+            }
+          }
+        }
+      }
+
+      & > span:last-child {
+        position: relative;
+        animation: translateInY $slide-delay ease-out $lines * $time-delay backwards;
+
+        & > span:nth-child(2) {
+          display: inline-block;
+          animation: translateInY $slide-delay ease-out ($lines + 1) * $time-delay + $slide-delay backwards;
+        }
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    bottom: calc(1.05 * var(--blurb-h1-size));
+    left: 6.2em;
+    //padding-left: clamp(10px, 7vw + 6.2em, 100vw);
+
+    & > span > span:first-child {
+      display: block;
+      overflow: hidden;
+      animation: translateInY $slide-delay ease-out ($lines + 1) * $time-delay + $slide-delay backwards;
+    }
+  }
 }
 
 main {
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
+
+  * {
+    scroll-margin-top: 58px;
+  }
 }
 
 #explore-background-con {
@@ -410,12 +429,13 @@ main {
 
 h1, h2, h3, h4, h5, h6 {
   width: 100%;
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
   color: #fff;
   margin: 0;
+  hyphens: initial;
 }
 
 h2::after {
@@ -987,46 +1007,15 @@ footer {
   }
 }
 
+@media (max-width: 599.98px) {
+  .blurb:nth-child(3) {
+    bottom: 0;
+    left: 0;
+  }
+}
+
 /* For mobile phones: */
 @media (max-width: 575.98px) {
-  #blurb-con {
-    padding: 100px 15px 0 15px;
-    text-align: center;
-  }
-
-  #qcac {
-    width: min-content;
-    margin: 0 auto;
-  }
-
-  #description-con {
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #blurb-learn, #blurb-join {
-    float: none;
-    margin: auto;
-    text-align: center;
-    width: 60%;
-  }
-
-  #blurb-learn-con, #blurb-join-con {
-    float: none;
-    margin: auto;
-    text-align: center;
-  }
-
-  #blurb-or-con {
-    float: none;
-    margin: auto;
-    padding-top: 8px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 22px;
-  }
-
   .explore-image {
     max-height: 240px;
   }

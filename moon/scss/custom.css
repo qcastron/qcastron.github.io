@@ -27,7 +27,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-font-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  --bs-font-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
@@ -10674,7 +10674,7 @@ textarea.form-control-lg {
 }
 
 body {
-  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eeeeee;
   background: #140533;
   text-rendering: optimizeLegibility;
@@ -10682,6 +10682,15 @@ body {
   margin: 0;
   overflow-x: hidden;
   user-select: none;
+  hyphens: auto;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+  hyphens: initial;
 }
 
 .room *,
@@ -11224,7 +11233,7 @@ body {
 }
 
 .info {
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   top: 40vmin;
   right: calc(50% - 46vmin);
   z-index: 0;
@@ -11333,7 +11342,7 @@ iframe:nth-of-type(2) {
 
 h5, .h5 {
   width: 100%;
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
