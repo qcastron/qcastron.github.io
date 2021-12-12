@@ -1,6 +1,6 @@
 $primary: #FFCC00;
 $secondary: #140533;
-$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
+$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, sans-serif;
 @import "../../bootstrap/scss/bootstrap";
 
 @font-face {
@@ -22,7 +22,7 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 }
 
 body {
-  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eee;
   background: #140533 radial-gradient(farthest-corner circle at center, #240959, #140533);
   text-rendering: optimizeLegibility;
@@ -32,6 +32,15 @@ body {
   margin: 0;
   overflow-x: hidden;
   user-select: none;
+  hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+  hyphens: initial;
 }
 
 header img {
@@ -66,7 +75,7 @@ header img {
 
 h5 {
   width: 100%;
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;

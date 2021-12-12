@@ -52,9 +52,6 @@ navbar.on({
     }
 });
 
-$("#blurb-learn").click(scroll_down);
-$("#poster-scroll").click(scroll_down);
-
 window.addEventListener('resize', resize);
 
 let ctx = canvas.getContext("2d");
