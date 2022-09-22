@@ -10728,6 +10728,11 @@ textarea.form-control-lg {
     transform: translate(-50px, -50px);
   }
 }
+*::selection, *::-moz-selection {
+  color: #140533;
+  background-color: #FFCC00;
+}
+
 body {
   font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eeeeee;
@@ -11420,7 +11425,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: 78%;
+  left: 28%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -11434,7 +11439,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(2) {
-  left: 30%;
+  left: 100%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -11448,7 +11453,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(3) {
-  left: 79%;
+  left: -17%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -11462,7 +11467,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(4) {
-  left: 55%;
+  left: 18%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -11476,7 +11481,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(5) {
-  left: 60%;
+  left: 54%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -11490,7 +11495,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(6) {
-  left: 57%;
+  left: 24%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -11504,7 +11509,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(7) {
-  left: 33%;
+  left: 10%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -11518,7 +11523,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(8) {
-  left: 71%;
+  left: 43%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -11532,7 +11537,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(9) {
-  left: 94%;
+  left: 72%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -11546,7 +11551,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(10) {
-  left: 31%;
+  left: -7%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;
@@ -11804,7 +11809,7 @@ footer nav a:hover {
   }
 
   #constellations-con {
-    top: calc(550px + 4800px);
+    top: 5450px;
   }
 }
 
