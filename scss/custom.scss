@@ -124,6 +124,20 @@ $hero-min-height: 550px;
   background-color: $primary;
 }
 
+html {
+  scrollbar-color: $primary $secondary;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: $secondary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+  }
+}
+
 body {
   font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eeeeee;
