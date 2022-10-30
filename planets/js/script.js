@@ -863,6 +863,6 @@ function sendGA() {
     }
 }
 
-console.log("%cIf you see this, you're talented and we want you. Join our team below :D",
+console.log("%cIf you see this, you're talented and we want you. join our team at https://qcac.hk/#recuitment :D",
     "background: #140533; color: #FFCC00; font-size: 24px; font-weight: 700;");
 console.log("Eat a Ba" + +"a" + "a la!");
