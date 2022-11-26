@@ -22,6 +22,31 @@ function scroll_down() {
     }, "slow");
 }
 
+function getAnchor() {
+    let url = document.URL.split("#");
+    return (url.length > 1) ? url[1].split("?")[0] : null;
+}
+
+function getModal() {
+    let modal = document.getElementsByClassName("modal"),
+        anchor = getAnchor();
+    for (let i = 0; i < modal.length; i++) {
+        modal[i].addEventListener("shown.bs.modal", () => {
+            history.replaceState({}, "", `${document.URL.split("#")[0]}#${modal[i].id}`);
+        });
+        modal[i].addEventListener("hidden.bs.modal", () => {
+            history.replaceState({}, "", document.URL.split("#")[0]);
+        });
+    }
+    if (anchor) {
+        try {
+            let target = document.getElementById(anchor);
+            target.classList.contains("modal") ? new bootstrap.Modal(target).show() : null;
+        } catch (e) {
+        }
+    }
+}
+
 $(document).ready(function () {
     let st = window.scrollY,
         fadein = document.getElementsByClassName("fade-in");
@@ -33,6 +58,7 @@ $(document).ready(function () {
     }
     scroll_update();
     resize();
+    getModal();
 });
 
 $(window).scroll(function () {
@@ -278,7 +304,7 @@ function update_msg(id) {
                 break;
             case 139:
                 document.getElementById("recruitment-image").style.background = "url(\"img/qc4.jpg\") no-repeat 65% 20%/cover";
-                window.open("https://forms.gle/xisG23qMogkenuWA9");
+                window.open("https://forms.gle/KMA83Q9kWvoLu7Hr7");
                 break;
             case 168:
                 document.getElementById("recruitment-image").style.background = "url(\"https://placekitten.com/840/420\") no-repeat 50%/cover";
@@ -414,7 +440,7 @@ function update_msg(id) {
             case 1184:
                 document.getElementById("recruitment-image").style.background = "url(\"img/qc4.jpg\") no-repeat 65% 20%/cover";
                 document.getElementById("constellations-con").style.background = "#1F084D radial-gradient(farthest-corner at bottom left, #ED5900, #140533)";
-                window.open("https://forms.gle/xisG23qMogkenuWA9");
+                window.open("https://forms.gle/KMA83Q9kWvoLu7Hr7");
                 break;
             default:
         }

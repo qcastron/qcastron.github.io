@@ -85,7 +85,36 @@ async function display() {
     document.getElementById("count").textContent = today.count;
 }
 
-display();
+function getAnchor() {
+    let url = document.URL.split("#");
+    return (url.length > 1) ? url[1].split("?")[0] : null;
+}
+
+function getModal() {
+    let modal = document.getElementsByClassName("modal"),
+        anchor = getAnchor();
+    for (let i = 0; i < modal.length; i++) {
+        modal[i].addEventListener("shown.bs.modal", () => {
+            history.replaceState({}, "", `${document.URL.split("#")[0]}#${modal[i].id}`);
+        });
+        modal[i].addEventListener("hidden.bs.modal", () => {
+            history.replaceState({}, "", document.URL.split("#")[0]);
+        });
+    }
+    if (anchor) {
+        try {
+            let target = document.getElementById(anchor);
+            target.classList.contains("modal") ? new bootstrap.Modal(target).show() : null;
+        } catch (e) {
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    display();
+    getModal();
+});
+
 
 for (let i = 2; i <= 10; i++) {
     setTimeout(function () {
