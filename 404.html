@@ -579,7 +579,7 @@
                 <p>Queen's College Astronomers' Club 皇仁書院天文學會<br> 16 July 2021<br><br></p>
                 <section>
                     <p>We care about your privacy. When Queen's College Astronomers' Club (that's us) collects information about you, our <a data-bs-dismiss="modal" data-bs-toggle="modal" href="#privacy" onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'privacy'})" role="button">Privacy Policy</a> describes how we handle that information.</p>
-                    <p>This privacy notice applies to Queen's College Astronomers' Club operated websites and mobile apps, which include the domains qcac.hk, and qcshao.com, among others.</p>
+                    <p>This privacy notice applies to Queen's College Astronomers' Club operated websites and mobile apps, which include the domains qcac.hk, and qcac.net, among others.</p>
                 </section>
                 <section id="things-you-should-know">
                     <h5>Things you should know</h5>
@@ -694,6 +694,33 @@
     </div>
 </div>
 <script>
+    function getAnchor() {
+        let url = document.URL.split("#");
+        return (url.length > 1) ? url[1].split("?")[0] : null;
+    }
+
+    function getModal() {
+        let modal = document.getElementsByClassName("modal"),
+            anchor = getAnchor();
+        for (let i = 0; i < modal.length; i++) {
+            modal[i].addEventListener("shown.bs.modal", () => {
+                history.replaceState({}, "", `${document.URL.split("#")[0]}#${modal[i].id}`);
+            });
+            modal[i].addEventListener("hidden.bs.modal", () => {
+                history.replaceState({}, "", document.URL.split("#")[0]);
+            });
+        }
+        if (anchor) {
+            try {
+                let target = document.getElementById(anchor);
+                target.classList.contains("modal") ? new bootstrap.Modal(target).show() : null;
+            } catch (e) {
+            }
+        }
+    }
+
+    getModal();
+
     let canvas = document.getElementById("constellations"),
         halfWinW = 0,
         halfWinH = 0,
