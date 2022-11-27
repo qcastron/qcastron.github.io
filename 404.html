@@ -694,33 +694,6 @@
     </div>
 </div>
 <script>
-    function getAnchor() {
-        let url = document.URL.split("#");
-        return (url.length > 1) ? url[1].split("?")[0] : null;
-    }
-
-    function getModal() {
-        let modal = document.getElementsByClassName("modal"),
-            anchor = getAnchor();
-        for (let i = 0; i < modal.length; i++) {
-            modal[i].addEventListener("shown.bs.modal", () => {
-                history.replaceState({}, "", `${document.URL.split("#")[0]}#${modal[i].id}`);
-            });
-            modal[i].addEventListener("hidden.bs.modal", () => {
-                history.replaceState({}, "", document.URL.split("#")[0]);
-            });
-        }
-        if (anchor) {
-            try {
-                let target = document.getElementById(anchor);
-                target.classList.contains("modal") ? new bootstrap.Modal(target).show() : null;
-            } catch (e) {
-            }
-        }
-    }
-
-    getModal();
-
     let canvas = document.getElementById("constellations"),
         halfWinW = 0,
         halfWinH = 0,
@@ -958,6 +931,33 @@
 <script src="https://qcac.hk/js/jquery.min.js"></script>
 <script src="https://qcac.hk/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
+    function getAnchor() {
+        let url = document.URL.split("#");
+        return (url.length > 1) ? url[1].split("?")[0] : null;
+    }
+
+    function getModal() {
+        let modal = document.getElementsByClassName("modal"),
+            anchor = getAnchor();
+        for (let i = 0; i < modal.length; i++) {
+            modal[i].addEventListener("shown.bs.modal", () => {
+                history.replaceState({}, "", `${document.URL.split("#")[0]}#${modal[i].id}`);
+            });
+            modal[i].addEventListener("hidden.bs.modal", () => {
+                history.replaceState({}, "", document.URL.split("#")[0]);
+            });
+        }
+        if (anchor) {
+            try {
+                let target = document.getElementById(anchor);
+                target.classList.contains("modal") ? new bootstrap.Modal(target).show() : null;
+            } catch (e) {
+            }
+        }
+    }
+
+    getModal();
+
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
