@@ -78,6 +78,21 @@ navbar.on({
     }
 });
 
+let recruitmentImageTarget = document.getElementById("recruitment-image"),
+    recruitmentImages = ["url(\"../img/recruitment1.jpg\") no-repeat 50% 50%/cover", "url(\"../img/recruitment2.jpg\") no-repeat 65% 20%/cover"],
+    recruitmentImagesCounter = 0;
+loopRecruitmentImages();
+
+function loopRecruitmentImages() {
+    setTimeout(() => {
+        recruitmentImagesCounter = ++recruitmentImagesCounter % recruitmentImages.length;
+        recruitmentImageTarget.style.background = recruitmentImages[recruitmentImagesCounter];
+        if (!(step > 2)) {
+            loopRecruitmentImages();
+        }
+    }, 15000);
+}
+
 window.addEventListener('resize', resize);
 
 let ctx = canvas.getContext("2d");
@@ -303,7 +318,7 @@ function update_msg(id) {
                 document.getElementById("recruitment-image").style.background = "url(\"img/uranus-herschel.jpg\") no-repeat 50%/cover";
                 break;
             case 139:
-                document.getElementById("recruitment-image").style.background = "url(\"img/qc4.jpg\") no-repeat 65% 20%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"img/recruitment1.jpg\") no-repeat 65% 20%/cover";
                 window.open("https://forms.gle/SfmdMCN2c7FhF1Ks6");
                 break;
             case 168:
@@ -438,7 +453,7 @@ function update_msg(id) {
                 document.getElementById("recruitment-image").style.background = "url(\"img/paper.jpg\") no-repeat 50%/cover";
                 break;
             case 1184:
-                document.getElementById("recruitment-image").style.background = "url(\"img/qc4.jpg\") no-repeat 65% 20%/cover";
+                document.getElementById("recruitment-image").style.background = "url(\"img/recruitment1.jpg\") no-repeat 65% 20%/cover";
                 document.getElementById("constellations-con").style.background = "#1F084D radial-gradient(farthest-corner at bottom left, #ED5900, #140533)";
                 window.open("https://forms.gle/SfmdMCN2c7FhF1Ks6");
                 break;
