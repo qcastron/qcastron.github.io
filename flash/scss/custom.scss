@@ -24,7 +24,7 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, s
 body {
   font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eee;
-  background: #140533 radial-gradient(farthest-corner circle at center, #240959, #140533);
+  background: #140533;
   text-rendering: optimizeLegibility;
   position: relative;
   width: 100%;
@@ -103,11 +103,22 @@ h5 {
   border-top: none;
 }
 
+main {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  max-width: 100%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   max-width: 1440px;
   margin: 0 auto;
   padding-bottom: 1em;
