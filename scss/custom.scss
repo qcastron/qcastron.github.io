@@ -203,7 +203,7 @@ a, button {
 }
 
 #nav-bar .nav-link {
-  padding: calc(0.5rem + 1px) 1rem;
+  padding: calc(0.5rem + 1px) .5rem;
   color: #FFCC00;
   opacity: 80%;
 
@@ -900,7 +900,7 @@ footer {
     text-decoration: none;
     font-weight: 400;
     padding: .25em;
-    margin: .75em;
+    margin: .5em;
 
     &:hover {
       color: #FFCC00;

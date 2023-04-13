@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /bootstrap/
 Disallow: /img/
+Allow: /flash/img/thumbnail.jpg
 Allow: /img/thumbnail.jpg
 Allow: /img/poster.jpg
 Allow: /moon/img/thumbnail.png
