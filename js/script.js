@@ -319,7 +319,7 @@ function update_msg(id) {
                 break;
             case 139:
                 document.getElementById("recruitment-image").style.background = "url(\"img/recruitment1.jpg\") no-repeat 65% 20%/cover";
-                window.open("https://forms.gle/SfmdMCN2c7FhF1Ks6");
+                window.open("https://forms.gle/FBLjw5MfZ614d8DWA");
                 break;
             case 168:
                 document.getElementById("recruitment-image").style.background = "url(\"https://placekitten.com/840/420\") no-repeat 50%/cover";
@@ -455,7 +455,7 @@ function update_msg(id) {
             case 1184:
                 document.getElementById("recruitment-image").style.background = "url(\"img/recruitment1.jpg\") no-repeat 65% 20%/cover";
                 document.getElementById("constellations-con").style.background = "#1F084D radial-gradient(farthest-corner at bottom left, #ED5900, #140533)";
-                window.open("https://forms.gle/SfmdMCN2c7FhF1Ks6");
+                window.open("https://forms.gle/FBLjw5MfZ614d8DWA");
                 break;
             default:
         }
