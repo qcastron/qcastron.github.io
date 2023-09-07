@@ -93,13 +93,20 @@
             line-height: 1.25;
             position: relative;
             margin: auto;
-            padding-bottom: 20px;
+            border-radius: 1em;
+            padding: 20px;
+            max-width: 600px;
             background: #330D80;
+            hyphens: none;
             z-index: 10;
+        }
+        
+        #content p:last-child {
+            margin: 1em 0 0 0;
         }
 
         h1 {
-            padding: 1em;
+            padding: 0 0 .5em 0;
             font-weight: 700;
         }
 
@@ -290,9 +297,10 @@
 <body style="background: #140533">
 <main>
     <div id="content">
-        <h1>Attempting to launch Google Calendar...</h1>
+        <h1>Attempting to launch Google&nbsp;Calendar...</h1>
         <p>If that doesn't start automatically, click the button below.</p>
-        <a class="btn btn-primary" id="calendar" href="https://calendar.google.com/calendar/u/2?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t" rel="nofollow" target="_blank" type="button">Proceed</a>
+        <a class="btn btn-primary" id="calendar" href="https://calendar.google.com/calendar/u/0?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t" rel="nofollow" target="_blank" type="button">Launch Calendar</a>
+        <p>If you are sent to the <i>Google Wrokspace</i> page, please sign in to your Google Account and launch the calendar again.</p>
     </div>
     <div id="constellations-con">
         <div id="bubble-con">
