@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-HK">
+<!--If you see this, you're talented and we want you. Join our team at https://qcac.hk/#recruitment :D-->
+<!--Found an issue? Report it at https://github.com/qcastron/qcastron.github.io/issues -->
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; URL=https://calendar.google.com/calendar/u/2?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover" name="viewport">
     <meta content="皇仁書院天文學會 Queen's College Astronomers' Club is dedicated to not only promoting astronomy among our brethren but also forging bonds between them. Click to learn more." name="description">
     <meta content="#290A66" name="theme-color">
@@ -16,8 +17,11 @@
     <meta content="en_HK" property="og:locale">
     <meta content="summary_large_image" name="twitter:card">
     <link href="/favicon.ico" rel="icon">
-    <title>Page Redirection</title>
+    <title>Astronomers' Calendar 23-24 - Queen's College Astronomers' Club 皇仁書院天文學會</title>
     <link href="https://qcac.hk/humans.txt" rel="author" type="text/plain">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Roboto:wght@400&family=Noto+Sans+HK:wght@300&display=swap" rel="stylesheet">
+    <link href="https://qcac.hk/scss/custom.css" rel="stylesheet">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -61,12 +65,955 @@
             ]
         }
     </script>
-    <script type="text/javascript">
-        window.location.href = "https://calendar.google.com/calendar/u/2?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t";
-    </script>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #eeeeee;
+            background: #140533;
+            text-rendering: optimizeLegibility;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        main {
+            display: grid;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #content {
+            line-height: 1.25;
+            position: relative;
+            margin: auto;
+            padding-bottom: 20px;
+            background: #330D80;
+            z-index: 10;
+        }
+
+        h1 {
+            padding: 1em;
+            font-weight: 700;
+        }
+
+        #bubble-con {
+            perspective-origin: 50% 50%;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -250px;
+            transform-style: preserve-3d;
+            mix-blend-mode: lighten;
+        }
+
+        .bubble:nth-child(1) {
+            left: -2%;
+            animation: raise1 60s linear infinite -2s;
+            transform: scale(0.7);
+            z-index: -49;
+            filter: blur(5.5px);
+        }
+
+        @keyframes raise1 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(0.7);
+            }
+        }
+
+        .bubble:nth-child(2) {
+            left: 48%;
+            animation: raise2 40s linear infinite -4s;
+            transform: scale(0.9);
+            z-index: -48;
+            filter: blur(6px);
+        }
+
+        @keyframes raise2 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(0.9);
+            }
+        }
+
+        .bubble:nth-child(3) {
+            left: 73%;
+            animation: raise3 33.3333333333s linear infinite -6s;
+            transform: scale(1.1);
+            z-index: -47;
+            filter: blur(6.5px);
+        }
+
+        @keyframes raise3 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(1.1);
+            }
+        }
+
+        .bubble:nth-child(4) {
+            left: -16%;
+            animation: raise4 30s linear infinite -8s;
+            transform: scale(1.3);
+            z-index: -46;
+            filter: blur(7px);
+        }
+
+        @keyframes raise4 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(1.3);
+            }
+        }
+
+        .bubble:nth-child(5) {
+            left: 96%;
+            animation: raise5 28s linear infinite -10s;
+            transform: scale(1.5);
+            z-index: -45;
+            filter: blur(7.5px);
+        }
+
+        @keyframes raise5 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(1.5);
+            }
+        }
+
+        .bubble:nth-child(6) {
+            left: 12%;
+            animation: raise6 26.6666666667s linear infinite -12s;
+            transform: scale(1.7);
+            z-index: -44;
+            filter: blur(8px);
+        }
+
+        @keyframes raise6 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(1.7);
+            }
+        }
+
+        .bubble:nth-child(7) {
+            left: 9%;
+            animation: raise7 25.7142857143s linear infinite -14s;
+            transform: scale(1.9);
+            z-index: -43;
+            filter: blur(8.5px);
+        }
+
+        @keyframes raise7 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(1.9);
+            }
+        }
+
+        .bubble:nth-child(8) {
+            left: 24%;
+            animation: raise8 25s linear infinite -16s;
+            transform: scale(2.1);
+            z-index: -42;
+            filter: blur(9px);
+        }
+
+        @keyframes raise8 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(2.1);
+            }
+        }
+
+        .bubble:nth-child(9) {
+            left: 94%;
+            animation: raise9 24.4444444444s linear infinite -18s;
+            transform: scale(2.3);
+            z-index: -41;
+            filter: blur(9.5px);
+        }
+
+        @keyframes raise9 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(2.3);
+            }
+        }
+
+        .bubble:nth-child(10) {
+            left: 6%;
+            animation: raise10 24s linear infinite -20s;
+            transform: scale(2.5);
+            z-index: -40;
+            filter: blur(10px);
+        }
+
+        @keyframes raise10 {
+            to {
+                bottom: calc(100vh + 250px);
+                transform: scale(2.5);
+            }
+        }
+
+        #constellations-con {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #1F084D radial-gradient(farthest-corner at bottom left, #330D80, #140533);
+            z-index: -100;
+            overflow: hidden;
+        }
+
+        #constellations-con::before {
+            box-shadow: inset 0 0 50px 0 #140533;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -11;
+        }
+    </style>
 </head>
-<body>
-<p>If you are not redirected, follow this <a href="https://calendar.google.com/calendar/u/2?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t">link</a>.</p>
-<p><a href="https://qcac.hk">Back to main page</a></p>
+<body style="background: #140533">
+<main>
+    <div id="content">
+        <h1>Attempting to launch Google Calendar...</h1>
+        <p>If that doesn't start automatically, click the button below.</p>
+        <a class="btn btn-primary" id="calendar" href="https://calendar.google.com/calendar/u/2?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t" rel="nofollow" type="button">Proceed</a>
+    </div>
+    <div id="constellations-con">
+        <div id="bubble-con">
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+            <svg class="bubble" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#290A66"/>
+            </svg>
+        </div>
+        <canvas height="750" id="constellations" width="1280">
+            <p>Sorry, your browser does not support the &lt;canvas&gt; element.</p>
+            <p>Please upgrade to the latest version of your browser.</p>
+        </canvas>
+    </div>
+</main>
+<footer>
+    <a class="footer-brand" href="https://qcac.hk/">
+        <img alt="Queen's College Astronomers' Club, Hong Kong 香港皇仁書院天文學會"
+             src="https://qcac.hk/img/logo-text.svg"
+             title="Queen's College Astronomers' Club, Hong Kong 香港皇仁書院天文學會">
+    </a>
+    <nav>
+        <div>
+            <a href="https://qcac.hk/moon/">Moon and Weather</a>
+            <a href="https://qcac.hk/planets/">Planets Simulator</a>
+            <a href="https://qcac.hk/flash/">Flash</a>
+        </div>
+        <div>
+            <a data-bs-toggle="modal" href="#privacy"
+               onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'privacy'})" role="button">Privacy</a>
+            <a data-bs-toggle="modal" href="#cookies"
+               onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'cookies'})" role="button">Cookies</a>
+            <a data-bs-toggle="modal" href="#license"
+               onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'license'})" role="button">License</a>
+            <a href="mailto:astronomersclubqcATgmailDOTcom"
+               onclick="this.href=this.href.replace(/AT/,'&#64;').replace(/DOT/,'&#46;')">Contact</a>
+        </div>
+    </nav>
+</footer>
+<div class="modal fade" id="privacy" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Privacy Policy</h5>
+                <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        type="button"></button>
+            </div>
+            <div class="modal-body">
+                Queen's College Astronomers' Club 皇仁書院天文學會<br> 16 July 2021
+                <section>
+                    <h5>What do we mean by "personal information?"</h5>
+                    <p>For us, "personal information" means information which either directly identifies you (like your
+                        name, email address, or phone number) or can be reasonably linked or combined to identify you
+                        (like student number or IP address). We'll always tell you what personal information we’re
+                        collecting from you. See each form’s Privacy Notice or Privacy Statement for specific
+                        details.</p>
+                    <p>Any information that falls outside this is "non-personal information."</p>
+                    <p>If we store your personal information with information that is non-personal, we will consider the
+                        combination as personal information. If we remove all personal information from a set of data
+                        then the remaining is non-personal information.</p>
+                </section>
+                <section>
+                    <h5>How do we learn information about you?</h5>
+                    <p>We learn information about you when:</p>
+                    <ul>
+                        <li>you give it to us directly (e.g., when you sign up for membership);</li>
+                        <li>we collect it automatically through our products and services (e.g., when you email,
+                            instant-message or call us);
+                        </li>
+                        <li>someone else tells us information about you (e.g., when other entities refers you to us);
+                            or
+                        </li>
+                        <li>when we try to understand more about you based on information you've given to us (e.g., when
+                            we use your IP address and user behaviour to optimise our website experience).
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>What do we do with your information once we have it?</h5>
+                    <p>When you give us information, we will use it in the ways for which you've given us permission.
+                        Generally, we use your information to help us provide and improve our products and services for
+                        you.</p>
+                    <p>For users in the EU, EEA, Switzerland, and California: see <a aria-controls="GDPR"
+                                                                                     aria-expanded="false"
+                                                                                     data-bs-toggle="collapse"
+                                                                                     href="#GDPR" role="button">here</a>
+                        for more information. There are apparently way more of you visiting this site than we expect,
+                        despite us being based in Hong Kong and the majority of us have yet to leave.</p>
+                    <section class="collapse" id="GDPR">
+                        <div class="card card-body">
+                            <p>These regions have data protection laws that require us to specify the following:</p>
+                            <p>Our Privacy Policy and product/activity specific privacy notices describe the purposes
+                                for which we process information about you and the categories of information we process.
+                                Queen's College Astronomers' Club does not sell personal data.</p>
+                            <p>Our lawful bases for collecting and processing personal information under the European
+                                General Data Protection Regulation ("GDPR") include:</p>
+                            <ul>
+                                <li><b>Performing our contract with you</b>: Registration for membership or application
+                                    for joining our work team requires your agreement to the terms given by our
+                                    executive committee. To provide the services described, such as getting in touch
+                                    with you, we need to receive your name, class and class number, phone number, and
+                                    email address, and sometimes additional information as well.
+                                </li>
+                                <li><b>Legitimate interests</b>: We receive technical and interaction data of users,
+                                    which may include IP addresses, to improve the experience, security and reliability
+                                    of our services and prevent abuse, and to understand where people learn about the
+                                    Club.
+                                </li>
+                                <li><b>Consent</b>: Where we ask for your consent to process your information, you can
+                                    always withdraw this consent. For minors under the age of 13, guardians of Queen's
+                                    College students have consented to their dependent providing said dependent's
+                                    personal information, and the use of their dependent's personal information by
+                                    affiliate organisations of Queen's College according to the school's own privacy
+                                    protection policies.
+                                </li>
+                            </ul>
+                            <p>The following rights are granted under the GDPR and California Consumer Privacy Act
+                                ("CCPA"). Queen's College Astronomers' Club applies these rights to all users of our
+                                products/services, regardless of your location:</p>
+                            <ul>
+                                <li>The right to know what personal data is collected</li>
+                                <li>The right to know if personal data is being shared, and to whom</li>
+                                <li>The right to access your personal data</li>
+                                <li>The right to exercise your privacy rights without being discriminated against</li>
+                            </ul>
+                            <p>If you have a question or concern, please contact us and we hope to resolve it for
+                                you.</p>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <h5>When do we share your information with others?</h5>
+                    <ul>
+                        <li>When we have asked and received your permission to share it.</li>
+                        <li>For processing or providing products and services to you, but only if those entities
+                            receiving your information are obligated to handle the data in ways that are approved by the
+                            Club.
+                        </li>
+                        <li>When we are fulfilling our mission of promoting astronomy and building bonds among brothers,
+                            directly or incidentally, we sometimes release information to make our products or services
+                            better. But when we do so, we will remove your personal information and try to disclose it
+                            in a way that minimizes the risk of you being re-identified.
+                        </li>
+                        <li>When the law requires it. We follow the law whenever we receive requests about you from a
+                            government or related to a lawsuit. We'll notify you when we're asked to hand over your
+                            personal information in this way unless we're legally prohibited from doing so. When we
+                            receive requests like this, we'll only release your personal information if we have a good
+                            faith belief that the law requires us to do so. Nothing in this policy is intended to limit
+                            any legal defenses or objections that you may have to a third party's request to disclose
+                            your information.
+                        </li>
+                        <li>When we believe it is necessary to prevent harm to you or someone else. We will only share
+                            your information in this way if we have a good faith belief that it is reasonably necessary
+                            to protect the rights, property or safety of you, our other users, Queen's College
+                            Astronomers' Club or the public.
+                        </li>
+                        <li>If our organizational structure or status changes (if we undergo a restructuring) we may
+                            pass your information to a successor or affiliate.
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>How do we store and protect your personal information?</h5>
+                    <p>We are committed to protecting your personal information once we have it. We implement physical,
+                        business and technical security measures. Despite our efforts, if we learn of a security breach,
+                        we'll notify you so that you can take appropriate protective steps.</p>
+                    <p>We also don't want your personal information for any longer than we need it, so we only keep it
+                        long enough to do what we collected it for. Once we don't need it, we take steps to destroy it
+                        unless we are required by law to keep it longer.</p>
+                </section>
+                <section>
+                    <h5>What if we change this privacy policy or any of our privacy notices?</h5>
+                    <p>We may need to change this policy and our notices. The updates will be posted online. If the
+                        changes are substantive, we will announce the update through the Club's usual channels for such
+                        announcements such as social media posts or emails. Your continued use of the product or service
+                        after the effective date of such changes constitutes your acceptance of such changes. To make
+                        your review more convenient, we will post an effective date at the top of the page.</p>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="cookies" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Website & Cookies Privacy Notice</h5>
+                <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        type="button"></button>
+            </div>
+            <div class="modal-body">
+                <p>Queen's College Astronomers' Club 皇仁書院天文學會<br> 16 July 2021<br><br></p>
+                <section>
+                    <p>We care about your privacy. When Queen's College Astronomers' Club (that's us) collects
+                        information about you, our <a data-bs-dismiss="modal" data-bs-toggle="modal" href="#privacy"
+                                                      onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'privacy'})"
+                                                      role="button">Privacy Policy</a> describes how we handle that
+                        information.</p>
+                    <p>This privacy notice applies to Queen's College Astronomers' Club operated websites and mobile
+                        apps, which include the domains qcac.hk, and qcac.net, among others.</p>
+                </section>
+                <section id="things-you-should-know">
+                    <h5>Things you should know</h5>
+                    <p><a aria-controls="receive-info" aria-expanded="false" data-bs-toggle="collapse"
+                          href="#receive-info" role="button">We may receive personal information from you based on your
+                        interaction with us on social media platforms; if you submit a membership or core application;
+                        if you volunteer as a helper for the Club; if you submit user feedback or a request to us; or if
+                        you engage with an activity, product or policy campaign. </a></p>
+                    <div class="collapse" id="receive-info">
+                        <div class="card card-body">
+                            <ul>
+                                <li><b>Social Media</b>: If you engage with our social media accounts, such as Facebook
+                                    and Instagram, we may receive personal information about you. If you use these
+                                    networks, their privacy policies apply, and you are encouraged to read them.
+                                </li>
+                                <li><b>Membership & Core Applicants</b>: Applicants for membership, core or fellowship
+                                    opportunities with Queen's College Astronomers' Club are required to give us a name,
+                                    phone number, and email address, and sometimes additional information as well. We
+                                    use this information to process and evaluate applications and to communicate with
+                                    applicants about opportunities.
+                                </li>
+                                <li><b>User Feedback</b>: You can provide feedback to us on our products and services on
+                                    webpages like <a href="https://github.com/qcastron/qcastron.github.io/issues"
+                                                     target="_blank">https://github.com/qcastron/qcastron.github.io/issues</a>,
+                                    or through channels such as email or a social media account. Please minimize the
+                                    personal information you choose to share on forums because your comments may be
+                                    accessible to the public.
+                                </li>
+                                <li><b>Product & Policy Campaigns</b>: Some of our webpages host activity, product or
+                                    policy campaigns. We may use third parties to manage these campaigns and handle any
+                                    data that you choose to submit.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p><a aria-controls="use-info" aria-expanded="false" data-bs-toggle="collapse" href="#use-info"
+                          role="button">We may use cookies, clear GIFs, third party web analytics, device information,
+                        and IP addresses for functionality and to better understand user interaction with our products,
+                        services, and communications. </a></p>
+                    <div class="collapse" id="use-info">
+                        <div class="card card-body">
+                            <ul>
+                                <li>
+                                    <p><b>Functionality</b>: We may use information such as cookies, device information,
+                                        and IP addresses to enhance functionality of certain products, services, and
+                                        communications. For example: we use certain device information such as country,
+                                        language, operator and OEM, to customize your experience.</p>
+                                </li>
+                                <li>
+                                    <p><b>Metrics</b>: We may also use cookies, device information, and IP addresses,
+                                        along with clear GIFs, cookies and third party services to help us understand in
+                                        the aggregate how users engage with our products, services, communications,
+                                        websites, online campaigns, snippets, and other platforms. We use:</p>
+                                    <ul>
+                                        <li>Google Analytics, which places a cookie on your device, to obtain metrics on
+                                            how users engage with our websites. This helps us to improve site content.
+                                        </li>
+                                        <li>HTTP Referral Data, to understand the website domain or advertising campaign
+                                            that referred you to our page. This information helps us understand the
+                                            effectiveness of our advertising campaigns and improve them.
+                                        </li>
+                                        <li>Other metrics tools from time to time, on an experimental basis. For
+                                            example, we may do this to help evaluate a new metrics tool, or test
+                                            existing metrics collection.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><b>Fraud Prevention</b>: We have implemented third-party technology, Google’s
+                                        Invisible reCAPTCHA, that operates in the background on some of our websites in
+                                        order to identify fraudulent activity. Use of the Invisible reCAPTCHA is
+                                        governed by the <a href="https://www.google.com/intl/policies/privacy/"
+                                                           target="_blank">Google Privacy Policy</a> and <a
+                                                href="https://policies.google.com/terms" target="_blank">Terms of
+                                            Use</a>.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p><a aria-controls="cookie-info" aria-expanded="false" data-bs-toggle="collapse"
+                          href="#cookie-info" role="button">You can control individual cookie preferences, indicate your
+                        cookie preferences to others, and opt-out of web analytics and optimization tools. </a></p>
+                    <div class="collapse" id="cookie-info">
+                        <div class="card card-body">
+                            <p>We recommend the latest version of <a href="https://www.mozilla.org/en-US/firefox/new/"
+                                                                     target="_blank">Firefox</a> browser for the best
+                                experience of the site and privacy protection to your online presence. Instructions here
+                                are given according to the current version of Firefox. Other browsers may not support
+                                some of these actions.</p>
+                            <ul>
+                                <li>
+                                    <p><b>Cookie History</b>: You can accept or decline individual cookies in your
+                                        Firefox preferences in the Tools/Options/Privacy history section. Note that
+                                        certain features of our products and services may not function properly without
+                                        the aid of cookies.</p>
+                                </li>
+                                <li>
+                                    <p><b>Do Not Track</b>: We do not track users across third party websites to provide
+                                        targeted advertising.</p>
+                                </li>
+                                <li>
+                                    <p><b>Analytics & Optimization</b>: Follow the instructions below to prevent data
+                                        collection about your visits to our websites:</p>
+                                    <ul>
+                                        <li>Google: Install the <a href="https://tools.google.com/dlpage/gaoptout"
+                                                                   target="_blank">Google Analytics Opt-out Browser
+                                            Add-on</a>, which prohibits data transmission to Google Analytics. Some web
+                                            pages use clear GIFs which communicate with DoubleClick to understand the
+                                            effectiveness of our advertising campaigns; you can control personalized ads
+                                            from DoubleClick in Google's ad settings (you will be prompted to sign in to
+                                            your Google Account).
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><b>Social Media</b>: The social sharing buttons on our websites are designed not
+                                        to share data with the social media provider until you specifically click the
+                                        button.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="license" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Website License Policies</h5>
+                <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        type="button"></button>
+            </div>
+            <div class="modal-body">
+                <section>
+                    <h5>Using Materials on This Website</h5>
+                    <p>If you wish to use materials on this website, we are happy to provide you with a custom license
+                        for your specific project. Please feel free to contact us via <a
+                                href="mailto:astronomersclubqcATgmailDOTcom"
+                                onclick="this.href=this.href.replace(/AT/,'&#64;').replace(/DOT/,'&#46;')">email</a> or
+                        <a href="https://qcac.hk/#social-media" target="_blank">social media</a>.</p>
+                    <p>You are most welcome to use materials on this website with the default licenses stated below for
+                        general purposes.</p>
+                </section>
+                <section>
+                    <h5>Texts, images and videos</h5>
+                    <p>Unless otherwise specified, the text, images and videos on this website is available under the
+                        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license, or any later
+                        version, with the conditions listed below.</p>
+                    <a class="license-brand" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+                        <img alt="Queen's College Astronomers' Club 皇仁書院天文學會 Creative Commons BY-NC-ND 4.0 License"
+                             loading="lazy"
+                             src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-nd.svg">
+                    </a>
+                    <p>A <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">summary</a> of the
+                        terms of this license is available, as well as its <a
+                                href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" target="_blank">detailed
+                            terms</a>.</p>
+                    <p>The following conditions must be satisfied:</p>
+                    <ul>
+                        <li>The full image or footage credit must be presented in a clear and readable manner to all
+                            users, with the wording unaltered (for example: "Queen's College Astronomers' Club
+                            皇仁書院天文學會"). Web texts should be credited to Queen's College Astronomers' Club
+                            皇仁書院天文學會 (except when used by media). The credit should not be hidden or
+                            disassociated from the image footage. Links should be active if the credit is online.
+                        </li>
+                        <li>Queen's College Astronomers' Club materials may not be used to state or imply the
+                            endorsement by the Club or any Club member of a commercial product or service;
+                        </li>
+                        <li>We kindly ask for an electronic copy or image of the product sent to us to be indexed in our
+                            archive;
+                        </li>
+                        <li>If an image or video shows an identifiable person, using that image or video may infringe
+                            that person's right of privacy, and separate permission should be obtained from the
+                            individual. We may be able to help with that on request.
+                        </li>
+                        <li>Note that this general permission does not extend to the use of Queen's College Astronomers'
+                            Club's logo, which shall remain protected and may not be used or reproduced without prior
+                            and individual written consent of the Club. Owners of external websites wishing to link to
+                            the Club website may use the Club's logo for the link, provided they have obtained prior
+                            authorisation from the Club and on the condition that such use is clearly identifiable as a
+                            web link.
+                        </li>
+                        <li>Also note that music on this site is not released under the Creative Commons license and
+                            cannot be used for non-Queen's-College-Astronomers'-Club products.
+                        </li>
+                        <li>By reproducing Queen's College Astronomers' Club material, in part or in full, the user
+                            acknowledges the terms on which such use is permitted.
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>Code</h5>
+                    <p>Unless otherwise specified, the code, except the texts, images and videos on this website, is <b>free
+                        and open source</b>; available under the GNU General Public License v3.0, or any later versions.
+                    </p>
+                    <a class="license-brand" href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">
+                        <img alt="Queen's College Astronomers' Club 皇仁書院天文學會 GPL License" id="GPL-logo"
+                             loading="lazy" src="https://www.gnu.org/graphics/gplv3-with-text-136x68.png">
+                    </a>
+                    <p>You should know what this is already if you are coding. But the <a
+                            href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">detailed terms</a> of this
+                        license are available anyway.</p>
+                    <p>Code libraries used are under separate licenses by their authors, but are also public
+                        licenses.</p>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("calendar").click();
+
+    let canvas = document.getElementById("constellations"),
+        halfWinW = 0,
+        halfWinH = 0,
+        skyW = 0,
+        skyH = 0,
+        skyWMin = 0,
+        skyWMax = 0,
+        skyHMin = 0,
+        skyHMax = 0,
+        stars_count = 0,
+        parallaxFactor = 80;
+
+    function resize() {
+        halfWinW = document.body.clientWidth / 2;
+        halfWinH = window.innerHeight / 2;
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+        skyWMin = -halfWinW * 2.8 * 2.8 / parallaxFactor - 20;
+        skyWMax = halfWinW * 2 - skyWMin;
+        skyHMin = -halfWinH * 2.8 * 2.8 / parallaxFactor - 20;
+        skyHMax = halfWinH * 2 - skyHMin;
+        skyW = skyWMax - skyWMin;
+        skyH = skyHMax - skyHMin;
+        stars_count = skyW * skyH * 0.0005;
+    }
+
+    window.addEventListener('resize', resize);
+
+    let ctx = canvas.getContext("2d");
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+
+    let stars = [],
+        speed = 0.2,
+        dist = 30,
+        max_connect = 3,
+        special_count = 0,
+        mouse = {
+            x: 0,
+            y: 0
+        },
+        step = 0,
+        allowed = 1;
+
+    resize();
+    for (let i = 0; stars.length < stars_count;) {
+        i = new New_dot();
+        i.life = Math.random();
+        i.midlife = Math.random() * 2 | 0;
+        stars.push(i);
+    }
+
+    function New_dot() {
+        let n = this;
+        let l = function () {
+            return (Math.pow(Math.random(), .5) - 1) * (n.radius) * speed;
+        };
+        this.x = Math.random() * skyW + skyWMin;
+        this.y = Math.random() * skyH + skyHMin;
+        this.radius = 2 * Math.random() + .8;
+        this.vx = l();
+        this.vy = .5 * l();
+        this.life = 0;
+        this.midlife = 0;
+        this.size = 0;
+        this.quota = 0;
+        this.special = 0;
+        this.parallaxOffsetX = 0;
+        this.parallaxOffsetY = 0;
+    }
+
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let x = stars.length;
+        ctx.beginPath();
+        for (let i = 0; i < x; i++) {
+            let starI = stars[i];
+            for (let j = i + 1; ((j < x) && starI.quota); j++) {
+                let starII = stars[j];
+                if (distance(starI, starII) < Math.min(dist * Math.min(starI.size, starII.size) * Math.min(starI.quota, starII.quota), dist * max_connect)) {
+                    ctx.moveTo(starI.x + starI.parallaxOffsetX, starI.y + starI.parallaxOffsetY);
+                    ctx.lineTo(starII.x + starII.parallaxOffsetX, starII.y + starII.parallaxOffsetY);
+                    starI.quota--;
+                    starII.quota--;
+                }
+            }
+        }
+        ctx.lineWidth = .8;
+        ctx.strokeStyle = "#6B7E99";
+        ctx.stroke();
+
+        ctx.beginPath();
+        for (let i = 0; i < x; i++) {
+            let s = stars[i];
+            if (!s.special) {
+                draw_star(s);
+            }
+        }
+        ctx.fillStyle = "#E0E0E0";
+        ctx.fill();
+        if (special_count) {
+            ctx.beginPath();
+            for (let i = 0; i < x; i++) {
+                let s = stars[i];
+                if (s.special) {
+                    draw_star(s);
+                }
+            }
+            ctx.fillStyle = "#FFCC00";
+            ctx.fill();
+        }
+    }
+
+    function distance(point1, point2) {
+        let xs, ys;
+        xs = point2.x + point2.parallaxOffsetX - point1.x - point1.parallaxOffsetX;
+        ys = point2.y + point2.parallaxOffsetY - point1.y - point1.parallaxOffsetY;
+        return Math.sqrt(xs * xs + ys * ys);
+    }
+
+    function draw_star(s) {
+        s.size = s.radius * Math.pow(s.life, .6);
+        s.quota = s.size | 0;
+        ctx.moveTo(s.x, s.y);
+        ctx.arc(s.x + s.parallaxOffsetX, s.y + s.parallaxOffsetY, s.size, 0, 2 * Math.PI);
+    }
+
+    function update() {
+        for (let i = 0; i < stars.length; i++) {
+            let s = stars[i];
+
+            s.life += (s.midlife ? -.004 : .004) / s.radius;
+            if (s.life >= 1 && !s.midlife) {
+                s.midlife = 1;
+            }
+
+            if (s.life < 0) {
+                if (s.special) {
+                    special_count--;
+                }
+                stars.splice(i, 1);
+            } else {
+                s.x += s.vx;
+                s.y += s.vy;
+
+                if ((s.x < skyWMin || s.x > skyWMax || s.y < skyHMin || s.y > skyHMax) && !s.special) {
+                    stars.splice(i, 1);
+                }
+            }
+        }
+        for (let j = 0; stars.length < stars_count + special_count;) {
+            j = new New_dot();
+            stars.push(j);
+        }
+
+        for (let i = 0; i < stars.length; i++) {
+            calOffset(stars[i]);
+        }
+    }
+
+    function calOffset(s) {
+        s.parallaxTargX = (mouse.x - halfWinW) * s.radius * s.radius / parallaxFactor;
+        s.parallaxOffsetX += (s.parallaxTargX - s.parallaxOffsetX) / 10;
+        s.parallaxTargY = (mouse.y - halfWinH) * s.radius * s.radius / parallaxFactor;
+        s.parallaxOffsetY += (s.parallaxTargY - s.parallaxOffsetY) / 10;
+    }
+
+    if (window.DeviceOrientationEvent && navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i)) {
+        window.addEventListener('deviceorientation', function () {
+            mouse.x = (Math.min(Math.max(-event.gamma, -30), 30) + 30) * halfWinW / 30;
+            mouse.y = (Math.min(Math.max(-event.beta, -30), 30) + 30) * halfWinH / 30;
+        }, true);
+        parallaxFactor = 40;
+    } else {
+        window.addEventListener("mousemove", function (e) {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+    }
+
+    window.addEventListener("click", function (e) {
+        let canvas_top = canvas.getBoundingClientRect().top;
+        if (canvas_top <= e.clientY) {
+            let s = new New_dot();
+            s.life = .5;
+            s.radius += 1;
+            s.special = 1;
+            s.size = s.radius * Math.pow(s.life, .6);
+            s.parallaxOffsetX = (mouse.x - halfWinW) * s.radius * s.radius / parallaxFactor;
+            s.parallaxOffsetY = (mouse.y - halfWinH) * s.radius * s.radius / parallaxFactor;
+            s.x = e.clientX - s.parallaxOffsetX;
+            s.y = e.clientY - canvas_top - s.parallaxOffsetY;
+            stars.push(s);
+            special_count++;
+            if (allowed) {
+                allowed = 0;
+                step++;
+                setTimeout(function () {
+                    allowed = 1;
+                }, 1500);
+                if (!(step % 10) || step < 5) {
+                    gtag('event', 'click', {'event_category': 'canvas', 'event_label': step});
+                }
+            }
+        }
+    }, false);
+
+    for (let i = 2; i <= 10; i++) {
+        setTimeout(function () {
+            gtag('event', 'ping', {'event_category': 'ping', 'event_label': 15 * i});
+        }, 15000 * i);
+    }
+
+    for (let i = 3; i <= 15; i++) {
+        setTimeout(function () {
+            gtag('event', 'ping', {'event_category': 'ping', 'event_label': 60 * i});
+        }, 60000 * i);
+    }
+
+    function tick() {
+        draw();
+        update();
+        requestAnimationFrame(tick);
+    }
+
+    console.log("%cIf you see this, you're talented and we want you. Join our team at https://qcac.hk/#recruitment :D",
+        "background: #140533; color: #FFCC00; font-size: 24px; font-weight: 700;");
+    console.log("Eat a Ba" + +"a" + "a la!");
+    tick();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQW8TQENF0"></script>
+<script src="https://qcac.hk/js/jquery.min.js"></script>
+<script src="https://qcac.hk/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+    function getAnchor() {
+        let url = document.URL.split("#");
+        return (url.length > 1) ? url[1].split("?")[0] : null;
+    }
+
+    function getModal() {
+        let modal = document.getElementsByClassName("modal"),
+            anchor = getAnchor();
+        for (let i = 0; i < modal.length; i++) {
+            modal[i].addEventListener("shown.bs.modal", () => {
+                history.replaceState({}, "", `${document.URL.split("#")[0]}#${modal[i].id}`);
+            });
+            modal[i].addEventListener("hidden.bs.modal", () => {
+                history.replaceState({}, "", document.URL.split("#")[0]);
+            });
+        }
+        if (anchor) {
+            try {
+                let target = document.getElementById(anchor);
+                target.classList.contains("modal") ? new bootstrap.Modal(target).show() : null;
+            } catch (e) {
+            }
+        }
+    }
+
+    getModal();
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-HQW8TQENF0');
+</script>
 </body>
 </html>
