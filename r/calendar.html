@@ -94,17 +94,17 @@
             margin: auto;
             border-radius: 1em;
             padding: 20px;
-            max-width: 600px;
+            min-width: min(500px, 100%);
+            max-width: 640px;
             background: #330D80;
-            hyphens: none;
             z-index: 10;
         }
 
         #content a {
             margin-bottom: 1em;
         }
-        
-        #content p:last-child {
+
+        #content p:last-child, #content a + .calendar-description {
             margin-bottom: 0;
         }
 
@@ -113,9 +113,20 @@
             font-weight: 700;
         }
 
-        .calendar-description {
+        .progress {
+            height: .2em;
+            background-color: #140533;
+            margin-bottom: 1em;
+        }
+
+        .progress-bar {
+            transition: width 1s linear;
+        }
+
+        .calendar-description, #content ul {
             font-size: .8em;
             font-weight: 300;
+            text-align: left;
         }
 
         .calendar-description b {
@@ -309,11 +320,21 @@
 <body style="background: #140533">
 <main>
     <div id="content">
-        <h1>Attempting to launch Google&nbsp;Calendar...</h1>
-        <p>If it doesn't start automatically, click the button below.</p>
-        <a class="btn btn-primary" id="calendar" href="https://calendar.google.com/calendar/u/0?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t" rel="nofollow" target="_blank" type="button">Launch Calendar</a>
-        <p class="calendar-description">Supports <b><i>Chrome&nbsp;for&nbsp;Android</i> (launch to app only)</b>, <b><i>Safari&nbsp;for&nbsp;iPad</i> (except scan shortcut)</b> and <b>all modern desktop&nbsp;web&nbsp;browsers</b>. Other browsers or devices may not work due to Google Calendar limitations. Please use a <b>desktop web&nbsp;browser</b> to add the calendar events, which can be viewed in your <i>Google&nbsp;Calendar&nbsp;App</i>.</p>
-        <p class="calendar-description">If you are sent to the <i>Google&nbsp;Workspace</i> page, please <b>sign in to your Google Account</b> and launch the calendar again.</p>
+        <h1 id="calendar-heading">Launching Google&nbsp;Calendar<span id="counter"></span>...</h1>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:0%"></div>
+        </div>
+        <p>Alternatively, click the button below.</p>
+        <a class="btn btn-primary" id="calendar" href="https://calendar.google.com/calendar/u/0?cid=YXN0cm9ub21lcnNjbHVicWNAZ21haWwuY29t" rel="nofollow" target="_blank" type="button" onclick="onCalendaryLaunch();">Launch Calendar</a>
+        <p class="calendar-description">Please use the following browsers or devices:</p>
+        <ul>
+            <li><i>Chrome for Android</i> (launch to app only)</li>
+            <li><i>Safari for iPad</i> (direct link and scan with camera app)</li>
+            <li>Modern desktop web browsers</li>
+        </ul>
+        <p class="calendar-description">Other browsers or devices <b>will not work</b> due to a bug in Google Calendar. Come back to this page for more information.</p>
+        <p class="calendar-description visually-hidden">See <b>"No events scheduled"</b>, <b>sent to the old Google Calendar site</b> or just didn't work? Please use a <b>modern desktop web browser</b> to add the calendar events, which can be viewed in your <i>Google Calendar App</i>.</p>
+        <p class="calendar-description visually-hidden">If you are sent to the Google Workspace page, please <b>sign in to your Google Account</b> and launch the calendar again.</p>
     </div>
     <div id="constellations-con">
         <div id="bubble-con">
@@ -761,7 +782,25 @@
     </div>
 </div>
 <script>
-    document.getElementById("calendar").click();
+    let timeleft = 15;
+    let timer = setInterval(function() {
+        document.getElementById("counter").innerHTML = " in&nbsp;" + timeleft;
+        if (timeleft == 0) {
+            document.getElementById("calendar").click();
+            return;
+        }
+        document.getElementsByClassName("progress-bar")[0].style.width = (16 - timeleft) / 15 * 100 + "%";
+        timeleft -= 1;
+    }, 1000);
+
+    function onCalendaryLaunch() {
+        clearInterval(timer);
+        document.getElementById("calendar-heading").innerText = "Didn't Work? Instructions Below";
+        for (let i = 0; i < document.getElementsByClassName("calendar-description").length; i++) {
+            document.getElementsByClassName("calendar-description")[i].classList.remove("visually-hidden");
+        }
+        document.getElementsByClassName("progress-bar")[0].style.width = "100%";
+    }
 
     let canvas = document.getElementById("constellations"),
         halfWinW = 0,
