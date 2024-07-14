@@ -10331,52 +10331,88 @@ h2::after, .h2::after {
   min-width: 50px;
 }
 
-#qc-carousel-image-1 {
-  background: url("../img/qc-carousel1.jpg") no-repeat 40% 100%/cover;
+#joint-school-1 {
+  background: url("../img/joint-school-1.jpg") no-repeat 50% 55%/cover;
 }
 
-#qc-carousel-image-2 {
-  background: url("../img/qc-carousel2.jpg") no-repeat 50% 60%/cover;
+#joint-school-2 {
+  background: url("../img/joint-school-2.jpg") no-repeat 50% 20%/cover;
 }
 
-#qc-carousel-image-3 {
-  background: url("../img/qc-carousel3.jpg") no-repeat 50% 40%/cover;
+#joint-school-3 {
+  background: url("../img/joint-school-3.jpg") no-repeat 0% 20%/cover;
 }
 
-#qc-carousel-image-4 {
-  background: url("../img/qc-carousel4.jpg") no-repeat 60% 70%/cover;
+#joint-school-4 {
+  background: url("../img/joint-school-4.jpg") no-repeat 50% 20%/cover;
 }
 
-#qc-carousel-image-5 {
-  background: url("../img/qc-carousel5.jpg") no-repeat 90% 30%/cover;
+#open-days-1 {
+  background: url("../img/open-days-1.jpg") no-repeat 40% 100%/cover;
 }
 
-#qc-carousel-image-6 {
-  background: url("../img/qc-carousel6.jpg") no-repeat 60% 50%/cover;
+#open-days-2 {
+  background: url("../img/open-days-2.jpg") no-repeat 50% 90%/cover;
 }
 
-#qc-carousel-image-7 {
-  background: url("../img/qc-carousel7.jpg") no-repeat 60% 70%/cover;
+#open-days-3 {
+  background: url("../img/open-days-3.jpg") no-repeat 50% 30%/cover;
 }
 
-#qc-carousel-image-8 {
-  background: url("../img/qc-carousel8.jpg") no-repeat 40% 60%/cover;
+#open-days-4 {
+  background: url("../img/open-days-4.jpg") no-repeat 50% 30%/cover;
 }
 
-#qc-carousel-image-9 {
-  background: url("../img/qc-carousel9.jpg") no-repeat 50% 60%/cover;
+#an-1 {
+  background: url("../img/an-1.jpg") no-repeat 50% 40%/cover;
 }
 
-#qc-carousel-image-10 {
-  background: url("../img/qc-carousel10.jpg") no-repeat 50% 50%/cover;
+#an-2 {
+  background: url("../img/an-2.jpg") no-repeat 50% 50%/cover;
 }
 
-#qc-carousel-image-11 {
-  background: url("../img/qc-carousel11.jpg") no-repeat 40% 30%/cover;
+#an-3 {
+  background: url("../img/an-3.jpg") no-repeat 70% 50%/cover;
 }
 
-#qc-carousel-image-12 {
-  background: url("../img/qc-carousel12.jpg") no-repeat 40%/cover;
+#an-4 {
+  background: url("../img/an-4.jpg") no-repeat 30% 60%/cover;
+}
+
+#oday-1 {
+  background: url("../img/oday-1.jpg") no-repeat 90% 30%/cover;
+}
+
+#oday-2 {
+  background: url("../img/oday-2.jpg") no-repeat 10% 30%/cover;
+}
+
+#oday-3 {
+  background: url("../img/oday-3.jpg") no-repeat 50% 50%/cover;
+}
+
+#oday-4 {
+  background: url("../img/oday-4.jpg") no-repeat 40% 50%/cover;
+}
+
+#eclipse-1 {
+  background: url("../img/eclipse-1.jpg") no-repeat 60% 70%/cover;
+}
+
+#eclipse-2 {
+  background: url("../img/eclipse-2.jpg") no-repeat 40% 60%/cover;
+}
+
+#eclipse-3 {
+  background: url("../img/eclipse-3.jpg") no-repeat 50% 60%/cover;
+}
+
+#opening-1 {
+  background: url("../img/opening-1.jpg") no-repeat 40% 30%/cover;
+}
+
+#telescope-1 {
+  background: url("../img/telescope-1.jpg") no-repeat 40%/cover;
 }
 
 #tt-carousel-image-1 {
@@ -10432,7 +10468,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(1) {
-  left: 17%;
+  left: 37%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -10446,7 +10482,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(2) {
-  left: -14%;
+  left: 53%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -10460,7 +10496,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(3) {
-  left: 64%;
+  left: 21%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -10474,7 +10510,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(4) {
-  left: -8%;
+  left: 23%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -10488,7 +10524,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(5) {
-  left: 72%;
+  left: -17%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -10502,7 +10538,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(6) {
-  left: 51%;
+  left: 67%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -10516,7 +10552,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(7) {
-  left: 21%;
+  left: 29%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -10530,7 +10566,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(8) {
-  left: -10%;
+  left: 66%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -10544,7 +10580,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(9) {
-  left: 55%;
+  left: 12%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -10558,7 +10594,7 @@ h2::after, .h2::after {
 }
 
 .bubble:nth-child(10) {
-  left: 50%;
+  left: 68%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;
