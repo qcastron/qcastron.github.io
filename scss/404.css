@@ -109,12 +109,14 @@ main {
 }
 
 #box::before {
-  clip-path: polygon(0 0, 65% 0, 35% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 65% 0, 35% 100%, 0 100%);
+          clip-path: polygon(0 0, 65% 0, 35% 100%, 0 100%);
   box-shadow: inset 0 0 0 1px #fc0;
 }
 
 #box::after {
-  clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
+  -webkit-clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
+          clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
   box-shadow: inset 0 0 0 1px #0cf;
   animation-duration: 0.5s;
   animation-direction: alternate;
@@ -143,13 +145,15 @@ h1::before, h1::after {
 }
 
 h1::before {
-  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+          clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   color: #fc0;
   animation: shiftright 2s steps(2) infinite;
 }
 
 h1::after {
-  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
   color: #0cf;
   animation: shiftleft 2s steps(2) infinite;
 }
@@ -170,13 +174,15 @@ h1::after {
 }
 
 #error span::before {
-  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+          clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   color: #fc0;
   animation: shiftright 1.5s steps(2) infinite;
 }
 
 #error span::after {
-  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
   color: #0cf;
   animation: shiftleft 1.7s steps(2) infinite;
 }
@@ -198,7 +204,7 @@ h1::after {
 }
 
 .bubble:nth-child(1) {
-  left: -6%;
+  left: 15%;
   animation: raise1 60s linear infinite -2s;
   transform: scale(0.7);
   z-index: -49;
@@ -212,7 +218,7 @@ h1::after {
 }
 
 .bubble:nth-child(2) {
-  left: 26%;
+  left: 79%;
   animation: raise2 40s linear infinite -4s;
   transform: scale(0.9);
   z-index: -48;
@@ -226,7 +232,7 @@ h1::after {
 }
 
 .bubble:nth-child(3) {
-  left: 81%;
+  left: 0%;
   animation: raise3 33.3333333333s linear infinite -6s;
   transform: scale(1.1);
   z-index: -47;
@@ -240,7 +246,7 @@ h1::after {
 }
 
 .bubble:nth-child(4) {
-  left: 93%;
+  left: 50%;
   animation: raise4 30s linear infinite -8s;
   transform: scale(1.3);
   z-index: -46;
@@ -254,7 +260,7 @@ h1::after {
 }
 
 .bubble:nth-child(5) {
-  left: 92%;
+  left: 5%;
   animation: raise5 28s linear infinite -10s;
   transform: scale(1.5);
   z-index: -45;
@@ -268,7 +274,7 @@ h1::after {
 }
 
 .bubble:nth-child(6) {
-  left: 90%;
+  left: -11%;
   animation: raise6 26.6666666667s linear infinite -12s;
   transform: scale(1.7);
   z-index: -44;
@@ -282,7 +288,7 @@ h1::after {
 }
 
 .bubble:nth-child(7) {
-  left: 11%;
+  left: 100%;
   animation: raise7 25.7142857143s linear infinite -14s;
   transform: scale(1.9);
   z-index: -43;
@@ -296,7 +302,7 @@ h1::after {
 }
 
 .bubble:nth-child(8) {
-  left: 92%;
+  left: -15%;
   animation: raise8 25s linear infinite -16s;
   transform: scale(2.1);
   z-index: -42;
@@ -310,7 +316,7 @@ h1::after {
 }
 
 .bubble:nth-child(9) {
-  left: 8%;
+  left: 88%;
   animation: raise9 24.4444444444s linear infinite -18s;
   transform: scale(2.3);
   z-index: -41;
@@ -324,7 +330,7 @@ h1::after {
 }
 
 .bubble:nth-child(10) {
-  left: 41%;
+  left: 64%;
   animation: raise10 24s linear infinite -20s;
   transform: scale(2.5);
   z-index: -40;
@@ -381,6 +387,4 @@ footer svg {
   color: inherit;
   text-decoration: none;
   margin: 0 1em;
-}
-
-/*# sourceMappingURL=404.css.map */
+}/*# sourceMappingURL=404.css.map */
