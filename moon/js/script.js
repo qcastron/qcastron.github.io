@@ -1,133 +1,321 @@
 /**
- * Fetches data from the js/moon-phase-data/<Year> file and finds the next new/full moon
- * @param {Date} date
+ * Moon Phase + HKO Weather Icon
+ * - Keeps original moon phase setHours calculations
+ * - Caches results in localStorage
+ * - Auto-updates moon phase at 6 AM daily
+ * - Auto-updates weather icon every X minutes
  */
-async function getMoonPhase(date = new Date) {
 
-    /**
-     * NIGHT_OFFSET is the offset in hours when selecting the day of the new moon/full moon event
-     * DAY_OFFSET is the offset in hours when selecting the day of the current time
-     * @constant {number}
-     */
-    const NIGHT_OFFSET = 12,
-        DAY_OFFSET = 6;
+document.addEventListener('DOMContentLoaded', async () => {
+    updateTime();
+    await Promise.all([displayMoonPhase(), displayWeatherAndConditions()]);
+    initModal();
+    initAnalyticsPings();
+    startWeatherUpdates();
+    scheduleMoonPhaseUpdate();
+});
+
+/* ===== CONFIG ===== */
+const WEATHER_REFRESH_MINUTES = 10;
+const MOON_CACHE_HOURS = 24;
+
+/* ===== MOON PHASE ===== */
+async function displayMoonPhase(date = new Date()) {
+    const NIGHT_OFFSET = 12, DAY_OFFSET = 6;
 
     date.setHours(date.getHours() - DAY_OFFSET, 0, 0, 0);
     date.setHours(0, 0, 0, 0);
 
-    /**
-     * Finds the next new moon or full moon from data, if it exists
-     * @param {Array} data
-     * @returns {{className: String, type: String, count: String, wordIn: String}}
-     */
-    function findNextEvent(data) {
+    // Check cache
+    const moonCache = JSON.parse(localStorage.getItem('moonPhaseData') || 'null');
+    if (moonCache && Date.now() - moonCache.timestamp < MOON_CACHE_HOURS * 3600000 && moonCache.events[0].eventDate > Date.now()) {
+        return updateMoonDOM(moonCache.events[0]); // display first event
+    }
+
+    const findNextEvents = (data) => {
+        const events = [];
         for (const i of data) {
-            if (i.Phase === 0) {
-                let newMoon = new Date(i.Date + "Z");
-                newMoon.setHours(newMoon.getHours() - NIGHT_OFFSET, 0, 0, 0);
-                newMoon.setHours(0, 0, 0, 0);
-                let count = (newMoon - date) / 86400000;
+            if (i.Phase === 0 || i.Phase === 2) {
+                let eventDate = new Date(i.Date + "Z");
+                eventDate.setHours(eventDate.getHours() - NIGHT_OFFSET, 0, 0, 0);
+                eventDate.setHours(0, 0, 0, 0);
+                let count = (eventDate - date) / 86400000;
                 if (count >= 0) {
-                    return {
-                        className: count > 0 ? `moon-new-${count}` : "moon-new",
-                        type: "New Moon",
-                        count: count > 1 ? count + " nights" : count > 0 ? "1 night" : "",
-                        wordIn: count ? "in" : ""
-                    };
-                }
-            } else if (i.Phase === 2) {
-                let fullMoon = new Date(i.Date + "Z");
-                fullMoon.setHours(fullMoon.getHours() - NIGHT_OFFSET, 0, 0, 0);
-                fullMoon.setHours(0, 0, 0, 0);
-                let count = (fullMoon - date) / 86400000;
-                if (count >= 0) {
-                    return {
-                        className: count > 0 ? `moon-full-${count}` : "moon-full",
-                        type: "Full Moon",
-                        count: count > 1 ? count + " nights" : count > 0 ? "1 night" : "",
-                        wordIn: count ? "in" : ""
-                    };
+                    events.push({
+                        phaseType: i.Phase === 0 ? "New Moon" : "Full Moon",
+                        eventDate: eventDate.toISOString()
+                    });
+                    if (events.length === 2) break; // stop after 2 events
                 }
             }
         }
-    }
+        return events.length ? events : null;
+    };
 
-    /**
-     * Fetches data from the js/moon-phase-data/<Year> file, feeds into findNextEvent(), and checks if the search is successful
-     * @param {number} year
-     * @returns {Object} Class name, type, number of days and if the word "in" is needed
-     */
-    function getPromise(year) {
-        return fetch("js/moon-phase-data/" + year.toString() + "/")
-            .then(data => data.json())
-            .then(data => {
-                let results = findNextEvent(data);
-                return results ? results : getPromise(year + 1);
-            })
-            .catch(error => {
-                return {
-                    className: "moon-full",
-                    type: "Invalid Data",
-                    count: "",
-                    wordIn: error.name
-                };
-            });
-    }
-
-    return getPromise(date.getFullYear());
-}
-
-async function display() {
-    let today = await getMoonPhase();
-    document.getElementById("moon").classList.add(today.className);
-    document.getElementById("type").textContent = today.type;
-    document.getElementById("in").textContent = today.wordIn;
-    document.getElementById("count").textContent = today.count;
-}
-
-function getAnchor() {
-    let url = document.URL.split("#");
-    return (url.length > 1) ? url[1].split("?")[0] : null;
-}
-
-function getModal() {
-    let modal = document.getElementsByClassName("modal"),
-        anchor = getAnchor();
-    for (let i = 0; i < modal.length; i++) {
-        modal[i].addEventListener("shown.bs.modal", () => {
-            history.replaceState({}, "", `${document.URL.split("#")[0]}#${modal[i].id}`);
-        });
-        modal[i].addEventListener("hidden.bs.modal", () => {
-            history.replaceState({}, "", document.URL.split("#")[0]);
-        });
-    }
-    if (anchor) {
+    const getPromise = async (year, needed = 2, found = []) => {
         try {
-            let target = document.getElementById(anchor);
-            target.classList.contains("modal") ? new bootstrap.Modal(target).show() : null;
-        } catch (e) {
+            const res = await fetch(`js/moon-phase-data/${year}/index.json`);
+            const data = await res.json();
+            const events = findNextEvents(data) || [];
+            found.push(...events);
+            if (found.length >= needed) return found.slice(0, needed);
+            return getPromise(year + 1, needed, found);
+        } catch (error) {
+            return [{ phaseType: "Invalid Data", eventDate: null }];
+        }
+    };
+
+    const nextEvents = await getPromise(date.getFullYear());
+
+    // Store both events in cache
+    localStorage.setItem('moonPhaseData', JSON.stringify({
+        timestamp: Date.now(),
+        events: nextEvents
+    }));
+
+    updateMoonDOM(nextEvents[0]); // display first event
+}
+
+function updateMoonDOM(data) {
+    const moonEl = document.getElementById("moon");
+    const eventDate = new Date(data.eventDate);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const count = Math.round((eventDate - today) / 86400000);
+    const isNew = data.phaseType === "New Moon";
+
+    const className = count > 0
+        ? `moon-${isNew ? 'new' : 'full'}-${count}`
+        : `moon-${isNew ? 'new' : 'full'}`;
+
+    if (moonEl) {
+        moonEl.className = "moon"; // reset classes
+        moonEl.classList.add(className);
+    }
+    document.getElementById("type").textContent = data.phaseType;
+    document.getElementById("in").textContent = count ? "in" : "";
+    document.getElementById("count").textContent =
+        count > 1 ? `${count} nights` :
+        count > 0 ? "1 night" : "";
+}
+
+function updateTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    document.getElementById('time').textContent = `${hours}:${minutes}`;
+}
+
+/* ===== WEATHER ICON ===== */
+async function displayWeatherAndConditions() {
+    try {
+        const res = await fetch("https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en");
+        const { icon = [], temperature = {}, humidity = {} } = await res.json();
+
+        // --- Weather icon ---
+        if (icon.length) updateWeatherDOM(icon[0]);
+
+        // --- Temperature & Humidity ---
+        updateTempHumDOM(temperature.data, humidity.data);
+
+    } catch (err) {
+        console.error("Weather fetch failed:", err);
+    }
+}
+
+function updateWeatherDOM(iconNumber) {
+    const img = document.getElementById("weather-icon");
+    if (img && iconNumber) {
+        const newSrc = `https://maps.weather.gov.hk/ocf/image/wxicon/b3outline/small/${iconNumber}.png`;
+        if (img.src !== newSrc) img.src = newSrc; // avoid redundant assignment
+        updateCloudsClass(iconNumber); // set clouds class from API icon
+    }
+}
+
+function updateTempHumDOM(tempData = [], humData = []) {
+    const el = document.getElementById("temp-hum");
+    if (!el) return;
+
+    // Find Happy Valley or fallback
+    const tempEntry =
+        tempData.find(loc => loc.place?.toLowerCase() === "happy valley" && isFinite(loc.value)) ||
+        tempData.find(loc => isFinite(loc.value));
+
+    const humEntry = humData.find(loc => isFinite(loc.value));
+
+    el.textContent = tempEntry && humEntry
+        ? `${tempEntry.value}°C ${humEntry.value}%`
+        : "--°C --%";
+}
+
+// Map API warning codes to actual icon filenames
+const WARNING_ICON_MAP = new Map([
+    ['WFIREY', 'firey'],      // Yellow Fire Danger
+    ['WFIRER', 'firer'],      // Red Fire Danger
+    ['WFROST', 'frost'],      // Frost Warning
+    ['WHOT', 'vhot'],         // Very Hot Weather Warning
+    ['WCOLD', 'cold'],        // Cold Weather Warning
+    ['WMSGNL', 'sms'],        // Strong Monsoon
+    ['WRAINA', 'raina'],      // Amber Rainstorm Warning Signal
+    ['WRAINR', 'rainr'],      // Red Rainstorm Warning Signal
+    ['WRAINB', 'rainb'],      // Black Rainstorm Warning Signal
+    ['WFNTSA', 'ntfl'],       // Flooding in Northern New Territories
+    ['WL', 'landslip'],       // Landslip Warning
+    ['TC1', 'tc1'],
+    ['TC3', 'tc3'],
+    ['TC8NE', 'tc8ne'],
+    ['TC8SE', 'tc8b'],
+    ['TC8SW', 'tc8c'],
+    ['TC8NW', 'tc8d'],
+    ['TC9', 'tc9'],
+    ['TC10', 'tc10'],
+    ['WTMW', 'tsunami-warn'], // Tsunami Warning
+    ['WTS', 'ts']             // Thunderstorm Warning
+]);
+
+
+async function displayWeatherWarnings() {
+    try {
+        const res = await fetch("https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=en");
+        const data = await res.json();
+
+        let warningEl = document.getElementById("weather-warning");
+
+        // Count warnings without creating an array
+        let hasWarnings = false;
+        let html = "";
+
+        for (const key in data) {
+            if (data[key].code === "CANCEL") {
+                break;
+            }
+            if (Object.prototype.hasOwnProperty.call(data, key)) {
+                hasWarnings = true;
+                const w = data[key];
+                const code = w.code || w.warningCode || "";
+                const filename = WARNING_ICON_MAP.get(code);
+                if (filename) {
+                    html += `<img src="https://www.hko.gov.hk/en/wxinfo/dailywx/images/${filename}.gif">`;
+                }
+            }
+        }
+
+        // If no warnings, remove element if it exists
+        if (!hasWarnings) {
+            if (warningEl) warningEl.remove();
+            return;
+        }
+
+        // Create element only if needed
+        if (!warningEl) {
+            warningEl = document.createElement("div");
+            warningEl.id = "weather-warning";
+            document.getElementById("weather-text").appendChild(warningEl);
+        }
+
+        // Only update DOM if content changed
+        if (warningEl.innerHTML !== html) {
+            warningEl.innerHTML = html;
+        }
+
+    } catch (err) {
+        console.error("Weather warnings fetch failed:", err);
+    }
+}
+
+// Cloud density according to HKO code
+const ICON_TO_CLOUD_CLASS = new Map([
+    // clear
+    [50, 'clear'], [70, 'clear'], [71, 'clear'], [72, 'clear'],
+    [73, 'clear'], [74, 'clear'], [75, 'clear'], [81, 'clear'],
+
+    // scattered
+    [52, 'scattered'], [54, 'scattered'], [76, 'scattered'],
+
+    // broken
+    [60, 'broken'], [62, 'broken'],
+
+    // overcast
+    [61, 'overcast'], [63, 'overcast'], [64, 'overcast'], [65, 'overcast'],
+
+    // foggy
+    [83, 'foggy'], [84, 'foggy'], [85, 'foggy']
+
+    // no entry = no extra class
+]);
+
+const CLOUD_CLASS_NAMES = ['clear', 'scattered', 'broken', 'overcast', 'foggy'];
+const cloudsEl = document.querySelector('.clouds'); // cache element
+
+function updateCloudsClass(iconNumber) {
+    if (!cloudsEl) return;
+
+    const newClass = ICON_TO_CLOUD_CLASS.get(iconNumber) || '';
+    const currentClass = CLOUD_CLASS_NAMES.find(c => cloudsEl.classList.contains(c));
+
+    // Only update if different
+    if (currentClass !== newClass) {
+        if (currentClass) cloudsEl.classList.remove(currentClass);
+        if (newClass) cloudsEl.classList.add(newClass);
+    }
+}
+
+function startWeatherUpdates() {
+    displayWeatherAndConditions(); // initial load
+    displayWeatherWarnings();
+    setInterval(displayWeatherAndConditions, WEATHER_REFRESH_MINUTES * 60000);
+    setInterval(displayWeatherWarnings, WEATHER_REFRESH_MINUTES * 60000);
+    setInterval(updateTime, 1000);
+}
+
+/* ===== AUTO-UPDATE MOON PHASE AT 6 AM ===== */
+function scheduleMoonPhaseUpdate() {
+    const now = new Date();
+    const next6am = new Date();
+    next6am.setHours(6, 0, 0, 0);
+    if (now >= next6am) next6am.setDate(next6am.getDate() + 1);
+    const msUntil6am = next6am - now;
+    setTimeout(() => {
+        displayMoonPhase();
+        scheduleMoonPhaseUpdate();
+    }, msUntil6am);
+}
+
+/* ===== MODAL HANDLING ===== */
+function initModal() {
+    const modals = document.getElementsByClassName("modal");
+    const anchor = location.hash ? location.hash.substring(1).split("?")[0] : null;
+
+    Array.from(modals).forEach(modal => {
+        modal.addEventListener("shown.bs.modal", () => {
+            history.replaceState({}, "", `${location.href.split("#")[0]}#${modal.id}`);
+        });
+        modal.addEventListener("hidden.bs.modal", () => {
+            history.replaceState({}, "", location.href.split("#")[0]);
+        });
+    });
+
+    if (anchor) {
+        const target = document.getElementById(anchor);
+        if (target?.classList.contains("modal")) {
+            new bootstrap.Modal(target).show();
         }
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    display();
-    getModal();
-});
-
-
-for (let i = 2; i <= 10; i++) {
-    setTimeout(function () {
-        gtag('event', 'ping', {'event_category': 'ping', 'event_label': 15 * i});
-    }, 15000 * i);
+/* ===== ANALYTICS PINGS ===== */
+function initAnalyticsPings() {
+    for (let i = 2; i <= 10; i++) {
+        setTimeout(() => gtag('event', 'ping', { event_category: 'ping', event_label: 15 * i }), 15000 * i);
+    }
+    for (let i = 3; i <= 120; i++) {
+        setTimeout(() => gtag('event', 'ping', { event_category: 'ping', event_label: 60 * i }), 60000 * i);
+    }
 }
 
-for (let i = 3; i <= 120; i++) {
-    setTimeout(function () {
-        gtag('event', 'ping', {'event_category': 'ping', 'event_label': 60 * i});
-    }, 60000 * i);
-}
-
+/* ===== FUN CONSOLE MESSAGES ===== */
 console.log("%cIf you see this, you're talented and we want you. Join our team at https://qcac.hk/#recruitment :D",
     "background: #140533; color: #FFCC00; font-size: 24px; font-weight: 700;");
 console.log("Eat a Ba" + +"a" + "a la!");
