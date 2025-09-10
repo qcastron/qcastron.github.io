@@ -8,6 +8,7 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
     updateTime();
+    initWallpaperMode();
     await Promise.all([displayMoonPhase(), displayWeatherAndConditions()]);
     initModal();
     initAnalyticsPings();
@@ -16,20 +17,21 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /* ===== CONFIG ===== */
-const WEATHER_REFRESH_MINUTES = 10;
+const WEATHER_REFRESH_MINUTES = 5;
 const MOON_CACHE_HOURS = 24;
+const NIGHT_OFFSET = 12;
+const DAY_OFFSET = 6;
 
 /* ===== MOON PHASE ===== */
 async function displayMoonPhase(date = new Date()) {
-    const NIGHT_OFFSET = 12, DAY_OFFSET = 6;
-
     date.setHours(date.getHours() - DAY_OFFSET, 0, 0, 0);
     date.setHours(0, 0, 0, 0);
 
     // Check cache
     const moonCache = JSON.parse(localStorage.getItem('moonPhaseData') || 'null');
-    if (moonCache && Date.now() - moonCache.timestamp < MOON_CACHE_HOURS * 3600000 && moonCache.events[0].eventDate > Date.now()) {
-        return updateMoonDOM(moonCache.events[0]); // display first event
+    if (moonCache && Date.now() - moonCache.timestamp < MOON_CACHE_HOURS * 3600000) {
+        const nextEvent = new Date(moonCache.events[0].eventDate) > Date.now() ? moonCache.events[0] : moonCache.events[1];
+        return updateMoonDOM(nextEvent);
     }
 
     const findNextEvents = (data) => {
@@ -80,6 +82,7 @@ function updateMoonDOM(data) {
     const moonEl = document.getElementById("moon");
     const eventDate = new Date(data.eventDate);
     const today = new Date();
+    today.setHours(today.getHours() - DAY_OFFSET, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
 
     const count = Math.round((eventDate - today) / 86400000);
@@ -97,7 +100,7 @@ function updateMoonDOM(data) {
     document.getElementById("in").textContent = count ? "in" : "";
     document.getElementById("count").textContent =
         count > 1 ? `${count} nights` :
-        count > 0 ? "1 night" : "";
+            count > 0 ? "1 night" : "";
 }
 
 function updateTime() {
@@ -130,7 +133,7 @@ function updateWeatherDOM(iconNumber) {
     if (img && iconNumber) {
         const newSrc = `https://maps.weather.gov.hk/ocf/image/wxicon/b3outline/small/${iconNumber}.png`;
         if (img.src !== newSrc) img.src = newSrc; // avoid redundant assignment
-        updateCloudsClass(iconNumber); // set clouds class from API icon
+        updateWeatherClasses(iconNumber); // set clouds class from API icon
     }
 }
 
@@ -249,16 +252,39 @@ const ICON_TO_CLOUD_CLASS = new Map([
 const CLOUD_CLASS_NAMES = ['clear', 'scattered', 'broken', 'overcast', 'foggy'];
 const cloudsEl = document.querySelector('.clouds'); // cache element
 
-function updateCloudsClass(iconNumber) {
-    if (!cloudsEl) return;
+// Rain intensity according to HKO code
+const ICON_TO_RAIN_CLASS = new Map([
+    // light rain
+    [53, 'light-rain'], [62, 'light-rain'],
 
-    const newClass = ICON_TO_CLOUD_CLASS.get(iconNumber) || '';
-    const currentClass = CLOUD_CLASS_NAMES.find(c => cloudsEl.classList.contains(c));
+    // medium rain
+    [54, 'medium-rain'], [63, 'medium-rain'],
 
-    // Only update if different
-    if (currentClass !== newClass) {
-        if (currentClass) cloudsEl.classList.remove(currentClass);
-        if (newClass) cloudsEl.classList.add(newClass);
+    // heavy rain
+    [64, 'heavy-rain'],
+
+    // thunderstorm
+    [65, 'thunderstorm'],
+
+    // clear (any other number not listed here will default to 'clear')
+]);
+
+const RAIN_CLASS_NAMES = ['light-rain', 'medium-rain', 'heavy-rain', 'thunderstorm', 'clear'];
+const rainEl = document.querySelector('.rain'); // cache element
+
+function updateWeatherClasses(iconNumber) {
+    const newCloudClass = ICON_TO_CLOUD_CLASS.get(iconNumber) || "";
+    const currentCloudClass = CLOUD_CLASS_NAMES.find(c => cloudsEl.classList.contains(c));
+    if (currentCloudClass !== newCloudClass) {
+        if (currentCloudClass) cloudsEl.classList.remove(currentCloudClass);
+        if (newCloudClass) cloudsEl.classList.add(newCloudClass);
+    }
+
+    const newRainClass = ICON_TO_RAIN_CLASS.get(iconNumber) || "clear";
+    const currentRainClass = RAIN_CLASS_NAMES.find(c => rainEl.classList.contains(c));
+    if (currentRainClass !== newRainClass) {
+        if (currentRainClass) rainEl.classList.remove(currentRainClass);
+        if (newRainClass) rainEl.classList.add(newRainClass);
     }
 }
 
@@ -281,6 +307,24 @@ function scheduleMoonPhaseUpdate() {
         displayMoonPhase();
         scheduleMoonPhaseUpdate();
     }, msUntil6am);
+}
+
+/* ===== REMOVE IFRAMES WHEN WALLPAPER MODE ===== */
+function initWallpaperMode() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("mode") === "wallpaper") {
+        // Remove all iframes
+        document.querySelectorAll("iframe").forEach(iframe => iframe.remove());
+        if (params.get("logo") === "true") {
+            // No pointer events for the footer
+            document.querySelector("footer").style.pointerEvents = "none";
+            // No pointer events for the footer
+            document.querySelector("nav").style.opacity = "0";
+        } else {
+            // Remove all footer
+            document.querySelectorAll("footer").forEach(footer => footer.remove());
+        }
+    }
 }
 
 /* ===== MODAL HANDLING ===== */
@@ -315,7 +359,7 @@ function initAnalyticsPings() {
     }
 }
 
-/* ===== FUN CONSOLE MESSAGES ===== */
+
 console.log("%cIf you see this, you're talented and we want you. Join our team at https://qcac.hk/#recruitment :D",
     "background: #140533; color: #FFCC00; font-size: 24px; font-weight: 700;");
 console.log("Eat a Ba" + +"a" + "a la!");

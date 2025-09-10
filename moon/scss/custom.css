@@ -10196,6 +10196,210 @@ h6,
   opacity: 0.15;
 }
 
+.rain {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: rotate(-10deg);
+}
+.rain div {
+  width: 0.2vmin;
+  height: 4vmin;
+  top: -10vmin;
+  left: 20vmin;
+  opacity: 0.7;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 100%);
+  animation: fall 0.5s linear infinite;
+}
+.rain div:nth-child(1) {
+  left: 45vmin;
+  animation-delay: -0.085s;
+  animation-duration: 0.527s;
+}
+.rain div:nth-child(2) {
+  left: 51vmin;
+  animation-delay: -0.07s;
+  animation-duration: 0.596s;
+}
+.rain div:nth-child(3) {
+  left: 10vmin;
+  animation-delay: -0.19s;
+  animation-duration: 0.538s;
+}
+.rain div:nth-child(4) {
+  left: 26vmin;
+  animation-delay: -0.02s;
+  animation-duration: 0.505s;
+}
+.rain div:nth-child(5) {
+  left: 18vmin;
+  animation-delay: -0.39s;
+  animation-duration: 0.491s;
+}
+.rain div:nth-child(6) {
+  left: 56vmin;
+  animation-delay: -0.125s;
+  animation-duration: 0.5s;
+}
+.rain div:nth-child(7) {
+  left: 41vmin;
+  animation-delay: -0.345s;
+  animation-duration: 0.533s;
+}
+.rain div:nth-child(8) {
+  left: 28vmin;
+  animation-delay: -0.09s;
+  animation-duration: 0.458s;
+}
+.rain div:nth-child(9) {
+  left: 16vmin;
+  animation-delay: -0.055s;
+  animation-duration: 0.509s;
+}
+.rain div:nth-child(10) {
+  left: 48vmin;
+  animation-delay: -0.185s;
+  animation-duration: 0.519s;
+}
+.rain div:nth-child(11) {
+  left: 1vmin;
+  animation-delay: -0.12s;
+  animation-duration: 0.539s;
+}
+.rain div:nth-child(12) {
+  left: 11vmin;
+  animation-delay: -0.395s;
+  animation-duration: 0.502s;
+}
+.rain div:nth-child(13) {
+  left: 18vmin;
+  animation-delay: -0.495s;
+  animation-duration: 0.463s;
+}
+.rain div:nth-child(14) {
+  left: 44vmin;
+  animation-delay: -0.14s;
+  animation-duration: 0.549s;
+}
+.rain div:nth-child(15) {
+  left: 41vmin;
+  animation-delay: -0.41s;
+  animation-duration: 0.519s;
+}
+.rain div:nth-child(16) {
+  left: 27vmin;
+  animation-delay: -0.23s;
+  animation-duration: 0.505s;
+}
+.rain div:nth-child(17) {
+  left: 7vmin;
+  animation-delay: -0.37s;
+  animation-duration: 0.489s;
+}
+.rain div:nth-child(18) {
+  left: 54vmin;
+  animation-delay: -0.105s;
+  animation-duration: 0.538s;
+}
+.rain div:nth-child(19) {
+  left: 66vmin;
+  animation-delay: -0.255s;
+  animation-duration: 0.464s;
+}
+.rain div:nth-child(20) {
+  left: 35vmin;
+  animation-delay: -0.115s;
+  animation-duration: 0.532s;
+}
+.rain div:before, .rain div:after {
+  background: inherit;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  transform: translate3d(-12vmin, 10vmin, 0);
+}
+.rain div:after {
+  opacity: 0.2;
+  transform: translate3d(18vmin, -10vmin, 0);
+}
+
+@keyframes fall {
+  100% {
+    transform: translate3d(0vmin, 80vmin, 0);
+  }
+}
+.light-rain > div {
+  opacity: 0.4;
+}
+.light-rain *:before,
+.light-rain *:after {
+  content: none;
+}
+.light-rain > :nth-child(1) {
+  display: none;
+}
+.light-rain > :nth-child(2) {
+  display: none;
+}
+.light-rain > :nth-child(3) {
+  display: none;
+}
+.light-rain > :nth-child(4) {
+  display: none;
+}
+.light-rain > :nth-child(5) {
+  display: none;
+}
+.light-rain > :nth-child(6) {
+  display: none;
+}
+.light-rain > :nth-child(7) {
+  display: none;
+}
+.light-rain > :nth-child(8) {
+  display: none;
+}
+.light-rain > :nth-child(9) {
+  display: none;
+}
+.light-rain > :nth-child(10) {
+  display: none;
+}
+
+.heavy-rain,
+.thunderstorm {
+  transform: rotate(-15deg);
+}
+.heavy-rain > div,
+.thunderstorm > div {
+  opacity: 0.8;
+}
+.heavy-rain > div:before,
+.thunderstorm > div:before {
+  opacity: 0.7;
+}
+.heavy-rain > div:after,
+.thunderstorm > div:after {
+  opacity: 0.5;
+}
+
+.thunderstorm:before, .thunderstorm:after {
+  width: 100%;
+  height: 100%;
+  animation: thunderstorm 61s -55s linear infinite;
+}
+.thunderstorm:after {
+  animation: thunderstorm 73s -50s linear infinite;
+}
+
+@keyframes thunderstorm {
+  0%, 99.49%, 99.74%, 100% {
+    background-color: transparent;
+  }
+  99.5%, 99.75% {
+    background-color: #fff;
+  }
+}
 .cat {
   color: var(--cat);
   background: currentcolor;

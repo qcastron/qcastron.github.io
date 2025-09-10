@@ -620,6 +620,116 @@ h6 {
   }
 }
 
+$raindrops: 20;
+
+.rain {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: rotate(-10deg);
+
+  div {
+    width: .2vmin;
+    height: 4vmin;
+    top: -10vmin;
+    left: 20vmin;
+    opacity: .7;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .6) 100%);
+    animation: fall .5s linear infinite;
+
+    @for $i from 1 through $raindrops {
+      &:nth-child(#{$i}) {
+        left: #{random(800/10)-10}vmin;
+        animation-delay: -#{random(100)/200}s;
+        animation-duration: #{random(100)/1000+.45}s;
+      }
+    }
+
+    &:before,
+    &:after {
+      background: inherit;
+      width: 100%;
+      height: 100%;
+      opacity: .4;
+      transform: translate3d(-12vmin, 10vmin, 0);
+    }
+
+    &:after {
+      opacity: .2;
+      transform: translate3d(18vmin, -10vmin, 0);
+    }
+  }
+}
+
+@keyframes fall {
+  100% {
+    transform: translate3d(0vmin, 80vmin, 0);
+  }
+}
+
+.light-rain {
+  &>div {
+    opacity: .4;
+  }
+
+  *:before,
+  *:after {
+    content: none;
+  }
+
+  @for $i from 1 through $raindrops/2 {
+    &>:nth-child(#{$i}) {
+      display: none;
+    }
+  }
+}
+
+.heavy-rain,
+.thunderstorm {
+  transform: rotate(-15deg);
+
+  &>div {
+    opacity: .8;
+
+    &:before {
+      opacity: 0.7;
+    }
+
+    &:after {
+      opacity: 0.5;
+    }
+  }
+}
+
+.thunderstorm {
+
+  &:before,
+  &:after {
+    width: 100%;
+    height: 100%;
+    animation: thunderstorm 61s -55s linear infinite;
+  }
+
+  &:after {
+    animation: thunderstorm 73s -50s linear infinite;
+  }
+}
+
+@keyframes thunderstorm {
+
+  0%,
+  99.49%,
+  99.74%,
+  100% {
+    background-color: transparent;
+  }
+
+  99.5%,
+  99.75% {
+    background-color: #fff;
+  }
+}
+
 .cat {
   color: var(--cat);
   background: currentcolor;
