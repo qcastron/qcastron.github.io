@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /* ===== CONFIG ===== */
-const WEATHER_REFRESH_MINUTES = 5;
+const WEATHER_REFRESH_MINUTES = Number(new URLSearchParams(window.location.search).get("interval")) || 2;
 const MOON_CACHE_HOURS = 24;
 const NIGHT_OFFSET = 12;
 const DAY_OFFSET = 6;
@@ -191,7 +191,7 @@ async function displayWeatherWarnings() {
         let html = "";
 
         for (const key in data) {
-            if (data[key].code === "CANCEL") {
+            if (data[key].code === "CANCEL" || data[key].actionCode === "CANCEL") {
                 break;
             }
             if (Object.prototype.hasOwnProperty.call(data, key)) {
