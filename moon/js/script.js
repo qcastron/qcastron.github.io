@@ -192,7 +192,7 @@ async function displayWeatherWarnings() {
 
         for (const key in data) {
             if (data[key].code === "CANCEL" || data[key].actionCode === "CANCEL") {
-                break;
+                continue;
             }
             if (Object.prototype.hasOwnProperty.call(data, key)) {
                 hasWarnings = true;
