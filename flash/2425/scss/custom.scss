@@ -1,0 +1,219 @@
+$primary: #FFCC00;
+$secondary: #140533;
+$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, sans-serif;
+@import "../../bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../../fonts/proximanova-light-webfont.woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../../fonts/proximanova-bold-webfont.woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  color: #eee;
+  background: #140533;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  user-select: none;
+  hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+  hyphens: initial;
+}
+
+header img {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 200px;
+  height: 50px;
+  opacity: 70%;
+  z-index: 10;
+  transform: translate(-50%, 0);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+#gui_container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #000;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+h5 {
+  width: 100%;
+  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 32px;
+  color: #fff;
+  margin: 0;
+}
+
+.btn {
+  padding: 0.25rem 1.5rem;
+  min-width: 125px;
+  max-width: 200px;
+  transition: all 0.15s ease-in-out;
+  pointer-events: all;
+}
+
+.modal-content {
+  background: #330D80;
+}
+
+.modal-header {
+  border-bottom: 2px solid #FFCC00;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+
+  iframe {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 2.4em);
+  }
+}
+
+footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-bottom: 1em;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+
+  img {
+    width: 160px;
+    margin: .5em;
+    filter: brightness(0) invert(1) drop-shadow(1px 1px 2px #140533);;
+  }
+
+  nav {
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    color: #eeeeee;
+    text-decoration: none;
+    font-weight: 400;
+    padding: .25em;
+    margin: .5em;
+
+    &:hover {
+      color: #FFCC00;
+    }
+  }
+}
+
+.footer-brand {
+  display: inline-block;
+}
+
+#message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  z-index: -20;
+}
+
+.modal-body {
+  h5 {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  section:first-of-type h5 {
+    margin-top: 2rem;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+.card {
+  background: #240959;
+  margin-bottom: 2rem;
+}
+
+#things-you-should-know > p > a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: inherit;
+
+  &::after {
+    content: "Learn more";
+    color: #FFCC00;
+    text-decoration: underline;
+  }
+}
+
+.license-brand {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+#GPL-logo {
+  filter: grayscale(.4) brightness(2) drop-shadow(0 0 2px #000);
+}
+
+/* Only for XS mobile phones*/
+@media (max-width: 369.98px) {
+  h5 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
