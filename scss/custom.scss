@@ -669,11 +669,11 @@ h2::after {
 }
 
 #explore3-image {
-  background: url("../img/qc2.jpg") no-repeat 70% 70%/cover;
+  background: url("../img/qc2.jpg") no-repeat 70% 50%/cover;
 }
 
 #explore4-image {
-  background: url("../img/qc3.jpg") no-repeat 30%/cover;
+  background: url("../img/qc3.jpg") no-repeat 20%/cover;
 }
 
 #explore6-image {
@@ -688,12 +688,13 @@ h2::after {
   background: url("../img/tt3.jpg") no-repeat 50%/cover;
 }
 
-#recruitment-image {
-  height: 420px;
-  background: url("../img/recruitment1.jpg") no-repeat 65% 20%/cover;
+#recruitment-image, #recruitment-carousel {
+  height: 500px;
+  pointer-events: unset;
+  margin: 0;
 }
 
-#recruitment-image::before, #recruitment-image::after, #recruitment-text::after {
+#recruitment-image::before, #recruitment-image::after, #recruitment-text::after, #recruitment-carousel::before, #recruitment-carousel::after {
   content: none;
 }
 
@@ -732,125 +733,217 @@ h2::after {
   min-width: 50px;
 }
 
-#joint-school-1 {
-  background: url("../img/joint-school-1.jpg") no-repeat 50% 55%/cover;
+#joint-school1 {
+  background: url("../img/joint-school1.jpg") no-repeat 40% 50%/cover;
 }
 
-#joint-school-2 {
-  background: url("../img/joint-school-2.jpg") no-repeat 50% 20%/cover;
+#joint-school2 {
+  background: url("../img/joint-school2.jpg") no-repeat 60% 75%/cover;
 }
 
-#joint-school-3 {
-  background: url("../img/joint-school-3.jpg") no-repeat 0% 20%/cover;
+#joint-school3 {
+  background: url("../img/joint-school3.jpg") no-repeat 30% 20%/cover;
 }
 
-#joint-school-4 {
-  background: url("../img/joint-school-4.jpg") no-repeat 50% 20%/cover;
+#joint-school4 {
+  background: url("../img/joint-school4.jpg") no-repeat 50% 50%/cover;
 }
 
-#open-days-1 {
-  background: url("../img/open-days-1.jpg") no-repeat 40% 100%/cover;
+#joint-school5 {
+  background: url("../img/joint-school5.jpg") no-repeat 50% 70%/cover;
 }
 
-#open-days-2 {
-  background: url("../img/open-days-2.jpg") no-repeat 50% 90%/cover;
+#open-days1 {
+  background: url("../img/open-days1.jpg") no-repeat 40% 100%/cover;
 }
 
-#open-days-3 {
-  background: url("../img/open-days-3.jpg") no-repeat 50% 30%/cover;
+#open-days2 {
+  background: url("../img/open-days2.jpg") no-repeat 40% 60%/cover;
 }
 
-#open-days-4 {
-  background: url("../img/open-days-4.jpg") no-repeat 50% 30%/cover;
+#open-days3 {
+  background: url("../img/open-days3.jpg") no-repeat 50% 30%/cover;
 }
 
-#an-1 {
-  background: url("../img/an-1.jpg") no-repeat 50% 40%/cover;
+#open-days4 {
+  background: url("../img/open-days4.jpg") no-repeat 50% 30%/cover;
 }
 
-#an-2 {
-  background: url("../img/an-2.jpg") no-repeat 50% 50%/cover;
+#an1 {
+  background: url("../img/an1.jpg") no-repeat 50% 40%/cover;
 }
 
-#an-3 {
-  background: url("../img/an-3.jpg") no-repeat 70% 50%/cover;
+#an2 {
+  background: url("../img/an2.jpg") no-repeat 40% 30%/cover;
 }
 
-#an-4 {
-  background: url("../img/an-4.jpg") no-repeat 30% 60%/cover;
+#an3 {
+  background: url("../img/an3.jpg") no-repeat 60% 30%/cover;
 }
 
-#oday-1 {
-  background: url("../img/oday-1.jpg") no-repeat 90% 30%/cover;
+#an4 {
+  background: url("../img/an4.jpg") no-repeat 40% 20%/cover;
 }
 
-#oday-2 {
-  background: url("../img/oday-2.jpg") no-repeat 10% 30%/cover;
+#an5 {
+  background: url("../img/an5.jpg") no-repeat 70% 30%/cover;
 }
 
-#oday-3 {
-  background: url("../img/oday-3.jpg") no-repeat 50% 50%/cover;
+#an6 {
+  background: url("../img/an6.jpg") no-repeat 45% 70%/cover;
 }
 
-#oday-4 {
-  background: url("../img/oday-4.jpg") no-repeat 40% 50%/cover;
+#oday1 {
+  background: url("../img/oday1.jpg") no-repeat 90% 30%/cover;
 }
 
-#eclipse-1 {
-  background: url("../img/eclipse-1.jpg") no-repeat 60% 70%/cover;
+#oday2 {
+  background: url("../img/oday2.jpg") no-repeat 10% 30%/cover;
 }
 
-#eclipse-2 {
-  background: url("../img/eclipse-2.jpg") no-repeat 40% 60%/cover;
+#oday3 {
+  background: url("../img/oday3.jpg") no-repeat 50% 50%/cover;
 }
 
-#eclipse-3 {
-  background: url("../img/eclipse-3.jpg") no-repeat 50% 60%/cover;
+#oday4 {
+  background: url("../img/oday4.jpg") no-repeat 40% 50%/cover;
 }
 
-#opening-1 {
-  background: url("../img/opening-1.jpg") no-repeat 40% 30%/cover;
+#stargazing1 {
+  background: url("../img/stargazing1.jpg") no-repeat 50% 50%/cover;
 }
 
-#telescope-1 {
-  background: url("../img/telescope-1.jpg") no-repeat 40%/cover;
+#stargazing2 {
+  background: url("../img/stargazing2.jpg") no-repeat 40% 55%/cover;
 }
 
-#tt-carousel-image-1 {
-  background: url("../img/tt-carousel1.jpg") no-repeat 50%/cover;
+#stargazing3 {
+  background: url("../img/stargazing3.jpg") no-repeat 55% 50%/cover;
 }
 
-#tt-carousel-image-2 {
-  background: url("../img/tt-carousel2.jpg") no-repeat 90% 50%/cover;
+#telescope1 {
+  background: url("../img/telescope1.jpg") no-repeat 50% 40%/cover;
 }
 
-#tt-carousel-image-3 {
-  background: url("../img/tt-carousel3.jpg") no-repeat 50%/cover;
+#telescope2 {
+  background: url("../img/telescope2.jpg") no-repeat 40% 70%/cover;
 }
 
-#tt-carousel-image-4 {
+#maintenance1 {
+  background: url("../img/maintenance1.jpg") no-repeat 50% 50%/cover;
+}
+
+#maintenance2 {
+  background: url("../img/maintenance2.jpg") no-repeat 50% 60%/cover;
+}
+
+#tt-carousel1 {
+  background:url("../img/tt-carousel1.jpg") no-repeat 50% 60%/cover;
+}
+
+#tt-carousel2 {
+  background: url("../img/tt-carousel2.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel3 {
+  background:url("../img/tt-carousel3.jpg") no-repeat 40% 10%/cover;
+}
+
+#tt-carousel4 {
   background: url("../img/tt-carousel4.jpg") no-repeat 50%/cover;
 }
 
-#tt-carousel-image-5 {
-  background: url("../img/tt-carousel5.jpg") no-repeat 20%/cover;
+#tt-carousel5 {
+  background:url("../img/tt-carousel5.jpg") no-repeat 30% 70%/cover;
 }
 
-#tt-carousel-image-6 {
+#tt-carousel6 {
   background: url("../img/tt-carousel6.jpg") no-repeat 50%/cover;
 }
 
-#tt-carousel-image-7 {
+#tt-carousel7 {
   background: url("../img/tt-carousel7.jpg") no-repeat 50%/cover;
 }
 
-#tt-carousel-image-8 {
+#tt-carousel8 {
   background: url("../img/tt-carousel8.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel9 {
+  background: url("../img/tt-carousel9.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel10 {
+  background: url("../img/tt-carousel10.jpg") no-repeat 50% 30%/cover;
+}
+
+#tt-carousel11 {
+  background: url("../img/tt-carousel11.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel12 {
+  background: url("../img/tt-carousel12.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel13 {
+  background: url("../img/tt-carousel13.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel14 {
+  background: url("../img/tt-carousel14.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel15 {
+  background: url("../img/tt-carousel15.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel16 {
+  background: url("../img/tt-carousel16.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel17 {
+  background: url("../img/tt-carousel17.jpg") no-repeat 50%/cover;
+}
+
+#tt-carousel18 {
+  background: url("../img/tt-carousel18.jpg") no-repeat 50%/cover;
+}
+
+#recruitment1 {
+  background: url("../img/recruitment1.jpg") no-repeat 50% 50%/cover;
+}
+
+#recruitment2 {
+  background:url("../img/recruitment2.jpg") no-repeat 80% 50%/cover;
+}
+
+#recruitment3 {
+  background: url("../img/recruitment3.jpg") no-repeat 50% 60%/cover;
+}
+
+#recruitment4 {
+  background:url("../img/recruitment4.jpg") no-repeat 50% 20%/cover;
+}
+
+#recruitment5 {
+  background:url("../img/recruitment5.jpg") no-repeat 50% 30%/cover;
+}
+
+#recruitment6 {
+  background: url("../img/recruitment6.jpg") no-repeat 60% 50%/cover;
 }
 
 #recruitment {
   height: 650px;
   margin-bottom: 100px;
+}
+
+#recruitment-image {
+  position: absolute;
+  width: 100%;
+  max-height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
 #join-team {
@@ -1047,6 +1140,10 @@ footer {
     margin: 24px 0 0 0;
   }
 
+  #social-media-icon-con {
+    padding: 25px 25px;
+  }
+
   #explore5::before {
     left: 20%;
     top: 0;
@@ -1067,7 +1164,7 @@ footer {
     top: -10px;
   }
 
-  #recruitment-image {
+  #recruitment-image, #recruitment-carousel, #recruitment-carousel .carousel-image {
     max-height: 320px;
   }
 }
@@ -1109,7 +1206,7 @@ footer {
     top: calc(130px - 25vw);
   }
 
-  #recruitment-image {
+  #recruitment-image, #recruitment-carousel, #recruitment-carousel .carousel-image {
     max-height: 280px;
   }
 }
