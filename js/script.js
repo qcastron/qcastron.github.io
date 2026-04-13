@@ -78,20 +78,6 @@ navbar.on({
     }
 });
 
-let recruitmentImageTarget = document.getElementById("recruitment-image"),
-    recruitmentImages = ["url(\"../img/recruitment1.jpg\") no-repeat 50% 50%/cover", "url(\"../img/recruitment2.jpg\") no-repeat 65% 20%/cover"],
-    recruitmentImagesCounter = 0;
-loopRecruitmentImages();
-
-function loopRecruitmentImages() {
-    setTimeout(() => {
-        recruitmentImagesCounter = ++recruitmentImagesCounter % recruitmentImages.length;
-        recruitmentImageTarget.style.background = recruitmentImages[recruitmentImagesCounter];
-        if (!(step > 2)) {
-            loopRecruitmentImages();
-        }
-    }, 15000);
-}
 
 window.addEventListener('resize', resize);
 
@@ -298,6 +284,8 @@ function tick() {
 
 function update_msg(id) {
     if (id < msg_list.length - 1) {
+        let showDismissBtn = true;
+
         document.getElementById("message").textContent = msg_list[id];
         switch (id) {
             case 60:
@@ -319,7 +307,7 @@ function update_msg(id) {
                 break;
             case 139:
                 document.getElementById("recruitment-image").style.background = "url(\"img/recruitment1.jpg\") no-repeat 65% 20%/cover";
-                window.open("https://forms.gle/FBLjw5MfZ614d8DWA");
+                window.open("https://forms.gle/R9jwfSodSJCD4zvR8");
                 break;
             case 168:
                 document.getElementById("recruitment-image").style.background = "url(\"https://placekitten.com/840/420\") no-repeat 50%/cover";
@@ -455,9 +443,13 @@ function update_msg(id) {
             case 1184:
                 document.getElementById("recruitment-image").style.background = "url(\"img/recruitment1.jpg\") no-repeat 65% 20%/cover";
                 document.getElementById("constellations-con").style.background = "#1F084D radial-gradient(farthest-corner at bottom left, #ED5900, #140533)";
-                window.open("https://forms.gle/FBLjw5MfZ614d8DWA");
+                window.open("https://forms.gle/R9jwfSodSJCD4zvR8");
                 break;
             default:
+                showDismissBtn = false;
+        }
+        if (showDismissBtn) {
+            document.getElementById("recruitment-image").querySelector(".btn-close").classList.remove("d-none");
         }
     } else if (msg_list.length - 1 <= id && id <= msg_list.length + 9999) {
         id -= msg_list.length - 1;
@@ -465,6 +457,13 @@ function update_msg(id) {
     } else {
         document.getElementById("message").textContent = "Please just leave. You have better things to do in your life";
     }
+}
+
+function dismissStoryImage() {
+    const img = document.getElementById("recruitment-image");
+    const closeButton = document.getElementById("recruitment-image").querySelector(".btn-close");
+    img.style.background = "none";
+    closeButton.classList.add("d-none");
 }
 
 let msg_list = [
