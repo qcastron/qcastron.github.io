@@ -1,6 +1,6 @@
 $primary: #fc0;
 $secondary: #0cf;
-$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri, Arial, sans-serif;
+$font-family-sans-serif: "Proxima Nova", "Inter", "Apple Color Emoji", Calibri, Arial, sans-serif;
 
 @font-face {
   font-family: "Proxima Nova";
@@ -79,7 +79,7 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Calibri,
 }
 
 body {
-  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Inter", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
   color: #eeeeee;
   background: #140533;
   text-rendering: optimizeLegibility;
@@ -141,7 +141,7 @@ main {
 h1 {
   position: relative;
   width: 100%;
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
+  font-family: "Proxima Nova", "Inter", "Noto Sans HK", "Apple Color Emoji", Calibri, Arial, sans-serif;
   color: #fff;
   margin: 0 0 8px 0;
   font-weight: 700;

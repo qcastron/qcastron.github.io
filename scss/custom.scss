@@ -1,6 +1,6 @@
 $primary: #FFCC00;
 $secondary: #140533;
-$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, sans-serif;
+$font-family-sans-serif: "Proxima Nova", "Inter", "Apple Color Emoji", Arial, sans-serif;
 $constellations-offset: 4900px;
 $hero-min-height: 550px;
 @import "../bootstrap/scss/bootstrap";
@@ -139,15 +139,16 @@ html {
 }
 
 body {
-  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-family: "Inter", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eeeeee;
   background: #140533;
   text-rendering: optimizeLegibility;
   position: relative;
   hyphens: auto;
+  text-autospace: normal;
 }
 
-a, .blurb, .carousel, #recruitment, footer {
+a, footer {
   user-select: none;
 }
 
@@ -240,7 +241,7 @@ a, button {
   text-shadow: 1px 1px 2px #140533;
 }
 
-.btn-outline-primary:hover {
+.btn-outline-primary:hover, a {
   text-shadow: none;
 }
 
@@ -442,7 +443,7 @@ main {
 
 h1, h2, h3, h4, h5, h6 {
   width: 100%;
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-family: "Proxima Nova", "Inter", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
@@ -642,6 +643,19 @@ h2::after {
 #explore5::after, #explore9::after {
   background: url("../img/circle.svg") no-repeat center/contain;
   animation: floaty 7s .5s ease-in-out infinite;
+}
+
+#explore4-text:after {
+  content: none;
+}
+
+#explore4-text {
+  text-align: right;
+}
+
+#explore4-description {
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
 #explore5::before {
@@ -962,14 +976,14 @@ h2::after {
 }
 
 @for $i from 1 through 10 {
-  $scale: .2 * $i + .5;
+  $scale: .2 * $i + 1.2;
 
   .bubble:nth-child(#{$i}) {
     left: random(120) * 1% - 20;
     animation: raise#{$i} 40 / $i + 20 +s linear infinite -2 * $i + s;
     transform: scale($scale);
     z-index: $i - 50;
-    filter: blur(.5 * $i + 5px);
+    filter: blur(.25 * $i + 20px);
 
     @keyframes raise#{$i} {
       to {
