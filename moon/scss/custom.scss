@@ -1,6 +1,6 @@
 $primary: #FFCC00;
 $secondary: #140533;
-$font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, sans-serif;
+$font-family-sans-serif: "Proxima Nova", "Inter", "Apple Color Emoji", Arial, sans-serif;
 @import "../../bootstrap/scss/bootstrap";
 
 @font-face {
@@ -39,7 +39,7 @@ $font-family-sans-serif: "Proxima Nova", "Roboto", "Apple Color Emoji", Arial, s
 }
 
 body {
-  font-family: "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-family: "Inter", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   color: #eeeeee;
   background: #140533;
   text-rendering: optimizeLegibility;
@@ -48,6 +48,7 @@ body {
   overflow-x: hidden;
   user-select: none;
   hyphens: auto;
+  text-autospace: normal;
 }
 
 h1,
@@ -56,7 +57,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-family: "Proxima Nova", "Inter", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   font-weight: 300;
   color: #fff;
   margin: 0;
@@ -891,7 +892,7 @@ $raindrops: 20;
 }
 
 .moon-info {
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-family: "Proxima Nova", "Inter", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   top: 40vmin;
   right: calc(50% - 46vmin);
   z-index: 0;
@@ -950,7 +951,7 @@ $raindrops: 20;
 }
 
 .weather {
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-family: "Proxima Nova", "Inter", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   top: 40vmin;
   left: calc(50% - 51vmin);
   z-index: 0;
@@ -1029,7 +1030,7 @@ iframe {
 
 h5 {
   width: 100%;
-  font-family: "Proxima Nova", "Roboto", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
+  font-family: "Proxima Nova", "Inter", "Noto Sans HK", "Apple Color Emoji", Arial, sans-serif;
   font-size: 28px;
   font-weight: 300;
   line-height: 32px;
