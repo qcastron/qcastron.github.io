@@ -1,4 +1,30 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // Initial setup for .fade-in elements
+    const windowHeight = window.innerHeight;
+    const targets = document.querySelectorAll('section > section > *');
 
+    targets.forEach(obj => {
+        const objTop = obj.getBoundingClientRect().top + window.scrollY;
+        if (objTop > window.scrollY + windowHeight * 0.75) {
+            obj.classList.add('invisible');
+        }
+    });
+
+    // Scroll detection using Intersection Observer
+    const observer = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('invisible');
+                self.unobserve(entry.target); // Stop watching once visible
+            }
+        });
+    }, { rootMargin: '0px 0px -10% 0px' });
+
+    // Observe all currently invisible elements
+    targets.forEach(el => observer.observe(el));
+
+    getModal();
+});
 
 /**
  * Onload function is executed whenever the page is done loading, initializes the application
@@ -35,7 +61,7 @@ function getModal() {
 
 for (let i = 2; i <= 10; i++) {
     setTimeout(function () {
-        gtag('event', 'ping', {'event_category': 'ping', 'event_label': 15 * i});
+        gtag('event', 'ping', { 'event_category': 'ping', 'event_label': 15 * i });
     }, 15000 * i);
 }
 
@@ -43,9 +69,9 @@ let count = 0;
 
 function sendGA() {
     if (count++ < 10) {
-        gtag('event', 'click', {'event_category': 'planets', 'event_label': count});
+        gtag('event', 'click', { 'event_category': 'planets', 'event_label': count });
     } else if (!(count++ % 5)) {
-        gtag('event', 'click', {'event_category': 'planets', 'event_label': count});
+        gtag('event', 'click', { 'event_category': 'planets', 'event_label': count });
     }
 }
 

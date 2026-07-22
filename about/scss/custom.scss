@@ -17,10 +17,35 @@ $font-family-sans-serif: "Proxima Nova", "Inter", "Apple Color Emoji", Arial, sa
   font-display: swap;
 }
 
+@keyframes fadeInY {
+  0% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+:where(:lang(zh)) {
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  font-weight: 350;
+  text-align: justify;
+}
+
+:where(:lang(en)) {
+  line-height: 1.5;
+  letter-spacing: initial;
+  font-weight: 400;
 }
 
 body {
@@ -102,6 +127,7 @@ h6 {
 #nav-bar .nav-link {
   padding: calc(0.5rem + 1px) .5rem;
   color: #FFCC00;
+  line-height: 1;
   opacity: 80%;
 
   &:hover {
@@ -144,17 +170,23 @@ main {
 .about-banner {
   width: 100%;
   height: 240px;
-  margin: 0;
   object-fit: cover;
   object-position: 48% 35%;
 }
 
-main>* {
+main>section {
   margin: 2rem;
 
   p {
     margin-bottom: 1.5rem;
   }
+}
+
+#eng-btn {
+  position: absolute;
+  top: calc(3.5rem + 298px);
+  right: 2rem;
+  z-index: 10;
 }
 
 h1,
@@ -177,12 +209,8 @@ h2::after {
   background: #FFFFFF88;
 }
 
-.tc {
-  font-weight: 350;
-  line-height: 1.8;
-  letter-spacing: 0.05em;
-  text-align: justify;
-  text-justify: inter-character;
+section>section>*:not(.invisible) {
+  animation: fadeInY ease 1.2s;
 }
 
 main>section {
@@ -205,7 +233,6 @@ main>section {
   position: absolute;
   bottom: -250px;
   transform-style: preserve-3d;
-  mix-blend-mode: lighten;
 }
 
 @for $i from 1 through 10 {
@@ -214,7 +241,7 @@ main>section {
   .bubble:nth-child(#{$i}) {
     left: random(120) * 1% - 20;
     bottom: $scale * -50 - 100 +px;
-    animation: raise#{$i} 40 / $i + 20 +s linear infinite -2 * $i + s;
+    animation: raise#{$i} 40 / $i +20+s linear infinite -2 * $i +s;
     transform: scale($scale);
     z-index: $i - 50;
     filter: blur(.25 * $i + 20px);
@@ -356,10 +383,36 @@ footer {
   filter: grayscale(.4) brightness(2) drop-shadow(0 0 2px #000);
 }
 
+/* For medium screens: */
+@media (max-width: 991.98px) {
+
+  .nav-item,
+  .dropdown-menu {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  #join-btn,
+  #team-btn {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
 /* For mobile phones: */
 @media (max-width: 575.98px) {
+  :where(:lang(zh)) {
+    letter-spacing: 0.05em;
+  }
+
   .about-banner {
     max-height: 20vh;
+  }
+
+  #eng-btn {
+    top: calc(3.5rem + 20vh + 58px);
   }
 }
 
