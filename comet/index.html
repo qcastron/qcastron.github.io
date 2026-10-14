@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover" name="viewport">
+  <meta
+    content="Comet simulator. Procedurally generated animated comet with fully adjustable parameters. Built with Three.js and dat.GUI. Created by Queen's College Astronomers' Club 皇仁書院天文學會."
+    name="description">
+  <meta content="#290A66" name="theme-color">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+  <meta property="og:site_name" content="Queen's College Astronomers' Club 皇仁書院天文學會">
+  <meta property="og:title" content="Comet Simulator - Queen's College Astronomers' Club 皇仁書院天文學會">
+  <meta property="og:description"
+    content="Comet simulator. Procedurally generated animated comet with fully adjustable parameters. Built with Three.js and dat.GUI. Created by Queen's College Astronomers' Club 皇仁書院天文學會.">
+  <meta property="og:image" content="https://qcac.hk/about/img/about.jpg">
+  <meta property="og:url" content="https://qcac.hk/comet/">
+  <meta property="og:locale" content="en_HK">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="/favicon.ico" rel="icon">
+  <title>Comet Simulator - Queen's College Astronomers' Club 皇仁書院天文學會</title>
+  <link type="text/plain" rel="author" href="https://qcac.hk/humans.txt">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+HK:wght@100..900&display=swap"
+    rel="stylesheet">
+  <link href="scss/custom.css" rel="stylesheet">
+  <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Queen's College Astronomers' Club 皇仁書院天文學會",
+            "image": "https://qcac.hk/img/poster.jpg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "120 Causeway Road",
+                "addressLocality": "Causeway Bay",
+                "addressRegion": "Hong Kong"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 22.280874,
+                "longitude": 114.191657
+            },
+            "containedInPlace": "Queen's College 皇仁書院",
+            "url": "https://qcac.hk/",
+            "foundingDate": "1961-10-24",
+            "founder": "Liu Hing Chai",
+            "logo": "https://qcac.hk/logo.svg",
+            "department": [
+                {
+                    "@type": "EducationalOrganization",
+                    "name": "Stanley Ho Astronomical Observatory 何鴻燊天文觀測站",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "89 Tai Tam Tuk Village",
+                        "addressLocality": "Tai Tam, Hong Kong Island",
+                        "addressRegion": "Hong Kong"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 22.242264,
+                        "longitude": 114.223369
+                    },
+                    "foundingDate": "2019-02-24",
+                    "sponsor": "Stanley Ho 何鴻燊"
+                }
+            ]
+        }
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="canvas-container"></div>
+
+  <a class="header-brand" href="https://qcac.hk/" target="_blank" rel="noopener">
+    <img alt="Queen's College Astronomers' Club, Hong Kong 香港皇仁書院天文學會" src="https://qcac.hk/img/logo-text.svg"
+      title="Queen's College Astronomers' Club, Hong Kong 香港皇仁書院天文學會">
+  </a>
+  <button id="gui-toggle-btn"
+    class="btn btn-outline-warning text-warning fw-bold btn-sm rounded-pill shadow-lg d-flex align-items-center gap-2 px-3 py-2">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+      <path
+        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+    <span>Show Controls</span>
+  </button>
+
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3" style="z-index: 2000;">
+    <div id="perf-toast" class="toast align-items-center border-warning shadow-lg" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body d-flex align-items-center gap-2 text-light" style="font-size: 13px;">
+          <svg width="18" height="18" fill="none" stroke="#FFCC00" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span>Low FPS detected. Switched to <strong>Low Performance Mode</strong> for optimal smoothness.</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <script src="https://qcac.hk/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="js/script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQW8TQENF0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-HQW8TQENF0');
+  </script>
+</body>
+</html>
